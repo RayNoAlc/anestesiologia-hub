@@ -1,0 +1,6 @@
+Anestesiologia/
+*.docx
+*.doc
+*.pdf
+.git/
+.gitignore

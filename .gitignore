@@ -1,0 +1,10 @@
+# Arquivos de grandes dimensões (manuais em PDF mantidos localmente)
+Anestesiologia/Manual de Anestesia (6ª Edição).pdf
+Anestesiologia/Manual de Anestesiologia.pdf
+Anestesiologia/RESUMOS/TÉCNICAS ANESTÉSICAS - todas - anestesio.pdf
+*.pdf
+
+# Arquivos temporários do Office e do Windows
+~$*
+.DS_Store
+Thumbs.db

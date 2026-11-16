@@ -2,7 +2,9 @@
 
 > **Hub de Estudos & Quiz Interativo Cumulativo (1ª à 4ª Prova)** desenvolvido para a disciplina de Anestesiologia do curso de Odontologia da UNIOESTE (Campus de Cascavel).
 
-[![Vercel Deployment](https://img.shields.io/badge/Deployed%20with-Vercel-black?style=flat-square&logo=vercel)](https://vercel.com)
+🌐 **Acesso Online (Vercel):** [https://anestesiologia-hub.vercel.app](https://anestesiologia-hub.vercel.app)
+
+[![Vercel Deployment](https://img.shields.io/badge/Deployed%20with-Vercel-black?style=flat-square&logo=vercel)](https://anestesiologia-hub.vercel.app)
 [![HTML5 / CSS3 / JS](https://img.shields.io/badge/Stack-Vanilla%20JS%20%7C%20CSS3%20%7C%20HTML5-blue?style=flat-square)](https://developer.mozilla.org)
 [![Anti-TDAH](https://img.shields.io/badge/Design-Anti--TDAH%20Cognitive-emerald?style=flat-square)](#)
 

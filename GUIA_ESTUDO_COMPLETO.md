@@ -1,11 +1,11 @@
-# 🦷 GUIA DEFINITIVO DE ANESTESIOLOGIA ODONTOLÓGICA (1ª À 4ª PROVA CUMULATIVA)
+#  GUIA DEFINITIVO DE ANESTESIOLOGIA ODONTOLÓGICA (1ª À 4ª PROVA CUMULATIVA)
 
 > Material de alto rendimento com síntese do Malamed 6ª ed., manuais do curso e raio-x de provas antigas.
 
-## 🛡️ Módulo 1: Biossegurança, Paramentação & Controle de Infecção Cruzada
+##  Módulo 1: Biossegurança, Paramentação & Controle de Infecção Cruzada
 
 - **Tempo estimado de estudo:** 18 min
-- **Incidência:** 🔥 Alta Recorrência (Caiu em 2019, 2021 e 2022)
+- **Incidência:**  Alta Recorrência nas Provas
 
 ### 1.1 Dinâmica da Infecção Cruzada e Cadeia Epidemiológica
 
@@ -42,9 +42,9 @@ A **infecção cruzada** em odontologia consiste na transmissão de agentes infe
 
 
 
-> ⚠️ **ALERTA DE PROVA:**
+>  **ALERTA DE PROVA:**
 > 
-  **⚠️ PEGADINHA CLÁSSICA DE PROVA (UNIOESTE):**
+  ** Atenção ao Ponto Crítico:**
   As *Precauções Padrão (Universais)* determinam que **TODOS os pacientes devem ser considerados potencialmente portadores de infecções graves**. A presença de abscesso purulento ou fístula **NÃO** aumenta o rigor das medidas de biossegurança nem torna o paciente "mais perigoso" sistemicamente que um assintomático, pois as barreiras devem ser *máximas e idênticas para todos*!
 
 
@@ -146,9 +146,9 @@ A **autoclave a vapor saturado sob pressão** é o método de esterilização pa
 
 
 
-> 💡 **DICA CLÍNICA:**
+>  **DICA CLÍNICA:**
 > 
-  **💡 REGRA DE FIXAÇÃO:**
+  ** Observação Importante:**
   Vapor = *Geobacillus stearothermophilus* (gosta de umidade quente). Calor Seco = *Bacillus atrophaeus*.
 
 
@@ -209,15 +209,15 @@ A **autoclave a vapor saturado sob pressão** é o método de esterilização pa
 
 ---
 
-## 🧪 Módulo 2: Neurofisiologia, Farmacologia dos Anestésicos Locais & Anatomia
+##  Módulo 2: Neurofisiologia, Farmacologia dos Anestésicos Locais & Anatomia
 
 - **Tempo estimado de estudo:** 25 min
-- **Incidência:** 🔥 Incidência Máxima (Cálculo de tubetes, mecanismo em Na+ e doses)
+- **Incidência:**  Alta Recorrência nas Provas
 
 ### 2.1 Fisiologia da Transmissão Nervosa & Mecanismo de Ação
 
 
-O nervo periférico em repouso mantém uma diferença de potencial elétrico através de sua membrana de **-70 mV** (interior negativo em relação ao exterior), mantida pela bomba de $Na^+/K^+$ ATPase.
+O nervo periférico em repouso mantém uma diferença de potencial elétrico através de sua membrana de **-70 mV** (interior negativo em relação ao exterior), mantida pela bomba de Na⁺/K⁺-ATPase.
 
 
 #### Etapas do Potencial de Ação:
@@ -227,9 +227,9 @@ O nervo periférico em repouso mantém uma diferença de potencial elétrico atr
 
   - **Despolarização Lenta:** estímulo doloroso despolariza a membrana até o *limiar de disparo* (aproximadamente -55 a -50 mV).
 
-  - **Despolarização Rápida:** abertura massiva dos canais de $Na^+$ voltagem-dependentes; influxo maciço de íons sódio ($Na^+$) torna o interior celular positivo (+40 mV).
+  - **Despolarização Rápida:** abertura massiva dos canais de Na⁺ voltagem-dependentes; influxo maciço de íons sódio (Na⁺) torna o interior celular positivo (+40 mV).
 
-  - **Repolarização:** fechamento dos canais de $Na^+$ e efluxo de íons $K^+$, restaurando o potencial negativo de repouso (-70 mV).
+  - **Repolarização:** fechamento dos canais de Na⁺ e efluxo de íons K⁺, restaurando o potencial negativo de repouso (-70 mV).
 
 
 
@@ -242,7 +242,7 @@ Os anestésicos locais ligam-se a receptores específicos localizados no interio
 
 
 
-  - Bloqueiam o influxo de $Na^+$, impedindo que a membrana atinja o limiar de disparo.
+  - Bloqueiam o influxo de Na⁺, impedindo que a membrana atinja o limiar de disparo.
 
   - A taxa de despolarização diminui drasticamente, abortando a propagação do potencial de ação.
 
@@ -252,10 +252,10 @@ Os anestésicos locais ligam-se a receptores específicos localizados no interio
 
 
 
-> ⚠️ **ALERTA DE PROVA:**
+>  **ALERTA DE PROVA:**
 > 
-  **⚠️ PEGADINHA CLÁSSICA DE PROVA:**
-  A banca troca *canais de sódio* por *canais de cálcio* ou *canais de potássio*. O anestésico local atua inibindo os **CANAIS DE SÓDIO ($Na^+$)**!
+  ** Atenção ao Ponto Crítico:**
+  A banca troca *canais de sódio* por *canais de cálcio* ou *canais de potássio*. O anestésico local atua inibindo os **CANAIS DE SÓDIO (Na⁺)**!
 
 
 
@@ -275,7 +275,7 @@ A molécula do anestésico local é composta por três frações estruturais:
 
   - **Polo Lipofílico (anel aromático benzênico):** confere lipossolubilidade e penetração nas bainhas de mielina.
 
-  - **Cadeia Intermediária:** define a família química (**Éster** com ligação $-COO-$ ou **Amida** com ligação $-NH-CO-$). Determina a via de degradação metabólica.
+  - **Cadeia Intermediária:** define a família química (**Éster** com ligação -COO- ou **Amida** com ligação -NH-CO-). Determina a via de degradação metabólica.
 
   - **Polo Hidrofílico (amina terciária):** confere hidrossolubilidade, permitindo que a droga seja injetada em meio aquoso tecidual.
 
@@ -297,7 +297,7 @@ A molécula do anestésico local é composta por três frações estruturais:
     <tr>
       <td>**pKa (Constante de Dissociação)**</td>
       <td>**Tempo de Latência (Início de Ação)**</td>
-      <td>Quanto mais próximo o pKa estiver do pH tecidual fisiológico (7,4), maior a fração de moléculas na forma de base livre neutra ($RN$), que atravessa a membrana lipídica mais rápido.</td>
+      <td>Quanto mais próximo o pKa estiver do pH tecidual fisiológico (7,4), maior a fração de moléculas na forma de base livre neutra (RN), que atravessa a membrana lipídica mais rápido.</td>
     </tr>
     <tr>
       <td>**Lipossolubilidade**</td>
@@ -320,16 +320,17 @@ A molécula do anestésico local é composta por três frações estruturais:
 #### Efeito do pH Tecidual Inflamado (Abscesso / Celulite):
 
 
-No tubete anestésico, a droga está em equilíbrio: $RN + H^+ ightleftharpoons RNH^+$. Apenas a forma **RN (base livre não ionizada)** cruza a membrana axonal lipídica. No interior da célula, ela se reioniza em $RNH^+$ para bloquear o canal de sódio por dentro. Em tecidos com infecção/inflamação:
+No tubete anestésico, a droga está em equilíbrio: RN + H^+ 
+ightleftharpoons RNH^+. Apenas a forma **RN (base livre não ionizada)** cruza a membrana axonal lipídica. No interior da célula, ela se reioniza em RNH⁺ para bloquear o canal de sódio por dentro. Em tecidos com infecção/inflamação:
 
 
 
 
   - O pH cai de 7,4 para **5,0 - 6,0** (ambiente ácido).
 
-  - Pelo princípio de Le Chatelier, o excesso de íons $H^+$ desloca a reação para a forma ionizada hidrossolúvel ($RNH^+$).
+  - Pelo princípio de Le Chatelier, o excesso de íons H⁺ desloca a reação para a forma ionizada hidrossolúvel (RNH⁺).
 
-  - Apenas uma fração irrisória (&lt; 1%) permanece como $RN$. Quase nenhuma molécula penetra no axônio.
+  - Apenas uma fração irrisória (&lt; 1%) permanece como RN. Quase nenhuma molécula penetra no axônio.
 
   - Além disso, a hiperemia inflamatória drena o anestésico para a circulação sistêmica. **Resultado: Insucesso anestésico na infiltração local!**
 
@@ -416,7 +417,7 @@ No tubete anestésico, a droga está em equilíbrio: $RN + H^+ ightleftharpoons
 
 
 
-  - **Epinefrina (Adrenalina):** atua em receptores $\alpha_1$ (vasoconstrição arteriolar local e hemostasia) e $\beta_1/\beta_2$ (aumento da frequência e força cardíaca). Diluições usuais: 1:100.000 e 1:200.000 (1:50.000 apenas para hemostasia tópica pontual).
+  - **Epinefrina (Adrenalina):** atua em receptores α₁ (vasoconstrição arteriolar local e hemostasia) e β₁/β₂ (aumento da frequência e força cardíaca). Diluições usuais: 1:100.000 e 1:200.000 (1:50.000 apenas para hemostasia tópica pontual).
     
 
       - *Paciente Saudável (ASA I):* teto máximo de **0,2 mg de epinefrina** por consulta (~11 tubetes a 1:100.000).
@@ -427,7 +428,7 @@ No tubete anestésico, a droga está em equilíbrio: $RN + H^+ ightleftharpoons
 
   
 
-  - **Felipressina (Octapressin):** análogo sintético da vasopressina (hormônio antidiurético). Atua nos receptores $V_1$ da musculatura lisa vascular venular. **Não atua em receptores beta cardíacos** (ótima para cardiopatas), mas **NÃO promove hemostasia cirúrgica** eficaz e tem efeito ocitócico (contraindicada em gestantes).
+  - **Felipressina (Octapressin):** análogo sintético da vasopressina (hormônio antidiurético). Atua nos receptores V₁ da musculatura lisa vascular venular. **Não atua em receptores beta cardíacos** (ótima para cardiopatas), mas **NÃO promove hemostasia cirúrgica** eficaz e tem efeito ocitócico (contraindicada em gestantes).
 
 
 
@@ -435,7 +436,7 @@ No tubete anestésico, a droga está em equilíbrio: $RN + H^+ ightleftharpoons
 #### Fórmula de Cálculo de Tubetes:
 
 
-> 💡 **DICA CLÍNICA:**
+>  **DICA CLÍNICA:**
 > 
   **Dose Máxima em mg = Peso (kg) × Dose Máx Recomendada (mg/kg)** [respeitando o teto absoluto].
 
@@ -511,10 +512,10 @@ O **Nervo Trigêmeo** emerge da face anterolateral da ponte com uma raiz sensiti
 
 ---
 
-## 💉 Módulo 3: Técnicas Anestésicas Maxilares e Mandibulares Passo a Passo
+##  Módulo 3: Técnicas Anestésicas Maxilares e Mandibulares Passo a Passo
 
 - **Tempo estimado de estudo:** 30 min
-- **Incidência:** 🔥 Incidência Extrema (Pterigomandibular direta/indireta, Gow-Gates, ASP, Infraorbital)
+- **Incidência:**  Alta Recorrência nas Provas
 
 ### 3.1 Técnicas Maxilares: Supraperióstica e Bloqueios Dentais (ASA, ASM, ASP)
 
@@ -550,7 +551,7 @@ O **Nervo Trigêmeo** emerge da face anterolateral da ponte com uma raiz sensiti
 
   - **Aspiração:** crucial em dois planos antes de injetar 0,9 a 1,8 mL.
 
-  - **RISCO CRÍTICO DE PROVA:** perfuração do *plexo venoso pterigóideo* ou da *artéria maxilar interna*, provocando formação de **hematoma facial volumoso** e dramático na bochecha em poucos minutos! Causado principalmente pelo uso incorreto de agulha longa ou angulação muito lateral.
+  - **Risco Clínico:** perfuração do *plexo venoso pterigóideo* ou da *artéria maxilar interna*, provocando formação de **hematoma facial volumoso** e dramático na bochecha em poucos minutos! Causado principalmente pelo uso incorreto de agulha longa ou angulação muito lateral.
 
 
 
@@ -640,9 +641,9 @@ A técnica direta do Nervo Alveolar Inferior (NAI) é o bloqueio mais executado 
 
 
 
-> ⚠️ **ALERTA DE PROVA:**
+>  **ALERTA DE PROVA:**
 > 
-  **⚠️ ERRO CLÍNICO CRÍTICO DE PROVA:**
+  ** Atenção ao Ponto Crítico:**
   Se a agulha penetrar mais de 25 mm *sem tocar em osso*, ela ultrapassou a borda posterior do ramo e está localizada no interior da **glândula parótida**! Injetar nesse local anestesia ramos do **Nervo Facial (VII par)**, provocando *paralisia facial transitória* com ptose palpebral e desvio da comissura labial!
 
 
@@ -738,10 +739,10 @@ Utilizada historicamente para anestesiar os três nervos (bucal, lingual e alveo
 
 ---
 
-## 🚨 Módulo 4: Técnicas Complementares, Extraorais & Acidentes e Complicações
+##  Módulo 4: Técnicas Complementares, Extraorais & Acidentes e Complicações
 
 - **Tempo estimado de estudo:** 22 min
-- **Incidência:** 🔥 Alta Recorrência (Parestesia, Trismo, Toxicidade, Meta-hemoglobinemia e Síncope)
+- **Incidência:**  Alta Recorrência nas Provas
 
 ### 4.1 Técnicas Anestésicas Complementares (Intraligamentar, Intraóssea, Intrapulpar)
 
@@ -949,7 +950,7 @@ Técnicas em desuso na clínica diária moderna, restritas a ambientes hospitala
 
   - **Agente causal:** **Prilocaína** (através de seu metabólito *orto-toluidina*) e Articaína em doses extremas.
 
-  - **Fisiopatologia:** o ferro da hemoglobina é oxidado de $Fe^{2+}$ (ferroso funcional) para $Fe^{3+}$ (férrico), incapaz de se ligar ao oxigênio.
+  - **Fisiopatologia:** o ferro da hemoglobina é oxidado de Fe²⁺ (ferroso funcional) para Fe³⁺ (férrico), incapaz de se ligar ao oxigênio.
 
   - **Quadro Clínico:** **Cianose acinzentada franca** em lábios, leito ungueal e mucosa jugal, sangue com aspecto achocolatado escuro, refratária à oxigenioterapia a 100%.
 

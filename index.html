@@ -3,90 +3,110 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>🦷 Anestesio Hub | Odontologia UNIOESTE - 1ª à 4ª Prova</title>
+  <title>AnestesioHub | Odontologia UNIOESTE - 4ª Prova Cumulativa</title>
   <link rel="stylesheet" href="style.css">
+  <!-- Lucide Icons Library -->
+  <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
 
-  <!-- Top Bar & ADHD Dashboard Header -->
+  <!-- Top Bar & Header -->
   <header class="top-bar" id="mainHeader">
     <div class="top-bar-inner">
       <div class="brand-wrapper">
-        <div class="brand-logo">🦷 AnestesioHub</div>
-        <div class="brand-tag">UNIOESTE • 4ª Prova Cumulativa</div>
+        <i data-lucide="activity" class="brand-icon"></i>
+        <div class="brand-logo">AnestesioHub</div>
+        <div class="brand-tag">UNIOESTE | 4ª Prova</div>
       </div>
 
       <div class="tools-group">
-        <!-- Pomodoro Timer -->
-        <div class="pomodoro-box" title="Timer Pomodoro Anti-TDAH (25 min de foco / 5 min de pausa)">
+        <!-- Timer de Estudos -->
+        <div class="pomodoro-box" title="Timer de Estudos (25 min de foco / 5 min de intervalo)">
+          <i data-lucide="clock" class="icon-inline"></i>
           <span class="pomodoro-label" id="pomoLabel">Foco</span>
           <span class="pomodoro-timer" id="pomodoroDisplay">25:00</span>
-          <button class="btn-pomo-action" id="pomoToggle" title="Iniciar/Pausar">▶</button>
-          <button class="btn-pomo-action" id="pomoReset" title="Reiniciar">↺</button>
+          <button class="btn-pomo-action" id="pomoToggle" title="Iniciar/Pausar">
+            <i data-lucide="play" id="pomoIconPlay"></i>
+          </button>
+          <button class="btn-pomo-action" id="pomoReset" title="Reiniciar">
+            <i data-lucide="rotate-ccw"></i>
+          </button>
         </div>
 
         <!-- Modo Foco -->
-        <button class="btn-foco" id="btnModoFoco" title="Oculta distrações para leitura ou teste">
-          🎯 Modo Foco
+        <button class="btn-foco" id="btnModoFoco" title="Ocultar menus e focar na leitura ou teste">
+          <i data-lucide="maximize-2"></i>
+          <span>Modo Foco</span>
         </button>
       </div>
     </div>
   </header>
 
-  <!-- Barra de Progresso Global do Edital -->
+  <!-- Barra de Progresso Global -->
   <div class="global-progress-bar">
     <div class="global-progress-fill" id="globalProgressFill"></div>
   </div>
 
-  <!-- Navegação por Abas Principais -->
+  <!-- Navegação por Abas Centrais -->
   <nav class="nav-tabs-wrapper" id="navTabs">
     <div class="nav-tabs">
       <button class="tab-btn active" data-target="raioXSection">
-        📊 Raio-X das Provas
+        <i data-lucide="bar-chart-2"></i>
+        <span>Raio-X das Provas</span>
       </button>
       <button class="tab-btn" data-target="resumosSection">
-        📖 Resumos Aprofundados (1ª à 4ª)
+        <i data-lucide="book-open"></i>
+        <span>Resumos Teóricos</span>
       </button>
       <button class="tab-btn" data-target="quizSection">
-        🎯 Quiz Interativo Anti-TDAH
+        <i data-lucide="help-circle"></i>
+        <span>Quiz Interativo</span>
       </button>
       <button class="tab-btn" data-target="calculadoraSection">
-        🧮 Calculadora de Tubetes
+        <i data-lucide="calculator"></i>
+        <span>Calculadora de Doses</span>
       </button>
     </div>
   </nav>
 
-  <!-- Container Principal -->
+  <!-- Container Principal Centralizado -->
   <main class="container">
 
-    <!-- Banner visível no Modo Foco para retornar -->
+    <!-- Banner visível no Modo Foco -->
     <div class="foco-bar" id="focoBar">
-      <div>
-        <strong>🎯 MODO FOCO ATIVO</strong> — Menus e distrações ocultados para hiperfoco no conteúdo.
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <i data-lucide="eye"></i>
+        <span>Modo Foco Ativo</span>
       </div>
-      <button class="btn-foco" id="btnSairFoco">Sair do Modo Foco</button>
+      <button class="btn-foco" id="btnSairFoco">
+        <i data-lucide="minimize-2"></i>
+        <span>Sair do Modo Foco</span>
+      </button>
     </div>
 
     <!-- ====================================================================
-         SEÇÃO 1: RAIO-X DAS PROVAS & DASHBOARD ESTATÍSTICO
+         SEÇÃO 1: RAIO-X DAS PROVAS & ANÁLISE DE INCIDÊNCIA
          ==================================================================== -->
     <section class="tab-pane active" id="raioXSection">
       <div class="section-header">
-        <h2 class="section-title">📊 Raio-X & Incidência das Provas Anteriores</h2>
+        <h2 class="section-title">
+          <i data-lucide="bar-chart-2"></i>
+          <span>Incidência das Provas Anteriores</span>
+        </h2>
         <p class="section-subtitle">
-          Análise estatística minuciosa das provas teóricas de 2017 a 2023, provas de veteranos e estudos dirigidos da UNIOESTE Cascavel.
+          Mapeamento temático das provas teóricas (2017 a 2023), provas de veteranos e estudos dirigidos da UNIOESTE.
         </p>
       </div>
 
-      <!-- Métricas Rápidas -->
+      <!-- Métricas Gerais -->
       <div class="grid-stats">
         <div class="stat-card blue">
           <div class="stat-val" id="dashTopicsCount">0/18</div>
-          <div class="stat-label">Tópicos Teóricos Dominados</div>
+          <div class="stat-label">Tópicos Teóricos Concluídos</div>
         </div>
         <div class="stat-card purple">
           <div class="stat-val" id="dashQuestionsCount">0/28</div>
-          <div class="stat-label">Questões de Prova Gabaritadas</div>
+          <div class="stat-label">Questões Praticadas</div>
         </div>
         <div class="stat-card orange">
           <div class="stat-val">4 Provas</div>
@@ -100,61 +120,82 @@
 
       <!-- Ranking de Recorrência -->
       <div class="incidence-box">
-        <h3 style="font-size: 18px; font-weight: 800; margin-bottom: 8px;">
-          🏆 Ranking Oficial: O que MAIS CAIU nas Provas Antigas
-        </h3>
-        <p style="color: var(--text-secondary); font-size: 14px; margin-bottom: 22px;">
-          Priorize os estudos na ordem abaixo para garantir a maior densidade de acertos na 4ª prova:
+        <div class="box-title-row">
+          <i data-lucide="trending-up"></i>
+          <h3>Temas Mais Recorrentes nas Provas</h3>
+        </div>
+        <p class="box-desc">
+          Distribuição proporcional dos assuntos mais cobrados para orientar a prioridade de revisão:
         </p>
         <div id="rankingContainer">
           <!-- Renderizado via JavaScript -->
         </div>
       </div>
 
-      <!-- Mural das Principais Pegadinhas de Prova -->
-      <h3 style="font-size: 18px; font-weight: 800; margin-bottom: 16px;">
-        ⚠️ Mural Vermelho: As 6 Maiores Pegadinhas da Banca
-      </h3>
+      <!-- Mural de Pontos Críticos e Pegadinhas -->
+      <div class="box-title-row" style="margin-top: 36px; margin-bottom: 16px;">
+        <i data-lucide="alert-triangle"></i>
+        <h3>Pontos Críticos e Pegadinhas Frequentes</h3>
+      </div>
+      
       <div class="pegadinhas-grid">
         <div class="pegadinha-card">
-          <div class="pegadinha-header">⚠️ 1. Canais de Cálcio vs Sódio</div>
+          <div class="pegadinha-header">
+            <i data-lucide="alert-circle"></i>
+            <span>1. Canais de Sódio vs Canais de Cálcio</span>
+          </div>
           <div class="pegadinha-body">
-            A banca frequentemente afirma que o anestésico bloqueia <em>canais de cálcio</em>. <strong>ERRADO!</strong> Os anestésicos locais bloqueiam especificamente os <strong>canais de SÓDIO ($Na^+$ voltagem-dependentes)</strong>!
+            Os anestésicos locais bloqueiam reversivelmente os <strong>canais de sódio (Na⁺ voltagem-dependentes)</strong> na membrana axonal, e não canais de cálcio ou potássio.
           </div>
         </div>
 
         <div class="pegadinha-card">
-          <div class="pegadinha-header">⚠️ 2. Inervação Vestibular de Molares Inferiores</div>
+          <div class="pegadinha-header">
+            <i data-lucide="alert-circle"></i>
+            <span>2. Inervação Vestibular de Molares Inferiores</span>
+          </div>
           <div class="pegadinha-body">
-            No bloqueio pterigomandibular, a mucosa vestibular dos molares inferiores <strong>NÃO é anestesiada</strong> pelo nervo alveolar inferior ou lingual! É inervada pelo <strong>Nervo Bucal</strong>, que exige punção própria.
+            No bloqueio pterigomandibular, a mucosa vestibular dos molares inferiores <strong>não é anestesiada</strong> pelo nervo alveolar inferior ou lingual. Exige anestesia complementar do <strong>Nervo Bucal</strong>.
           </div>
         </div>
 
         <div class="pegadinha-card">
-          <div class="pegadinha-header">⚠️ 3. Agulha Curta no Bloqueio do ASP (Pós-Túber)</div>
+          <div class="pegadinha-header">
+            <i data-lucide="alert-circle"></i>
+            <span>3. Agulha Curta no Bloqueio do ASP (Pós-Túber)</span>
+          </div>
           <div class="pegadinha-body">
-            Usar agulha longa na técnica pós-túber é um erro clássico que transfixa o <strong>plexo venoso pterigóideo</strong>, gerando volumoso <strong>hematoma facial</strong>! No ASP a agulha deve ser <strong>CURTA</strong> (penetração de 16 mm).
+            No bloqueio do ASP deve-se utilizar <strong>agulha curta</strong> (penetração de 16 mm). O uso inadvertido de agulha longa atinge o <strong>plexo venoso pterigóideo</strong>, causando hematoma facial volumoso.
           </div>
         </div>
 
         <div class="pegadinha-card">
-          <div class="pegadinha-header">⚠️ 4. Paralisia Facial na Glândula Parótida</div>
+          <div class="pegadinha-header">
+            <i data-lucide="alert-circle"></i>
+            <span>4. Paralisia Facial Transitória</span>
+          </div>
           <div class="pegadinha-body">
-            A paralisia facial transitória pós-bloqueio mandibular <strong>não decorre de lesão do trigêmeo</strong>, e sim da penetração da agulha na <strong>glândula parótida</strong> (sem contato ósseo prévio), anestesiando o <strong>Nervo Facial (VII par)</strong>.
+            A paralisia facial temporária pós-bloqueio mandibular decorre de penetração na <strong>glândula parótida</strong> (por falta de contato ósseo prévio), anestesiando o <strong>Nervo Facial (VII par)</strong>, e não de lesão do trigêmeo.
           </div>
         </div>
 
         <div class="pegadinha-card">
-          <div class="pegadinha-header">⚠️ 5. Felipressina NÃO Faz Hemostasia Cirúrgica</div>
+          <div class="pegadinha-header">
+            <i data-lucide="alert-circle"></i>
+            <span>5. Felipressina não promove hemostasia cirúrgica</span>
+          </div>
           <div class="pegadinha-body">
-            A felipressina atua na musculatura lisa venosa, e <strong>não em arteríolas</strong>. Para hemostasia em cirurgias sangrantes, o vasoconstritor obrigatório é a <strong>Epinefrina (Adrenalina)</strong> por sua ação em receptores alfa-1.
+            A felipressina atua na musculatura venosa, não nas arteríolas. Quando se necessita de campo cirúrgico exangue, o vasoconstritor de escolha é a <strong>Epinefrina (Adrenalina)</strong> por sua ação em receptores α₁.
           </div>
         </div>
 
         <div class="pegadinha-card">
-          <div class="pegadinha-header">⚠️ 6. Precauções Universais em Abscesso Purulento</div>
+          <div class="pegadinha-header">
+            <i data-lucide="alert-circle"></i>
+            <span>6. Precauções Padrão em Lesões Purulentas</span>
+          </div>
           <div class="pegadinha-body">
-            A presença de pus em abscesso dentário <strong>não torna o paciente mais perigoso viralmente</strong> do que um jovem assintomático. Pelo princípio de biossegurança, as precauções são <strong>idênticas e máximas para todos</strong>!
+            A presença de lesão purulenta dentária <strong>não aumenta o risco viral sistêmico</strong> em relação a outros pacientes. Segundo as Precauções Padrão, todos os pacientes exigem o mesmo nível máximo de biossegurança.
           </div>
         </div>
       </div>
@@ -165,74 +206,93 @@
          ==================================================================== -->
     <section class="tab-pane" id="resumosSection">
       <div class="section-header">
-        <h2 class="section-title">📖 Resumos Teóricos Aprofundados (Sem Cortes)</h2>
+        <h2 class="section-title">
+          <i data-lucide="book-open"></i>
+          <span>Resumos Teóricos Estruturados</span>
+        </h2>
         <p class="section-subtitle">
-          Conteúdo completo organizado em blocos cognitivos sanfonados. Clique nos tópicos para expandir e marque a caixinha ✓ para registrar seu micro-progresso.
+          Conteúdo curricular completo sem cortes, organizado por módulos temáticos. Clique no subtópico para expandir e utilize a caixa de seleção para marcar o tópico como concluído.
         </p>
       </div>
 
-      <!-- Barra de Filtros por Módulo -->
+      <!-- Barra de Filtros Centralizada -->
       <div class="module-filter-bar">
         <button class="mod-filter-btn active" data-mod="all">Todos os Módulos</button>
-        <button class="mod-filter-btn" data-mod="1">🔵 Módulo 1: Biossegurança & Assepsia</button>
-        <button class="mod-filter-btn" data-mod="2">🟣 Módulo 2: Neurofisiologia & Farmacologia</button>
-        <button class="mod-filter-btn" data-mod="3">🟠 Módulo 3: Técnicas Maxilares & Mandibulares</button>
-        <button class="mod-filter-btn" data-mod="4">🔴 Módulo 4: Acidentes & Complicações</button>
+        <button class="mod-filter-btn" data-mod="1">Módulo 1: Biossegurança</button>
+        <button class="mod-filter-btn" data-mod="2">Módulo 2: Farmacologia & Anatomia</button>
+        <button class="mod-filter-btn" data-mod="3">Módulo 3: Técnicas Anestésicas</button>
+        <button class="mod-filter-btn" data-mod="4">Módulo 4: Acidentes & Complicações</button>
       </div>
 
-      <!-- Container dos Resumos (Injetado via resumos_data.js) -->
+      <!-- Container dos Módulos Centralizados -->
       <div id="resumosContainer">
-        <!-- Renderizado dinamicamente pelo script.js -->
+        <!-- Renderizado dinamicamente pelo script.js com tons variados por tema -->
       </div>
     </section>
 
     <!-- ====================================================================
-         SEÇÃO 3: QUIZ INTERATIVO ANTI-TDAH
+         SEÇÃO 3: QUIZ INTERATIVO
          ==================================================================== -->
     <section class="tab-pane" id="quizSection">
       <div class="section-header">
-        <h2 class="section-title">🎯 Quiz Interativo & Simulador de Provas</h2>
+        <h2 class="section-title">
+          <i data-lucide="help-circle"></i>
+          <span>Quiz Interativo de Questões de Prova</span>
+        </h2>
         <p class="section-subtitle">
-          Pratique com as questões reais de provas passadas da UNIOESTE. Responda em micro-doses para manter o foco e decore as pegadinhas com justificativas detalhadas.
+          Pratique com as questões reais de provas passadas da UNIOESTE. Responda em baterias objetivas com feedback e justificativas detalhadas.
         </p>
       </div>
 
-      <!-- Card de Configuração e Modos de Treino -->
+      <!-- Card de Configuração do Quiz -->
       <div class="quiz-controls-card" id="quizControlsCard">
-        <h3 style="font-size: 17px; font-weight: 800; margin-bottom: 14px;">
-          Escolha seu Modo de Treino:
-        </h3>
+        <h3 class="card-inner-title">Selecione a Modalidade de Treino:</h3>
         
         <div class="quiz-modes-grid">
           <div class="quiz-mode-btn active" data-mode="micro5">
-            <div class="quiz-mode-title">💊 Pílula Rápida (5 Questões)</div>
-            <div class="quiz-mode-desc">Ideal para manter o foco do TDAH sem cansaço mental. Feedback imediato.</div>
+            <div class="quiz-mode-title">
+              <i data-lucide="zap"></i>
+              <span>Bateria Rápida (5 Questões)</span>
+            </div>
+            <div class="quiz-mode-desc">Sessão rápida para treino objetivo com feedback imediato.</div>
           </div>
 
           <div class="quiz-mode-btn" data-mode="micro10">
-            <div class="quiz-mode-title">⚡ Bateria Média (10 Questões)</div>
-            <div class="quiz-mode-desc">Treino equilibrado de fixação rápida com questões sorteadas.</div>
+            <div class="quiz-mode-title">
+              <i data-lucide="list"></i>
+              <span>Bateria Padrão (10 Questões)</span>
+            </div>
+            <div class="quiz-mode-desc">Treino equilibrado de fixação com questões aleatórias.</div>
           </div>
 
           <div class="quiz-mode-btn" data-mode="repeat_wrong">
-            <div class="quiz-mode-title">🔁 Repetir as que Errei</div>
-            <div class="quiz-mode-desc">Filtra exclusivamente as questões do seu histórico onde você errou.</div>
+            <div class="quiz-mode-title">
+              <i data-lucide="rotate-ccw"></i>
+              <span>Revisão de Erros</span>
+            </div>
+            <div class="quiz-mode-desc">Filtra exclusivamente as questões que você errou anteriormente.</div>
           </div>
 
           <div class="quiz-mode-btn" data-mode="by_mod">
-            <div class="quiz-mode-title">📚 Treinar por Módulo</div>
-            <div class="quiz-mode-desc">Selecione uma prova ou módulo específico para treinar focado.</div>
+            <div class="quiz-mode-title">
+              <i data-lucide="folder"></i>
+              <span>Treinar por Módulo</span>
+            </div>
+            <div class="quiz-mode-desc">Foque em uma área clínica ou prova específica.</div>
           </div>
 
           <div class="quiz-mode-btn" data-mode="full">
-            <div class="quiz-mode-title">🏆 Simulado Completo (Todas)</div>
-            <div class="quiz-mode-desc">Bateria integral com todas as questões catalogadas do curso.</div>
+            <div class="quiz-mode-title">
+              <i data-lucide="award"></i>
+              <span>Simulado Geral</span>
+            </div>
+            <div class="quiz-mode-desc">Bateria completa com todas as questões do acervo.</div>
           </div>
         </div>
 
         <div class="quiz-filter-row">
           <div id="quizModSelectWrap" style="display: none;">
-            <label style="font-size: 13px; font-weight: 700; margin-right: 8px;">Filtrar Módulo:</label>
+            <label style="font-size: 13.5px; font-weight: 600; margin-right: 8px;">Módulo:</label>
             <select class="quiz-select" id="quizModuleSelect">
               <option value="all">Todos os Módulos</option>
               <option value="1">Módulo 1: Biossegurança</option>
@@ -243,7 +303,8 @@
           </div>
 
           <button class="btn-start-quiz" id="btnStartQuiz">
-            Iniciar Rodada de Questões 🚀
+            <i data-lucide="play"></i>
+            <span>Iniciar Questões</span>
           </button>
         </div>
       </div>
@@ -252,7 +313,7 @@
       <div class="quiz-active-area" id="quizActiveArea">
         <div class="quiz-progress-header">
           <span id="quizProgressCount">Questão 1 de 5</span>
-          <span id="qId" style="font-family: monospace; color: #38bdf8;">BIO-01</span>
+          <span id="qId" class="q-id-tag">BIO-01</span>
         </div>
         <div class="quiz-progress-bar-bg">
           <div class="quiz-progress-bar-fill" id="quizProgressFill"></div>
@@ -261,68 +322,68 @@
         <div class="question-card">
           <div class="q-meta-row">
             <div class="q-badges" id="qBadges">
-              <!-- Badges de módulo e origem -->
+              <!-- Badges via JavaScript -->
             </div>
           </div>
 
           <div class="q-enunciado" id="qEnunciado">
-            <!-- Texto da questão -->
+            <!-- Enunciado -->
           </div>
 
           <div class="q-alternativas-list" id="qAlternativas">
-            <!-- Botões das alternativas -->
+            <!-- Alternativas -->
           </div>
 
-          <!-- Painel de Justificativa e Feedback Imediato -->
+          <!-- Feedback da Questão -->
           <div class="feedback-box" id="feedbackBox">
-            <div class="feedback-header" id="feedbackHeader">
-              <!-- Título correto / errado -->
-            </div>
-            <div class="feedback-text" id="feedbackText">
-              <!-- Justificativa da banca -->
-            </div>
-            <div class="feedback-pegadinha" id="feedbackPegadinha" style="display: none;">
-              <!-- Alerta de pegadinha -->
-            </div>
+            <div class="feedback-header" id="feedbackHeader"></div>
+            <div class="feedback-text" id="feedbackText"></div>
+            <div class="feedback-pegadinha" id="feedbackPegadinha" style="display: none;"></div>
             <button class="btn-next-question" id="btnNextQuestion" style="display: none;">
-              Próxima Questão ➔
+              <span>Próxima Questão</span>
+              <i data-lucide="arrow-right"></i>
             </button>
           </div>
         </div>
       </div>
 
-      <!-- Tela de Resumo da Bateria Concluída -->
+      <!-- Resumo da Bateria -->
       <div class="quiz-summary-card" id="quizSummaryCard">
         <div class="summary-score-circle">
           <div class="score-num" id="summaryScoreNum">5</div>
           <div class="score-total" id="summaryScoreTotal">de 5 (100%)</div>
         </div>
-        <h3 id="summaryTitle" style="font-size: 22px; font-weight: 800; margin-bottom: 8px;">
-          🎉 Parabéns! Bateria Concluída!
+        <h3 id="summaryTitle" style="font-size: 20px; font-weight: 700; margin-bottom: 6px;">
+          Bateria Concluída
         </h3>
-        <p id="summaryDesc" style="color: var(--text-secondary); max-width: 500px; margin: 0 auto;">
-          Você finalizou essa rodada de estudos. Cada pequena vitória solidifica a memória de longo prazo para a prova final!
+        <p id="summaryDesc" style="color: var(--text-secondary); max-width: 500px; margin: 0 auto; font-size: 14px;">
+          Resultados registrados no histórico de revisão.
         </p>
 
         <div class="summary-actions-row">
           <button class="btn-start-quiz" id="btnRestartQuiz">
-            Nova Bateria de Questões
+            <i data-lucide="refresh-cw"></i>
+            <span>Nova Bateria</span>
           </button>
-          <button class="btn-foco" id="btnRetryWrong" style="display: none; background: #e11d48;">
-            🔁 Repetir as que Errei Agora
+          <button class="btn-foco" id="btnRetryWrong" style="display: none; background: #be123c;">
+            <i data-lucide="rotate-ccw"></i>
+            <span>Revisar Incorretas</span>
           </button>
         </div>
       </div>
     </section>
 
     <!-- ====================================================================
-         SEÇÃO 4: CALCULADORA CLÍNICA DE DOSES E TUBETES
+         SEÇÃO 4: CALCULADORA DE DOSES E TUBETES
          ==================================================================== -->
     <section class="tab-pane" id="calculadoraSection">
       <div class="section-header">
-        <h2 class="section-title">🧮 Calculadora Clínica de Doses & Tubetes</h2>
+        <h2 class="section-title">
+          <i data-lucide="calculator"></i>
+          <span>Calculadora de Doses e Tubetes</span>
+        </h2>
         <p class="section-subtitle">
-          Ferramenta interativa baseada no Manual de Anestesia Local (Malamed 6ª Edição) para checagem rápida de cálculos e identificação do fator limitante em pacientes saudáveis e cardiopatas.
+          Cálculos clínicos segundo Malamed (6ª Ed.) para determinação de dose máxima e verificação do fator limitante em pacientes saudáveis e cardiopatas.
         </p>
       </div>
 
@@ -336,46 +397,47 @@
           <div class="calc-group">
             <label for="calcCondicao">Condição Sistêmica:</label>
             <select id="calcCondicao" class="calc-select">
-              <option value="saudavel">ASA I - Paciente Saudável (Teto Epi: 0,2 mg)</option>
-              <option value="cardiopata">ASA II/III - Cardiopata / Hipertenso Controlado (Teto Epi: 0,04 mg)</option>
+              <option value="saudavel">ASA I - Paciente Saudável (Teto Epinefrina: 0,2 mg)</option>
+              <option value="cardiopata">ASA II/III - Cardiopata / Hipertenso Controlado (Teto Epinefrina: 0,04 mg)</option>
             </select>
           </div>
 
           <div class="calc-group" style="grid-column: 1 / -1;">
             <label for="calcSal">Solução Anestésica Comercial (Tubete de 1,8 mL):</label>
             <select id="calcSal" class="calc-select">
-              <option value="lido2">Lidocaína 2% com Epinefrina 1:100.000 (36 mg/tubete - máx 4,4 mg/kg)</option>
-              <option value="mepi2">Mepivacaína 2% com Epinefrina 1:100.000 (36 mg/tubete - máx 4,4 mg/kg)</option>
-              <option value="mepi3">Mepivacaína 3% SEM Vasoconstritor (54 mg/tubete - máx 4,4 mg/kg)</option>
-              <option value="prilo3">Prilocaína 3% com Felipressina 0,03 UI/mL (54 mg/tubete - máx 6,0 mg/kg)</option>
-              <option value="arti4">Articaína 4% com Epinefrina 1:100.000 (72 mg/tubete - máx 7,0 mg/kg)</option>
-              <option value="bupi05">Bupivacaína 0,5% com Epinefrina 1:200.000 (9 mg/tubete - máx 1,3 mg/kg)</option>
+              <option value="lido2">Lidocaína 2% com Epinefrina 1:100.000 (36 mg/tubete | máx 4,4 mg/kg)</option>
+              <option value="mepi2">Mepivacaína 2% com Epinefrina 1:100.000 (36 mg/tubete | máx 4,4 mg/kg)</option>
+              <option value="mepi3">Mepivacaína 3% SEM Vasoconstritor (54 mg/tubete | máx 4,4 mg/kg)</option>
+              <option value="prilo3">Prilocaína 3% com Felipressina 0,03 UI/mL (54 mg/tubete | máx 6,0 mg/kg)</option>
+              <option value="arti4">Articaína 4% com Epinefrina 1:100.000 (72 mg/tubete | máx 7,0 mg/kg)</option>
+              <option value="bupi05">Bupivacaína 0,5% com Epinefrina 1:200.000 (9 mg/tubete | máx 1,3 mg/kg)</option>
             </select>
           </div>
         </div>
 
         <div class="calc-results-box">
-          <h4 style="color: #38bdf8; font-size: 16px; font-weight: 800; margin-bottom: 14px;">
-            📋 Resultados do Cálculo Clínico:
+          <h4 class="results-box-title">
+            <i data-lucide="file-text"></i>
+            <span>Resultados do Cálculo Clínico</span>
           </h4>
           <div class="result-item">
-            <span style="color: var(--text-secondary);">Dose Máxima do Sal Anestésico:</span>
+            <span class="result-label">Dose Máxima do Sal:</span>
             <span class="result-val" id="resDoseMaxMg">300.0 mg</span>
           </div>
           <div class="result-item">
-            <span style="color: var(--text-secondary);">Quantidade de Sal por Tubete (1,8 mL):</span>
+            <span class="result-label">Concentração por Tubete:</span>
             <span class="result-val" id="resMgPorTubete">36 mg/tubete</span>
           </div>
           <div class="result-item">
-            <span style="color: var(--text-secondary);">Limite de Tubetes pelo Sal Anestésico:</span>
+            <span class="result-label">Limite pelo Sal Anestésico:</span>
             <span class="result-val" id="resMaxTubetesSal">8 tubetes</span>
           </div>
           <div class="result-item">
-            <span style="color: var(--text-secondary);">Limite de Tubetes pelo Vasoconstritor:</span>
+            <span class="result-label">Limite pelo Vasoconstritor:</span>
             <span class="result-val" id="resMaxTubetesVaso">11 tubetes</span>
           </div>
-          <div class="result-item" style="border-top: 1px dashed var(--border-color); margin-top: 8px; padding-top: 14px;">
-            <span style="color: #fff; font-weight: 700;">Fator Limitante na Consulta:</span>
+          <div class="result-item result-item-highlight">
+            <span class="result-label" style="color: #fff; font-weight: 600;">Fator Limitante:</span>
             <span class="result-val" id="resFatorLimitante" style="color: #22c55e;">-</span>
           </div>
         </div>
@@ -385,10 +447,7 @@
   </main>
 
   <footer class="hub-footer">
-    <p>🦷 <strong>Anestesio Hub</strong> • Desenvolvido para a Odontologia UNIOESTE (Campus de Cascavel) • 4ª Prova Cumulativa</p>
-    <p style="margin-top: 4px; font-size: 12px; color: var(--text-muted);">
-      Resumos estruturados com base em Malamed (6ª ed.), manuais do curso e provas históricas de 2017 a 2023.
-    </p>
+    <p>AnestesioHub — Material de Estudo de Anestesiologia Odontológica (UNIOESTE Cascavel)</p>
   </footer>
 
   <!-- Scripts Modulares -->

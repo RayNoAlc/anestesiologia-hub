@@ -1,47 +1,52 @@
-# 🦷 Anestesio Hub • UNIOESTE Odontologia
+# AnestesioHub | UNIOESTE Odontologia
 
-> **Hub de Estudos & Quiz Interativo Cumulativo (1ª à 4ª Prova)** desenvolvido para a disciplina de Anestesiologia do curso de Odontologia da UNIOESTE (Campus de Cascavel).
+> Hub de Estudos e Questões de Prova para a 4ª Prova Cumulativa de Anestesiologia (UNIOESTE Cascavel).
 
-🌐 **Acesso Online (Vercel):** [https://anestesiologia-hub.vercel.app](https://anestesiologia-hub.vercel.app)
-
-[![Vercel Deployment](https://img.shields.io/badge/Deployed%20with-Vercel-black?style=flat-square&logo=vercel)](https://anestesiologia-hub.vercel.app)
-[![HTML5 / CSS3 / JS](https://img.shields.io/badge/Stack-Vanilla%20JS%20%7C%20CSS3%20%7C%20HTML5-blue?style=flat-square)](https://developer.mozilla.org)
-[![Anti-TDAH](https://img.shields.io/badge/Design-Anti--TDAH%20Cognitive-emerald?style=flat-square)](#)
+**Acesso Online:** [https://anestesiologia-hub.vercel.app](https://anestesiologia-hub.vercel.app)
 
 ---
 
-## 🎯 Funcionalidades Principais
+## Conteúdo Programático Abordado
 
-*   📊 **Raio-X & Matriz de Incidência das Provas**: Ranking estatístico dos temas mais cobrados em provas anteriores (2017 a 2023) e mural das 6 maiores pegadinhas da banca examinadora.
-*   📖 **Resumos Aprofundados (1ª à 4ª Prova)**: Conteúdo curricular integral sem cortes (da Biossegurança até Acidentes e Complicações), organizado em blocos sanfonados/colapsáveis com código de cores por área clínica e checklist de micro-progresso.
-*   🎯 **Quiz Interativo Anti-TDAH**:
-    *   *Pílula Rápida (5 questões)* e *Bateria Média (10 questões)* para manter o foco e evitar a fadiga mental.
-    *   *Modo "Repetir as que Errei" (Smart Drill)* para fixação rápida das pegadinhas.
-    *   *Filtro por Módulo* e *Simulado Geral da 4ª Prova*.
-    *   Feedback imediato, efeitos sonoros sintetizados via Web Audio API e justificativa comentada alternativa por alternativa.
-*   🧮 **Calculadora Clínica de Doses & Tubetes (Malamed 6ª Ed.)**: Cálculo automatizado de dose máxima (mg) e número máximo de tubetes para pacientes saudáveis (ASA I) e cardiopatas (ASA II/III), identificando dinamicamente o fator limitante (sal vs vasoconstritor).
-*   🧠 **Ferramentas Anti-Distração**:
-    *   Timer Pomodoro integrado (25 min de foco / 5 min de pausa).
-    *   Modo Foco em tela limpa.
-    *   Persistência automática do progresso e estatísticas via `localStorage`.
+1. **Módulo 1: Biossegurança, Paramentação & Controle de Infecção Cruzada**
+   - Cadeia epidemiológica e vias de transmissão
+   - Classificação de artigos segundo Spaulding (críticos, semicríticos e não críticos)
+   - Protocolos e monitoramento de autoclaves (*Geobacillus stearothermophilus*)
+   - Degermação cirúrgica das mãos (clorexidina vs PVPI), EPIs e descarte de perfurocortantes (NR-32)
+   - Condutas de primeiros socorros em acidentes com material biológico
+
+2. **Módulo 2: Neurofisiologia, Farmacologia dos Anestésicos Locais & Anatomia**
+   - Eletrofisiologia da membrana axonal (potencial de ação, canais de Na⁺ voltagem-dependentes)
+   - Propriedades físico-químicas: pKa (latência), lipossolubilidade (potência) e ligação proteica (duração)
+   - Influência do pH tecidual e conduta em abscessos/infecções agudas
+   - Farmacologia comparada dos sais anestésicos (Lidocaína, Mepivacaína, Prilocaína, Articaína e Bupivacaína)
+   - Vasoconstritores adrenérgicos vs felipressina e manejo de pacientes com restrições cardiovasculares
+   - Cálculos clínicos de dose máxima e número de tubetes segundo Malamed
+   - Osteologia e divisões do Nervo Trigêmeo (V1, V2 e V3 e seus forames cranianos)
+
+3. **Módulo 3: Técnicas Anestésicas Maxilares e Mandibulares Passo a Passo**
+   - Técnicas maxilares: supraperióstica e bloqueios do ASA, ASM e ASP (pós-túber)
+   - Bloqueio do nervo infraorbital: referências e manobra de compressão
+   - Bloqueios palatinos: nervo nasopalatino e nervo palatino maior
+   - Bloqueio pterigomandibular (nervo alveolar inferior e lingual): técnica direta de 14 passos
+   - Técnica indireta mandibular (método dos 3 tempos)
+   - Bloqueio dos nervos mentoniano e incisivo
+   - Técnicas alternativas: Gow-Gates e Vazirani-Akinosi
+
+4. **Módulo 4: Técnicas Complementares, Extraorais & Acidentes e Complicações**
+   - Técnicas complementares: intraligamentar, intraóssea e intrapulpar
+   - Vias de acesso extraorais e indicações de anestesia geral em odontologia
+   - Acidentes locais: parestesia, trismo, hematoma facial, fratura de agulha e paralisia facial transitória
+   - Complicações sistêmicas: lipotimia vs síncope vasovagal, toxicidade sistêmica por superdosagem (LAST), meta-hemoglobinemia e reações anafiláticas
 
 ---
 
-## 📂 Estrutura do Projeto
+## Estrutura do Projeto
 
-```text
-├── index.html              # Aplicação Web Modular do Hub
-├── style.css               # Design System Anti-TDAH com cores cognitivas
-├── script.js               # Inteligência do Quiz, Pomodoro, Modo Foco e Calculadora
-├── questoes.json           # Banco de dados com 28 questões reais de provas passadas
-├── questoes_data.js        # Script de dados para execução local sem restrições de CORS
-├── resumos_data.js         # Acervo teórico estruturado dos 4 módulos
-├── GUIA_ESTUDO_COMPLETO.md # Apostila completa em Markdown para leitura e impressão
-└── README.md               # Documentação do projeto
-```
-
----
-
-## 🚀 Como Executar Localmente
-
-Basta abrir o arquivo `index.html` em qualquer navegador web moderno (duplo clique). Nenhuma instalação ou servidor backend é necessário.
+* `index.html` — Estrutura semântica centralizada e responsiva.
+* `style.css` — Estilos com paletas específicas por área clínica e variações tonais por subtópico.
+* `script.js` — Lógica do Quiz, Timer de Estudos, Modo Foco e Calculadora de Doses.
+* `questoes.json` — Banco estruturado de questões extraídas de provas anteriores.
+* `questoes_data.js` — Base de dados acessível localmente sem bloqueios de CORS.
+* `resumos_data.js` — Acervo teórico completo sem cortes.
+* `GUIA_ESTUDO_COMPLETO.md` — Apostila técnica integral para consulta off-line e impressão.

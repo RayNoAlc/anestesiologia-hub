@@ -20,7 +20,7 @@
     "justificativa": "Análise detalhada de cada assertiva:\n• I - FALSA: Não se realiza triagem sorológica prévia obrigatória para atendimento ambulatorial; as Precauções Padrão determinam que TODO paciente deve ser considerado potencialmente infectado.\n• II - VERDADEIRA: A vacinação do CD (3 doses + teste Anti-HBs > 10 UI/mL) e o uso de EPIs constituem a principal barreira ocupacional.\n• III - VERDADEIRA: A vacinação em massa populacional pelo SUS reduz drasticamente a circulação viral na comunidade.\n• IV - FALSA: Hepatite B é vírus; antibióticos agem apenas sobre bactérias!\n• V - FALSA (Pegadinha clássica da banca): O vírus da hepatite B é transmitido primariamente por via parenteral/sanguínea e percutânea (agulhas, instrumentos cortantes), e NÃO por via inalatória aérea.",
     "pegadinha": "A banca tentou induzir o erro na assertiva V: embora a máscara seja EPI indispensável contra aerossóis e gotículas de saliva, o HBV NÃO tem como via principal de transmissão a inalação aérea, e sim o contato parenteral percutâneo com sangue!",
     "incidencia_alta": true,
-    "incidencia_nota": "🔥 Caiu na prova de 2019, na prova de veteranos e nas fotos do WhatsApp!"
+    "incidencia_nota": " Caiu na prova de 2019, na prova de veteranos e nas fotos do WhatsApp!"
   },
   {
     "id": "BIO-02",
@@ -43,7 +43,7 @@
     "justificativa": "As máscaras cirúrgicas descartáveis possuem camada filtrante de microfibras eletrostáticas (meltblown). Quando umedecidas pela respiração ou perdigotos, as fibras colabam e perdem a barreira mecânica e eletrostática, permitindo a livre passagem de microrganismos. O tempo máximo seguro preconizado pelos protocolos clínicos é de 2 a 4 horas de uso contínuo ou troca imediata se houver umidade visível.",
     "pegadinha": "Lembre-se sempre: máscara úmida perde o poder de filtração!",
     "incidencia_alta": true,
-    "incidencia_nota": "🔥 Presente na Prova Oficial de 2019 e no caderno de questões de Biossegurança."
+    "incidencia_nota": " Presente na Prova Oficial de 2019 e no caderno de questões de Biossegurança."
   },
   {
     "id": "BIO-03",
@@ -66,7 +66,7 @@
     "justificativa": "A Asserção I é VERDADEIRA (o profissional sempre deve adotar a máxima segurança). A Asserção II é FALSA porque contradiz o princípio básico das Precauções Padrão (Universais): nenhum paciente pode ser classificado como de 'menor risco' do que outro. Um paciente assintomático e sem lesão visível pode ter infecção crônica por HBV com carga viral astronômica. Logo, a presença de pus local em abscesso bacteriano não torna o paciente mais perigoso viralmente do que qualquer outro paciente assintomático da clínica!",
     "pegadinha": "Nunca assuma que lesão purulenta dentária aumenta risco sistêmico de transmissão cruzada acima de um paciente saudável: as precauções são rigorosamente IGUAIS para todos!",
     "incidencia_alta": true,
-    "incidencia_nota": "🔥 Caiu na Prova 1 de Biossegurança e na Prova 2 de Veteranos (2021)!"
+    "incidencia_nota": " Caiu na Prova 1 de Biossegurança e na Prova 2 de Veteranos (2021)!"
   },
   {
     "id": "BIO-04",
@@ -89,7 +89,7 @@
     "justificativa": "Espremer ou ordenhar a lesão perfurocortante é terminantemente proibido: a compressão manual provoca microfissuras capilares e hiperemia reativa no leito tecidual, facilitando a penetração e absorção de vírus (HIV, Hepatite B e C) para o sistema linfático e vascular do profissional.",
     "pegadinha": "Conduta de emergência: Lavar abundantemente com água e sabão. NUNCA espremer, nunca usar hipoclorito no ferimento!",
     "incidencia_alta": true,
-    "incidencia_nota": "🔥 Presente na prova de 2022 (WhatsApp Image 18.41.12)!"
+    "incidencia_nota": " Presente na prova de 2022 (WhatsApp Image 18.41.12)!"
   },
   {
     "id": "BIO-05",
@@ -149,10 +149,10 @@
     ],
     "gabarito_oficial": 2,
     "resposta_correta": "c) Apenas II e III estão corretas.",
-    "justificativa": "• Assertiva I é FALSA (Pegadinha clássica da banca): Os anestésicos locais agem bloqueando os CANAIS DE SÓDIO ($Na^+$ voltagem-dependentes), e NÃO os canais de cálcio ($Ca^{2+}$).\n• Assertiva II é VERDADEIRA: O feixe nervoso é organizado concentricamente; o manto externo recebe primeiro o anestésico e mantém concentrações mais altas durante a absorção contínua da solução periférica.\n• Assertiva III é VERDADEIRA: Ao bloquear o influxo rápido de sódio, a membrana não atinge o potencial de disparo (firing threshold), abortando a propagação do impulso doloroso.",
+    "justificativa": "• Assertiva I é FALSA (Pegadinha clássica da banca): Os anestésicos locais agem bloqueando os CANAIS DE SÓDIO (Na⁺ voltagem-dependentes), e NÃO os canais de cálcio (Ca²⁺).\n• Assertiva II é VERDADEIRA: O feixe nervoso é organizado concentricamente; o manto externo recebe primeiro o anestésico e mantém concentrações mais altas durante a absorção contínua da solução periférica.\n• Assertiva III é VERDADEIRA: Ao bloquear o influxo rápido de sódio, a membrana não atinge o potencial de disparo (firing threshold), abortando a propagação do impulso doloroso.",
     "pegadinha": "A pegadinha de trocar canais de SÓDIO por CÁLCIO já anulou e decidiu provas na Unioeste. Guarde firme: Anestésico local bloqueia canal de SÓDIO (Na+)!",
     "incidencia_alta": true,
-    "incidencia_nota": "🔥 Caiu em 2020, 2021 e na Prova de 2022!"
+    "incidencia_nota": " Caiu em 2020, 2021 e na Prova de 2022!"
   },
   {
     "id": "FAR-02",
@@ -175,7 +175,7 @@
     "justificativa": "Correlação exata da Prova 2022 (WhatsApp Image 14.41.00):\n• I = Lidocaína: padrão-ouro mundial de eficácia e segurança desde 1948.\n• III = Bupivacaína: a mais potente (4x mais potente que lidocaína) e maior duração (anestesia pulpar de 1,5 a 3 horas e tecidos moles por até 8 a 12 horas).\n• II = Articaína: possui anel tiofeno lipossolúvel e grupo éster que permite rápida biotransformação pelas colinesterases plasmáticas no sangue (meia-vida de apenas 20 a 30 minutos).\n• IV = Prilocaína: biotransformada no fígado e pulmões com geração de o-toluidina, substrato que oxida a hemoglobina para meta-hemoglobina.",
     "pegadinha": "A Articaína é uma amida híbrida com cauda éster, metabolizada 90-95% no plasma, o que reduz sua toxicidade sistêmica mas não elimina riscos locais!",
     "incidencia_alta": true,
-    "incidencia_nota": "🔥 Questão retirada da foto oficial da prova teórica de 2022!"
+    "incidencia_nota": " Questão retirada da foto oficial da prova teórica de 2022!"
   },
   {
     "id": "FAR-03",
@@ -218,7 +218,7 @@
     "justificativa": "Para pacientes onde catecolaminas adrenérgicas (adrenalina, noradrenalina) são estritamente contraindicadas:\n1. Mepivacaína a 3% sem vasoconstritor é a primeira opção, pois possui atividade vasodilatadora intrínseca muito menor do que a lidocaína, garantindo anestesia pulpar clínica adequada (20 a 40 minutos) sem sobrecarregar o sistema cardiovascular;\n2. Prilocaína a 3% com Felipressina 0,03 UI/mL: a felipressina é um polipeptídeo sintético não adrenérgico que atua sobre a musculatura lisa das vênulas sem estimular receptores cardíacos beta-1.",
     "pegadinha": "Questão direta extraída da foto da Prova 2022 (WhatsApp Image 18.41.12 Questão 2)!",
     "incidencia_alta": true,
-    "incidencia_nota": "🔥 Presente na prova de 2022 e na Prova 2 de Veteranos!"
+    "incidencia_nota": " Presente na prova de 2022 e na Prova 2 de Veteranos!"
   },
   {
     "id": "FAR-05",
@@ -238,10 +238,10 @@
     ],
     "gabarito_oficial": 0,
     "resposta_correta": "a) No máximo 2 tubetes.",
-    "justificativa": "Passo a passo do cálculo do fator limitante:\n1. Dose limite de Epinefrina para cardiopata (Malamed / AHA): 0,04 mg por atendimento (para paciente saudável seria 0,2 mg).\n2. Quantidade de epinefrina por tubete a 1:100.000: $\\frac{1\\text{ g}}{100.000\\text{ mL}} = 0,01\\text{ mg/mL}$. Como o tubete possui 1,8 mL: $1,8\\text{ mL} \\times 0,01\\text{ mg/mL} = 0,018\\text{ mg}$ de adrenalina por tubete.\n3. Cálculo de tubetes: $\\frac{0,04\\text{ mg}}{0,018\\text{ mg/tubete}} = 2,22\\text{ tubetes}$. Arredondando por segurança clínica para baixo: NO MÁXIMO 2 TUBETES (totalizando 0,036 mg de epinefrina).\n• E quanto ao sal Articaína 4% (40 mg/mL = 72 mg/tubete)? A dose máxima para 70 kg a 7 mg/kg seria 490 mg (~6,8 tubetes). Porém, no paciente cardiopata, o VASOCONSTRITOR atinge o limite tóxico muito antes do sal anestésico!",
+    "justificativa": "Passo a passo do cálculo do fator limitante:\n1. Dose limite de Epinefrina para cardiopata (Malamed / AHA): 0,04 mg por atendimento (para paciente saudável seria 0,2 mg).\n2. Quantidade de epinefrina por tubete a 1:100.000: 1 g ÷ 100.000 mL = 0,01 mg/mL. Como o tubete possui 1,8 mL: 1,8\\text{ mL} × 0,01\\text{ mg/mL} = 0,018\\text{ mg} de adrenalina por tubete.\n3. Cálculo de tubetes: 0,04 mg ÷ 0,018 mg/tubete = 2,22 tubetes. Arredondando por segurança clínica para baixo: NO MÁXIMO 2 TUBETES (totalizando 0,036 mg de epinefrina).\n• E quanto ao sal Articaína 4% (40 mg/mL = 72 mg/tubete)? A dose máxima para 70 kg a 7 mg/kg seria 490 mg (~6,8 tubetes). Porém, no paciente cardiopata, o VASOCONSTRITOR atinge o limite tóxico muito antes do sal anestésico!",
     "pegadinha": "Em pacientes cardiopatas, o teto da adrenalina (0,04 mg) sempre limita o número de tubetes a 2 tubetes (se 1:100.000) ou 4 tubetes (se 1:200.000)!",
     "incidencia_alta": true,
-    "incidencia_nota": "🔥 O tipo de cálculo mais exigido pela banca nas 4 provas da disciplina!"
+    "incidencia_nota": " O tipo de cálculo mais exigido pela banca nas 4 provas da disciplina!"
   },
   {
     "id": "FAR-06",
@@ -284,7 +284,7 @@
     "justificativa": "Para a exodontia do 17 e 18:\n• O Nervo Alveolar Superior Posterior (ASP) inerva a polpa, periodonto e osso do 3º molar (18), 2º molar (17) e raízes distal e palatina do 1º molar (16).\n• O Nervo Palatino Maior inerva a mucosa do palato duro e periodonto palatino posterior de molares até pré-molares.\n• Técnica do ASP: agulha curta (para evitar atingir o plexo venoso pterigóideo), inserção na dobra mucovestibular acima do segundo molar superior, ângulo de 45° superior, 45° medial e 45° posterior, penetração de 16 mm com aspiração prévia em dois planos.",
     "pegadinha": "Usar agulha LONGA no ASP é um erro gravíssimo que a banca adora cobrar, pois agulha longa atinge o plexo pterigóideo e causa hematoma facial dramático!",
     "incidencia_alta": true,
-    "incidencia_nota": "🔥 Caiu literalmente na Prova Teórica 2021 de Veteranos (Questão 02)!"
+    "incidencia_nota": " Caiu literalmente na Prova Teórica 2021 de Veteranos (Questão 02)!"
   },
   {
     "id": "TEC-02",
@@ -307,7 +307,7 @@
     "justificativa": "O forame infraorbital situa-se na maxila anterior, de 8 a 10 mm abaixo do rebordo infraorbital inferior, palpável ao longo da linha vertical pupilar. Na técnica intrabucal, a agulha penetra na dobra mucovestibular na altura do 1º pré-molar e ascende paralelamente ao longo eixo até a proximidade do forame (sentindo-se a ponta da agulha sob o dedo indicador que palpa a incisura). Deposita-se de 0,9 a 1,2 mL sob suave compressão digital por 1 a 2 minutos para forçar a penetração retrógrada no canal infraorbital.",
     "pegadinha": "Nunca empurre a agulha com força para dentro do canal ósseo infraorbital sob risco de penetração na órbita ocular!",
     "incidencia_alta": true,
-    "incidencia_nota": "🔥 Presente na Prova de Veteranos (Questões 04 e 05) e no Estudo Dirigido Oficial!"
+    "incidencia_nota": " Presente na Prova de Veteranos (Questões 04 e 05) e no Estudo Dirigido Oficial!"
   },
   {
     "id": "TEC-03",
@@ -330,7 +330,7 @@
     "justificativa": "Parâmetros do Bloqueio do NAI (Direta):\n1. Agulha LONGA;\n2. Altura: 6 a 10 mm acima do plano oclusal inferior (altura do ponto mais côncavo da incisura coronóide);\n3. Localização transversal: na depressão do trígono retromolar, entre a crista temporal e a prega pterigomandibular;\n4. Posição da seringa: apoiada sobre os pré-molares do lado oposto;\n5. Penetração: 20 a 25 mm até OBRIGATORIAMENTE TOCAR O OSSO. Se não tocar em osso e penetrar muito profundamente, a agulha está na glândula parótida -> risco de paralisia facial transitória!\n6. O nervo bucal requer injeção própria separada na mucosa vestibular adjacente ao último molar.",
     "pegadinha": "Tocar em osso é a garantia de que a agulha não foi além do ramo mandibular para dentro da parótida!",
     "incidencia_alta": true,
-    "incidencia_nota": "🔥 O tema disparado mais cobrado de toda a disciplina (P3, P4, Prova de 2020)!"
+    "incidencia_nota": " O tema disparado mais cobrado de toda a disciplina (P3, P4, Prova de 2020)!"
   },
   {
     "id": "TEC-04",
@@ -353,7 +353,7 @@
     "justificativa": "Esta questão esteve presente nas fotos da Prova 2023 (WhatsApp Image 15.11.25 Questão 13) e em todas as provas de veteranos. O bloqueio do NAI + Lingual anestesia: dentes inferiores do quadrante até a linha média, osso mandibular, periodonto vestibular de pré-molares a incisivos, lábio inferior e mento (pelo n. mentoniano), 2/3 anteriores da língua e assoalho da boca (pelo n. lingual). A mucosa vestibular de molares inferiores NÃO é anestesiada, pois depende do Nervo Bucal!",
     "pegadinha": "Pegadinha clássica de prova: afirmar que o pterigomandibular anestesia o mucoperiósteo vestibular dos molares inferiores. NÃO anestesia! Para mexer em gengiva vestibular de molares precisa anestesiar o nervo bucal!",
     "incidencia_alta": true,
-    "incidencia_nota": "🔥 Presente na prova de 2023, 2021 e 2020!"
+    "incidencia_nota": " Presente na prova de 2023, 2021 e 2020!"
   },
   {
     "id": "TEC-05",
@@ -376,7 +376,7 @@
     "justificativa": "• GOW-GATES (Bloqueio Mandibular Verdadeiro): boca aberta ao máximo. Ponto de punção na mucosa logo abaixo da cúspide mésio-palatina do 2º molar superior; alvo anatômico no colo do côndilo mandibular com contato ósseo. Bloqueia quase 100% dos ramos do V3 (inclusive o bucal!).\n• VAZIRANI-AKINOSI: boca fechada em oclusão suave. Agulha longa avança paralela ao plano oclusal na junção mucogengival superior, sem tocar em osso. Indicada formalmente para pacientes com trismo ou anquilose da ATM.",
     "pegadinha": "Mnemônico anti-confusão: Akinosi = Boca Fechada (para trismo). Gow-Gates = Colo do Côndilo (abertura máxima, pega todo o V3)!",
     "incidencia_alta": true,
-    "incidencia_nota": "🔥 Presente nos resumos da Gi Sayumi, Prova 3 e Prova 4!"
+    "incidencia_nota": " Presente nos resumos da Gi Sayumi, Prova 3 e Prova 4!"
   },
   {
     "id": "TEC-06",
@@ -399,7 +399,7 @@
     "justificativa": "O nervo nasopalatino emerge pelo forame incisivo e inerva tecidos moles palatinos de canino a canino. O nervo palatino maior emerge pelo forame palatino maior (altura do 2º/3º molar) e inerva a mucosa palatina posterior até pré-molares. NENHUM bloqueio palatino anestesia a polpa de dentes; eles anestesiam exclusivamente a mucosa e o periodonto palatino!",
     "pegadinha": "Lembre-se: técnicas palatinas NÃO anestesiam a polpa dental!",
     "incidencia_alta": true,
-    "incidencia_nota": "🔥 Questão recorrente nas provas teóricas e práticas da Unioeste!"
+    "incidencia_nota": " Questão recorrente nas provas teóricas e práticas da Unioeste!"
   },
   {
     "id": "ACI-01",
@@ -422,7 +422,7 @@
     "justificativa": "Correlação cobrada na prova de Cascavel (WhatsApp Image 18.41.11):\n1. (B) Escara: isquemia tecidual por excesso de vasoconstritor e pressão na mucosa palatina;\n2. (E) Anestesia prolongada química: contaminação de tubetes mergulhados em álcool ou antissépticos que penetram pelo diafragma;\n3. (C) Assimetria facial: punção mandibular muito posterior sem contato ósseo, penetrando na glândula parótida e anestesiando o nervo facial (VII par);\n4. (A) Parestesia: trauma direto da agulha nas fibras do nervo lingual;\n5. (D) Diplopia: difusão para a órbita no bloqueio infraorbital ou ASP.",
     "pegadinha": "A paralisia facial na anestesia odontológica não é lesão do trigêmeo, e sim anestesia transitória acidental do nervo facial (VII par) na parótida!",
     "incidencia_alta": true,
-    "incidencia_nota": "🔥 Retirada diretamente da foto da prova (WhatsApp Image 18.41.11)!"
+    "incidencia_nota": " Retirada diretamente da foto da prova (WhatsApp Image 18.41.11)!"
   },
   {
     "id": "ACI-02",
@@ -445,7 +445,7 @@
     "justificativa": "• Lipotimia: pré-síncope com mal-estar, sudorese fria e sensação de desmaio, mas com preservação da consciência.\n• Síncope: perda súbita e reversível da consciência por isquemia cerebral transitória reflexa.\n• Conduta: Posição Supina com membros inferiores elevados (15° a 30°), afrouxar roupas apertadas e ventilar o paciente. Nunca ofereça líquidos ou alimentos a uma pessoa inconsciente devido ao risco imediato de asfixia por broncoaspiração!",
     "pegadinha": "Questão clássica exigida no Estudo Dirigido Oficial e em provas da disciplina!",
     "incidencia_alta": true,
-    "incidencia_nota": "🔥 Presente na Prova 3 (Questão 01) e no Estudo Dirigido (Questão 22)!"
+    "incidencia_nota": " Presente na Prova 3 (Questão 01) e no Estudo Dirigido (Questão 22)!"
   },
   {
     "id": "ACI-03",
@@ -455,7 +455,7 @@
     "ano": "Recorrente",
     "tema": "Complicações Farmacológicas Específicas: Meta-hemoglobinemia",
     "tipo": "multipla_escolha",
-    "enunciado": "A meta-hemoglobinemia é uma complicação potencialmente letal onde o ferro da hemoglobina é oxidado do estado ferroso ($Fe^{2+}$) para o férrico ($Fe^{3+}$), incapacitando o transporte de oxigênio aos tecidos. Qual dos anestésicos locais abaixo é o principal agente etiológico associado à meta-hemoglobinemia em odontologia por meio de seu metabólito hepático (orto-toluidina), qual o sinal clínico patognomônico e qual o antídoto de escolha?",
+    "enunciado": "A meta-hemoglobinemia é uma complicação potencialmente letal onde o ferro da hemoglobina é oxidado do estado ferroso (Fe²⁺) para o férrico (Fe³⁺), incapacitando o transporte de oxigênio aos tecidos. Qual dos anestésicos locais abaixo é o principal agente etiológico associado à meta-hemoglobinemia em odontologia por meio de seu metabólito hepático (orto-toluidina), qual o sinal clínico patognomônico e qual o antídoto de escolha?",
     "alternativas": [
       "a) Lidocaína; hipertermia maligna; antídoto: Dantroleno sódico.",
       "b) Prilocaína (e em doses altas a Articaína); cianose acinzentada em lábios, leito ungueal e mucosa que não reverte com oxigenioterapia a 100%; antídoto: Azul de Metileno a 1% intravenoso (1 a 2 mg/kg).",
@@ -465,10 +465,10 @@
     ],
     "gabarito_oficial": 1,
     "resposta_correta": "b) Prilocaína (e em doses altas a Articaína); cianose acinzentada em lábios, leito ungueal e mucosa que não reverte com oxigenioterapia a 100%; antídoto: Azul de Metileno a 1% intravenoso (1 a 2 mg/kg).",
-    "justificativa": "A Prilocaína é metabolizada nos pulmões e fígado, liberando o-toluidina, potente oxidante da hemoglobina. O sangue adquire coloração marrom-achocolatada e o paciente apresenta cianose que não responde a $O_2$ puro. O tratamento de urgência é a infusão intravenosa lenta de solução de Azul de Metileno a 1% (1 a 2 mg/kg em 5 minutos).",
+    "justificativa": "A Prilocaína é metabolizada nos pulmões e fígado, liberando o-toluidina, potente oxidante da hemoglobina. O sangue adquire coloração marrom-achocolatada e o paciente apresenta cianose que não responde a O₂ puro. O tratamento de urgência é a infusão intravenosa lenta de solução de Azul de Metileno a 1% (1 a 2 mg/kg em 5 minutos).",
     "pegadinha": "Prilocaína é contraindicada em pacientes anêmicos, portadores de meta-hemoglobinemia congênita e gestantes!",
     "incidencia_alta": true,
-    "incidencia_nota": "🔥 Cobrado em Farmacologia e no Módulo de Complicações da P4."
+    "incidencia_nota": " Cobrado em Farmacologia e no Módulo de Complicações da P4."
   },
   {
     "id": "ACI-04",
@@ -491,7 +491,7 @@
     "justificativa": "O trismo pós-anestésico decorre de espasmo muscular por trauma direto no pterigóideo medial ou hematoma no espaço pterigomandibular. Conduta: calor úmido, analgésicos, AINEs, relaxante muscular e exercícios de abertura bucal. Para evitar quebra de agulha: NUNCA dobrar a agulha, NUNCA inseri-la até o canhão (deixar sempre pelo menos 5 mm expostos) e NUNCA mudar de direção com a agulha em profundidade nos tecidos moles.",
     "pegadinha": "Se a agulha quebrar e desaparecer nos tecidos, NUNCA tente cortar às cegas no consultório: encaminhe com calma para exame tomográfico e especialista bucomaxilofacial!",
     "incidencia_alta": true,
-    "incidencia_nota": "🔥 Tema frequente da Prova 4 e de simulados clínicos."
+    "incidencia_nota": " Tema frequente da Prova 4 e de simulados clínicos."
   },
   {
     "id": "ACI-05",
@@ -533,7 +533,7 @@
     "resposta_correta": "a) Todas as proposições (01, 02, 04 e 08) são clinicamente verdadeiras.",
     "justificativa": "Todas as proposições trazem conceitos centrais cobrados em provas da Unioeste:\n• Maxila: osso poroso com cortical fina -> infiltrativa funciona muito bem.\n• Mandíbula: osso denso e cortical grossa -> infiltrativa é insuficiente em molares inferiores, exigindo bloqueio troncular do NAI.\n• Fisiologia neural: fibras do manto são periféricas e bloqueadas primeiro.\n• Referência de punção direta: 1 cm (6 a 10 mm) acima do plano oclusal inferior.",
     "incidencia_alta": true,
-    "incidencia_nota": "🔥 Questão somatória clássica presente nas provas de 2021 e 2022!"
+    "incidencia_nota": " Questão somatória clássica presente nas provas de 2021 e 2022!"
   },
   {
     "id": "REV-02",
@@ -556,7 +556,7 @@
     "justificativa": "A grande maioria dos casos de parestesia por trauma anestésico ou cirúrgico regride espontaneamente entre 8 semanas a 6 meses. O protocolo clínico padrão ouro inclui acolhimento do paciente, registro minucioso em prontuário, mapeamento dos limites sensoriais, laserterapia de baixa potência (bioestimulação celular) e complexo vitamínico B. Intervenção cirúrgica de microneurorrafia só é cogitada se não houver qualquer sinal de retorno sensorial após 6 a 12 meses.",
     "pegadinha": "A conduta inicial é sempre conservadora e de acolhimento; mais de 90% dos casos regeneram com o tempo!",
     "incidencia_alta": true,
-    "incidencia_nota": "🔥 Questão recorrente no Módulo de Complicações e nas provas práticas."
+    "incidencia_nota": " Questão recorrente no Módulo de Complicações e nas provas práticas."
   },
   {
     "id": "REV-03",
@@ -579,7 +579,7 @@
     "justificativa": "Fundamentos da anestesia atraumática de Malamed:\n• Secar o sítio mucoso;\n• Deixar o tópico agir por 1 a 2 minutos;\n• Bisel orientado para o osso (desliza sem rasgar o periósteo);\n• Aspiração negativa em dois planos para afastar injeção intravascular;\n• Velocidade lenta de injeção (1 tubete em 60 a 120 segundos) para não romper feixes de colágeno pelo estresse hidrodinâmico;\n• Reencapamento seguro pela técnica da concha com uma só mão (atendendo à NR-32).",
     "pegadinha": "Cobrado no Estudo Dirigido (Questão 09) e nas aulas teóricas de Introdução à Anestesiologia!",
     "incidencia_alta": true,
-    "incidencia_nota": "🔥 Cobrado em provas teóricas e obrigatório na avaliação de clínica prática!"
+    "incidencia_nota": " Cobrado em provas teóricas e obrigatório na avaliação de clínica prática!"
   },
   {
     "id": "REV-04",

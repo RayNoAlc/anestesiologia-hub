@@ -61,6 +61,13 @@ document.addEventListener('DOMContentLoaded', () => {
     initQuizControls();
     setupCalculator();
     updateGlobalProgress();
+    refreshIcons();
+  }
+
+  function refreshIcons() {
+    if (window.lucide) {
+      window.lucide.createIcons();
+    }
   }
 
   // =========================================================================
@@ -94,8 +101,8 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function playSoundSuccess() {
-    playTone(523.25, 'sine', 0.1); // C5
-    setTimeout(() => playTone(659.25, 'sine', 0.15), 100); // E5
+    playTone(523.25, 'sine', 0.1);
+    setTimeout(() => playTone(659.25, 'sine', 0.15), 100);
   }
 
   function playSoundWrong() {
@@ -104,8 +111,8 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function playSoundChime() {
-    playTone(587.33, 'sine', 0.15); // D5
-    setTimeout(() => playTone(880.00, 'sine', 0.3), 150); // A5
+    playTone(587.33, 'sine', 0.15);
+    setTimeout(() => playTone(880.00, 'sine', 0.3), 150);
   }
 
   // =========================================================================
@@ -127,12 +134,13 @@ document.addEventListener('DOMContentLoaded', () => {
         if (targetPane) targetPane.classList.add('active');
         
         window.scrollTo({ top: 0, behavior: 'smooth' });
+        refreshIcons();
       });
     });
   }
 
   // =========================================================================
-  // 4. TIMER POMODORO ANTI-TDAH
+  // 4. TIMER DE ESTUDOS
   // =========================================================================
   function initPomodoro() {
     const timerDisplay = document.getElementById('pomodoroDisplay');
@@ -149,19 +157,18 @@ document.addEventListener('DOMContentLoaded', () => {
     function tick() {
       if (state.pomodoroSeconds === 0) {
         if (state.pomodoroMinutes === 0) {
-          // Pomodoro finalizado!
           playSoundChime();
           clearInterval(state.pomodoroInterval);
           state.pomodoroIsRunning = false;
-          if (toggleBtn) toggleBtn.innerHTML = '▶';
+          updatePlayIcon();
           
           if (!state.pomodoroIsBreak) {
-            alert('🎉 Parabéns! Ciclo de foco de 25 min concluído! Descanse 5 minutos.');
+            alert('Ciclo de foco de 25 min concluído! Intervalo de 5 minutos.');
             state.pomodoroIsBreak = true;
             state.pomodoroMinutes = 5;
-            if (label) label.textContent = 'Pausa Curta';
+            if (label) label.textContent = 'Intervalo';
           } else {
-            alert('⏰ Pausa concluída! Pronto para mais um bloco de foco?');
+            alert('Intervalo concluído! Retornando ao bloco de foco.');
             state.pomodoroIsBreak = false;
             state.pomodoroMinutes = 25;
             if (label) label.textContent = 'Foco';
@@ -178,16 +185,24 @@ document.addEventListener('DOMContentLoaded', () => {
       updateDisplay();
     }
 
+    function updatePlayIcon() {
+      if (!toggleBtn) return;
+      toggleBtn.innerHTML = state.pomodoroIsRunning 
+        ? '<i data-lucide="pause"></i>' 
+        : '<i data-lucide="play"></i>';
+      refreshIcons();
+    }
+
     if (toggleBtn) {
       toggleBtn.addEventListener('click', () => {
         if (state.pomodoroIsRunning) {
           clearInterval(state.pomodoroInterval);
           state.pomodoroIsRunning = false;
-          toggleBtn.innerHTML = '▶';
+          updatePlayIcon();
         } else {
           state.pomodoroInterval = setInterval(tick, 1000);
           state.pomodoroIsRunning = true;
-          toggleBtn.innerHTML = '⏸';
+          updatePlayIcon();
         }
       });
     }
@@ -196,7 +211,7 @@ document.addEventListener('DOMContentLoaded', () => {
       resetBtn.addEventListener('click', () => {
         clearInterval(state.pomodoroInterval);
         state.pomodoroIsRunning = false;
-        if (toggleBtn) toggleBtn.innerHTML = '▶';
+        updatePlayIcon();
         state.pomodoroIsBreak = false;
         state.pomodoroMinutes = 25;
         state.pomodoroSeconds = 0;
@@ -209,7 +224,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // =========================================================================
-  // 5. MODO FOCO ANTI-DISTRAÇÃO
+  // 5. MODO FOCO
   // =========================================================================
   function initModoFoco() {
     const btnFoco = document.getElementById('btnModoFoco');
@@ -219,7 +234,10 @@ document.addEventListener('DOMContentLoaded', () => {
       state.modoFoco = !state.modoFoco;
       document.body.classList.toggle('modo-foco-ativo', state.modoFoco);
       if (btnFoco) {
-        btnFoco.innerHTML = state.modoFoco ? '✕ Sair do Foco' : '🎯 Modo Foco';
+        btnFoco.innerHTML = state.modoFoco 
+          ? '<i data-lucide="minimize-2"></i><span>Sair do Foco</span>' 
+          : '<i data-lucide="maximize-2"></i><span>Modo Foco</span>';
+        refreshIcons();
       }
     }
 
@@ -231,24 +249,18 @@ document.addEventListener('DOMContentLoaded', () => {
   // 6. ATUALIZAÇÃO DO PROGRESSO GLOBAL
   // =========================================================================
   function updateGlobalProgress() {
-    // Total de subtópicos nos resumos
     let totalSubtopics = 0;
     state.resumos.forEach(r => totalSubtopics += (r.subtopicos ? r.subtopicos.length : 0));
     const completedCount = state.completedSubtopics.length;
     
-    // Percentual
     const pct = totalSubtopics > 0 ? Math.round((completedCount / totalSubtopics) * 100) : 0;
     
     const fill = document.getElementById('globalProgressFill');
     if (fill) fill.style.width = `${pct}%`;
 
-    const label = document.getElementById('topProgressLabel');
-    if (label) label.textContent = `${pct}% Dominado (${completedCount}/${totalSubtopics} tópicos)`;
-    
     const badgeCount = document.getElementById('dashTopicsCount');
     if (badgeCount) badgeCount.textContent = `${completedCount}/${totalSubtopics}`;
     
-    // Total de questões acertadas
     let totalCorrect = 0;
     Object.values(state.answeredQuestions).forEach(st => {
       if (st.correct) totalCorrect++;
@@ -261,12 +273,11 @@ document.addEventListener('DOMContentLoaded', () => {
   // 7. SEÇÃO 1: RENDERIZAÇÃO DO RAIO-X DAS PROVAS
   // =========================================================================
   function renderRaioXStats() {
-    // Ranking calculado a partir da recorrência real das provas da Unioeste
     const ranking = [
       { tema: "Bloqueio Pterigomandibular (NAI, Lingual, Bucal, falhas e referências)", pct: 28, cor: "var(--mod3-color)", qCount: "8 questões" },
       { tema: "Farmacologia Comparada, Vasoconstritores & Pacientes Cardiopatas", pct: 24, cor: "var(--mod2-color)", qCount: "7 questões" },
       { tema: "Acidentes & Complicações (Parestesia, Trismo, Paralisia e Síncope)", pct: 20, cor: "var(--mod4-color)", qCount: "6 questões" },
-      { tema: "Técnicas Maxilares Infiltrativas e Bloqueio ASP (Pós-túber) e Infraorbital", pct: 16, cor: "var(--mod3-color)", qCount: "4 questões" },
+      { tema: "Técnicas Maxilares Infiltrativas e Bloqueio ASP e Infraorbital", pct: 16, cor: "var(--mod3-color)", qCount: "4 questões" },
       { tema: "Biossegurança, Classificação de Spaulding e Autoclaves", pct: 12, cor: "var(--mod1-color)", qCount: "3 questões" }
     ];
 
@@ -279,7 +290,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="rank-info">
           <div class="rank-title-row">
             <span class="rank-name">${r.tema}</span>
-            <span class="rank-pct">${r.pct}% das provas (${r.qCount})</span>
+            <span class="rank-pct">${r.pct}% (${r.qCount})</span>
           </div>
           <div class="rank-bar-bg">
             <div class="rank-bar-fill" style="width: ${r.pct * 3.2}%; background: ${r.cor}"></div>
@@ -290,7 +301,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // =========================================================================
-  // 8. SEÇÃO 2: RENDERIZAÇÃO DOS RESUMOS DIDÁTICOS MODULARES
+  // 8. SEÇÃO 2: RENDERIZAÇÃO DOS RESUMOS TEÓRICOS MODULARES
   // =========================================================================
   function renderResumos() {
     const container = document.getElementById('resumosContainer');
@@ -303,12 +314,12 @@ document.addEventListener('DOMContentLoaded', () => {
           <div class="subtopic-item" id="item_${sub.sub_id}">
             <div class="subtopic-header" data-subid="${sub.sub_id}">
               <div class="subtopic-title-wrap">
-                <button class="check-topic-btn ${isDone ? 'completed' : ''}" data-subid="${sub.sub_id}" title="Marcar como Dominado">
-                  ✓
+                <button class="check-topic-btn ${isDone ? 'completed' : ''}" data-subid="${sub.sub_id}" title="Marcar como concluído">
+                  <i data-lucide="check"></i>
                 </button>
                 <span class="subtopic-title">${sub.titulo}</span>
               </div>
-              <span class="subtopic-chevron">▼</span>
+              <i data-lucide="chevron-down" class="subtopic-chevron"></i>
             </div>
             <div class="subtopic-body">
               ${sub.conteudo_html}
@@ -321,9 +332,12 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="module-section-card" data-mod="${mod.modulo}">
           <div class="module-header-box ${mod.cor}">
             <div class="module-title-wrap">
-              <h3>${mod.icone} ${mod.titulo}</h3>
+              <h3>
+                <i data-lucide="${mod.icone || 'book-open'}"></i>
+                <span>${mod.titulo}</span>
+              </h3>
               <div class="module-meta-badges">
-                <span>⏱️ Leitura: ${mod.tempo_leitura}</span>
+                <span>Tempo estimado: ${mod.tempo_leitura}</span>
                 <span>${mod.incidencia_prova}</span>
               </div>
             </div>
@@ -338,14 +352,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // Eventos dos acordeões
     container.querySelectorAll('.subtopic-header').forEach(header => {
       header.addEventListener('click', (e) => {
-        // Se clicou no botão de checklist, não fecha o acordeão
         if (e.target.closest('.check-topic-btn')) return;
         const item = header.closest('.subtopic-item');
         item.classList.toggle('open');
       });
     });
 
-    // Eventos dos botões de checklist ("Marcar como dominado")
+    // Eventos dos botões de checklist
     container.querySelectorAll('.check-topic-btn').forEach(btn => {
       btn.addEventListener('click', (e) => {
         e.stopPropagation();
@@ -366,7 +379,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
 
-    // Filtros de módulo nos resumos
+    // Filtros de módulo
     const modFilterBtns = document.querySelectorAll('.mod-filter-btn');
     modFilterBtns.forEach(btn => {
       btn.addEventListener('click', () => {
@@ -384,10 +397,12 @@ document.addEventListener('DOMContentLoaded', () => {
         });
       });
     });
+
+    refreshIcons();
   }
 
   // =========================================================================
-  // 9. SEÇÃO 3: QUIZ INTERATIVO ANTI-TDAH
+  // 9. SEÇÃO 3: QUIZ INTERATIVO
   // =========================================================================
   function initQuizControls() {
     const modeBtns = document.querySelectorAll('.quiz-mode-btn');
@@ -397,7 +412,6 @@ document.addEventListener('DOMContentLoaded', () => {
         btn.classList.add('active');
         state.quizMode = btn.getAttribute('data-mode');
         
-        // Exibir select de módulo se modo for "by_mod"
         const modSelectWrap = document.getElementById('quizModSelectWrap');
         if (modSelectWrap) {
           modSelectWrap.style.display = (state.quizMode === 'by_mod') ? 'block' : 'none';
@@ -434,7 +448,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (retryWrongBtn) {
       retryWrongBtn.addEventListener('click', () => {
         if (state.currentRoundWrong.length === 0) {
-          alert('Você acertou 100%! Nenhuma questão para repetir.');
+          alert('Nenhuma questão incorreta nesta rodada.');
           return;
         }
         state.quizQueue = [...state.currentRoundWrong];
@@ -462,10 +476,9 @@ document.addEventListener('DOMContentLoaded', () => {
     let pool = [...state.questoes];
 
     if (state.quizMode === 'repeat_wrong') {
-      // Filtrar apenas questões que o usuário errou no histórico
       const wrongIds = Object.keys(state.answeredQuestions).filter(id => !state.answeredQuestions[id].correct);
       if (wrongIds.length === 0) {
-        alert('Você não tem questões erradas registradas no momento! Selecione outro modo para treinar.');
+        alert('Você não tem questões com erro registradas no momento.');
         return;
       }
       pool = pool.filter(q => wrongIds.includes(q.id));
@@ -494,7 +507,6 @@ document.addEventListener('DOMContentLoaded', () => {
     state.currentRoundWrong = [];
     state.isAnswerLocked = false;
 
-    // Alternar visibilidade
     document.getElementById('quizControlsCard').style.display = 'none';
     document.getElementById('quizSummaryCard').classList.remove('visible');
     document.getElementById('quizActiveArea').classList.add('visible');
@@ -510,7 +522,6 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    // Progresso da bateria
     const total = state.quizQueue.length;
     const cur = state.currentQuizIndex + 1;
     const pct = Math.round((cur / total) * 100);
@@ -521,31 +532,27 @@ document.addEventListener('DOMContentLoaded', () => {
     const fill = document.getElementById('quizProgressFill');
     if (fill) fill.style.width = `${pct}%`;
 
-    // Metadados
     const badgesContainer = document.getElementById('qBadges');
     if (badgesContainer) {
-      let badgesHtml = `<span class="q-badge mod${q.modulo}">Módulo ${q.modulo}</span>`;
-      badgesHtml += `<span class="q-badge" style="background: rgba(255,255,255,0.1); color: #fff;">${q.prova_origem}</span>`;
+      let badgesHtml = `<span class="q-badge">Módulo ${q.modulo}</span>`;
+      badgesHtml += `<span class="q-badge">${q.prova_origem}</span>`;
       if (q.incidencia_alta) {
-        badgesHtml += `<span class="q-badge hot">🔥 Alta Frequência</span>`;
+        badgesHtml += `<span class="q-badge hot">Alta Frequência</span>`;
       }
       badgesContainer.innerHTML = badgesHtml;
     }
 
-    // ID
     const qIdEl = document.getElementById('qId');
     if (qIdEl) qIdEl.textContent = q.id;
 
-    // Enunciado
     const enunciadoEl = document.getElementById('qEnunciado');
     if (enunciadoEl) enunciadoEl.textContent = q.enunciado;
 
-    // Alternativas
     const altsContainer = document.getElementById('qAlternativas');
     if (altsContainer) {
       altsContainer.innerHTML = q.alternativas.map((alt, idx) => `
         <button class="alt-btn" data-index="${idx}">
-          <span style="font-weight: 700; color: #38bdf8;">${String.fromCharCode(65 + idx)}</span>
+          <span style="font-weight: 600; color: #94a3b8; width: 18px;">${String.fromCharCode(65 + idx)}</span>
           <span>${alt.replace(/^[a-eA-E]\)\s*/, '')}</span>
         </button>
       `).join('');
@@ -559,12 +566,13 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
-    // Ocultar feedback
     const feedbackBox = document.getElementById('feedbackBox');
     if (feedbackBox) feedbackBox.classList.remove('visible');
     
     const nextBtn = document.getElementById('btnNextQuestion');
     if (nextBtn) nextBtn.style.display = 'none';
+
+    refreshIcons();
   }
 
   function handleSelectAnswer(selectedIdx, question) {
@@ -590,7 +598,6 @@ document.addEventListener('DOMContentLoaded', () => {
       playSoundWrong();
     }
 
-    // Registrar no histórico persistente
     state.answeredQuestions[question.id] = {
       correct: isCorrect,
       timestamp: Date.now()
@@ -598,7 +605,6 @@ document.addEventListener('DOMContentLoaded', () => {
     localStorage.setItem('anestesio_answered_stats', JSON.stringify(state.answeredQuestions));
     updateGlobalProgress();
 
-    // Exibir justificativa detalhada
     const feedbackBox = document.getElementById('feedbackBox');
     const feedbackHeader = document.getElementById('feedbackHeader');
     const feedbackText = document.getElementById('feedbackText');
@@ -608,7 +614,9 @@ document.addEventListener('DOMContentLoaded', () => {
       feedbackBox.classList.add('visible');
       if (feedbackHeader) {
         feedbackHeader.className = `feedback-header ${isCorrect ? 'correct' : 'wrong'}`;
-        feedbackHeader.innerHTML = isCorrect ? '🎉 Resposta Correta!' : '❌ Resposta Incorreta!';
+        feedbackHeader.innerHTML = isCorrect 
+          ? '<i data-lucide="check-circle-2"></i><span>Alternativa Correta</span>' 
+          : '<i data-lucide="x-circle"></i><span>Alternativa Incorreta</span>';
       }
       if (feedbackText) {
         feedbackText.textContent = question.justificativa;
@@ -616,7 +624,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (pegadinhaBox) {
         if (question.pegadinha) {
           pegadinhaBox.style.display = 'block';
-          pegadinhaBox.innerHTML = `<strong>⚠️ Atenção à Pegadinha:</strong> ${question.pegadinha}`;
+          pegadinhaBox.innerHTML = `<strong>Atenção:</strong> ${question.pegadinha}`;
         } else {
           pegadinhaBox.style.display = 'none';
         }
@@ -625,9 +633,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const nextBtn = document.getElementById('btnNextQuestion');
     if (nextBtn) {
-      nextBtn.style.display = 'inline-block';
+      nextBtn.style.display = 'inline-flex';
       nextBtn.focus();
     }
+
+    refreshIcons();
   }
 
   function advanceQuizQuestion() {
@@ -658,25 +668,27 @@ document.addEventListener('DOMContentLoaded', () => {
     const desc = document.getElementById('summaryDesc');
 
     if (pct >= 80) {
-      title.textContent = '🏆 Excelente Desempenho!';
-      desc.textContent = 'Você demonstrou grande domínio dos conteúdos da prova. Continue mantendo a consistência!';
+      title.textContent = 'Alto Desempenho';
+      desc.textContent = `Você acertou ${score} de ${total} questões. Domínio consistente dos temas avaliados.`;
       playSoundChime();
     } else if (pct >= 60) {
-      title.textContent = '👍 Bom Progresso!';
-      desc.textContent = 'Você acertou a maior parte. Recomendamos revisar os distratores das questões que errou.';
+      title.textContent = 'Bom Rendimento';
+      desc.textContent = `Você acertou ${score} de ${total} questões. Recomendada a revisão dos distratores nas questões assinaladas incorretamente.`;
     } else {
-      title.textContent = '⚠️ Momento de Revisão!';
-      desc.textContent = 'Não desanime! Use o botão "Repetir as que Errei" para fixar exatamente as pegadinhas.';
+      title.textContent = 'Revisão Recomendada';
+      desc.textContent = `Você acertou ${score} de ${total} questões. Utilize a opção "Revisar Incorretas" para fixar os conceitos abordados.`;
     }
 
     const retryBtn = document.getElementById('btnRetryWrong');
     if (retryBtn) {
-      retryBtn.style.display = (state.currentRoundWrong.length > 0) ? 'inline-block' : 'none';
+      retryBtn.style.display = (state.currentRoundWrong.length > 0) ? 'inline-flex' : 'none';
     }
+
+    refreshIcons();
   }
 
   // =========================================================================
-  // 10. SEÇÃO 4: CALCULADORA CLÍNICA DE DOSES E TUBETES
+  // 10. SEÇÃO 4: CALCULADORA DE DOSES E TUBETES
   // =========================================================================
   function setupCalculator() {
     const pesoInput = document.getElementById('calcPeso');
@@ -686,9 +698,8 @@ document.addEventListener('DOMContentLoaded', () => {
     function calculate() {
       const peso = parseFloat(pesoInput.value) || 0;
       const salKey = salSelect.value;
-      const condicao = condicaoSelect.value; // 'saudavel' ou 'cardiopata'
+      const condicao = condicaoSelect.value;
 
-      // Parâmetros dos sais anestésicos (Malamed 6ª ed.)
       const sais = {
         'lido2': { nome: 'Lidocaína 2% c/ epinefrina 1:100.000', doseMaxKg: 4.4, tetoAbsoluto: 300, mgTubete: 36, vaso: 'epi100' },
         'mepi2': { nome: 'Mepivacaína 2% c/ epinefrina 1:100.000', doseMaxKg: 4.4, tetoAbsoluto: 300, mgTubete: 36, vaso: 'epi100' },
@@ -708,35 +719,32 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
-      // 1. Dose pelo Sal
       const doseCalculada = peso * sal.doseMaxKg;
       const doseFinalSal = Math.min(doseCalculada, sal.tetoAbsoluto);
       const tubetesPeloSal = Math.floor(doseFinalSal / sal.mgTubete);
 
-      // 2. Limite pelo Vasoconstritor
-      let tubetesPeloVaso = 99; // infinito se sem vaso
+      let tubetesPeloVaso = 99;
       let vasoDesc = 'Sem restrição adrenérgica';
 
       if (sal.vaso === 'epi100') {
         const tetoEpi = (condicao === 'cardiopata') ? 0.04 : 0.2;
-        tubetesPeloVaso = Math.floor(tetoEpi / 0.018); // 0.018 mg por tubete
-        vasoDesc = (condicao === 'cardiopata') ? '0,04 mg (Cardiopata - Máx 2 tubetes)' : '0,2 mg (Saudável - Máx 11 tubetes)';
+        tubetesPeloVaso = Math.floor(tetoEpi / 0.018);
+        vasoDesc = (condicao === 'cardiopata') ? '0,04 mg (Cardiopata: máx 2 tubetes)' : '0,2 mg (Saudável: máx 11 tubetes)';
       } else if (sal.vaso === 'epi200') {
         const tetoEpi = (condicao === 'cardiopata') ? 0.04 : 0.2;
-        tubetesPeloVaso = Math.floor(tetoEpi / 0.009); // 0.009 mg por tubete
-        vasoDesc = (condicao === 'cardiopata') ? '0,04 mg (Cardiopata - Máx 4 tubetes)' : '0,2 mg (Saudável - Máx 22 tubetes)';
+        tubetesPeloVaso = Math.floor(tetoEpi / 0.009);
+        vasoDesc = (condicao === 'cardiopata') ? '0,04 mg (Cardiopata: máx 4 tubetes)' : '0,2 mg (Saudável: máx 22 tubetes)';
       } else if (sal.vaso === 'feli') {
         tubetesPeloVaso = (condicao === 'cardiopata') ? 5 : tubetesPeloSal;
-        vasoDesc = 'Felipressina (Não adrenérgica - segura em cardiopatas)';
+        vasoDesc = 'Felipressina (segura em cardiopatas)';
       }
 
-      // Fator limitante
       const maxTubetesFinal = Math.min(tubetesPeloSal, tubetesPeloVaso);
       let limitante = '';
       if (tubetesPeloVaso < tubetesPeloSal) {
-        limitante = `⚠️ VASOCONSTRITOR (${maxTubetesFinal} tubetes pelo limite de adrenalina)`;
+        limitante = `Vasoconstritor (${maxTubetesFinal} tubetes pelo limite de epinefrina)`;
       } else {
-        limitante = `💉 SAL ANESTÉSICO (${maxTubetesFinal} tubetes pelo peso do paciente)`;
+        limitante = `Sal Anestésico (${maxTubetesFinal} tubetes pelo peso corporal)`;
       }
 
       document.getElementById('resDoseMaxMg').textContent = `${doseFinalSal.toFixed(1)} mg (teto: ${sal.tetoAbsoluto} mg)`;

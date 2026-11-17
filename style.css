@@ -2526,50 +2526,1394 @@ body.modo-foco-ativo .foco-bar {
 }
 
 /* ==========================================================================
-   RESPONSIVIDADE (TABLET & MOBILE)
+   SAFETY CONSTRAINTS: PREVENT HORIZONTAL OVERFLOW ACROSS ALL CONTAINERS
    ========================================================================== */
+.container,
+.tab-view,
+.section-content,
+.quiz-controls-card,
+.question-card,
+.quiz-summary-card,
+.casos-controls-card,
+.caso-card,
+.tecnicas-grid,
+.tecnica-card,
+.module-section-card,
+.incidence-box,
+.pegadinhas-grid,
+.pegadinha-card {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.quiz-modes-grid,
+.nav-tabs,
+.module-filter-bar,
+.tecnicas-filter-bar {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+/* ==========================================================================
+   RESPONSIVIDADE (TABLET & MOBILE EM FORMATO DE RETRATO)
+   Otimizações profundas para eliminação de espaços apertados, quebras e bugs
+   ========================================================================== */
+
+/* --- Tablet & Telas Médias (<= 768px) --- */
 @media (max-width: 768px) {
   .top-bar {
-    top: 8px;
-    width: calc(100% - 20px);
-    margin: 8px auto 0 auto;
-    padding: 8px 14px 0 14px;
-    border-radius: 16px;
+    top: 6px;
+    width: calc(100% - 16px);
+    margin: 6px auto 0 auto;
+    padding: 6px 14px 0 14px;
+    border-radius: 18px;
+  }
+
+  .top-bar-inner {
+    gap: 10px;
+    padding-bottom: 6px;
+  }
+
+  .brand-logo {
+    font-size: 15px;
   }
 
   .nav-tabs-wrapper {
-    top: 70px;
-    margin: 10px auto 20px auto;
+    top: 56px;
+    margin: 8px auto 16px auto;
     max-width: 100%;
-    padding: 0 10px;
+    padding: 0 8px;
   }
 
   .nav-tabs {
-    justify-content: flex-start;
+    justify-content: flex-start !important;
+    padding: 3px 5px;
+    gap: 4px;
+    border-radius: 16px;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
   }
 
   .tab-btn {
-    padding: 7px 14px;
+    padding: 6px 13px;
     font-size: 12px;
+    gap: 6px;
+    scroll-snap-align: start;
+    flex-shrink: 0;
+  }
+
+  .tab-btn svg {
+    width: 14px;
+    height: 14px;
   }
 
   .container {
-    padding: 10px 12px 70px 12px;
+    padding: 6px 10px 80px 10px;
+    max-width: 100%;
+    box-sizing: border-box;
   }
-  
-  .brand-logo {
-    font-size: 16.5px;
+
+  .section-header {
+    margin-bottom: 22px;
   }
-  
+
   .section-title {
     font-size: 19px;
+    gap: 8px;
   }
-  
+
+  .section-subtitle {
+    font-size: 13px;
+    max-width: 100%;
+    padding: 0 4px;
+  }
+
+  .grid-stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-bottom: 22px;
+  }
+
+  .stat-card {
+    padding: 14px 12px;
+    border-radius: 14px;
+  }
+
+  .stat-val {
+    font-size: 22px;
+    margin-bottom: 2px;
+  }
+
+  .stat-label {
+    font-size: 11.5px;
+  }
+
+  .incidence-box {
+    padding: 18px 16px;
+    margin-bottom: 22px;
+    border-radius: 18px;
+  }
+
+  .pegadinhas-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .module-filter-bar {
+    width: 100%;
+    max-width: 100%;
+    justify-content: flex-start !important;
+    padding: 4px 6px;
+    margin: 0 auto 20px auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+  }
+
+  .mod-filter-btn {
+    padding: 6px 14px;
+    font-size: 12px;
+    scroll-snap-align: start;
+    flex-shrink: 0;
+  }
+
+  .module-section-card {
+    border-radius: 20px;
+    margin-bottom: 20px;
+  }
+
+  .module-header-box {
+    padding: 16px 18px;
+  }
+
+  .module-title {
+    font-size: 15px;
+  }
+
+  .subtopic-header {
+    padding: 13px 16px;
+    gap: 10px;
+  }
+
   .subtopic-body {
-    padding: 18px 16px 22px 20px;
+    margin: 4px 8px 18px 8px;
+    padding: 18px 16px;
+    border-radius: 16px;
+    font-size: 13.5px;
+    line-height: 1.65;
   }
-  
-  .question-card, .quiz-controls-card, .caso-card, .tecnica-card {
+
+  .tabela-estudo {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    font-size: 12px;
+  }
+
+  .tabela-estudo th, .tabela-estudo td {
+    padding: 8px 10px;
+    white-space: nowrap;
+  }
+
+  .quiz-controls-card {
+    padding: 18px 16px;
+    margin-bottom: 20px;
+    border-radius: 18px;
+  }
+
+  .quiz-modes-grid {
+    justify-content: flex-start !important;
+    padding: 3px 5px;
+    gap: 6px;
+    margin-bottom: 18px;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+  }
+
+  .quiz-mode-btn {
+    padding: 7px 13px;
+    font-size: 12px;
+    gap: 6px;
+    scroll-snap-align: start;
+    flex-shrink: 0;
+  }
+
+  .quiz-filter-row {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 12px !important;
+    width: 100% !important;
+  }
+
+  #quizModSelectWrap {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 6px !important;
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  #quizModSelectWrap label {
+    margin-right: 0 !important;
+    margin-bottom: 2px !important;
+  }
+
+  #quizModSelectWrap .custom-select-container {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+  }
+
+  .btn-start-quiz {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+    padding: 12px 18px !important;
+  }
+
+  .question-card {
+    padding: 18px 16px;
+    border-radius: 18px;
+    margin-bottom: 20px;
+  }
+
+  .casos-controls-card {
+    padding: 18px 16px;
+    border-radius: 18px;
+    margin-bottom: 20px;
+  }
+
+  .casos-controls-row {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 14px !important;
+    width: 100% !important;
+  }
+
+  .btn-sortear-caso {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+    padding: 12px 18px !important;
+  }
+
+  .caso-select-wrapper {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 6px !important;
+  }
+
+  .caso-select-label {
+    align-self: flex-start;
+    font-size: 12px;
+  }
+
+  .caso-select-wrapper .custom-select-container {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+  }
+
+  .caso-card {
     padding: 20px 16px;
+    border-radius: 18px;
+    margin-bottom: 22px;
+  }
+
+  .parametros-praticos-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .tecnicas-filter-bar {
+    width: 100%;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    justify-content: flex-start !important;
+    padding: 4px 2px;
+    gap: 6px;
+    margin-bottom: 20px;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+  }
+
+  .tecnica-filter-btn {
+    padding: 7px 14px;
+    font-size: 12px;
+    white-space: nowrap;
+    scroll-snap-align: start;
+    flex-shrink: 0;
+  }
+
+  .tecnicas-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    margin-bottom: 26px;
+  }
+
+  .tecnica-card {
+    padding: 18px 14px;
+    border-radius: 18px;
+  }
+
+  .spec-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 3px;
+    padding-bottom: 6px;
+  }
+
+  .spec-val {
+    text-align: left;
+    width: 100%;
+  }
+}
+
+/* --- Smartphones em Modo Retrato (<= 520px) --- */
+@media (max-width: 520px) {
+  .top-bar {
+    top: 5px;
+    width: calc(100% - 14px);
+    margin: 5px auto 0 auto;
+    padding: 6px 12px 0 12px;
+    border-radius: 16px;
+  }
+
+  .top-bar-inner {
+    gap: 6px;
+    padding-bottom: 6px;
+  }
+
+  .brand-logo {
+    font-size: 13.5px;
+    font-weight: 700;
+    letter-spacing: -0.2px;
+  }
+
+  .brand-icon {
+    width: 17px;
+    height: 17px;
+  }
+
+  .tools-group {
+    gap: 4px;
+  }
+
+  .pomodoro-box {
+    gap: 4px;
+    padding: 2px 4px;
+  }
+
+  .pomodoro-label {
+    display: none; /* Oculta o texto "FOCO" para liberar espaço no celular */
+  }
+
+  .pomodoro-timer {
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  .btn-pomo-action {
+    width: 24px;
+    height: 24px;
+  }
+
+  .btn-pomo-action svg {
+    width: 12px;
+    height: 12px;
+  }
+
+  .tools-divider {
+    height: 14px;
+    margin: 0 2px;
+  }
+
+  .btn-foco {
+    padding: 6px 8px;
+    border-radius: 999px;
+  }
+
+  .btn-foco span {
+    display: none; /* Apenas ícone de maximizar no mobile portrait */
+  }
+
+  .btn-foco svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .nav-tabs-wrapper {
+    top: 52px;
+    margin: 6px auto 14px auto;
+    padding: 0 6px;
+  }
+
+  .nav-tabs {
+    padding: 3px 4px;
+    gap: 3px;
+    border-radius: 14px;
+  }
+
+  .tab-btn {
+    padding: 6px 11px;
+    font-size: 11.5px;
+    gap: 5px;
+  }
+
+  .tab-btn svg {
+    width: 13px;
+    height: 13px;
+  }
+
+  .container {
+    padding: 4px 6px 70px 6px;
+  }
+
+  .section-header {
+    margin-bottom: 16px;
+  }
+
+  .section-title {
+    font-size: 17px;
+    gap: 6px;
+  }
+
+  .section-subtitle {
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
+  .grid-stats {
+    gap: 8px;
+    margin-bottom: 18px;
+  }
+
+  .stat-card {
+    padding: 11px 8px;
+    border-radius: 12px;
+  }
+
+  .stat-val {
+    font-size: 20px;
+  }
+
+  .stat-label {
+    font-size: 10.5px;
+  }
+
+  .incidence-box {
+    padding: 14px 12px;
+    border-radius: 16px;
+    margin-bottom: 18px;
+  }
+
+  .box-title-row {
+    font-size: 14px;
+  }
+
+  .box-desc {
+    font-size: 11.5px;
+    margin-bottom: 12px;
+  }
+
+  .rank-item {
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+
+  .rank-badge {
+    width: 24px;
+    height: 24px;
+    font-size: 11px;
+  }
+
+  .rank-title-row {
+    font-size: 12px;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+
+  .rank-name {
+    font-size: 12px;
+  }
+
+  .rank-pct {
+    font-size: 11px;
+  }
+
+  .pegadinha-card {
+    padding: 12px 12px;
+    border-radius: 12px;
+  }
+
+  .pegadinha-header {
+    font-size: 12px;
+  }
+
+  .pegadinha-body {
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
+  /* Resumos didáticos */
+  .module-filter-bar {
+    padding: 3px 4px;
+    margin: 0 auto 16px auto;
+  }
+
+  .mod-filter-btn {
+    padding: 5px 12px;
+    font-size: 11.5px;
+  }
+
+  .module-section-card {
+    border-radius: 16px;
+    margin-bottom: 16px;
+  }
+
+  .module-header-box {
+    padding: 12px 12px;
+    gap: 8px;
+  }
+
+  .module-title {
+    font-size: 14px;
+    line-height: 1.35;
+  }
+
+  .module-meta-row {
+    gap: 5px;
+  }
+
+  .module-meta-item {
+    font-size: 10.5px;
+  }
+
+  .subtopic-header {
+    padding: 11px 12px;
+    gap: 8px;
+  }
+
+  .subtopic-title {
+    font-size: 12.5px;
+    line-height: 1.4;
+  }
+
+  /* EXPANSÃO CRÍTICA DO CORPO DO SUBTÓPICO NO MOBILE: Elimina o sufocamento visual */
+  .subtopic-body {
+    margin: 4px 4px 14px 4px;
+    padding: 14px 11px;
+    border-radius: 12px;
+    font-size: 12.5px;
+    line-height: 1.58;
+  }
+
+  .tabela-estudo {
+    font-size: 11px;
+    margin: 10px 0;
+  }
+
+  .tabela-estudo th, .tabela-estudo td {
+    padding: 7px 8px;
+  }
+
+  /* Quiz */
+  .quiz-controls-card {
+    padding: 14px 12px;
+    border-radius: 16px;
+    margin-bottom: 16px;
+  }
+
+  .card-inner-title {
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
+
+  .quiz-modes-grid {
+    gap: 5px;
+    padding: 2px 3px;
+    margin-bottom: 14px;
+  }
+
+  .quiz-mode-btn {
+    padding: 6px 10px;
+    font-size: 11.5px;
+    gap: 5px;
+  }
+
+  .btn-start-quiz {
+    padding: 11px 16px;
+    font-size: 13px;
+  }
+
+  .question-card {
+    padding: 14px 12px;
+    border-radius: 16px;
+    margin-bottom: 16px;
+  }
+
+  .q-enunciado {
+    font-size: 13.5px;
+    line-height: 1.55;
+    margin-bottom: 14px;
+  }
+
+  .alt-btn {
+    padding: 10px 10px;
+    font-size: 12px;
+    gap: 8px;
+    border-radius: 10px;
+  }
+
+  .feedback-box {
+    padding: 12px 10px;
+    border-radius: 12px;
+  }
+
+  .btn-next-question {
+    width: 100%;
+    justify-content: center;
+    padding: 11px 16px;
+    font-size: 13px;
+  }
+
+  /* Casos Clínicos & Prática */
+  .casos-subnav-pill {
+    width: 100%;
+    max-width: 100%;
+    padding: 3px;
+    margin-bottom: 14px;
+  }
+
+  .casos-subnav-pill .subnav-btn {
+    flex: 1;
+    padding: 8px 6px;
+    font-size: 11px;
+    text-align: center;
+    justify-content: center;
+    gap: 4px;
+  }
+
+  .casos-controls-card {
+    padding: 14px 12px;
+    border-radius: 16px;
+    margin-bottom: 16px;
+  }
+
+  .btn-sortear-caso {
+    padding: 11px 16px;
+    font-size: 13px;
+  }
+
+  .caso-select-label {
+    font-size: 11.5px;
+  }
+
+  .custom-select-trigger {
+    padding: 9px 12px;
+    font-size: 12px;
+    border-radius: 10px;
+  }
+
+  .custom-select-dropdown {
+    max-height: 220px;
+    font-size: 12px;
+  }
+
+  .custom-select-option {
+    padding: 8px 10px;
+    font-size: 12px;
+    gap: 8px;
+  }
+
+  .caso-card {
+    padding: 14px 10px;
+    border-radius: 16px;
+    margin-bottom: 18px;
+  }
+
+  .caso-title {
+    font-size: 16px;
+    line-height: 1.35;
+  }
+
+  .caso-cenario-box {
+    padding: 10px 10px;
+    gap: 8px;
+    border-radius: 10px;
+  }
+
+  .cenario-icon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .cenario-text {
+    font-size: 12.5px;
+    line-height: 1.5;
+  }
+
+  .gabarito-wrapper {
+    padding: 12px 10px;
+    border-radius: 12px;
+  }
+
+  .gabarito-header {
+    font-size: 13.5px;
+    margin-bottom: 12px;
+  }
+
+  .tecnica-eleita-item {
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+
+  .justificativa-highlight {
+    padding: 10px 10px;
+    border-radius: 10px;
+  }
+
+  .justificativa-text {
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
+  .param-card {
+    padding: 9px 10px;
+    border-radius: 8px;
+  }
+
+  .param-title {
+    font-size: 10.5px;
+  }
+
+  .param-body {
+    font-size: 12px;
+  }
+
+  .armadilha-alerta-box {
+    padding: 9px 10px;
+    font-size: 11.5px;
+    gap: 6px;
+  }
+
+  /* Técnicas Passo a Passo */
+  .tecnicas-filter-bar {
+    gap: 5px;
+    margin-bottom: 14px;
+  }
+
+  .tecnica-filter-btn {
+    padding: 6px 12px;
+    font-size: 11.5px;
+  }
+
+  .tecnicas-grid {
+    gap: 14px;
+    margin-bottom: 20px;
+  }
+
+  .tecnica-card {
+    padding: 14px 10px;
+    border-radius: 16px;
+  }
+
+  .tecnica-name {
+    font-size: 15px;
+    line-height: 1.35;
+  }
+
+  .tecnica-summary {
+    font-size: 12px;
+    line-height: 1.45;
+  }
+
+  .tecnica-quick-specs {
+    padding: 9px 10px;
+    border-radius: 10px;
+    gap: 6px;
+  }
+
+  .spec-row {
+    font-size: 11.5px;
+    gap: 2px;
+    padding-bottom: 5px;
+  }
+
+  .spec-label {
+    font-size: 11px;
+  }
+
+  .spec-val {
+    font-size: 11.5px;
+  }
+
+  .tecnica-svg-wrapper {
+    border-radius: 12px;
+    margin-bottom: 10px;
+  }
+
+  .tecnica-details-summary {
+    font-size: 11.5px;
+    padding: 4px 0;
+  }
+
+  .tecnica-details-content {
+    font-size: 11.5px;
+    gap: 8px;
+  }
+}
+
+/* --- Telas Ultra-Compactas (iPhone SE, <= 375px) --- */
+@media (max-width: 375px) {
+  .brand-logo {
+    font-size: 12.5px;
+  }
+
+  .pomodoro-timer {
+    font-size: 11.5px;
+  }
+
+  .tab-btn {
+    padding: 5px 9px;
+    font-size: 11px;
+  }
+
+  .subtopic-body {
+    padding: 12px 9px;
+    margin: 4px 2px 12px 2px;
+  }
+
+  .caso-card, .tecnica-card, .question-card {
+    padding: 12px 8px;
+  }
+}
+
+/* --- Smartphones em Modo Retrato (<= 520px) --- */
+@media (max-width: 520px) {
+  .top-bar {
+    top: 5px;
+    width: calc(100% - 14px);
+    margin: 5px auto 0 auto;
+    padding: 6px 12px 0 12px;
+    border-radius: 16px;
+  }
+
+  .top-bar-inner {
+    gap: 6px;
+    padding-bottom: 6px;
+  }
+
+  .brand-logo {
+    font-size: 13.5px;
+    font-weight: 700;
+    letter-spacing: -0.2px;
+  }
+
+  .brand-icon {
+    width: 17px;
+    height: 17px;
+  }
+
+  .tools-group {
+    gap: 4px;
+  }
+
+  .pomodoro-box {
+    gap: 4px;
+    padding: 2px 4px;
+  }
+
+  .pomodoro-label {
+    display: none; /* Oculta o texto "FOCO" para liberar espaço no celular */
+  }
+
+  .pomodoro-timer {
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  .btn-pomo-action {
+    width: 24px;
+    height: 24px;
+  }
+
+  .btn-pomo-action svg {
+    width: 12px;
+    height: 12px;
+  }
+
+  .tools-divider {
+    height: 14px;
+    margin: 0 2px;
+  }
+
+  .btn-foco {
+    padding: 6px 8px;
+    border-radius: 999px;
+  }
+
+  .btn-foco span {
+    display: none; /* Apenas ícone de maximizar no mobile portrait */
+  }
+
+  .btn-foco svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .nav-tabs-wrapper {
+    top: 52px;
+    margin: 6px auto 14px auto;
+    padding: 0 6px;
+  }
+
+  .nav-tabs {
+    padding: 3px 4px;
+    gap: 3px;
+    border-radius: 14px;
+  }
+
+  .tab-btn {
+    padding: 6px 11px;
+    font-size: 11.5px;
+    gap: 5px;
+  }
+
+  .tab-btn svg {
+    width: 13px;
+    height: 13px;
+  }
+
+  .container {
+    padding: 4px 6px 70px 6px;
+  }
+
+  .section-header {
+    margin-bottom: 16px;
+  }
+
+  .section-title {
+    font-size: 17px;
+    gap: 6px;
+  }
+
+  .section-subtitle {
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
+  .grid-stats {
+    gap: 8px;
+    margin-bottom: 18px;
+  }
+
+  .stat-card {
+    padding: 11px 8px;
+    border-radius: 12px;
+  }
+
+  .stat-val {
+    font-size: 20px;
+  }
+
+  .stat-label {
+    font-size: 10.5px;
+  }
+
+  .incidence-box {
+    padding: 14px 12px;
+    border-radius: 16px;
+    margin-bottom: 18px;
+  }
+
+  .box-title-row {
+    font-size: 14px;
+  }
+
+  .box-desc {
+    font-size: 11.5px;
+    margin-bottom: 12px;
+  }
+
+  .rank-item {
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+
+  .rank-badge {
+    width: 24px;
+    height: 24px;
+    font-size: 11px;
+  }
+
+  .rank-title-row {
+    font-size: 12px;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+
+  .rank-name {
+    font-size: 12px;
+  }
+
+  .rank-pct {
+    font-size: 11px;
+  }
+
+  .pegadinha-card {
+    padding: 12px 12px;
+    border-radius: 12px;
+  }
+
+  .pegadinha-header {
+    font-size: 12px;
+  }
+
+  .pegadinha-body {
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
+  /* Resumos didáticos */
+  .module-filter-bar {
+    padding: 3px 4px;
+    margin: 0 auto 16px auto;
+  }
+
+  .mod-filter-btn {
+    padding: 5px 12px;
+    font-size: 11.5px;
+  }
+
+  .module-section-card {
+    border-radius: 16px;
+    margin-bottom: 16px;
+  }
+
+  .module-header-box {
+    padding: 12px 12px;
+    gap: 8px;
+  }
+
+  .module-title {
+    font-size: 14px;
+    line-height: 1.35;
+  }
+
+  .module-meta-row {
+    gap: 5px;
+  }
+
+  .module-meta-item {
+    font-size: 10.5px;
+  }
+
+  .subtopic-header {
+    padding: 11px 12px;
+    gap: 8px;
+  }
+
+  .subtopic-title {
+    font-size: 12.5px;
+    line-height: 1.4;
+  }
+
+  /* EXPANSÃO CRÍTICA DO CORPO DO SUBTÓPICO NO MOBILE: Elimina o sufocamento visual */
+  .subtopic-body {
+    margin: 4px 4px 14px 4px;
+    padding: 14px 11px;
+    border-radius: 12px;
+    font-size: 12.5px;
+    line-height: 1.58;
+  }
+
+  .tabela-estudo {
+    font-size: 11px;
+    margin: 10px 0;
+  }
+
+  .tabela-estudo th, .tabela-estudo td {
+    padding: 7px 8px;
+  }
+
+  /* Quiz */
+  .quiz-controls-card {
+    padding: 14px 12px;
+    border-radius: 16px;
+    margin-bottom: 16px;
+  }
+
+  .card-inner-title {
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
+
+  .quiz-modes-grid {
+    gap: 5px;
+    padding: 2px 3px;
+    margin-bottom: 14px;
+  }
+
+  .quiz-mode-btn {
+    padding: 6px 10px;
+    font-size: 11.5px;
+    gap: 5px;
+  }
+
+  .btn-start-quiz {
+    padding: 11px 16px;
+    font-size: 13px;
+  }
+
+  .question-card {
+    padding: 14px 12px;
+    border-radius: 16px;
+    margin-bottom: 16px;
+  }
+
+  .q-enunciado {
+    font-size: 13.5px;
+    line-height: 1.55;
+    margin-bottom: 14px;
+  }
+
+  .alt-btn {
+    padding: 10px 10px;
+    font-size: 12px;
+    gap: 8px;
+    border-radius: 10px;
+  }
+
+  .feedback-box {
+    padding: 12px 10px;
+    border-radius: 12px;
+  }
+
+  .btn-next-question {
+    width: 100%;
+    justify-content: center;
+    padding: 11px 16px;
+    font-size: 13px;
+  }
+
+  /* Casos Clínicos & Prática */
+  .casos-subnav-pill {
+    width: 100%;
+    max-width: 100%;
+    padding: 3px;
+    margin-bottom: 14px;
+  }
+
+  .casos-subnav-pill .subnav-btn {
+    flex: 1;
+    padding: 8px 6px;
+    font-size: 11px;
+    text-align: center;
+    justify-content: center;
+    gap: 4px;
+  }
+
+  .casos-controls-card {
+    padding: 14px 12px;
+    border-radius: 16px;
+    margin-bottom: 16px;
+  }
+
+  .btn-sortear-caso {
+    padding: 11px 16px;
+    font-size: 13px;
+  }
+
+  .caso-select-label {
+    font-size: 11.5px;
+  }
+
+  .custom-select-trigger {
+    padding: 9px 12px;
+    font-size: 12px;
+    border-radius: 10px;
+  }
+
+  .custom-select-dropdown {
+    max-height: 220px;
+    font-size: 12px;
+  }
+
+  .custom-select-option {
+    padding: 8px 10px;
+    font-size: 12px;
+    gap: 8px;
+  }
+
+  .caso-card {
+    padding: 14px 10px;
+    border-radius: 16px;
+    margin-bottom: 18px;
+  }
+
+  .caso-title {
+    font-size: 16px;
+    line-height: 1.35;
+  }
+
+  .caso-cenario-box {
+    padding: 10px 10px;
+    gap: 8px;
+    border-radius: 10px;
+  }
+
+  .cenario-icon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .cenario-text {
+    font-size: 12.5px;
+    line-height: 1.5;
+  }
+
+  .gabarito-wrapper {
+    padding: 12px 10px;
+    border-radius: 12px;
+  }
+
+  .gabarito-header {
+    font-size: 13.5px;
+    margin-bottom: 12px;
+  }
+
+  .tecnica-eleita-item {
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+
+  .justificativa-highlight {
+    padding: 10px 10px;
+    border-radius: 10px;
+  }
+
+  .justificativa-text {
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
+  .param-card {
+    padding: 9px 10px;
+    border-radius: 8px;
+  }
+
+  .param-title {
+    font-size: 10.5px;
+  }
+
+  .param-body {
+    font-size: 12px;
+  }
+
+  .armadilha-alerta-box {
+    padding: 9px 10px;
+    font-size: 11.5px;
+    gap: 6px;
+  }
+
+  /* Técnicas Passo a Passo */
+  .tecnicas-filter-bar {
+    gap: 5px;
+    margin-bottom: 14px;
+  }
+
+  .tecnica-filter-btn {
+    padding: 6px 12px;
+    font-size: 11.5px;
+  }
+
+  .tecnicas-grid {
+    gap: 14px;
+    margin-bottom: 20px;
+  }
+
+  .tecnica-card {
+    padding: 14px 10px;
+    border-radius: 16px;
+  }
+
+  .tecnica-name {
+    font-size: 15px;
+    line-height: 1.35;
+  }
+
+  .tecnica-summary {
+    font-size: 12px;
+    line-height: 1.45;
+  }
+
+  .tecnica-quick-specs {
+    padding: 9px 10px;
+    border-radius: 10px;
+    gap: 6px;
+  }
+
+  .spec-row {
+    font-size: 11.5px;
+    gap: 2px;
+    padding-bottom: 5px;
+  }
+
+  .spec-label {
+    font-size: 11px;
+  }
+
+  .spec-val {
+    font-size: 11.5px;
+  }
+
+  .tecnica-svg-wrapper {
+    border-radius: 12px;
+    margin-bottom: 10px;
+  }
+
+  .tecnica-details-summary {
+    font-size: 11.5px;
+    padding: 4px 0;
+  }
+
+  .tecnica-details-content {
+    font-size: 11.5px;
+    gap: 8px;
+  }
+}
+
+/* --- Telas Ultra-Compactas (iPhone SE, <= 375px) --- */
+@media (max-width: 375px) {
+  .brand-logo {
+    font-size: 12.5px;
+  }
+
+  .pomodoro-timer {
+    font-size: 11.5px;
+  }
+
+  .tab-btn {
+    padding: 5px 9px;
+    font-size: 11px;
+  }
+
+  .subtopic-body {
+    padding: 12px 9px;
+    margin: 4px 2px 12px 2px;
+  }
+
+  .caso-card, .tecnica-card, .question-card {
+    padding: 12px 8px;
   }
 }

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sanar Anestesio | Material Completo & Questões de Anestesiologia</title>
+  <title>Sanar Anestesia | Material Completo & Questões de Anestesiologia</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -13,11 +13,87 @@
 </head>
 <body>
 
-  <!-- Ambient Depth Canvas for Apple Soft Glassmorphism -->
-  <div class="ambient-canvas" aria-hidden="true">
-    <div class="ambient-orb orb-1"></div>
-    <div class="ambient-orb orb-2"></div>
-    <div class="ambient-orb orb-3"></div>
+  <!-- Ambient Depth Backdrop (Sculptural Waves & Clinical Glass Bokeh) -->
+  <div class="ambient-backdrop" aria-hidden="true">
+    <svg class="backdrop-svg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <!-- Sculptural ribbon gradients in warm Apple neutrals -->
+        <linearGradient id="waveCream" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#FAF6F0"/>
+          <stop offset="40%" stop-color="#EFE6DC"/>
+          <stop offset="100%" stop-color="#D7C3B0"/>
+        </linearGradient>
+
+        <linearGradient id="waveCaramel" x1="15%" y1="0%" x2="85%" y2="100%">
+          <stop offset="0%" stop-color="#DFCCA9" stop-opacity="0.95"/>
+          <stop offset="45%" stop-color="#C5AA8E"/>
+          <stop offset="100%" stop-color="#9C7F67"/>
+        </linearGradient>
+
+        <linearGradient id="waveCoffee" x1="0%" y1="10%" x2="100%" y2="90%">
+          <stop offset="0%" stop-color="#8F7159"/>
+          <stop offset="55%" stop-color="#6E503B"/>
+          <stop offset="100%" stop-color="#4A3425"/>
+        </linearGradient>
+
+        <!-- Right-side ambient clinical lighting & bokeh glow -->
+        <radialGradient id="bokehGlow1" cx="80%" cy="25%" r="55%">
+          <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.95"/>
+          <stop offset="45%" stop-color="#F6F0E6" stop-opacity="0.75"/>
+          <stop offset="85%" stop-color="#ECE3D7" stop-opacity="0.3"/>
+          <stop offset="100%" stop-color="#F4EFEA" stop-opacity="0"/>
+        </radialGradient>
+
+        <radialGradient id="bokehGlow2" cx="92%" cy="75%" r="50%">
+          <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.9"/>
+          <stop offset="50%" stop-color="#EFE6DA" stop-opacity="0.6"/>
+          <stop offset="100%" stop-color="#F4EFEA" stop-opacity="0"/>
+        </radialGradient>
+
+        <linearGradient id="clinicalPillar" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#EDE6DD" stop-opacity="0.4"/>
+          <stop offset="50%" stop-color="#FAF7F2" stop-opacity="0.75"/>
+          <stop offset="100%" stop-color="#E8DFD3" stop-opacity="0.35"/>
+        </linearGradient>
+
+        <!-- Wave ridge filter for soft 3D shadow -->
+        <filter id="softRibbonShadow" x="-10%" y="-10%" width="130%" height="130%">
+          <feDropShadow dx="-10" dy="18" stdDeviation="24" flood-color="#493529" flood-opacity="0.12"/>
+        </filter>
+        <filter id="creamRibbonShadow" x="-10%" y="-10%" width="130%" height="130%">
+          <feDropShadow dx="-8" dy="14" stdDeviation="18" flood-color="#70503D" flood-opacity="0.08"/>
+        </filter>
+      </defs>
+
+      <!-- Base Canvas Background -->
+      <rect width="1440" height="900" fill="#F4EFEA"/>
+
+      <!-- Right side clinical lighting panels & bokeh -->
+      <rect x="980" y="0" width="460" height="900" fill="url(#clinicalPillar)"/>
+      <circle cx="1200" cy="240" r="380" fill="url(#bokehGlow1)"/>
+      <circle cx="1320" cy="720" r="320" fill="url(#bokehGlow2)"/>
+
+      <!-- Ribbon 1: Outermost Cream Ribbon with graceful curve -->
+      <g filter="url(#creamRibbonShadow)">
+        <path d="M 0,900 L 260,900 C 420,720 540,460 460,220 C 400,60 300,0 220,0 L 0,0 Z" fill="url(#waveCream)"/>
+        <!-- Specular highlight edge -->
+        <path d="M 260,900 C 420,720 540,460 460,220 C 400,60 300,0 220,0" fill="none" stroke="rgba(255, 255, 255, 0.9)" stroke-width="2.5"/>
+      </g>
+
+      <!-- Ribbon 2: Middle Caramel Ribbon -->
+      <g filter="url(#softRibbonShadow)">
+        <path d="M 0,900 L 190,900 C 280,740 370,540 290,340 C 220,180 110,110 0,90 Z" fill="url(#waveCaramel)"/>
+        <!-- Specular highlight edge -->
+        <path d="M 190,900 C 280,740 370,540 290,340 C 220,180 110,110 0,90" fill="none" stroke="rgba(255, 255, 255, 0.85)" stroke-width="2"/>
+      </g>
+
+      <!-- Ribbon 3: Bottom-Left Deep Coffee Ribbon -->
+      <g filter="url(#softRibbonShadow)">
+        <path d="M 0,900 L 140,900 C 165,810 160,740 110,670 C 60,600 15,580 0,570 Z" fill="url(#waveCoffee)"/>
+        <!-- Specular highlight edge -->
+        <path d="M 140,900 C 165,810 160,740 110,670 C 60,600 15,580 0,570" fill="none" stroke="rgba(255, 255, 255, 0.65)" stroke-width="1.5"/>
+      </g>
+    </svg>
   </div>
 
   <!-- Top Bar & Header (Floating Glass Island) -->
@@ -25,14 +101,14 @@
     <div class="top-bar-inner">
       <div class="brand-wrapper">
         <i data-lucide="activity" class="brand-icon"></i>
-        <div class="brand-logo">Sanar Anestesio</div>
+        <div class="brand-logo">Sanar Anestesia</div>
       </div>
 
       <div class="tools-group">
         <!-- Timer de Estudos -->
         <div class="pomodoro-box" title="Timer de Estudos (25 min de foco / 5 min de intervalo)">
           <i data-lucide="clock" class="icon-inline"></i>
-          <span class="pomodoro-label" id="pomoLabel">Foco</span>
+          <span class="pomodoro-label" id="pomoLabel">FOCO</span>
           <span class="pomodoro-timer" id="pomodoroDisplay">25:00</span>
           <button class="btn-pomo-action" id="pomoToggle" title="Iniciar/Pausar">
             <i data-lucide="play" id="pomoIconPlay"></i>
@@ -41,6 +117,8 @@
             <i data-lucide="rotate-ccw"></i>
           </button>
         </div>
+
+        <div class="tools-divider"></div>
 
         <!-- Modo Foco -->
         <button class="btn-foco" id="btnModoFoco" title="Ocultar menus e focar na leitura ou teste">
@@ -59,11 +137,11 @@
   <!-- Navegação por Abas Centrais -->
   <nav class="nav-tabs-wrapper" id="navTabs">
     <div class="nav-tabs">
-      <button class="tab-btn active" data-target="raioXSection">
+      <button class="tab-btn" data-target="raioXSection">
         <i data-lucide="bar-chart-2"></i>
-        <span>Raio-X das Provas</span>
+        <span>Raio X das Provas</span>
       </button>
-      <button class="tab-btn" data-target="resumosSection">
+      <button class="tab-btn active" data-target="resumosSection">
         <i data-lucide="book-open"></i>
         <span>Resumos Teóricos</span>
       </button>
@@ -96,7 +174,7 @@
     <!-- ====================================================================
          SEÇÃO 1: RAIO-X DAS PROVAS & ANÁLISE DE INCIDÊNCIA
          ==================================================================== -->
-    <section class="tab-pane active" id="raioXSection">
+    <section class="tab-pane" id="raioXSection">
       <div class="section-header">
         <h2 class="section-title">
           <i data-lucide="bar-chart-2"></i>
@@ -213,7 +291,7 @@
     <!-- ====================================================================
          SEÇÃO 2: RESUMOS DIDÁTICOS MODULARES (1ª À 4ª PROVA)
          ==================================================================== -->
-    <section class="tab-pane" id="resumosSection">
+    <section class="tab-pane active" id="resumosSection">
       <div class="section-header">
         <h2 class="section-title">
           <i data-lucide="book-open"></i>

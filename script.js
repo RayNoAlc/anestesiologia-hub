@@ -311,8 +311,9 @@ document.addEventListener('DOMContentLoaded', () => {
     container.innerHTML = state.resumos.map(mod => {
       const subtopicsHtml = mod.subtopicos.map(sub => {
         const isDone = state.completedSubtopics.includes(sub.sub_id);
+        const isOpen = sub.sub_id === 'sub_1_1';
         return `
-          <div class="subtopic-item" id="item_${sub.sub_id}">
+          <div class="subtopic-item ${isOpen ? 'open' : ''}" id="item_${sub.sub_id}">
             <div class="subtopic-header" data-subid="${sub.sub_id}">
               <div class="subtopic-title-wrap">
                 <button class="check-topic-btn ${isDone ? 'completed' : ''}" data-subid="${sub.sub_id}" title="Marcar como concluído">
@@ -332,16 +333,17 @@ document.addEventListener('DOMContentLoaded', () => {
       return `
         <div class="module-section-card" data-mod="${mod.modulo}">
           <div class="module-header-box ${mod.cor}">
-            <div class="module-title-wrap">
-              <h3>
-                <i data-lucide="${mod.icone || 'book-open'}"></i>
-                <span>${mod.titulo}</span>
-              </h3>
+            <div class="module-header-left">
+              <div class="module-title-row">
+                <i data-lucide="${mod.icone || 'shield'}" class="module-main-icon"></i>
+                <h3 class="module-title-text">${mod.titulo}</h3>
+              </div>
               <div class="module-meta-badges">
-                <span>Tempo estimado: ${mod.tempo_leitura}</span>
-                <span>${mod.incidencia_prova}</span>
+                <span class="badge-pill"><i data-lucide="clock"></i> Tempo estimado: ${mod.tempo_leitura}</span>
+                <span class="badge-pill"><i data-lucide="star"></i> ${mod.incidencia_prova.trim()}</span>
               </div>
             </div>
+            <i data-lucide="chevron-up" class="module-toggle-chevron"></i>
           </div>
           <div class="subtopics-list">
             ${subtopicsHtml}

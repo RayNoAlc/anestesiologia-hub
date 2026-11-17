@@ -91,9 +91,9 @@ body {
 }
 
 /* ==========================================================================
-   AMBIENT BACKGROUND DEPTH (REAL FROSTED GLASS REFRACTION BACKDROP)
+   AMBIENT BACKGROUND DEPTH (SCULPTURAL 3D WAVES & CLINICAL BOKEH)
    ========================================================================== */
-.ambient-canvas {
+.ambient-backdrop {
   position: fixed;
   top: 0;
   left: 0;
@@ -104,37 +104,11 @@ body {
   z-index: 0;
 }
 
-.ambient-orb {
-  position: absolute;
-  border-radius: 50%;
-  pointer-events: none;
-}
-
-.orb-1 {
-  top: -140px;
-  right: -80px;
-  width: 650px;
-  height: 650px;
-  background: radial-gradient(circle, rgba(226, 216, 202, 0.85) 0%, rgba(236, 230, 222, 0.45) 50%, transparent 72%);
-  filter: blur(75px);
-}
-
-.orb-2 {
-  top: 34%;
-  left: -160px;
-  width: 700px;
-  height: 700px;
-  background: radial-gradient(circle, rgba(220, 208, 194, 0.8) 0%, rgba(232, 225, 216, 0.4) 50%, transparent 72%);
-  filter: blur(85px);
-}
-
-.orb-3 {
-  bottom: -120px;
-  right: 14%;
-  width: 620px;
-  height: 620px;
-  background: radial-gradient(circle, rgba(215, 202, 186, 0.75) 0%, rgba(230, 222, 212, 0.35) 50%, transparent 72%);
-  filter: blur(80px);
+.backdrop-svg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 /* Lucide Icons */
@@ -160,7 +134,7 @@ svg[data-lucide], .lucide {
 }
 
 /* ==========================================================================
-   TOP BAR (FLOATING GLASS ISLAND)
+   TOP BAR (FLOATING LIQUID GLASS STADIUM CAPSULE)
    ========================================================================== */
 .top-bar {
   position: sticky;
@@ -169,13 +143,13 @@ svg[data-lucide], .lucide {
   max-width: 960px;
   width: calc(100% - 32px);
   margin: 14px auto 0 auto;
-  background: var(--glass-bg);
+  background: rgba(255, 255, 255, 0.52);
   backdrop-filter: var(--glass-blur);
   -webkit-backdrop-filter: var(--glass-blur);
-  border: 1px solid var(--glass-border);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-md), var(--shadow-specular);
-  padding: 8px 18px 0 18px;
+  border: 1.5px solid rgba(255, 255, 255, 0.88);
+  border-radius: var(--radius-full);
+  box-shadow: 0 10px 32px rgba(73, 53, 41, 0.05), inset 0 1.5px 2px rgba(255, 255, 255, 1);
+  padding: 8px 22px 0 22px;
   overflow: hidden;
   transition: var(--transition-smooth);
 }
@@ -184,8 +158,8 @@ svg[data-lucide], .lucide {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
-  gap: 12px;
+  flex-wrap: nowrap;
+  gap: 16px;
   padding-bottom: 8px;
 }
 
@@ -196,27 +170,20 @@ svg[data-lucide], .lucide {
 }
 
 .brand-logo {
-  font-size: 18px;
+  font-size: 16.5px;
   color: var(--color-charcoal);
   font-weight: 700;
-  letter-spacing: -0.35px;
+  letter-spacing: -0.3px;
 }
 
 .brand-tag {
-  background: rgba(232, 227, 221, 0.65);
-  color: var(--color-dark-chocolate);
-  font-size: 11px;
-  font-weight: 500;
-  padding: 3px 10px;
-  border-radius: var(--radius-full);
-  border: 1px solid rgba(189, 184, 177, 0.45);
-  letter-spacing: 0.2px;
+  display: none;
 }
 
 .tools-group {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
 }
 
 /* Timer de Estudos (Pomodoro Floating Soft Pill) */
@@ -224,54 +191,57 @@ svg[data-lucide], .lucide {
   display: flex;
   align-items: center;
   gap: 8px;
-  background: rgba(255, 255, 255, 0.65);
-  backdrop-filter: var(--glass-blur-sm);
-  -webkit-backdrop-filter: var(--glass-blur-sm);
-  padding: 5px 12px;
-  border-radius: var(--radius-full);
-  border: 1px solid rgba(255, 255, 255, 0.9);
-  box-shadow: var(--shadow-xs), var(--shadow-specular);
+  background: transparent;
+  padding: 4px 6px;
 }
 
 .pomodoro-label {
-  font-size: 10.5px;
+  font-size: 11px;
   color: var(--color-taupe);
-  font-weight: 600;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
 
 .pomodoro-timer {
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", 'Inter', monospace;
-  font-size: 14.5px;
-  font-weight: 700;
+  font-size: 13.5px;
+  font-weight: 600;
   color: var(--color-charcoal);
-  letter-spacing: 0.4px;
+  font-variant-numeric: tabular-nums;
 }
 
 .btn-pomo-action {
   background: none;
   border: none;
-  color: var(--color-taupe);
+  color: var(--color-charcoal);
   cursor: pointer;
   padding: 3px;
-  border-radius: 4px;
+  border-radius: 50%;
   display: flex;
   align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
   transition: var(--transition-quick);
 }
 
 .btn-pomo-action:hover {
-  color: var(--color-dark-chocolate);
+  background: rgba(255, 255, 255, 0.65);
+}
+
+.tools-divider {
+  width: 1px;
+  height: 20px;
+  background: rgba(189, 184, 177, 0.45);
+  margin: 0 4px;
 }
 
 /* Botão Modo Foco */
 .btn-foco {
-  background: rgba(255, 255, 255, 0.65);
-  backdrop-filter: var(--glass-blur-sm);
-  -webkit-backdrop-filter: var(--glass-blur-sm);
+  background: transparent;
+  border: none;
   color: var(--color-charcoal);
-  border: 1px solid rgba(255, 255, 255, 0.9);
   padding: 6px 14px;
   border-radius: var(--radius-full);
   font-size: 12.5px;
@@ -280,24 +250,20 @@ svg[data-lucide], .lucide {
   display: flex;
   align-items: center;
   gap: 6px;
-  box-shadow: var(--shadow-xs), var(--shadow-specular);
   transition: var(--transition-smooth);
 }
 
 .btn-foco:hover {
-  background: #FFFFFF;
-  border-color: rgba(189, 184, 177, 0.5);
+  background: rgba(255, 255, 255, 0.65);
   color: var(--color-dark-chocolate);
-  transform: translateY(-1px);
-  box-shadow: var(--shadow-sm);
 }
 
 /* Barra de Progresso Global Integrada na Floating Bar */
 .global-progress-bar {
   background: rgba(189, 184, 177, 0.25);
-  height: 2.5px;
-  width: calc(100% + 36px);
-  margin: 0 -18px;
+  height: 2px;
+  width: calc(100% + 44px);
+  margin: 0 -22px;
 }
 
 .global-progress-fill {
@@ -344,7 +310,7 @@ body.modo-foco-ativo .foco-bar {
    ========================================================================== */
 .nav-tabs-wrapper {
   position: sticky;
-  top: 78px;
+  top: 76px;
   z-index: 90;
   margin: 12px auto 28px auto;
   max-width: fit-content;
@@ -357,13 +323,13 @@ body.modo-foco-ativo .foco-bar {
   display: flex;
   align-items: center;
   gap: 4px;
-  padding: 5px;
-  background: rgba(255, 255, 255, 0.65);
+  padding: 4px 6px;
+  background: rgba(255, 255, 255, 0.52);
   backdrop-filter: var(--glass-blur);
   -webkit-backdrop-filter: var(--glass-blur);
-  border: 1px solid var(--glass-border);
+  border: 1.5px solid rgba(255, 255, 255, 0.88);
   border-radius: var(--radius-full);
-  box-shadow: var(--shadow-md), var(--shadow-specular);
+  box-shadow: 0 10px 30px rgba(73, 53, 41, 0.05), inset 0 1.5px 2px rgba(255, 255, 255, 1);
   overflow-x: auto;
   scrollbar-width: none;
 }
@@ -377,7 +343,7 @@ body.modo-foco-ativo .foco-bar {
   padding: 8px 18px;
   border-radius: var(--radius-full);
   color: var(--color-taupe);
-  font-size: 13px;
+  font-size: 13.5px;
   font-weight: 500;
   background: transparent;
   display: flex;
@@ -390,15 +356,15 @@ body.modo-foco-ativo .foco-bar {
 
 .tab-btn:hover {
   color: var(--color-charcoal);
-  background: rgba(232, 227, 221, 0.45);
+  background: rgba(255, 255, 255, 0.45);
 }
 
 .tab-btn.active {
   background: #FFFFFF;
-  color: var(--color-dark-chocolate);
+  color: var(--color-charcoal);
   font-weight: 600;
-  box-shadow: 0 2px 10px rgba(73, 53, 41, 0.08), 0 1px 2px rgba(73, 53, 41, 0.04), inset 0 1px 0 rgba(255, 255, 255, 1);
-  border: 1px solid rgba(189, 184, 177, 0.28);
+  box-shadow: 0 3px 12px rgba(73, 53, 41, 0.08), inset 0 1px 1px rgba(255, 255, 255, 1);
+  border: 1px solid rgba(255, 255, 255, 0.9);
 }
 
 .tab-btn.active svg {
@@ -652,17 +618,17 @@ body.modo-foco-ativo .foco-bar {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 5px;
+  gap: 4px;
   flex-wrap: nowrap;
-  margin: 0 auto 30px auto;
-  padding: 5px;
+  margin: 0 auto 32px auto;
+  padding: 4px 6px;
   max-width: fit-content;
-  background: rgba(255, 255, 255, 0.65);
+  background: rgba(255, 255, 255, 0.52);
   backdrop-filter: var(--glass-blur);
   -webkit-backdrop-filter: var(--glass-blur);
-  border: 1px solid var(--glass-border);
+  border: 1.5px solid rgba(255, 255, 255, 0.88);
   border-radius: var(--radius-full);
-  box-shadow: var(--shadow-md), var(--shadow-specular);
+  box-shadow: 0 8px 25px rgba(73, 53, 41, 0.05), inset 0 1px 1.5px rgba(255, 255, 255, 0.95);
   overflow-x: auto;
   scrollbar-width: none;
 }
@@ -673,9 +639,9 @@ body.modo-foco-ativo .foco-bar {
 
 .mod-filter-btn {
   background: transparent;
-  border: 1px solid transparent;
-  color: var(--color-taupe);
-  padding: 8px 18px;
+  border: none;
+  color: var(--color-charcoal);
+  padding: 7px 18px;
   border-radius: var(--radius-full);
   font-size: 13px;
   font-weight: 500;
@@ -686,69 +652,99 @@ body.modo-foco-ativo .foco-bar {
 
 .mod-filter-btn:hover {
   color: var(--color-charcoal);
-  background: rgba(232, 227, 221, 0.45);
+  background: rgba(255, 255, 255, 0.5);
 }
 
 .mod-filter-btn.active {
-  background: #FFFFFF;
-  color: var(--color-dark-chocolate);
+  background: #70503D; /* Coffee Brown */
+  color: #FFFFFF;
   font-weight: 600;
-  box-shadow: 0 2px 10px rgba(73, 53, 41, 0.08), 0 1px 2px rgba(73, 53, 41, 0.04), inset 0 1px 0 rgba(255, 255, 255, 1);
-  border: 1px solid rgba(189, 184, 177, 0.28);
+  box-shadow: 0 4px 14px rgba(112, 80, 61, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 /* Card Geral do Módulo */
 .module-section-card {
-  background: var(--glass-bg);
+  background: rgba(255, 255, 255, 0.55);
   backdrop-filter: var(--glass-blur);
   -webkit-backdrop-filter: var(--glass-blur);
-  border: 1px solid var(--glass-border);
-  box-shadow: var(--shadow-md), var(--shadow-specular);
-  border-radius: var(--radius-lg);
-  margin-bottom: 26px;
+  border: 1.5px solid rgba(255, 255, 255, 0.88);
+  box-shadow: 0 16px 40px rgba(112, 80, 61, 0.05), inset 0 1.5px 2px rgba(255, 255, 255, 0.95);
+  border-radius: 26px;
+  margin-bottom: 28px;
   overflow: hidden;
   transition: var(--transition-smooth);
 }
 
 .module-header-box {
-  padding: 18px 24px;
-  border-bottom: 1px solid rgba(189, 184, 177, 0.28);
+  padding: 22px 28px 18px 28px;
+  border-bottom: 1px solid rgba(189, 184, 177, 0.18);
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 12px;
-  background: rgba(255, 255, 255, 0.35);
-  backdrop-filter: var(--glass-blur-sm);
+  align-items: flex-start;
+  background: transparent;
 }
 
-.module-title-wrap h3 {
-  font-size: 16.5px;
-  font-weight: 700;
+.module-header-left {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.module-title-row {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
+}
+
+.module-main-icon {
+  width: 20px;
+  height: 20px;
+  color: var(--color-coffee-brown);
+}
+
+.module-title-text {
+  font-size: 17px;
+  font-weight: 700;
   color: var(--color-charcoal);
   letter-spacing: -0.2px;
+}
+
+.module-toggle-chevron {
+  color: var(--color-taupe);
+  width: 18px;
+  height: 18px;
+  margin-top: 4px;
 }
 
 .module-meta-badges {
   display: flex;
   gap: 10px;
-  font-size: 11.5px;
-  color: var(--color-taupe);
+  flex-wrap: wrap;
 }
 
-.module-meta-badges span {
-  background: rgba(255, 255, 255, 0.7);
-  padding: 3px 9px;
+.badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.88);
+  box-shadow: 0 2px 6px rgba(73, 53, 41, 0.03);
+  padding: 4px 12px;
   border-radius: var(--radius-full);
-  border: 1px solid rgba(189, 184, 177, 0.35);
+  font-size: 12px;
+  color: #6E6359;
+}
+
+.badge-pill svg {
+  width: 13px;
+  height: 13px;
+  color: var(--color-taupe);
 }
 
 /* Subtópicos & Acordeão */
 .subtopic-item {
-  border-bottom: 1px solid rgba(189, 184, 177, 0.22);
+  border-bottom: 1px solid rgba(189, 184, 177, 0.16);
 }
 
 .subtopic-item:last-child {
@@ -756,7 +752,7 @@ body.modo-foco-ativo .foco-bar {
 }
 
 .subtopic-header {
-  padding: 15px 22px;
+  padding: 16px 28px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -767,20 +763,20 @@ body.modo-foco-ativo .foco-bar {
 }
 
 .subtopic-header:hover {
-  background: rgba(255, 255, 255, 0.45);
+  background: rgba(255, 255, 255, 0.4);
 }
 
 .subtopic-title-wrap {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
 }
 
 .check-topic-btn {
-  width: 20px;
-  height: 20px;
-  border-radius: var(--radius-xs);
-  border: 1.5px solid var(--color-warm-gray);
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 1.5px solid #C4B8AB;
   background: rgba(255, 255, 255, 0.8);
   cursor: pointer;
   display: flex;
@@ -789,6 +785,7 @@ body.modo-foco-ativo .foco-bar {
   color: transparent;
   transition: var(--transition-quick);
   flex-shrink: 0;
+  padding: 0;
 }
 
 .check-topic-btn:hover {
@@ -798,13 +795,14 @@ body.modo-foco-ativo .foco-bar {
 .check-topic-btn.completed {
   background: var(--color-coffee-brown);
   border-color: var(--color-coffee-brown);
-  color: #fff;
+  color: #FFFFFF;
 }
 
 .check-topic-btn.completed svg {
   width: 13px;
   height: 13px;
   stroke-width: 2.5;
+  color: #FFFFFF;
 }
 
 .subtopic-title {
@@ -816,181 +814,77 @@ body.modo-foco-ativo .foco-bar {
 
 .subtopic-chevron {
   color: var(--color-taupe);
-  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .subtopic-item.open .subtopic-chevron {
   transform: rotate(180deg);
 }
 
-/* ==========================================================================
-   ÁREA INTERNA DO RESUMO — TRANSLUCENT TINTED SOFT GLASS
-   (Vidro fosco tingido com sutil tonalidade do tema e alta legibilidade)
-   ========================================================================== */
+/* Recessed Frosted Glass Inner Container */
 .subtopic-body {
   display: none;
-  padding: 22px 26px 28px 52px;
+  margin: 6px 22px 24px 22px;
+  padding: 24px 28px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  box-shadow: 0 4px 20px rgba(112, 80, 61, 0.03), inset 0 1px 2px rgba(255, 255, 255, 0.85);
   font-size: 14px;
   line-height: 1.72;
   color: var(--color-charcoal);
-  backdrop-filter: var(--glass-blur-sm);
-  -webkit-backdrop-filter: var(--glass-blur-sm);
 }
 
 .subtopic-item.open .subtopic-body {
   display: block;
+  animation: appleFadeIn 0.24s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.subtopic-body p {
+  margin-bottom: 14px;
+}
+
+.subtopic-body p:last-child {
+  margin-bottom: 0;
 }
 
 .subtopic-body h4 {
-  margin: 18px 0 8px 0;
+  margin: 20px 0 10px 0;
   font-size: 14.5px;
   font-weight: 700;
-  letter-spacing: -0.2px;
+  color: var(--color-charcoal);
+  letter-spacing: -0.15px;
 }
 
 .subtopic-body strong {
   font-weight: 600;
+  color: #1F1D1A;
 }
 
-/* MÓDULO 1: BIOSSEGURANÇA (TONS DE AZUL ARDÓSIA) */
-.module-section-card[data-mod="1"] .module-header-box {
-  border-left: 4px solid var(--mod1-color);
-}
-.module-section-card[data-mod="1"] .module-title-wrap h3 svg {
-  color: var(--mod1-color);
-}
-.module-section-card[data-mod="1"] .subtopic-body {
-  border-top: 1px solid rgba(59, 122, 158, 0.15);
-}
-.module-section-card[data-mod="1"] .subtopic-body h4 {
-  color: #275a77;
-}
-.module-section-card[data-mod="1"] .subtopic-body strong {
-  color: #17384a;
-}
-.module-section-card[data-mod="1"] #item_mod1_1 .subtopic-body {
-  background: rgba(225, 238, 248, 0.45);
-  border-left: 3px solid #5b8fae;
-}
-.module-section-card[data-mod="1"] #item_mod1_2 .subtopic-body {
-  background: rgba(215, 233, 246, 0.52);
-  border-left: 3px solid #4a80a2;
-}
-.module-section-card[data-mod="1"] #item_mod1_3 .subtopic-body {
-  background: rgba(205, 228, 244, 0.58);
-  border-left: 3px solid #3c7295;
-}
-.module-section-card[data-mod="1"] #item_mod1_4 .subtopic-body {
-  background: rgba(195, 223, 242, 0.65);
-  border-left: 3px solid #2f6488;
+.subtopic-body ol, .subtopic-body ul {
+  padding-left: 22px;
+  margin-bottom: 16px;
 }
 
-/* MÓDULO 2: FARMACOLOGIA & ANATOMIA (TONS DE ROXO HEATHER) */
-.module-section-card[data-mod="2"] .module-header-box {
-  border-left: 4px solid var(--mod2-color);
-}
-.module-section-card[data-mod="2"] .module-title-wrap h3 svg {
-  color: var(--mod2-color);
-}
-.module-section-card[data-mod="2"] .subtopic-body {
-  border-top: 1px solid rgba(123, 88, 148, 0.15);
-}
-.module-section-card[data-mod="2"] .subtopic-body h4 {
-  color: #55346d;
-}
-.module-section-card[data-mod="2"] .subtopic-body strong {
-  color: #3b224d;
-}
-.module-section-card[data-mod="2"] #item_mod2_1 .subtopic-body {
-  background: rgba(242, 236, 248, 0.45);
-  border-left: 3px solid #9471b0;
-}
-.module-section-card[data-mod="2"] #item_mod2_2 .subtopic-body {
-  background: rgba(235, 227, 245, 0.52);
-  border-left: 3px solid #855fa3;
-}
-.module-section-card[data-mod="2"] #item_mod2_3 .subtopic-body {
-  background: rgba(228, 218, 242, 0.58);
-  border-left: 3px solid #774f96;
-}
-.module-section-card[data-mod="2"] #item_mod2_4 .subtopic-body {
-  background: rgba(221, 209, 239, 0.65);
-  border-left: 3px solid #6a4089;
-}
-.module-section-card[data-mod="2"] #item_mod2_5 .subtopic-body {
-  background: rgba(214, 200, 236, 0.72);
-  border-left: 3px solid #5e337c;
+.subtopic-body li {
+  margin-bottom: 8px;
+  line-height: 1.68;
 }
 
-/* MÓDULO 3: TÉCNICAS ANESTÉSICAS (TONS DE ÂMBAR / WARM OCHRE) */
-.module-section-card[data-mod="3"] .module-header-box {
-  border-left: 4px solid var(--mod3-color);
-}
-.module-section-card[data-mod="3"] .module-title-wrap h3 svg {
-  color: var(--mod3-color);
-}
-.module-section-card[data-mod="3"] .subtopic-body {
-  border-top: 1px solid rgba(168, 101, 39, 0.15);
-}
-.module-section-card[data-mod="3"] .subtopic-body h4 {
-  color: #7d4915;
-}
-.module-section-card[data-mod="3"] .subtopic-body strong {
-  color: #552f08;
-}
-.module-section-card[data-mod="3"] #item_mod3_1 .subtopic-body {
-  background: rgba(251, 242, 230, 0.48);
-  border-left: 3px solid #c98542;
-}
-.module-section-card[data-mod="3"] #item_mod3_2 .subtopic-body {
-  background: rgba(248, 236, 221, 0.54);
-  border-left: 3px solid #ba7734;
-}
-.module-section-card[data-mod="3"] #item_mod3_3 .subtopic-body {
-  background: rgba(245, 230, 212, 0.60);
-  border-left: 3px solid #ac6928;
-}
-.module-section-card[data-mod="3"] #item_mod3_4 .subtopic-body {
-  background: rgba(242, 224, 203, 0.68);
-  border-left: 3px solid #9e5c1d;
-}
-.module-section-card[data-mod="3"] #item_mod3_5 .subtopic-body {
-  background: rgba(239, 218, 194, 0.75);
-  border-left: 3px solid #905013;
-}
+/* Tonalidades sutis de cabeçalhos por módulo */
+.module-section-card[data-mod="1"] .module-main-icon { color: var(--mod1-color); }
+.module-section-card[data-mod="1"] .subtopic-body h4 { color: #275a77; }
 
-/* MÓDULO 4: ACIDENTES E COMPLICAÇÕES (TONS DE TERRACOTA CRIMSON) */
-.module-section-card[data-mod="4"] .module-header-box {
-  border-left: 4px solid var(--mod4-color);
-}
-.module-section-card[data-mod="4"] .module-title-wrap h3 svg {
-  color: var(--mod4-color);
-}
-.module-section-card[data-mod="4"] .subtopic-body {
-  border-top: 1px solid rgba(179, 57, 57, 0.15);
-}
-.module-section-card[data-mod="4"] .subtopic-body h4 {
-  color: #8c2727;
-}
-.module-section-card[data-mod="4"] .subtopic-body strong {
-  color: #5f1515;
-}
-.module-section-card[data-mod="4"] #item_mod4_1 .subtopic-body {
-  background: rgba(253, 238, 238, 0.48);
-  border-left: 3px solid #cb5d5d;
-}
-.module-section-card[data-mod="4"] #item_mod4_2 .subtopic-body {
-  background: rgba(250, 230, 230, 0.54);
-  border-left: 3px solid #bc4b4b;
-}
-.module-section-card[data-mod="4"] #item_mod4_3 .subtopic-body {
-  background: rgba(247, 222, 222, 0.60);
-  border-left: 3px solid #ad3b3b;
-}
-.module-section-card[data-mod="4"] #item_mod4_4 .subtopic-body {
-  background: rgba(244, 214, 214, 0.68);
-  border-left: 3px solid #9f2d2d;
-}
+.module-section-card[data-mod="2"] .module-main-icon { color: var(--mod2-color); }
+.module-section-card[data-mod="2"] .subtopic-body h4 { color: #55346d; }
+
+.module-section-card[data-mod="3"] .module-main-icon { color: var(--mod3-color); }
+.module-section-card[data-mod="3"] .subtopic-body h4 { color: #7d4915; }
+
+.module-section-card[data-mod="4"] .module-main-icon { color: var(--mod4-color); }
+.module-section-card[data-mod="4"] .subtopic-body h4 { color: #8c2727; }
 
 /* Elementos Internos de Apoio */
 .subtopic-body ul, .subtopic-body ol {

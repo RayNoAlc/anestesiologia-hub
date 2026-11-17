@@ -552,8 +552,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (altsContainer) {
       altsContainer.innerHTML = q.alternativas.map((alt, idx) => `
         <button class="alt-btn" data-index="${idx}">
-          <span style="font-weight: 600; color: #94a3b8; width: 18px;">${String.fromCharCode(65 + idx)}</span>
-          <span>${alt.replace(/^[a-eA-E]\)\s*/, '')}</span>
+          <span class="alt-letter">${String.fromCharCode(65 + idx)}</span>
+          <span class="alt-text">${alt.replace(/^[a-eA-E]\)\s*/, '')}</span>
         </button>
       `).join('');
 

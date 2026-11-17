@@ -2890,8 +2890,147 @@ body.modo-foco-ativo .foco-bar {
    Otimizações para telas menores mantendo a elegância centralizada no desktop
    ========================================================================== */
 
-/* --- Tablet & Telas Médias (<= 768px) --- */
-@media (max-width: 768px) {
+/* --- Dispositivos Mobile e Tablets (<= 1024px) --- */
+@media (max-width: 1024px) {
+  /* ========================================================================
+     OTIMIZAÇÃO MOBILE EXCLUSIVA: CORES DOS ARCOS & CONTRASTE DE LEITURA
+     Elimina fundos escuros sob fontes escuras, garantindo legibilidade perfeita
+     ======================================================================== */
+  .ambient-backdrop,
+  .ambient-backdrop[class*="step-"] {
+    opacity: 0.2 !important;
+  }
+
+  /* Oculta completamente quaisquer camadas escuras (espresso e café) em todas as abas no mobile */
+  .ambient-backdrop .layer-espresso,
+  .ambient-backdrop .layer-coffee,
+  .ambient-backdrop[class*="step-"] .layer-espresso,
+  .ambient-backdrop[class*="step-"] .layer-coffee,
+  .ambient-backdrop[class*="step-"] .ribbon-1 .layer-espresso,
+  .ambient-backdrop[class*="step-"] .ribbon-1 .layer-coffee,
+  .ambient-backdrop[class*="step-"] .ribbon-2 .layer-espresso,
+  .ambient-backdrop[class*="step-"] .ribbon-2 .layer-coffee,
+  .ambient-backdrop[class*="step-"] .ribbon-3 .layer-espresso,
+  .ambient-backdrop[class*="step-"] .ribbon-3 .layer-coffee {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+  }
+
+  /* Mantém apenas arcos amenos e claros (creme e caramelo suave) */
+  .ambient-backdrop .layer-cream,
+  .ambient-backdrop[class*="step-"] .layer-cream,
+  .ambient-backdrop[class*="step-"] .ribbon-1 .layer-cream,
+  .ambient-backdrop[class*="step-"] .ribbon-2 .layer-cream,
+  .ambient-backdrop[class*="step-"] .ribbon-3 .layer-cream {
+    display: block !important;
+    opacity: 0.7 !important;
+    fill: #FAF6F0 !important;
+    visibility: visible !important;
+  }
+
+  .ambient-backdrop .layer-caramel,
+  .ambient-backdrop[class*="step-"] .layer-caramel,
+  .ambient-backdrop[class*="step-"] .ribbon-1 .layer-caramel,
+  .ambient-backdrop[class*="step-"] .ribbon-2 .layer-caramel,
+  .ambient-backdrop[class*="step-"] .ribbon-3 .layer-caramel {
+    display: block !important;
+    opacity: 0.45 !important;
+    fill: #EFE4D6 !important;
+    visibility: visible !important;
+  }
+
+  /* Fundo base claro e acolhedor para contraste ideal */
+  body {
+    background-color: #FAF7F2 !important;
+  }
+
+  /* Cartões com fundo branco sólido/translúcido de altíssima definição para nunca escurecer textos */
+  .top-bar,
+  .nav-tabs,
+  .module-section-card,
+  .subtopic-body,
+  .stat-card,
+  .incidence-box,
+  .question-card,
+  .quiz-controls-card,
+  .quiz-summary-card,
+  .casos-controls-card,
+  .caso-card,
+  .tecnica-card,
+  .module-fixacao-section,
+  .custom-select-trigger,
+  .custom-select-dropdown {
+    background: #FFFFFF !important;
+    border-color: rgba(220, 214, 206, 0.8) !important;
+    box-shadow: 0 4px 16px rgba(73, 53, 41, 0.05) !important;
+  }
+
+  .pegadinha-card {
+    background: #FFF8F6 !important;
+    border-color: rgba(220, 90, 70, 0.25) !important;
+    box-shadow: 0 4px 16px rgba(73, 53, 41, 0.05) !important;
+  }
+
+  /* Textos de alta definição e contraste no mobile */
+  .section-title,
+  .section-subtitle,
+  .brand-logo,
+  .subtopic-title,
+  .module-title-text,
+  .topic-name,
+  .stat-label,
+  .stat-val {
+    color: #241A15 !important;
+  }
+  
+  .section-subtitle {
+    color: #5C4B40 !important;
+  }
+
+  /* ========================================================================
+     OTIMIZAÇÃO MOBILE EXCLUSIVA: PERFORMANCE 60FPS & ZERO TRAVAMENTO
+     Remove filtros pesados, transições de escala contínuas e blurs excessivos
+     ======================================================================== */
+  /* Remove sombras complexas com filtros SVG em tempo real */
+  .ambient-backdrop,
+  .ambient-backdrop * {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+    will-change: auto !important;
+    filter: none !important;
+    -webkit-filter: none !important;
+  }
+
+  /* Remove backdrop-filter para eliminar stutters durante o scroll */
+  .top-bar,
+  .nav-tabs,
+  .module-section-card,
+  .subtopic-body,
+  .question-card,
+  .caso-card,
+  .tecnica-card,
+  .module-fixacao-section,
+  .custom-select-trigger,
+  .custom-select-dropdown,
+  .stat-card,
+  .incidence-box,
+  .pegadinha-card {
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+  }
+
+  /* Transição de abas rápida e leve sem saltos */
+  .tab-pane.active {
+    animation: mobileAppleFade 0.12s ease-out !important;
+  }
+
+  @keyframes mobileAppleFade {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
   .top-bar {
     top: 6px;
     width: calc(100% - 16px);
@@ -3164,7 +3303,7 @@ body.modo-foco-ativo .foco-bar {
     display: flex !important;
     flex-direction: column !important;
     align-items: stretch !important;
-    gap: 14px !important;
+    gap: 16px !important;
     width: 100% !important;
   }
 
@@ -3172,21 +3311,28 @@ body.modo-foco-ativo .foco-bar {
     width: 100% !important;
     display: flex !important;
     justify-content: center !important;
-    padding: 12px 18px !important;
+    padding: 13px 18px !important;
+    margin-bottom: 4px !important;
   }
 
   .caso-select-wrapper {
     width: 100% !important;
     min-width: 0 !important;
     max-width: 100% !important;
+    display: flex !important;
     flex-direction: column !important;
     align-items: stretch !important;
-    gap: 6px !important;
+    gap: 8px !important;
+    margin-top: 4px !important;
   }
 
   .caso-select-label {
-    align-self: flex-start;
-    font-size: 12px;
+    display: block !important;
+    align-self: flex-start !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    color: var(--color-charcoal) !important;
+    margin-bottom: 2px !important;
   }
 
   .caso-select-wrapper .custom-select-container {

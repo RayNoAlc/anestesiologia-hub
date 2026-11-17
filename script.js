@@ -1078,26 +1078,31 @@ document.addEventListener('DOMContentLoaded', () => {
             </summary>
             <div class="tecnica-details-content">
               <div class="detail-section">
-                <h5>Referenciais Anatômicos de Palpação & Visão:</h5>
+                <h5><i data-lucide="eye"></i> Referenciais Anatômicos de Palpação & Visão:</h5>
                 <ul>
                   ${t.referenciais.map(r => `<li>${r}</li>`).join('')}
                 </ul>
               </div>
 
               <div class="detail-section">
-                <h5>Nervos Bloqueados & Áreas Anestesiadas:</h5>
+                <h5><i data-lucide="activity"></i> Nervos Bloqueados & Áreas Anestesiadas:</h5>
                 <ul>
-                  ${t.estruturasAnestesiadas.map(e => `<li>${e}</li>`).join('')}
+                  ${t.estruturasAnestesiadas.map(e => {
+                    if (e.toUpperCase().includes('NÃO ANESTESIA') || e.toUpperCase().startsWith('PACIENTE HEMOFÍLICO')) {
+                      return `<li class="detail-li-alert"><i data-lucide="alert-triangle" class="icon-inline-alert"></i> <span>${e}</span></li>`;
+                    }
+                    return `<li>${e}</li>`;
+                  }).join('')}
                 </ul>
               </div>
 
               <div class="detail-section">
-                <h5>Desprender o Êmbolo & Biossegurança:</h5>
+                <h5><i data-lucide="shield-check"></i> Desprender o Êmbolo & Biossegurança:</h5>
                 <p>${t.embolo}</p>
               </div>
 
               <div class="detail-section alert-section">
-                <h5>⚠️ Pegadinha Crítica do Professor:</h5>
+                <h5><i data-lucide="alert-triangle" class="icon-inline-alert"></i> Pegadinha Crítica do Professor:</h5>
                 <p>${t.armadilhaProva}</p>
               </div>
             </div>

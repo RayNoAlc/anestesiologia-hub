@@ -2345,7 +2345,18 @@ body.modo-foco-ativo .foco-bar {
   font-weight: 700;
   text-transform: uppercase;
   color: var(--color-charcoal);
-  margin-bottom: 4px;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.detail-section h5 i {
+  width: 14px;
+  height: 14px;
+  stroke-width: 2.2px;
+  color: var(--color-terracotta);
+  flex-shrink: 0;
 }
 
 .detail-section ul {
@@ -2354,6 +2365,33 @@ body.modo-foco-ativo .foco-bar {
   font-size: 12.5px;
   color: var(--text-secondary);
   line-height: 1.5;
+}
+
+.detail-li-alert {
+  list-style: none !important;
+  margin-left: -18px;
+  margin-top: 6px;
+  margin-bottom: 6px;
+  padding: 6px 10px;
+  background: rgba(220, 38, 38, 0.08);
+  border: 1px solid rgba(220, 38, 38, 0.22);
+  border-radius: 6px;
+  color: #991B1B;
+  font-weight: 700;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  line-height: 1.4;
+}
+
+.detail-li-alert i,
+.icon-inline-alert {
+  color: #DC2626 !important;
+  width: 14px;
+  height: 14px;
+  stroke-width: 2.2px;
+  flex-shrink: 0;
 }
 
 .detail-section p {

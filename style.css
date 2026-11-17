@@ -1114,6 +1114,270 @@ body.modo-foco-ativo .foco-bar {
 }
 
 /* ==========================================================================
+   FIXAÇÃO TEÓRICA: PERGUNTAS AO FINAL DE CADA MÓDULO DOS RESUMOS
+   ========================================================================== */
+.module-fixacao-section {
+  margin: 24px 28px 28px 28px;
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1.5px solid rgba(225, 218, 208, 0.85);
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 8px 24px rgba(74, 52, 39, 0.04), inset 0 1px 1px rgba(255, 255, 255, 0.9);
+}
+
+.module-fixacao-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(225, 218, 208, 0.55);
+  margin-bottom: 18px;
+}
+
+.fixacao-badge-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  background: rgba(143, 113, 89, 0.12);
+  color: var(--color-coffee-brown);
+  font-size: 11px;
+  font-weight: 700;
+  border-radius: 20px;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.fixacao-badge-tag i {
+  width: 13px;
+  height: 13px;
+}
+
+.fixacao-section-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--color-charcoal);
+  margin: 0 0 4px 0;
+}
+
+.fixacao-section-desc {
+  font-size: 12.5px;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.fixacao-prog-text {
+  display: inline-block;
+  padding: 6px 14px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  font-size: 11.5px;
+  font-weight: 700;
+  color: var(--color-coffee-brown);
+  box-shadow: var(--shadow-xs);
+  white-space: nowrap;
+}
+
+.fixacao-tabs-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.fix-tab-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  background: rgba(255, 255, 255, 0.65);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--color-charcoal);
+  cursor: pointer;
+  transition: var(--transition-quick);
+}
+
+.fix-tab-btn:hover {
+  background: #FFFFFF;
+  border-color: var(--color-coffee-brown);
+  transform: translateY(-1px);
+}
+
+.fix-tab-btn.active {
+  background: var(--color-coffee-brown);
+  border-color: var(--color-coffee-brown);
+  color: #FFFFFF;
+  box-shadow: 0 3px 8px rgba(74, 52, 39, 0.22);
+}
+
+.fix-tab-btn.tab-correct {
+  border-color: #16A34A;
+  background: rgba(220, 252, 231, 0.6);
+  color: #15803D;
+}
+
+.fix-tab-btn.tab-correct.active {
+  background: #16A34A;
+  border-color: #16A34A;
+  color: #FFFFFF;
+}
+
+.fix-tab-btn.tab-wrong {
+  border-color: #DC2626;
+  background: rgba(254, 226, 226, 0.6);
+  color: #B91C1C;
+}
+
+.fix-tab-btn.tab-wrong.active {
+  background: #DC2626;
+  border-color: #DC2626;
+  color: #FFFFFF;
+}
+
+.fix-tab-btn i {
+  width: 12px;
+  height: 12px;
+}
+
+.fixacao-card {
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(225, 218, 208, 0.8);
+  border-radius: var(--radius-md);
+  padding: 22px;
+  box-shadow: var(--shadow-xs);
+}
+
+.fixacao-q-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.fixacao-meta-badges {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.fixacao-q-id {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.fix-tema {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--color-coffee-brown);
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px dashed rgba(225, 218, 208, 0.7);
+}
+
+.fix-tema i {
+  width: 14px;
+  height: 14px;
+  color: var(--color-terracotta);
+}
+
+.fix-enunciado {
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--color-charcoal);
+  line-height: 1.65;
+  margin-bottom: 18px;
+  white-space: pre-line;
+}
+
+.fix-alternativas {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.fix-actions-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(225, 218, 208, 0.6);
+}
+
+.fix-nav-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 18px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-sm);
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--color-charcoal);
+  cursor: pointer;
+  transition: var(--transition-quick);
+}
+
+.fix-nav-btn:hover:not(:disabled) {
+  background: var(--color-coffee-brown);
+  color: #FFFFFF;
+  border-color: var(--color-coffee-brown);
+  transform: translateY(-1px);
+}
+
+.fix-nav-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.fix-nav-btn i {
+  width: 14px;
+  height: 14px;
+}
+
+.fix-retry-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: rgba(143, 113, 89, 0.1);
+  border: 1px solid rgba(143, 113, 89, 0.25);
+  border-radius: var(--radius-sm);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--color-coffee-brown);
+  cursor: pointer;
+  transition: var(--transition-quick);
+}
+
+.fix-retry-btn:hover {
+  background: rgba(143, 113, 89, 0.2);
+  transform: translateY(-1px);
+}
+
+.fix-retry-btn i {
+  width: 13px;
+  height: 13px;
+}
+
+/* ==========================================================================
    SEÇÃO 3: QUIZ INTERATIVO
    ========================================================================== */
 .quiz-controls-card {
@@ -2755,6 +3019,43 @@ body.modo-foco-ativo .foco-bar {
   .tabela-estudo th, .tabela-estudo td {
     padding: 8px 10px;
     white-space: nowrap;
+  }
+
+  .module-fixacao-section {
+    margin: 18px 8px 20px 8px;
+    padding: 18px 14px;
+    border-radius: 18px;
+  }
+
+  .module-fixacao-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .fixacao-section-title {
+    font-size: 15px;
+  }
+
+  .fixacao-card {
+    padding: 16px 14px;
+    border-radius: 14px;
+  }
+
+  .fix-actions-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .fix-nav-btn {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .fix-retry-btn {
+    justify-content: center;
+    width: 100%;
   }
 
   .quiz-controls-card {

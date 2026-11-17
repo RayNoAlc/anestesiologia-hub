@@ -33,7 +33,10 @@ document.addEventListener('DOMContentLoaded', () => {
     pomodoroIsBreak: false,
     
     // Modo Foco
-    modoFoco: false
+    modoFoco: false,
+
+    // Fixação por Módulo nos Resumos Teóricos
+    fixacaoCurrentIndex: { 1: 0, 2: 0, 3: 0, 4: 0 }
   };
 
   // Mapeamento dos passos cíclicos de background para cada aba/módulo
@@ -367,6 +370,7 @@ document.addEventListener('DOMContentLoaded', () => {
         `;
       }).join('');
 
+      const fixacaoHtml = renderFixacaoWrapperHtml(mod);
       return `
         <div class="module-section-card" data-mod="${mod.modulo}">
           <div class="module-header-box ${mod.cor}">
@@ -384,6 +388,7 @@ document.addEventListener('DOMContentLoaded', () => {
           </div>
           <div class="subtopics-list">
             ${subtopicsHtml}
+            ${fixacaoHtml}
           </div>
         </div>
       `;
@@ -438,7 +443,263 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
 
+    // Inicializar sessões de fixação para cada módulo
+    state.resumos.forEach(mod => {
+      initFixacaoSection(mod.modulo);
+    });
+
     refreshIcons();
+  }
+
+  // =========================================================================
+  // FIXAÇÃO TEÓRICA: PERGUNTAS AO FINAL DE CADA MÓDULO (ESTILO QUIZ INTERATIVO)
+  // =========================================================================
+  function renderFixacaoWrapperHtml(mod) {
+    const modQuestions = state.questoes.filter(q => q.modulo === mod.modulo);
+    if (!modQuestions || modQuestions.length === 0) return '';
+
+    return `
+      <div class="module-fixacao-section" id="fixacao_section_${mod.modulo}">
+        <div class="module-fixacao-header">
+          <div class="fixacao-header-info">
+            <div class="fixacao-badge-tag">
+              <i data-lucide="help-circle"></i>
+              <span>Perguntas de Fixação</span>
+            </div>
+            <h4 class="fixacao-section-title">Fixação de Conteúdo · Módulo ${mod.modulo}</h4>
+            <p class="fixacao-section-desc">Consolide este módulo com ${modQuestions.length} questões reais de prova da UNIOESTE comentadas no mesmo formato do simulador.</p>
+          </div>
+          <div class="fixacao-header-stats">
+            <span class="fixacao-prog-text" id="fixProgText_${mod.modulo}">0/${modQuestions.length} resolvidas</span>
+          </div>
+        </div>
+
+        <!-- Question Tabs Bar -->
+        <div class="fixacao-tabs-bar" id="fixTabs_${mod.modulo}">
+          ${modQuestions.map((q, idx) => `
+            <button class="fix-tab-btn ${idx === 0 ? 'active' : ''}" data-mod="${mod.modulo}" data-idx="${idx}" id="fixTab_${mod.modulo}_${idx}" title="${q.tema}">
+              <span class="fix-tab-label">Q${idx + 1}</span>
+              <span class="fix-tab-icon" id="fixTabIcon_${mod.modulo}_${idx}"></span>
+            </button>
+          `).join('')}
+        </div>
+
+        <!-- Active Question Display Area -->
+        <div class="fixacao-question-display" id="fixDisplay_${mod.modulo}">
+        </div>
+      </div>
+    `;
+  }
+
+  function initFixacaoSection(modulo) {
+    const modQuestions = state.questoes.filter(q => q.modulo === modulo);
+    if (!modQuestions || modQuestions.length === 0) return;
+
+    if (state.fixacaoCurrentIndex[modulo] === undefined) {
+      state.fixacaoCurrentIndex[modulo] = 0;
+    }
+
+    const tabsContainer = document.getElementById(`fixTabs_${modulo}`);
+    if (tabsContainer) {
+      tabsContainer.querySelectorAll('.fix-tab-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const idx = parseInt(btn.getAttribute('data-idx'), 10);
+          state.fixacaoCurrentIndex[modulo] = idx;
+          updateFixacaoTabs(modulo);
+          renderFixacaoQuestion(modulo, idx);
+          playSfx('click');
+        });
+      });
+    }
+
+    updateFixacaoTabs(modulo);
+    renderFixacaoQuestion(modulo, state.fixacaoCurrentIndex[modulo]);
+  }
+
+  function updateFixacaoTabs(modulo) {
+    const modQuestions = state.questoes.filter(q => q.modulo === modulo);
+    const currentIdx = state.fixacaoCurrentIndex[modulo] || 0;
+    let answeredCount = 0;
+
+    modQuestions.forEach((q, idx) => {
+      const btn = document.getElementById(`fixTab_${modulo}_${idx}`);
+      const iconSpan = document.getElementById(`fixTabIcon_${modulo}_${idx}`);
+      if (!btn) return;
+
+      btn.classList.toggle('active', idx === currentIdx);
+      btn.classList.remove('tab-correct', 'tab-wrong');
+
+      const ans = state.answeredQuestions[q.id];
+      if (ans) {
+        answeredCount++;
+        if (ans.correct) {
+          btn.classList.add('tab-correct');
+          if (iconSpan) iconSpan.innerHTML = '<i data-lucide="check"></i>';
+        } else {
+          btn.classList.add('tab-wrong');
+          if (iconSpan) iconSpan.innerHTML = '<i data-lucide="x"></i>';
+        }
+      } else {
+        if (iconSpan) iconSpan.innerHTML = '';
+      }
+    });
+
+    const progText = document.getElementById(`fixProgText_${modulo}`);
+    if (progText) {
+      progText.textContent = `${answeredCount}/${modQuestions.length} resolvidas`;
+    }
+    refreshIcons();
+  }
+
+  function renderFixacaoQuestion(modulo, qIndex) {
+    const modQuestions = state.questoes.filter(q => q.modulo === modulo);
+    const q = modQuestions[qIndex];
+    if (!q) return;
+
+    const display = document.getElementById(`fixDisplay_${modulo}`);
+    if (!display) return;
+
+    const ans = state.answeredQuestions[q.id];
+    const isAnswered = !!ans;
+    const isCorrect = isAnswered ? ans.correct : false;
+    const chosenIdx = isAnswered ? ans.chosenIndex : null;
+
+    display.innerHTML = `
+      <div class="fixacao-card animate-fade-in">
+        <div class="fixacao-q-meta">
+          <div class="fixacao-meta-badges">
+            <span class="q-badge">Questão ${qIndex + 1} de ${modQuestions.length}</span>
+            <span class="q-badge">${q.prova_origem}</span>
+            ${q.incidencia_alta ? '<span class="q-badge hot"><i data-lucide="zap"></i> Alta Frequência</span>' : ''}
+          </div>
+          <div class="fixacao-q-id">${q.id}</div>
+        </div>
+
+        <div class="fix-tema">
+          <i data-lucide="bookmark"></i>
+          <span><strong>Tema Cobrado:</strong> ${q.tema}</span>
+        </div>
+
+        <div class="fix-enunciado">${q.enunciado}</div>
+
+        <!-- Alternativas -->
+        <div class="fix-alternativas" id="fixAlts_${modulo}_${qIndex}">
+          ${q.alternativas.map((alt, aIdx) => {
+            let btnClasses = 'alt-btn';
+            if (isAnswered) {
+              btnClasses += ' locked';
+              if (aIdx === q.gabarito_oficial) {
+                btnClasses += ' reveal-correct';
+              }
+              if (chosenIdx === aIdx) {
+                btnClasses += isCorrect ? ' selected-correct' : ' selected-wrong';
+              }
+            }
+            return `
+              <button class="${btnClasses}" data-altidx="${aIdx}">
+                <span class="alt-letter">${String.fromCharCode(65 + aIdx)}</span>
+                <span class="alt-text">${alt.replace(/^[a-eA-E]\)\s*/, '')}</span>
+              </button>
+            `;
+          }).join('')}
+        </div>
+
+        <!-- Caixa de Feedback -->
+        <div class="feedback-box ${isAnswered ? 'visible' : ''}">
+          <div class="feedback-header ${isCorrect ? 'correct' : 'wrong'}">
+            <i data-lucide="${isCorrect ? 'check-circle-2' : 'x-circle'}"></i>
+            <span>${isCorrect ? 'Alternativa Correta! Gabarito Oficial confirmadíssimo.' : 'Alternativa Incorreta'}</span>
+          </div>
+          <div class="feedback-text">${q.justificativa}</div>
+          ${q.pegadinha ? `
+            <div class="feedback-pegadinha" style="display: block;">
+              <strong>Atenção à Pegadinha da Banca:</strong> ${q.pegadinha}
+            </div>
+          ` : ''}
+        </div>
+
+        <!-- Barra de Ações e Navegação -->
+        <div class="fix-actions-row">
+          <button class="fix-nav-btn prev-btn" data-target="${qIndex - 1}" ${qIndex === 0 ? 'disabled' : ''}>
+            <i data-lucide="arrow-left"></i> Anterior
+          </button>
+          
+          <div class="fix-actions-center">
+            ${isAnswered ? `
+              <button class="fix-retry-btn" data-mod="${modulo}" data-qidx="${qIndex}">
+                <i data-lucide="rotate-ccw"></i> Refazer Questão
+              </button>
+            ` : ''}
+          </div>
+
+          <button class="fix-nav-btn next-btn" data-target="${qIndex + 1}" ${qIndex === modQuestions.length - 1 ? 'disabled' : ''}>
+            Próxima <i data-lucide="arrow-right"></i>
+          </button>
+        </div>
+      </div>
+    `;
+
+    // Click handler for alternatives
+    if (!isAnswered) {
+      const altsContainer = document.getElementById(`fixAlts_${modulo}_${qIndex}`);
+      if (altsContainer) {
+        altsContainer.querySelectorAll('.alt-btn').forEach(btn => {
+          btn.addEventListener('click', () => {
+            const aIdx = parseInt(btn.getAttribute('data-altidx'), 10);
+            handleFixacaoAnswer(modulo, qIndex, aIdx, q);
+          });
+        });
+      }
+    }
+
+    // Click handler for retry
+    const retryBtn = display.querySelector('.fix-retry-btn');
+    if (retryBtn) {
+      retryBtn.addEventListener('click', () => {
+        delete state.answeredQuestions[q.id];
+        localStorage.setItem('anestesio_answered_stats', JSON.stringify(state.answeredQuestions));
+        updateGlobalProgress();
+        updateFixacaoTabs(modulo);
+        renderFixacaoQuestion(modulo, qIndex);
+        playSfx('click');
+      });
+    }
+
+    // Click handler for navigation buttons
+    display.querySelectorAll('.fix-nav-btn').forEach(b => {
+      b.addEventListener('click', () => {
+        const target = parseInt(b.getAttribute('data-target'), 10);
+        if (target >= 0 && target < modQuestions.length) {
+          state.fixacaoCurrentIndex[modulo] = target;
+          updateFixacaoTabs(modulo);
+          renderFixacaoQuestion(modulo, target);
+          playSfx('click');
+        }
+      });
+    });
+
+    refreshIcons();
+  }
+
+  function handleFixacaoAnswer(modulo, qIndex, chosenIdx, question) {
+    const isCorrect = (chosenIdx === question.gabarito_oficial);
+
+    if (isCorrect) {
+      playSoundSuccess();
+    } else {
+      playSoundWrong();
+    }
+
+    state.answeredQuestions[question.id] = {
+      correct: isCorrect,
+      chosenIndex: chosenIdx,
+      timestamp: Date.now()
+    };
+    localStorage.setItem('anestesio_answered_stats', JSON.stringify(state.answeredQuestions));
+    updateGlobalProgress();
+
+    updateFixacaoTabs(modulo);
+    renderFixacaoQuestion(modulo, qIndex);
   }
 
   // =========================================================================

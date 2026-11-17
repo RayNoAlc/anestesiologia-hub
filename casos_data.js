@@ -137,32 +137,33 @@ const TECNICAS_ANESTESICAS_DATA = [
     armadilhaProva: "Se for dente 16 ou 26, a raiz mésio-vestibular pode não anestesiar por ser inervada pelo ASM (~28%). Se doer durante a pulpectomia ou luxação mesial, complementar com subperióstica no ápice da raiz MV.",
     svgAnatomico: `<svg viewBox="0 0 320 220" class="tecnica-svg" xmlns="http://www.w3.org/2000/svg">
       <defs>
-        <linearGradient id="boneGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#EDE6DD"/><stop offset="100%" stop-color="#D5C5B5"/></linearGradient>
-        <filter id="glow"><feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#8F7159" flood-opacity="0.3"/></filter>
+        <filter id="glow"><feDropShadow dx="0" dy="1" stdDeviation="3" flood-color="#D32F2F" flood-opacity="0.4"/></filter>
       </defs>
       <rect width="320" height="220" rx="14" fill="#FAF7F2"/>
+      <!-- Header -->
+      <text x="160" y="22" font-size="11" fill="#3A2417" font-weight="700" text-anchor="middle">Ápice DV do 2º Molar Superior</text>
+      <text x="160" y="36" font-size="9.5" fill="#8F7159" font-weight="500" text-anchor="middle">Angulação 45° Sagital &amp; 45° Oclusal | Agulha Longa</text>
       <!-- Maxillary arch outline -->
-      <path d="M 40,160 C 50,70 120,40 240,40 C 280,40 300,70 300,110 C 300,150 270,170 230,170 C 190,170 180,150 160,150" fill="none" stroke="#D5C5B5" stroke-width="6"/>
+      <path d="M 35,160 C 45,85 110,54 220,54 C 265,54 285,78 285,115 C 285,150 260,170 220,170 C 185,170 175,152 155,152" fill="none" stroke="#D5C5B5" stroke-width="5"/>
       <!-- Molar teeth representation -->
-      <path d="M 180,155 L 200,155 L 200,175 L 180,175 Z" fill="#FFFFFF" stroke="#8F7159" stroke-width="2" rx="3"/>
-      <text x="190" y="190" font-size="10" fill="#6E503B" text-anchor="middle" font-weight="700">1º M</text>
-      <path d="M 210,152 L 230,152 L 230,172 L 210,172 Z" fill="#FFFFFF" stroke="#8F7159" stroke-width="2" rx="3"/>
-      <text x="220" y="190" font-size="10" fill="#6E503B" text-anchor="middle" font-weight="700">2º M</text>
-      <path d="M 240,146 L 258,146 L 258,166 L 240,166 Z" fill="#FFFFFF" stroke="#8F7159" stroke-width="2" rx="3"/>
-      <text x="249" y="190" font-size="10" fill="#6E503B" text-anchor="middle" font-weight="700">3º M</text>
+      <path d="M 175,155 L 193,155 L 193,173 L 175,173 Z" fill="#FFFFFF" stroke="#8F7159" stroke-width="2" rx="3"/>
+      <text x="184" y="188" font-size="9" fill="#6E503B" text-anchor="middle" font-weight="700">1º M</text>
+      <path d="M 202,152 L 220,152 L 220,170 L 202,170 Z" fill="#FFFFFF" stroke="#8F7159" stroke-width="2" rx="3"/>
+      <text x="211" y="188" font-size="9" fill="#6E503B" text-anchor="middle" font-weight="700">2º M</text>
+      <path d="M 229,146 L 247,146 L 247,164 L 229,164 Z" fill="#FFFFFF" stroke="#8F7159" stroke-width="2" rx="3"/>
+      <text x="238" y="188" font-size="9" fill="#6E503B" text-anchor="middle" font-weight="700">3º M</text>
       <!-- Tuber region -->
-      <path d="M 260,140 C 275,130 285,115 285,95 C 285,75 270,55 240,55" fill="none" stroke="#C5AA8E" stroke-width="4" stroke-dasharray="3,3"/>
-      <text x="285" y="85" font-size="11" fill="#8F7159" font-weight="700">Túber Maxilar</text>
+      <path d="M 248,140 C 262,130 272,116 272,98 C 272,80 258,64 230,64" fill="none" stroke="#C5AA8E" stroke-width="3.5" stroke-dasharray="3,3"/>
+      <text x="282" y="86" font-size="9.5" fill="#8F7159" font-weight="700">Túber</text>
       <!-- ASP Nerve branch -->
-      <path d="M 255,45 C 265,65 260,95 245,130" fill="none" stroke="#E67E22" stroke-width="3"/>
+      <path d="M 235,58 C 248,78 244,102 226,126" fill="none" stroke="#E67E22" stroke-width="3"/>
       <!-- Needle vector (45° angle) -->
-      <line x1="160" y1="210" x2="235" y2="128" stroke="#3A2417" stroke-width="2.5" stroke-linecap="round"/>
+      <line x1="145" y1="207" x2="226" y2="126" stroke="#3A2417" stroke-width="2.5" stroke-linecap="round"/>
       <!-- Needle tip & target -->
-      <circle cx="235" cy="128" r="6" fill="#D32F2F" filter="url(#glow)"/>
-      <circle cx="235" cy="128" r="12" fill="#D32F2F" fill-opacity="0.25"/>
-      <!-- Label -->
-      <text x="75" y="30" font-size="11" fill="#3A2417" font-weight="700">Ponto de Punção: Ápice DV do 2º Molar</text>
-      <text x="75" y="46" font-size="10" fill="#8F7159">Angulação: 45° Sagital & 45° Oclusal (Penetração: ~16 mm)</text>
+      <circle cx="226" cy="126" r="6" fill="#D32F2F" filter="url(#glow)"/>
+      <circle cx="226" cy="126" r="12" fill="#D32F2F" fill-opacity="0.25"/>
+      <!-- Bottom note -->
+      <text x="160" y="208" font-size="8.5" fill="#6E503B" text-anchor="middle">Inserir metade da agulha (~16 mm) | 1 tubete lento (60s)</text>
     </svg>`
   },
   {
@@ -214,26 +215,31 @@ const TECNICAS_ANESTESICAS_DATA = [
     ],
     armadilhaProva: "Manter o dedo indicador firmemente sobre o forame infraorbital durante TODA a injeção e por mais 1 a 2 minutos após para forçar a solução anestésica a adentrar o canal infraorbital, alcançando o ASA e ASM.",
     svgAnatomico: `<svg viewBox="0 0 320 220" class="tecnica-svg" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <filter id="glowInfra"><feDropShadow dx="0" dy="1" stdDeviation="3" flood-color="#D32F2F" flood-opacity="0.4"/></filter>
+      </defs>
       <rect width="320" height="220" rx="14" fill="#FAF7F2"/>
+      <!-- Header -->
+      <text x="160" y="22" font-size="11" fill="#3A2417" font-weight="700" text-anchor="middle">Forame Infraorbital (~8 a 10 mm abaixo da órbita)</text>
+      <text x="160" y="36" font-size="9.5" fill="#8F7159" font-weight="500" text-anchor="middle">Linha Pupilar Central | Seringa Paralela ao 1º PM</text>
       <!-- Orbit outline -->
-      <path d="M 120,40 C 150,30 200,30 215,55 C 225,75 205,100 170,105 C 130,105 110,80 120,40 Z" fill="#EFE6DC" stroke="#8F7159" stroke-width="2"/>
+      <ellipse cx="160" cy="72" rx="46" ry="24" fill="#EFE6DC" stroke="#8F7159" stroke-width="2"/>
       <!-- Pupillary vertical line -->
-      <line x1="168" y1="20" x2="168" y2="200" stroke="#DFCCA9" stroke-width="1.5" stroke-dasharray="4,4"/>
+      <line x1="160" y1="44" x2="160" y2="185" stroke="#DFCCA9" stroke-width="1.5" stroke-dasharray="4,4"/>
       <!-- Infraorbital foramen -->
-      <ellipse cx="168" cy="120" rx="9" ry="7" fill="#4A3425"/>
-      <circle cx="168" cy="120" r="14" fill="#D32F2F" fill-opacity="0.3"/>
+      <ellipse cx="160" cy="116" rx="9" ry="7" fill="#4A3425"/>
+      <circle cx="160" cy="116" r="14" fill="#D32F2F" fill-opacity="0.3" filter="url(#glowInfra)"/>
       <!-- Finger compression symbol -->
-      <path d="M 195,115 C 220,115 220,135 185,130" fill="none" stroke="#6E503B" stroke-width="3"/>
-      <text x="215" y="115" font-size="10" fill="#6E503B" font-weight="700">Dedo Pressionando</text>
-      <!-- Teeth outline (Premolars) -->
-      <path d="M 140,190 L 155,190 L 155,210 L 140,210 Z" fill="#FFFFFF" stroke="#8F7159" stroke-width="1.5" rx="2"/>
-      <path d="M 162,190 L 178,190 L 178,210 L 162,210 Z" fill="#FFFFFF" stroke="#8F7159" stroke-width="1.5" rx="2"/>
-      <text x="170" y="218" font-size="9" fill="#8F7159" text-anchor="middle">1º Pré-molar</text>
+      <path d="M 180,112 C 205,112 205,128 178,124" fill="none" stroke="#6E503B" stroke-width="3"/>
+      <text x="210" y="118" font-size="9" fill="#6E503B" font-weight="700">Dedo Comprimindo</text>
+      <text x="210" y="130" font-size="8" fill="#8F7159">(1 a 2 min)</text>
+      <!-- Premolars -->
+      <path d="M 136,170 L 152,170 L 152,194 L 136,194 Z" fill="#FFFFFF" stroke="#8F7159" stroke-width="1.5" rx="2"/>
+      <path d="M 156,170 L 172,170 L 172,194 L 156,194 Z" fill="#FFFFFF" stroke="#8F7159" stroke-width="1.5" rx="2"/>
+      <text x="164" y="206" font-size="9" fill="#8F7159" text-anchor="middle" font-weight="600">1º Pré-molar</text>
       <!-- Needle track -->
-      <line x1="170" y1="185" x2="168" y2="128" stroke="#D32F2F" stroke-width="3" stroke-linecap="round"/>
-      <polygon points="168,124 164,134 172,134" fill="#D32F2F"/>
-      <text x="35" y="35" font-size="11" fill="#3A2417" font-weight="700">Forame Infraorbital (~10 mm abaixo da órbita)</text>
-      <text x="35" y="50" font-size="10" fill="#8F7159">Linha Pupilar Central | Seringa Paralela ao 1º PM</text>
+      <line x1="164" y1="168" x2="160" y2="124" stroke="#D32F2F" stroke-width="2.5" stroke-linecap="round"/>
+      <polygon points="160,119 156,128 164,128" fill="#D32F2F"/>
     </svg>`
   },
   {
@@ -279,23 +285,29 @@ const TECNICAS_ANESTESICAS_DATA = [
     ],
     armadilhaProva: "NUNCA injetar volume excessivo nem sob altíssima pressão. O excesso de vasoconstritor em tecido fibroso inextensível causa isquemia severa e necrose palatina com formação de escara dolorosa.",
     svgAnatomico: `<svg viewBox="0 0 320 220" class="tecnica-svg" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <filter id="glowPal"><feDropShadow dx="0" dy="1" stdDeviation="3" flood-color="#D32F2F" flood-opacity="0.4"/></filter>
+      </defs>
       <rect width="320" height="220" rx="14" fill="#FAF7F2"/>
-      <!-- Palate vault vault arch -->
-      <path d="M 60,190 C 60,70 160,40 260,70 C 260,190 260,190 260,190" fill="#FAF1E8" stroke="#C5AA8E" stroke-width="2"/>
+      <!-- Header -->
+      <text x="160" y="22" font-size="11" fill="#3A2417" font-weight="700" text-anchor="middle">Bloqueio do Nervo Palatino Maior</text>
+      <text x="160" y="36" font-size="9.5" fill="#8F7159" font-weight="500" text-anchor="middle">Palato Duro na altura do 2º/3º Molar | Isquemia Imediata</text>
+      <!-- Palate vault arch -->
+      <path d="M 60,190 C 60,78 160,52 260,78 C 260,190 260,190 260,190" fill="#FAF1E8" stroke="#C5AA8E" stroke-width="2"/>
       <!-- Palatine median raphe -->
-      <line x1="160" y1="50" x2="160" y2="200" stroke="#8F7159" stroke-width="2" stroke-dasharray="4,3"/>
-      <text x="160" y="40" font-size="10" fill="#8F7159" text-anchor="middle" font-weight="700">Rafe Mediana</text>
+      <line x1="160" y1="58" x2="160" y2="190" stroke="#8F7159" stroke-width="2" stroke-dasharray="4,3"/>
+      <text x="160" y="52" font-size="8.5" fill="#8F7159" text-anchor="middle" font-weight="600">Rafe Mediana</text>
       <!-- Greater palatine foramen -->
-      <circle cx="225" cy="130" r="7" fill="#4A3425"/>
-      <circle cx="225" cy="130" r="14" fill="#D32F2F" fill-opacity="0.25"/>
-      <!-- Molar teeth borders -->
-      <path d="M 245,100 L 255,100 L 255,120 L 245,120 Z" fill="#FFF" stroke="#8F7159" stroke-width="1.5"/>
-      <path d="M 245,125 L 255,125 L 255,145 L 245,145 Z" fill="#FFF" stroke="#8F7159" stroke-width="1.5"/>
-      <text x="245" y="160" font-size="9" fill="#8F7159">2º e 3º M</text>
-      <!-- Syringe approach from opposite premolars -->
-      <line x1="85" y1="175" x2="220" y2="132" stroke="#3A2417" stroke-width="2.5" stroke-linecap="round"/>
-      <circle cx="220" cy="132" r="5" fill="#D32F2F"/>
-      <text x="40" y="210" font-size="10" fill="#6E503B">Apoio: Pré-molares opostos | Máx ½ tubete</text>
+      <circle cx="215" cy="138" r="7" fill="#4A3425"/>
+      <circle cx="215" cy="138" r="14" fill="#D32F2F" fill-opacity="0.3" filter="url(#glowPal)"/>
+      <!-- Teeth markers -->
+      <path d="M 238,118 L 260,118 L 260,160 L 238,160 Z" fill="#FFFFFF" stroke="#8F7159" stroke-width="1.5" rx="2"/>
+      <text x="249" y="174" font-size="8" fill="#8F7159" text-anchor="middle">2º e 3º M</text>
+      <!-- Needle track from contralateral side -->
+      <line x1="110" y1="160" x2="210" y2="140" stroke="#3A2417" stroke-width="2.5" stroke-linecap="round"/>
+      <circle cx="210" cy="140" r="5" fill="#D32F2F"/>
+      <!-- Bottom note -->
+      <text x="160" y="206" font-size="9" fill="#6E503B" text-anchor="middle">Apoio: Pré-molares Opostos | Volume: Máx ½ tubete</text>
     </svg>`
   },
   {
@@ -341,21 +353,29 @@ const TECNICAS_ANESTESICAS_DATA = [
     ],
     armadilhaProva: "A punção no centro da papila incisiva é extremamente dolorosa. A conduta correta cobrada pelo professor é: 1) Pré-anestesia infiltrando ¼ de tubete na papila interdental vestibular entre o 11 e 21, esperando a solução difundir para palato; 2) Inserir a agulha lateralmente à papila incisiva com mucosa previamente isquemiada por pressão de cotonete.",
     svgAnatomico: `<svg viewBox="0 0 320 220" class="tecnica-svg" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <filter id="glowNaso"><feDropShadow dx="0" dy="1" stdDeviation="3" flood-color="#D32F2F" flood-opacity="0.4"/></filter>
+      </defs>
       <rect width="320" height="220" rx="14" fill="#FAF7F2"/>
-      <!-- Anterior palate & central incisors -->
-      <path d="M 100,50 L 130,50 L 130,85 L 100,85 Z" fill="#FFF" stroke="#8F7159" stroke-width="2" rx="3"/>
-      <text x="115" y="70" font-size="10" fill="#6E503B" font-weight="700" text-anchor="middle">11</text>
-      <path d="M 135,50 L 165,50 L 165,85 L 135,85 Z" fill="#FFF" stroke="#8F7159" stroke-width="2" rx="3"/>
-      <text x="150" y="70" font-size="10" fill="#6E503B" font-weight="700" text-anchor="middle">21</text>
-      <!-- Incisive papilla -->
-      <ellipse cx="132" cy="115" rx="10" ry="14" fill="#EFE6DC" stroke="#8F7159" stroke-width="1.5"/>
-      <text x="175" y="118" font-size="10" fill="#8F7159" font-weight="700">Papila Incisiva</text>
-      <!-- Lateral needle puncture (avoiding center) -->
-      <circle cx="120" cy="118" r="5" fill="#D32F2F"/>
-      <line x1="120" y1="190" x2="120" y2="124" stroke="#3A2417" stroke-width="2.5" stroke-linecap="round"/>
-      <!-- Label -->
-      <text x="135" y="150" font-size="10" fill="#D32F2F" font-weight="700">Ponto Lateral (NÃO no centro!)</text>
-      <text x="135" y="165" font-size="9" fill="#6E503B">Volume: máx ⅓ tubete | Canino a Canino</text>
+      <!-- Header -->
+      <text x="160" y="22" font-size="11" fill="#3A2417" font-weight="700" text-anchor="middle">Bloqueio do Nervo Nasopalatino</text>
+      <text x="160" y="36" font-size="9.5" fill="#8F7159" font-weight="500" text-anchor="middle">Papila Incisiva | Punção Lateral na Mucosa Esbranquiçada</text>
+      <!-- Incisive papilla and anterior palate -->
+      <ellipse cx="160" cy="108" rx="28" ry="18" fill="#F4ECE1" stroke="#C5AA8E" stroke-width="2"/>
+      <circle cx="160" cy="108" r="7" fill="#4A3425"/>
+      <circle cx="160" cy="108" r="15" fill="#D32F2F" fill-opacity="0.25" filter="url(#glowNaso)"/>
+      <text x="160" y="80" font-size="9" fill="#8F7159" text-anchor="middle" font-weight="700">Papila Incisiva</text>
+      <text x="160" y="138" font-size="8.5" fill="#D32F2F" text-anchor="middle" font-weight="700">Ponto Lateral (NÃO no centro da papila!)</text>
+      <!-- Central incisors roots / cingulum -->
+      <path d="M 122,152 L 150,152 L 150,182 L 122,182 Z" fill="#FFF" stroke="#8F7159" stroke-width="1.5" rx="2"/>
+      <text x="136" y="172" font-size="9" fill="#6E503B" font-weight="700" text-anchor="middle">11</text>
+      <path d="M 170,152 L 198,152 L 198,182 L 170,182 Z" fill="#FFF" stroke="#8F7159" stroke-width="1.5" rx="2"/>
+      <text x="184" y="172" font-size="9" fill="#6E503B" font-weight="700" text-anchor="middle">21</text>
+      <!-- Lateral puncture needle vector -->
+      <line x1="90" y1="68" x2="142" y2="106" stroke="#3A2417" stroke-width="2.5" stroke-linecap="round"/>
+      <circle cx="142" cy="106" r="5" fill="#D32F2F"/>
+      <!-- Bottom note -->
+      <text x="160" y="206" font-size="9" fill="#6E503B" text-anchor="middle">Volume: Máx ⅓ tubete | Anestesia palatina de canino a canino</text>
     </svg>`
   },
   {
@@ -400,23 +420,28 @@ const TECNICAS_ANESTESICAS_DATA = [
     ],
     armadilhaProva: "Na prova prática de dentística/endo do 11 ou 13: responder APENAS subperióstica anterior no nervo ASA. NÃO inventar de anestesiar nasopalatino, pois em procedimentos conservadores não se mexe no palato!",
     svgAnatomico: `<svg viewBox="0 0 320 220" class="tecnica-svg" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <filter id="glowSubAnt"><feDropShadow dx="0" dy="1" stdDeviation="3" flood-color="#D32F2F" flood-opacity="0.4"/></filter>
+      </defs>
       <rect width="320" height="220" rx="14" fill="#FAF7F2"/>
-      <!-- Tooth root & crown -->
-      <path d="M 140,150 C 140,100 150,70 160,50 C 170,70 180,100 180,150 L 140,150 Z" fill="#FFF" stroke="#8F7159" stroke-width="2"/>
-      <path d="M 140,150 L 180,150 L 180,195 L 140,195 Z" fill="#FFF" stroke="#8F7159" stroke-width="2" rx="2"/>
-      <text x="160" y="175" font-size="11" fill="#6E503B" font-weight="700" text-anchor="middle">Coroa</text>
-      <text x="160" y="90" font-size="11" fill="#8F7159" font-weight="700" text-anchor="middle">Raiz</text>
-      <!-- Apex marker -->
-      <circle cx="160" cy="50" r="4" fill="#8F7159"/>
-      <!-- Mucobuccal fold line -->
-      <path d="M 80,65 C 130,65 190,65 240,65" fill="none" stroke="#C5AA8E" stroke-width="3" stroke-dasharray="4,3"/>
-      <text x="245" y="68" font-size="9" fill="#8F7159">Fundo de Sulco</text>
-      <!-- Needle insertion (parallel to long axis) -->
-      <line x1="160" y1="120" x2="160" y2="48" stroke="#D32F2F" stroke-width="2.5" stroke-linecap="round"/>
-      <circle cx="160" cy="48" r="6" fill="#D32F2F"/>
-      <!-- Description -->
-      <text x="35" y="30" font-size="11" fill="#3A2417" font-weight="700">Subperióstica Anterior: Paralela ao Longo Eixo</text>
-      <text x="35" y="44" font-size="10" fill="#8F7159">Agulha Curta | Ápice ≈ 2 coroas acima | Volume: ½ a 1 tubete</text>
+      <!-- Header -->
+      <text x="160" y="22" font-size="11" fill="#3A2417" font-weight="700" text-anchor="middle">Infiltrativa Subperióstica Anterior</text>
+      <text x="160" y="36" font-size="9.5" fill="#8F7159" font-weight="500" text-anchor="middle">Paralela ao Longo Eixo | Ápice Radicular (~2-3 mm acima)</text>
+      <!-- Single central incisor outline centered -->
+      <path d="M 160,68 L 144,142 L 176,142 Z" fill="#FFF" stroke="#8F7159" stroke-width="2"/>
+      <text x="160" y="118" font-size="9" fill="#8F7159" text-anchor="middle" font-weight="600">Raiz</text>
+      <!-- Sulcus line -->
+      <line x1="70" y1="84" x2="250" y2="84" stroke="#C5AA8E" stroke-width="2" stroke-dasharray="3,3"/>
+      <text x="255" y="87" font-size="8.5" fill="#8F7159">Fundo de Sulco</text>
+      <!-- Crown -->
+      <rect x="144" y="142" width="32" height="42" rx="3" fill="#FFF" stroke="#8F7159" stroke-width="2"/>
+      <text x="160" y="167" font-size="9" fill="#8F7159" text-anchor="middle" font-weight="600">Coroa</text>
+      <!-- Needle vector and puncture at apex -->
+      <line x1="160" y1="120" x2="160" y2="68" stroke="#D32F2F" stroke-width="2.5" stroke-linecap="round"/>
+      <circle cx="160" cy="68" r="5" fill="#D32F2F" filter="url(#glowSubAnt)"/>
+      <circle cx="160" cy="68" r="10" fill="#D32F2F" fill-opacity="0.3"/>
+      <!-- Bottom note -->
+      <text x="160" y="206" font-size="9" fill="#6E503B" text-anchor="middle">Agulha Curta | Bisel Voltado para o Osso | ½ a 1 Tubete</text>
     </svg>`
   },
   {
@@ -460,17 +485,28 @@ const TECNICAS_ANESTESICAS_DATA = [
     ],
     armadilhaProva: "Diferença vital cobrada pelo professor: Subperióstica anterior é feita com agulha CURTA e PARALELA ao longo eixo; subperióstica posterior é feita com agulha LONGA e INCLINADA A 45° em direção ao ápice!",
     svgAnatomico: `<svg viewBox="0 0 320 220" class="tecnica-svg" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <filter id="glowSubPost"><feDropShadow dx="0" dy="1" stdDeviation="3" flood-color="#D32F2F" flood-opacity="0.4"/></filter>
+      </defs>
       <rect width="320" height="220" rx="14" fill="#FAF7F2"/>
-      <!-- Posterior tooth -->
-      <path d="M 130,140 C 130,95 140,75 145,55 C 150,75 160,95 160,140 Z" fill="#FFF" stroke="#8F7159" stroke-width="1.5"/>
-      <path d="M 160,140 C 160,95 170,75 175,55 C 180,75 190,95 190,140 Z" fill="#FFF" stroke="#8F7159" stroke-width="1.5"/>
-      <path d="M 125,140 L 195,140 L 195,185 L 125,185 Z" fill="#FFF" stroke="#8F7159" stroke-width="2" rx="3"/>
+      <!-- Header -->
+      <text x="160" y="22" font-size="11" fill="#3A2417" font-weight="700" text-anchor="middle">Infiltrativa Subperióstica Posterior</text>
+      <text x="160" y="36" font-size="9.5" fill="#8F7159" font-weight="500" text-anchor="middle">Inclinação de 45° ao Longo Eixo rumo ao Ápice Radicular</text>
+      <!-- Fundo de sulco line -->
+      <line x1="50" y1="84" x2="270" y2="84" stroke="#C5AA8E" stroke-width="2" stroke-dasharray="3,3"/>
+      <text x="50" y="78" font-size="8.5" fill="#8F7159">Fundo de Sulco</text>
+      <!-- Upper molar with roots centered in canvas -->
+      <path d="M 124,140 C 124,100 132,78 136,62 C 140,78 148,100 148,140 Z" fill="#FFF" stroke="#8F7159" stroke-width="1.5"/>
+      <path d="M 152,140 C 152,100 160,78 164,62 C 168,78 176,100 176,140 Z" fill="#FFF" stroke="#8F7159" stroke-width="1.5"/>
+      <rect x="118" y="140" width="64" height="42" rx="3" fill="#FFF" stroke="#8F7159" stroke-width="2"/>
+      <text x="150" y="165" font-size="9" fill="#8F7159" text-anchor="middle" font-weight="600">Molar Superior</text>
       <!-- Angled needle vector (45°) -->
-      <line x1="225" y1="125" x2="160" y2="52" stroke="#D32F2F" stroke-width="2.5" stroke-linecap="round"/>
-      <circle cx="160" cy="52" r="6" fill="#D32F2F"/>
-      <!-- 45° angle text -->
-      <text x="35" y="30" font-size="11" fill="#3A2417" font-weight="700">Subperióstica Posterior: Agulha Longa a 45°</text>
-      <text x="35" y="44" font-size="10" fill="#8F7159">Inclinação de 45° rumo ao ápice radicular | Volume: 1 tubete</text>
+      <line x1="230" y1="128" x2="164" y2="62" stroke="#D32F2F" stroke-width="2.5" stroke-linecap="round"/>
+      <circle cx="164" cy="62" r="5" fill="#D32F2F" filter="url(#glowSubPost)"/>
+      <circle cx="164" cy="62" r="11" fill="#D32F2F" fill-opacity="0.3"/>
+      <text x="215" y="112" font-size="9" fill="#D32F2F" font-weight="700">45°</text>
+      <!-- Bottom note -->
+      <text x="160" y="206" font-size="9" fill="#6E503B" text-anchor="middle">Agulha Curta ou Longa | Bisel para o Osso | 1 Tubete</text>
     </svg>`
   },
   {
@@ -526,25 +562,32 @@ const TECNICAS_ANESTESICAS_DATA = [
     ],
     armadilhaProva: "SE A AGULHA NÃO TOCAR OSSO: NÃO INJETAR! Se introduzir 25 mm sem contato ósseo, a agulha está posteriorizada na glândula parótida; injetar causará anestesia do VII par craniano (Paralisia Facial Transitória, incapacidade de fechar o olho homolateral). Conduta: recuar a agulha até quase a saída, redirecionar a carpule mais posteriormente sobre os molares contralaterais e reintroduzir até sentir o batente ósseo rígido.",
     svgAnatomico: `<svg viewBox="0 0 320 220" class="tecnica-svg" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <filter id="glowPter"><feDropShadow dx="0" dy="1" stdDeviation="3" flood-color="#D32F2F" flood-opacity="0.4"/></filter>
+      </defs>
       <rect width="320" height="220" rx="14" fill="#FAF7F2"/>
+      <!-- Header -->
+      <text x="160" y="22" font-size="11" fill="#3A2417" font-weight="700" text-anchor="middle">Bloqueio Pterigomandibular (NAI + Lingual)</text>
+      <text x="160" y="36" font-size="9.5" fill="#8F7159" font-weight="500" text-anchor="middle">Técnica Direta | Forame Mandibular (Língula)</text>
       <!-- Mandibular ramus inner view -->
-      <path d="M 60,30 L 100,30 C 130,70 140,120 180,180 L 120,200 C 90,160 80,100 60,30 Z" fill="#EFE6DC" stroke="#8F7159" stroke-width="2"/>
+      <path d="M 68,44 L 110,44 C 138,82 148,125 186,182 L 130,198 C 100,158 90,105 68,44 Z" fill="#EFE6DC" stroke="#8F7159" stroke-width="2"/>
       <!-- Coronoid notch -->
-      <path d="M 60,60 C 75,90 75,120 70,140" fill="none" stroke="#D32F2F" stroke-width="3"/>
-      <text x="35" y="100" font-size="9" fill="#D32F2F" font-weight="700">Incisura</text>
-      <!-- Mandibular foramen / Lingula -->
-      <circle cx="105" cy="110" r="6" fill="#4A3425"/>
-      <circle cx="105" cy="110" r="14" fill="#D32F2F" fill-opacity="0.25"/>
-      <text x="115" y="105" font-size="10" fill="#4A3425" font-weight="700">Forame Mandibular</text>
-      <!-- Occlusal line -->
-      <line x1="40" y1="135" x2="280" y2="135" stroke="#8F7159" stroke-width="1.5" stroke-dasharray="4,4"/>
-      <text x="210" y="130" font-size="9" fill="#8F7159">Plano Oclusal</text>
-      <line x1="40" y1="110" x2="280" y2="110" stroke="#E67E22" stroke-width="1" stroke-dasharray="2,2"/>
-      <text x="210" y="105" font-size="9" fill="#E67E22">1 cm acima do plano</text>
+      <path d="M 70,72 C 84,98 84,124 78,142" fill="none" stroke="#D32F2F" stroke-width="3"/>
+      <text x="40" y="105" font-size="8.5" fill="#D32F2F" font-weight="700" text-anchor="middle">Incisura</text>
+      <!-- Reference lines -->
+      <line x1="45" y1="142" x2="275" y2="142" stroke="#8F7159" stroke-width="1.5" stroke-dasharray="4,4"/>
+      <text x="240" y="138" font-size="8.5" fill="#8F7159" text-anchor="middle">Plano Oclusal</text>
+      <line x1="45" y1="116" x2="275" y2="116" stroke="#E67E22" stroke-width="1.2" stroke-dasharray="3,3"/>
+      <text x="240" y="112" font-size="8.5" fill="#E67E22" text-anchor="middle">1 cm acima</text>
+      <!-- Mandibular foramen -->
+      <circle cx="116" cy="116" r="6" fill="#4A3425"/>
+      <circle cx="116" cy="116" r="14" fill="#D32F2F" fill-opacity="0.25" filter="url(#glowPter)"/>
+      <text x="126" y="104" font-size="9" fill="#4A3425" font-weight="700">Forame Mandibular</text>
       <!-- Syringe from contralateral premolars -->
-      <line x1="280" y1="190" x2="108" y2="112" stroke="#3A2417" stroke-width="3" stroke-linecap="round"/>
-      <circle cx="108" cy="112" r="5" fill="#D32F2F"/>
-      <text x="35" y="215" font-size="10" fill="#6E503B">Técnica Direta: Apoio nos Pré-molares Opostos | Tocar Osso!</text>
+      <line x1="270" y1="184" x2="118" y2="118" stroke="#3A2417" stroke-width="3" stroke-linecap="round"/>
+      <circle cx="118" cy="118" r="5" fill="#D32F2F"/>
+      <!-- Bottom note -->
+      <text x="160" y="208" font-size="9" fill="#6E503B" text-anchor="middle" font-weight="600">Apoio: Pré-molares Opostos | Tocar Osso (~20-25 mm) | Aspirar</text>
     </svg>`
   },
   {
@@ -589,19 +632,26 @@ const TECNICAS_ANESTESICAS_DATA = [
     ],
     armadilhaProva: "O bloqueio pterigomandibular tradicional anestesia o NAI e o Lingual, MAS NÃO ANESTESIA O NERVO BUCAL! Em qualquer exodontia de molar inferior, o aluno que esquecer de anestesiar o nervo bucal causará dor intensa no paciente durante o descolamento do retalho vestibular ou sindesmotomia.",
     svgAnatomico: `<svg viewBox="0 0 320 220" class="tecnica-svg" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <filter id="glowBucal"><feDropShadow dx="0" dy="1" stdDeviation="3" flood-color="#D32F2F" flood-opacity="0.4"/></filter>
+      </defs>
       <rect width="320" height="220" rx="14" fill="#FAF7F2"/>
+      <!-- Header -->
+      <text x="160" y="22" font-size="11" fill="#3A2417" font-weight="700" text-anchor="middle">Bloqueio do Nervo Bucal</text>
+      <text x="160" y="36" font-size="9.5" fill="#8F7159" font-weight="500" text-anchor="middle">Trígono Retromolar | Distal e Vestibular ao Último Molar</text>
       <!-- Lower molar tooth -->
-      <path d="M 90,120 L 150,120 L 150,170 L 90,170 Z" fill="#FFF" stroke="#8F7159" stroke-width="2" rx="4"/>
-      <text x="120" y="150" font-size="11" fill="#6E503B" font-weight="700" text-anchor="middle">38 / Último Molar</text>
+      <rect x="90" y="112" width="60" height="48" rx="4" fill="#FFF" stroke="#8F7159" stroke-width="2"/>
+      <text x="120" y="142" font-size="9.5" fill="#6E503B" font-weight="700" text-anchor="middle">Último Molar</text>
       <!-- Retromolar triangle & fossa -->
-      <polygon points="160,110 230,80 230,170 160,160" fill="#EFE6DC" stroke="#C5AA8E" stroke-width="1.5"/>
-      <text x="195" y="130" font-size="9" fill="#8F7159" font-weight="700" text-anchor="middle">Trígono Retromolar</text>
+      <polygon points="160,102 232,74 232,164 160,154" fill="#EFE6DC" stroke="#C5AA8E" stroke-width="1.5"/>
+      <text x="196" y="124" font-size="8.5" fill="#8F7159" font-weight="700" text-anchor="middle">Trígono Retromolar</text>
       <!-- Puncture point in buccal mucosa -->
-      <circle cx="165" cy="115" r="5" fill="#D32F2F"/>
+      <circle cx="165" cy="110" r="5" fill="#D32F2F" filter="url(#glowBucal)"/>
+      <circle cx="165" cy="110" r="11" fill="#D32F2F" fill-opacity="0.3"/>
       <!-- Syringe parallel along buccal corridor -->
-      <line x1="70" y1="95" x2="160" y2="114" stroke="#3A2417" stroke-width="2.5" stroke-linecap="round"/>
-      <text x="35" y="30" font-size="11" fill="#3A2417" font-weight="700">Nervo Bucal: Trígono Retromolar</text>
-      <text x="35" y="44" font-size="10" fill="#8F7159">Distal e vestibular ao último molar | Volume: ¼ a ½ tubete</text>
+      <line x1="72" y1="92" x2="160" y2="109" stroke="#3A2417" stroke-width="2.5" stroke-linecap="round"/>
+      <!-- Bottom note -->
+      <text x="160" y="206" font-size="9" fill="#6E503B" text-anchor="middle">Penetração superficial (2 a 4 mm) | Volume: ¼ a ½ Tubete</text>
     </svg>`
   },
   {
@@ -650,21 +700,28 @@ const TECNICAS_ANESTESICAS_DATA = [
     ],
     armadilhaProva: "Regra clássica do professor: O nervo mentual NÃO inerva dente! Quem inerva polpa dos dentes anteriores inferiores é o NERVO INCISIVO. Para que o incisivo seja anestesiado no forame mentual, é MANDATÓRIO pressionar o forame com o dedo por 1 a 2 minutos após a injeção para forçar a entrada do anestésico no canal mandibular.",
     svgAnatomico: `<svg viewBox="0 0 320 220" class="tecnica-svg" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <filter id="glowMentual"><feDropShadow dx="0" dy="1" stdDeviation="3" flood-color="#D32F2F" flood-opacity="0.4"/></filter>
+      </defs>
       <rect width="320" height="220" rx="14" fill="#FAF7F2"/>
+      <!-- Header -->
+      <text x="160" y="22" font-size="11" fill="#3A2417" font-weight="700" text-anchor="middle">Bloqueio do Nervo Mentual / Incisivo</text>
+      <text x="160" y="36" font-size="9.5" fill="#8F7159" font-weight="500" text-anchor="middle">Forame Mentual: Ápice entre 1º e 2º Pré-molares</text>
       <!-- Lower jaw bone segment -->
-      <path d="M 40,160 C 90,160 170,160 280,140 L 280,185 C 170,205 90,205 40,185 Z" fill="#EFE6DC" stroke="#8F7159" stroke-width="2"/>
-      <!-- Premolar teeth -->
-      <path d="M 120,95 L 140,95 L 140,160 L 120,160 Z" fill="#FFF" stroke="#8F7159" stroke-width="1.5" rx="2"/>
-      <path d="M 155,95 L 175,95 L 175,160 L 155,160 Z" fill="#FFF" stroke="#8F7159" stroke-width="1.5" rx="2"/>
-      <text x="130" y="130" font-size="9" fill="#8F7159">1º PM</text>
-      <text x="165" y="130" font-size="9" fill="#8F7159">2º PM</text>
+      <path d="M 40,155 C 90,155 170,155 280,140 L 280,182 C 170,198 90,198 40,182 Z" fill="#EFE6DC" stroke="#8F7159" stroke-width="2"/>
+      <!-- Premolar teeth centered -->
+      <rect x="122" y="94" width="24" height="61" rx="2" fill="#FFF" stroke="#8F7159" stroke-width="1.5"/>
+      <rect x="154" y="94" width="24" height="61" rx="2" fill="#FFF" stroke="#8F7159" stroke-width="1.5"/>
+      <text x="134" y="128" font-size="8.5" fill="#8F7159" text-anchor="middle">1º PM</text>
+      <text x="166" y="128" font-size="8.5" fill="#8F7159" text-anchor="middle">2º PM</text>
       <!-- Mental foramen -->
-      <circle cx="147" cy="175" r="7" fill="#4A3425"/>
-      <circle cx="147" cy="175" r="14" fill="#D32F2F" fill-opacity="0.3"/>
+      <circle cx="150" cy="168" r="7" fill="#4A3425"/>
+      <circle cx="150" cy="168" r="14" fill="#D32F2F" fill-opacity="0.3" filter="url(#glowMentual)"/>
       <!-- Needle vector -->
-      <line x1="220" y1="130" x2="152" y2="173" stroke="#D32F2F" stroke-width="2.5" stroke-linecap="round"/>
-      <text x="35" y="30" font-size="11" fill="#3A2417" font-weight="700">Forame Mentual: Entre os Pré-molares</text>
-      <text x="35" y="44" font-size="10" fill="#8F7159">Pressionar por 2 min para anestesiar o Nervo Incisivo (Polpa)</text>
+      <line x1="225" y1="126" x2="155" y2="165" stroke="#D32F2F" stroke-width="2.5" stroke-linecap="round"/>
+      <circle cx="155" cy="165" r="5" fill="#D32F2F"/>
+      <!-- Bottom note -->
+      <text x="160" y="206" font-size="9" fill="#D32F2F" font-weight="700" text-anchor="middle">Comprimir forame por 1 a 2 min para anestesiar polpa (Incisivo)</text>
     </svg>`
   }
 ];

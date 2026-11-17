@@ -403,6 +403,23 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
 
+    // Evento de recolher/expandir o card inteiro do módulo
+    container.querySelectorAll('.module-header-box').forEach(header => {
+      header.addEventListener('click', (e) => {
+        if (e.target.closest('.badge-pill')) return;
+        const card = header.closest('.module-section-card');
+        card.classList.toggle('collapsed');
+      });
+    });
+
+    // Evento de recolher/expandir a seção de fixação de cada módulo
+    container.querySelectorAll('.module-fixacao-header').forEach(header => {
+      header.addEventListener('click', () => {
+        const section = header.closest('.module-fixacao-section');
+        section.classList.toggle('open');
+      });
+    });
+
     // Eventos dos botões de checklist
     container.querySelectorAll('.check-topic-btn').forEach(btn => {
       btn.addEventListener('click', (e) => {
@@ -460,32 +477,35 @@ document.addEventListener('DOMContentLoaded', () => {
 
     return `
       <div class="module-fixacao-section" id="fixacao_section_${mod.modulo}">
-        <div class="module-fixacao-header">
+        <div class="module-fixacao-header" data-mod="${mod.modulo}" role="button" tabindex="0" title="Clique para expandir ou recolher as perguntas de fixação">
           <div class="fixacao-header-info">
             <div class="fixacao-badge-tag">
               <i data-lucide="help-circle"></i>
               <span>Perguntas de Fixação</span>
             </div>
             <h4 class="fixacao-section-title">Fixação de Conteúdo · Módulo ${mod.modulo}</h4>
-            <p class="fixacao-section-desc">Consolide este módulo com ${modQuestions.length} questões reais de prova da UNIOESTE comentadas no mesmo formato do simulador.</p>
+            <p class="fixacao-section-desc">Consolide este módulo com ${modQuestions.length} questões reais de prova da UNIOESTE comentadas no formato do simulador.</p>
           </div>
-          <div class="fixacao-header-stats">
+          <div class="fixacao-header-right">
             <span class="fixacao-prog-text" id="fixProgText_${mod.modulo}">0/${modQuestions.length} resolvidas</span>
+            <i data-lucide="chevron-down" class="fixacao-chevron"></i>
           </div>
         </div>
 
-        <!-- Question Tabs Bar -->
-        <div class="fixacao-tabs-bar" id="fixTabs_${mod.modulo}">
-          ${modQuestions.map((q, idx) => `
-            <button class="fix-tab-btn ${idx === 0 ? 'active' : ''}" data-mod="${mod.modulo}" data-idx="${idx}" id="fixTab_${mod.modulo}_${idx}" title="${q.tema}">
-              <span class="fix-tab-label">Q${idx + 1}</span>
-              <span class="fix-tab-icon" id="fixTabIcon_${mod.modulo}_${idx}"></span>
-            </button>
-          `).join('')}
-        </div>
+        <div class="module-fixacao-body" id="fixBody_${mod.modulo}">
+          <!-- Question Tabs Bar -->
+          <div class="fixacao-tabs-bar" id="fixTabs_${mod.modulo}">
+            ${modQuestions.map((q, idx) => `
+              <button class="fix-tab-btn ${idx === 0 ? 'active' : ''}" data-mod="${mod.modulo}" data-idx="${idx}" id="fixTab_${mod.modulo}_${idx}" title="${q.tema}">
+                <span class="fix-tab-label">Q${idx + 1}</span>
+                <span class="fix-tab-icon" id="fixTabIcon_${mod.modulo}_${idx}"></span>
+              </button>
+            `).join('')}
+          </div>
 
-        <!-- Active Question Display Area -->
-        <div class="fixacao-question-display" id="fixDisplay_${mod.modulo}">
+          <!-- Active Question Display Area -->
+          <div class="fixacao-question-display" id="fixDisplay_${mod.modulo}">
+          </div>
         </div>
       </div>
     `;

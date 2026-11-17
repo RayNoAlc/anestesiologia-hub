@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
     'raioXSection': 0,
     'resumosSection': 1,
     'quizSection': 2,
-    'calculadoraSection': 3
+    'casosSection': 3
   };
 
   function updateBackdropStep(targetId) {
@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
     renderResumos();
     initQuizControls();
     initCustomSelects();
-    setupCalculator();
+    initCasosClinicos();
     updateGlobalProgress();
     refreshIcons();
   }
@@ -130,6 +130,18 @@ document.addEventListener('DOMContentLoaded', () => {
   function playSoundChime() {
     playTone(587.33, 'sine', 0.15);
     setTimeout(() => playTone(880.00, 'sine', 0.3), 150);
+  }
+
+  function playSfx(type = 'click') {
+    try {
+      if (type === 'correct') {
+        playSoundSuccess();
+      } else if (type === 'wrong') {
+        playSoundWrong();
+      } else {
+        playTone(620, 'sine', 0.04);
+      }
+    } catch (e) {}
   }
 
   // =========================================================================
@@ -832,76 +844,301 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // =========================================================================
-  // 11. SEÇÃO 4: CALCULADORA DE DOSES E TUBETES
+  // 11. SEÇÃO 4: CASOS CLÍNICOS & TÉCNICAS ANESTÉSICAS PRÁTICAS
   // =========================================================================
-  function setupCalculator() {
-    const pesoInput = document.getElementById('calcPeso');
-    const salSelect = document.getElementById('calcSal');
-    const condicaoSelect = document.getElementById('calcCondicao');
+  function initCasosClinicos() {
+    const casos = (typeof CASOS_CLINICOS_DATA !== 'undefined') ? CASOS_CLINICOS_DATA : [];
+    const tecnicas = (typeof TECNICAS_ANESTESICAS_DATA !== 'undefined') ? TECNICAS_ANESTESICAS_DATA : [];
+    const checklist = (typeof CHECKLIST_ROTEIRO_14_PASSOS !== 'undefined') ? CHECKLIST_ROTEIRO_14_PASSOS : [];
 
-    function calculate() {
-      const peso = parseFloat(pesoInput.value) || 0;
-      const salKey = salSelect.value;
-      const condicao = condicaoSelect.value;
+    // 1. Alternância de Sub-views (Simulador / Técnicas / Checklist)
+    const subnavBtns = document.querySelectorAll('.casos-subnav-pill .subnav-btn');
+    const subviews = document.querySelectorAll('.casos-subview');
 
-      const sais = {
-        'lido2': { nome: 'Lidocaína 2% c/ epinefrina 1:100.000', doseMaxKg: 4.4, tetoAbsoluto: 300, mgTubete: 36, vaso: 'epi100' },
-        'mepi2': { nome: 'Mepivacaína 2% c/ epinefrina 1:100.000', doseMaxKg: 4.4, tetoAbsoluto: 300, mgTubete: 36, vaso: 'epi100' },
-        'mepi3': { nome: 'Mepivacaína 3% SEM vasoconstritor', doseMaxKg: 4.4, tetoAbsoluto: 300, mgTubete: 54, vaso: 'none' },
-        'prilo3': { nome: 'Prilocaína 3% c/ Felipressina 0,03 UI/mL', doseMaxKg: 6.0, tetoAbsoluto: 400, mgTubete: 54, vaso: 'feli' },
-        'arti4': { nome: 'Articaína 4% c/ epinefrina 1:100.000', doseMaxKg: 7.0, tetoAbsoluto: 500, mgTubete: 72, vaso: 'epi100' },
-        'bupi05': { nome: 'Bupivacaína 0,5% c/ epinefrina 1:200.000', doseMaxKg: 1.3, tetoAbsoluto: 90, mgTubete: 9, vaso: 'epi200' }
-      };
+    subnavBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const targetViewId = btn.getAttribute('data-subview');
+        subnavBtns.forEach(b => b.classList.toggle('active', b === btn));
+        subviews.forEach(v => v.classList.toggle('active', v.id === targetViewId));
+        playSfx('click');
+        refreshIcons();
+      });
+    });
 
-      const sal = sais[salKey];
-      if (!sal || peso <= 0) {
-        document.getElementById('resDoseMaxMg').textContent = '0 mg';
-        document.getElementById('resMgPorTubete').textContent = '0 mg';
-        document.getElementById('resMaxTubetesSal').textContent = '0';
-        document.getElementById('resMaxTubetesVaso').textContent = '0';
-        document.getElementById('resFatorLimitante').textContent = '-';
-        return;
-      }
+    // 2. Populando o Select de Casos Clínicos
+    const selectCaso = document.getElementById('selectCaso');
+    const displayContainer = document.getElementById('casoClinicoDisplay');
 
-      const doseCalculada = peso * sal.doseMaxKg;
-      const doseFinalSal = Math.min(doseCalculada, sal.tetoAbsoluto);
-      const tubetesPeloSal = Math.floor(doseFinalSal / sal.mgTubete);
+    if (selectCaso && casos.length > 0) {
+      selectCaso.innerHTML = casos.map((c) => `
+        <option value="${c.id}">Caso ${c.numero}: ${c.dente} (${c.categoria})</option>
+      `).join('');
 
-      let tubetesPeloVaso = 99;
-      let vasoDesc = 'Sem restrição adrenérgica';
-
-      if (sal.vaso === 'epi100') {
-        const tetoEpi = (condicao === 'cardiopata') ? 0.04 : 0.2;
-        tubetesPeloVaso = Math.floor(tetoEpi / 0.018);
-        vasoDesc = (condicao === 'cardiopata') ? '0,04 mg (Cardiopata: máx 2 tubetes)' : '0,2 mg (Saudável: máx 11 tubetes)';
-      } else if (sal.vaso === 'epi200') {
-        const tetoEpi = (condicao === 'cardiopata') ? 0.04 : 0.2;
-        tubetesPeloVaso = Math.floor(tetoEpi / 0.009);
-        vasoDesc = (condicao === 'cardiopata') ? '0,04 mg (Cardiopata: máx 4 tubetes)' : '0,2 mg (Saudável: máx 22 tubetes)';
-      } else if (sal.vaso === 'feli') {
-        tubetesPeloVaso = (condicao === 'cardiopata') ? 5 : tubetesPeloSal;
-        vasoDesc = 'Felipressina (segura em cardiopatas)';
-      }
-
-      const maxTubetesFinal = Math.min(tubetesPeloSal, tubetesPeloVaso);
-      let limitante = '';
-      if (tubetesPeloVaso < tubetesPeloSal) {
-        limitante = `Vasoconstritor (${maxTubetesFinal} tubetes pelo limite de epinefrina)`;
-      } else {
-        limitante = `Sal Anestésico (${maxTubetesFinal} tubetes pelo peso corporal)`;
-      }
-
-      document.getElementById('resDoseMaxMg').textContent = `${doseFinalSal.toFixed(1)} mg (teto: ${sal.tetoAbsoluto} mg)`;
-      document.getElementById('resMgPorTubete').textContent = `${sal.mgTubete} mg/tubete`;
-      document.getElementById('resMaxTubetesSal').textContent = `${tubetesPeloSal} tubetes (${(doseFinalSal / sal.mgTubete).toFixed(2)})`;
-      document.getElementById('resMaxTubetesVaso').textContent = `${tubetesPeloVaso} tubetes (${vasoDesc})`;
-      document.getElementById('resFatorLimitante').textContent = limitante;
+      selectCaso.addEventListener('change', (e) => {
+        const found = casos.find(c => c.id === e.target.value) || casos[0];
+        renderCasoClinico(found);
+      });
     }
 
-    if (pesoInput) pesoInput.addEventListener('input', calculate);
-    if (salSelect) salSelect.addEventListener('change', calculate);
-    if (condicaoSelect) condicaoSelect.addEventListener('change', calculate);
+    // Botão Sortear Caso de Prova
+    const btnSortear = document.getElementById('btnSortearCaso');
+    if (btnSortear && casos.length > 0) {
+      btnSortear.addEventListener('click', () => {
+        btnSortear.classList.add('sorting-pulse');
+        setTimeout(() => btnSortear.classList.remove('sorting-pulse'), 500);
+        playSfx('click');
+        
+        const randomIndex = Math.floor(Math.random() * casos.length);
+        const sorteado = casos[randomIndex];
+        if (selectCaso) selectCaso.value = sorteado.id;
+        renderCasoClinico(sorteado);
+      });
+    }
 
-    calculate();
+    // Renderizar Detalhes do Caso Clínico
+    function renderCasoClinico(caso) {
+      if (!displayContainer || !caso) return;
+
+      const sol = caso.solucao;
+      displayContainer.innerHTML = `
+        <div class="caso-card animate-fade-in">
+          <div class="caso-header">
+            <div class="caso-badges-row">
+              <span class="caso-badge-num">Caso #${caso.numero}</span>
+              <span class="caso-badge-categoria">${caso.categoria}</span>
+              <span class="caso-badge-arcada">${caso.arcada}</span>
+            </div>
+            <h3 class="caso-title">${caso.titulo}</h3>
+            <div class="caso-dente-tag">
+              <i data-lucide="crosshair"></i>
+              <span><strong>Elemento Dentário:</strong> ${caso.dente}</span>
+            </div>
+          </div>
+
+          <!-- Enunciado Clínico -->
+          <div class="caso-cenario-box">
+            <div class="cenario-icon"><i data-lucide="clipboard"></i></div>
+            <div class="cenario-content">
+              <div class="cenario-label">Histórico & Queixa Principal do Paciente:</div>
+              <p class="cenario-text">${caso.cenario}</p>
+            </div>
+          </div>
+
+          <div class="caso-pergunta-banner">
+            <i data-lucide="help-circle"></i>
+            <span><strong>Pergunta da Prova Prática:</strong> ${caso.pergunta}</span>
+          </div>
+
+          <!-- Gabarito e Checklist Oral para a Banca -->
+          <div class="gabarito-wrapper">
+            <div class="gabarito-header">
+              <i data-lucide="award"></i>
+              <span>Checklist da Resposta Verbal Exigida pelo Professor</span>
+            </div>
+
+            <!-- Técnicas de Eleição -->
+            <div class="gabarito-block">
+              <div class="gabarito-label"><i data-lucide="check-circle-2"></i> Técnicas Anestésicas de Eleição:</div>
+              <div class="tecnicas-eleicao-list">
+                ${sol.tecnicasEleicao.map(t => `<div class="tecnica-eleita-item"><i data-lucide="chevron-right"></i><span>${t}</span></div>`).join('')}
+              </div>
+            </div>
+
+            <!-- Por que a escolha dessa(s) técnica(s) - Exigência Crucial da Prova -->
+            <div class="gabarito-block justificativa-highlight">
+              <div class="gabarito-label"><i data-lucide="lightbulb"></i> Por que a escolha dessa(s) técnica(s) para este caso clínico?</div>
+              <div class="justificativa-text">${sol.justificativaEscolha}</div>
+            </div>
+
+            <!-- Grid de Parâmetros Técnicos Exigidos -->
+            <div class="parametros-praticos-grid">
+              <div class="param-card">
+                <div class="param-title"><i data-lucide="disc"></i> Qual Agulha Usar:</div>
+                <div class="param-body">${sol.agulha}</div>
+              </div>
+
+              <div class="param-card">
+                <div class="param-title"><i data-lucide="droplet"></i> Quantidade de Anestésico:</div>
+                <div class="param-body"><strong>${sol.quantidade}</strong></div>
+              </div>
+
+              <div class="param-card">
+                <div class="param-title"><i data-lucide="maximize"></i> Orientação do Bisel:</div>
+                <div class="param-body">${sol.bisel}</div>
+              </div>
+
+              <div class="param-card">
+                <div class="param-title"><i data-lucide="shield-alert"></i> Desprender o Êmbolo:</div>
+                <div class="param-body">${sol.embolo}</div>
+              </div>
+
+              <div class="param-card" style="grid-column: 1 / -1;">
+                <div class="param-title"><i data-lucide="map-pin"></i> Referenciais Anatômicos & Ponto de Inserção:</div>
+                <div class="param-body">
+                  <p><strong>Referenciais:</strong> ${sol.referenciais}</p>
+                  <p style="margin-top: 4px;"><strong>Ponto de Inserção:</strong> ${sol.pontoInsercao}</p>
+                </div>
+              </div>
+
+              <div class="param-card" style="grid-column: 1 / -1;">
+                <div class="param-title"><i data-lucide="zap"></i> Quais Nervos Anestesia:</div>
+                <div class="param-body">${sol.nervosAnestesiados}</div>
+              </div>
+            </div>
+
+            <!-- Alerta / Armadilha da Banca -->
+            <div class="armadilha-alerta-box">
+              <i data-lucide="alert-triangle"></i>
+              <div>
+                <strong>Atenção na Prova Prática (Pegadinha do Professor):</strong> ${sol.armadilhas}
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+      refreshIcons();
+    }
+
+    if (casos.length > 0) {
+      renderCasoClinico(casos[0]);
+    }
+
+    // 3. Renderização das Técnicas Passo a Passo com Vetores SVG
+    const tecnicasGrid = document.getElementById('tecnicasGrid');
+    const filterBtns = document.querySelectorAll('.tecnica-filter-btn');
+
+    function renderTecnicas(filtro = 'Todas') {
+      if (!tecnicasGrid) return;
+
+      const filtered = tecnicas.filter(t => filtro === 'Todas' || t.arcada === filtro);
+      tecnicasGrid.innerHTML = filtered.map(t => `
+        <div class="tecnica-card" id="tecnica_${t.id}">
+          <div class="tecnica-card-top">
+            <div class="tecnica-badges">
+              <span class="tecnica-tag-arcada">${t.arcada}</span>
+              <span class="tecnica-tag-tipo">${t.tipo}</span>
+            </div>
+            <h4 class="tecnica-name">${t.nome}</h4>
+            <p class="tecnica-summary">${t.resumo}</p>
+          </div>
+
+          <!-- Ilustração Vetorial SVG Anatômica -->
+          <div class="tecnica-svg-wrapper">
+            ${t.svgAnatomico}
+          </div>
+
+          <!-- Especificações Clínicas Essenciais -->
+          <div class="tecnica-quick-specs">
+            <div class="spec-row">
+              <span class="spec-label"><i data-lucide="disc"></i> Agulha:</span>
+              <span class="spec-val"><strong>${t.agulha.tipo} (${t.agulha.calibre})</strong> — ${t.agulha.penetracao}</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label"><i data-lucide="droplet"></i> Volume:</span>
+              <span class="spec-val"><strong>${t.volume.tubetes}</strong> (${t.volume.velocidade})</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label"><i data-lucide="maximize"></i> Bisel:</span>
+              <span class="spec-val"><strong>${t.bisel}</strong></span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label"><i data-lucide="map-pin"></i> Inserção:</span>
+              <span class="spec-val">${t.pontoInsercao}</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label"><i data-lucide="compass"></i> Angulação:</span>
+              <span class="spec-val">${t.angulacao}</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label"><i data-lucide="shield-check"></i> Aspiração:</span>
+              <span class="spec-val">${t.aspiracao}</span>
+            </div>
+          </div>
+
+          <!-- Acordeão Detalhado da Técnica -->
+          <details class="tecnica-details">
+            <summary class="tecnica-details-summary">
+              <span>Ver Referenciais Anatômicos, Nervos & Detalhes da Prova</span>
+              <i data-lucide="chevron-down" class="details-chevron"></i>
+            </summary>
+            <div class="tecnica-details-content">
+              <div class="detail-section">
+                <h5>Referenciais Anatômicos de Palpação & Visão:</h5>
+                <ul>
+                  ${t.referenciais.map(r => `<li>${r}</li>`).join('')}
+                </ul>
+              </div>
+
+              <div class="detail-section">
+                <h5>Nervos Bloqueados & Áreas Anestesiadas:</h5>
+                <ul>
+                  ${t.estruturasAnestesiadas.map(e => `<li>${e}</li>`).join('')}
+                </ul>
+              </div>
+
+              <div class="detail-section">
+                <h5>Desprender o Êmbolo & Biossegurança:</h5>
+                <p>${t.embolo}</p>
+              </div>
+
+              <div class="detail-section alert-section">
+                <h5>⚠️ Pegadinha Crítica do Professor:</h5>
+                <p>${t.armadilhaProva}</p>
+              </div>
+            </div>
+          </details>
+        </div>
+      `).join('');
+      refreshIcons();
+    }
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        playSfx('click');
+        renderTecnicas(btn.getAttribute('data-arcada'));
+      });
+    });
+
+    renderTecnicas('Todas');
+
+    // 4. Renderização do Checklist dos 14 Passos
+    const checklistContainer = document.getElementById('checklistContainer');
+    if (checklistContainer) {
+      checklistContainer.innerHTML = checklist.map(item => `
+        <div class="checklist-step-card" data-step="${item.passo}">
+          <div class="step-num-badge">${item.passo}</div>
+          <div class="step-card-content">
+            <div class="step-card-header">
+              <h4 class="step-card-title">${item.titulo}</h4>
+              <label class="step-checkbox-label">
+                <input type="checkbox" class="step-checkbox" data-passo="${item.passo}">
+                <span class="step-checkmark"></span>
+                <span class="step-status-text">Treinado</span>
+              </label>
+            </div>
+            <p class="step-card-desc">${item.descricao}</p>
+            <div class="step-motivo-box">
+              <i data-lucide="help-circle"></i>
+              <div>
+                <strong>Por que o professor cobra este passo?</strong> ${item.motivo}
+              </div>
+            </div>
+          </div>
+        </div>
+      `).join('');
+
+      checklistContainer.querySelectorAll('.step-checkbox').forEach(chk => {
+        chk.addEventListener('change', (e) => {
+          const card = e.target.closest('.checklist-step-card');
+          if (card) {
+            card.classList.toggle('step-done', e.target.checked);
+            playSfx(e.target.checked ? 'correct' : 'click');
+          }
+        });
+      });
+      refreshIcons();
+    }
   }
 });

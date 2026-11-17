@@ -311,7 +311,7 @@ document.addEventListener('DOMContentLoaded', () => {
     container.innerHTML = state.resumos.map(mod => {
       const subtopicsHtml = mod.subtopicos.map(sub => {
         const isDone = state.completedSubtopics.includes(sub.sub_id);
-        const isOpen = sub.sub_id === 'sub_1_1';
+        const isOpen = sub.sub_id === 'mod1_1';
         return `
           <div class="subtopic-item ${isOpen ? 'open' : ''}" id="item_${sub.sub_id}">
             <div class="subtopic-header" data-subid="${sub.sub_id}">

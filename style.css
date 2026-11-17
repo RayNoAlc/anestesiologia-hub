@@ -873,18 +873,126 @@ body.modo-foco-ativo .foco-bar {
   line-height: 1.68;
 }
 
-/* Tonalidades sutis de cabeçalhos por módulo */
+/* ==========================================================================
+   TRANSLUCENT TINTED SOFT GLASS POR MÓDULO & PROGRESSÃO DE TONS
+   (Efeito de vidro fosco com a cor temática do respectivo módulo)
+   ========================================================================== */
+
+/* MÓDULO 1: BIOSSEGURANÇA (AZUL / SLATE BLUE GLASS) */
 .module-section-card[data-mod="1"] .module-main-icon { color: var(--mod1-color); }
-.module-section-card[data-mod="1"] .subtopic-body h4 { color: #275a77; }
+.module-section-card[data-mod="1"] .subtopic-body {
+  background: rgba(228, 240, 252, 0.65);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(188, 218, 246, 0.85);
+  box-shadow: 0 4px 20px rgba(43, 116, 163, 0.05), inset 0 1px 2px rgba(255, 255, 255, 0.9);
+}
+.module-section-card[data-mod="1"] .subtopic-body h4 { color: #1e5980; }
+.module-section-card[data-mod="1"] #item_mod1_1 .subtopic-body {
+  background: rgba(235, 245, 254, 0.65);
+  border-color: rgba(200, 226, 250, 0.85);
+}
+.module-section-card[data-mod="1"] #item_mod1_2 .subtopic-body {
+  background: rgba(226, 240, 252, 0.68);
+  border-color: rgba(185, 216, 246, 0.88);
+}
+.module-section-card[data-mod="1"] #item_mod1_3 .subtopic-body {
+  background: rgba(216, 234, 250, 0.72);
+  border-color: rgba(172, 206, 242, 0.90);
+}
+.module-section-card[data-mod="1"] #item_mod1_4 .subtopic-body {
+  background: rgba(206, 228, 248, 0.76);
+  border-color: rgba(158, 196, 238, 0.92);
+}
 
+/* MÓDULO 2: FARMACOLOGIA (LILÁS / ROXO HEATHER GLASS) */
 .module-section-card[data-mod="2"] .module-main-icon { color: var(--mod2-color); }
-.module-section-card[data-mod="2"] .subtopic-body h4 { color: #55346d; }
+.module-section-card[data-mod="2"] .subtopic-body {
+  background: rgba(242, 234, 250, 0.65);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(222, 206, 240, 0.85);
+  box-shadow: 0 4px 20px rgba(123, 88, 148, 0.05), inset 0 1px 2px rgba(255, 255, 255, 0.9);
+}
+.module-section-card[data-mod="2"] .subtopic-body h4 { color: #5c3b73; }
+.module-section-card[data-mod="2"] #item_mod2_1 .subtopic-body {
+  background: rgba(246, 240, 253, 0.65);
+  border-color: rgba(230, 218, 246, 0.85);
+}
+.module-section-card[data-mod="2"] #item_mod2_2 .subtopic-body {
+  background: rgba(240, 231, 250, 0.68);
+  border-color: rgba(220, 203, 240, 0.88);
+}
+.module-section-card[data-mod="2"] #item_mod2_3 .subtopic-body {
+  background: rgba(233, 221, 246, 0.72);
+  border-color: rgba(210, 189, 234, 0.90);
+}
+.module-section-card[data-mod="2"] #item_mod2_4 .subtopic-body {
+  background: rgba(225, 211, 242, 0.76);
+  border-color: rgba(199, 174, 228, 0.92);
+}
+.module-section-card[data-mod="2"] #item_mod2_5 .subtopic-body {
+  background: rgba(216, 200, 237, 0.80);
+  border-color: rgba(188, 159, 222, 0.94);
+}
 
+/* MÓDULO 3: TÉCNICAS ANESTÉSICAS (ÂMBAR / OCHRE GLASS) */
 .module-section-card[data-mod="3"] .module-main-icon { color: var(--mod3-color); }
+.module-section-card[data-mod="3"] .subtopic-body {
+  background: rgba(253, 245, 234, 0.65);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(242, 224, 200, 0.85);
+  box-shadow: 0 4px 20px rgba(168, 101, 39, 0.05), inset 0 1px 2px rgba(255, 255, 255, 0.9);
+}
 .module-section-card[data-mod="3"] .subtopic-body h4 { color: #7d4915; }
+.module-section-card[data-mod="3"] #item_mod3_1 .subtopic-body {
+  background: rgba(254, 249, 242, 0.65);
+  border-color: rgba(245, 232, 215, 0.85);
+}
+.module-section-card[data-mod="3"] #item_mod3_2 .subtopic-body {
+  background: rgba(252, 244, 232, 0.68);
+  border-color: rgba(240, 222, 198, 0.88);
+}
+.module-section-card[data-mod="3"] #item_mod3_3 .subtopic-body {
+  background: rgba(250, 238, 221, 0.72);
+  border-color: rgba(234, 211, 180, 0.90);
+}
+.module-section-card[data-mod="3"] #item_mod3_4 .subtopic-body {
+  background: rgba(247, 232, 210, 0.76);
+  border-color: rgba(228, 199, 161, 0.92);
+}
+.module-section-card[data-mod="3"] #item_mod3_5 .subtopic-body {
+  background: rgba(243, 225, 198, 0.80);
+  border-color: rgba(221, 187, 142, 0.94);
+}
 
+/* MÓDULO 4: ACIDENTES E COMPLICAÇÕES (VERMELHO / TERRACOTTA GLASS) */
 .module-section-card[data-mod="4"] .module-main-icon { color: var(--mod4-color); }
+.module-section-card[data-mod="4"] .subtopic-body {
+  background: rgba(253, 238, 238, 0.65);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(244, 208, 208, 0.85);
+  box-shadow: 0 4px 20px rgba(179, 57, 57, 0.05), inset 0 1px 2px rgba(255, 255, 255, 0.9);
+}
 .module-section-card[data-mod="4"] .subtopic-body h4 { color: #8c2727; }
+.module-section-card[data-mod="4"] #item_mod4_1 .subtopic-body {
+  background: rgba(254, 244, 244, 0.65);
+  border-color: rgba(246, 220, 220, 0.85);
+}
+.module-section-card[data-mod="4"] #item_mod4_2 .subtopic-body {
+  background: rgba(252, 237, 237, 0.68);
+  border-color: rgba(242, 206, 206, 0.88);
+}
+.module-section-card[data-mod="4"] #item_mod4_3 .subtopic-body {
+  background: rgba(250, 229, 229, 0.72);
+  border-color: rgba(238, 190, 190, 0.90);
+}
+.module-section-card[data-mod="4"] #item_mod4_4 .subtopic-body {
+  background: rgba(246, 220, 220, 0.76);
+  border-color: rgba(232, 174, 174, 0.92);
+}
 
 /* Elementos Internos de Apoio */
 .subtopic-body ul, .subtopic-body ol {

@@ -1,12 +1,12 @@
 /* ==========================================================================
    ANESTESIO HUB — UNIOESTE ODONTOLOGIA
-   Warm Minimalism + Soft Glass (Apple-inspired macOS/iOS Design Language)
-   Rigorously crafted following the Warm Neutrals color scheme & glassmorphism.
+   Warm Minimalism + Soft Glass (macOS / iOS / Apple-inspired Design Language)
+   True Frosted Glass, Ambient Depth, Floating Island Surfaces & Liquid Details
    ========================================================================== */
 
 :root {
   /* ========================================================================
-     1. PALETA DE CORES — WARM NEUTRALS
+     1. PALETA DE CORES — WARM NEUTRALS (RIGOROUS PROPORTIONS)
      ======================================================================== */
   --color-off-white: #F5F2EE;        /* 55% Fundo principal */
   --color-porcelain: #E8E3DD;        /* Superfícies e áreas secundárias */
@@ -16,29 +16,29 @@
   --color-coffee-brown: #70503D;     /* 5% Cor de identidade e destaques */
   --color-dark-chocolate: #493529;   /* Botões principais e estados ativos */
 
-  /* Variações e nuances de texto */
+  /* Text tokens */
   --text-primary: #292724;           /* Charcoal */
-  --text-secondary: #635C55;         /* Taupe escurecido para legibilidade */
+  --text-secondary: #635C55;         /* Taupe escurecido para alta legibilidade */
   --text-muted: #978578;             /* Taupe suave */
 
   /* ========================================================================
-     2. SOFT GLASSMORPHISM & TRANSLUCÊNCIAS LEITOSAS
+     2. SOFT GLASSMORPHISM SPECIFICATIONS (APPLE SPEC)
      ======================================================================== */
-  --glass-bg: rgba(255, 255, 255, 0.72);
-  --glass-bg-subtle: rgba(255, 255, 255, 0.52);
-  --glass-bg-elevated: rgba(255, 255, 255, 0.90);
-  --glass-border: rgba(255, 255, 255, 0.85);
-  --glass-border-subtle: rgba(189, 184, 177, 0.38);
-  --glass-border-accent: rgba(112, 80, 61, 0.28);
-  --glass-blur: blur(24px);
-  --glass-blur-sm: blur(16px);
+  --glass-bg: rgba(255, 255, 255, 0.62);
+  --glass-bg-subtle: rgba(255, 255, 255, 0.50);
+  --glass-bg-elevated: rgba(255, 255, 255, 0.88);
+  --glass-border: rgba(255, 255, 255, 0.88);
+  --glass-border-subtle: rgba(189, 184, 177, 0.35);
+  --glass-border-accent: rgba(112, 80, 61, 0.32);
+  --glass-blur: blur(28px) saturate(180%);
+  --glass-blur-sm: blur(18px) saturate(160%);
 
   /* Sombras quentes, suaves e difusas */
   --shadow-xs: 0 1px 3px rgba(73, 53, 41, 0.04);
-  --shadow-sm: 0 3px 10px -2px rgba(73, 53, 41, 0.05), 0 1px 3px rgba(73, 53, 41, 0.02);
-  --shadow-md: 0 8px 24px -4px rgba(73, 53, 41, 0.06), 0 2px 6px -1px rgba(73, 53, 41, 0.03);
-  --shadow-lg: 0 16px 40px -6px rgba(73, 53, 41, 0.08), 0 4px 14px -2px rgba(73, 53, 41, 0.04);
-  --shadow-inner-glow: inset 0 1px 0 rgba(255, 255, 255, 0.95);
+  --shadow-sm: 0 4px 14px -2px rgba(73, 53, 41, 0.05), 0 1px 3px rgba(73, 53, 41, 0.02);
+  --shadow-md: 0 14px 34px -4px rgba(73, 53, 41, 0.07), 0 3px 8px -1px rgba(73, 53, 41, 0.03);
+  --shadow-lg: 0 20px 48px -6px rgba(73, 53, 41, 0.09), 0 6px 16px -2px rgba(73, 53, 41, 0.04);
+  --shadow-specular: inset 0 1px 1.5px 0 rgba(255, 255, 255, 0.95);
 
   /* ========================================================================
      3. IDENTIDADES TEMÁTICAS DOS MÓDULOS (TONS REFINADOS E ELEGANTES)
@@ -58,10 +58,10 @@
 
   /* Formas Apple-like */
   --radius-xs: 6px;
-  --radius-sm: 8px;
-  --radius-md: 12px;
-  --radius-lg: 16px;
-  --radius-xl: 22px;
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 26px;
   --radius-full: 9999px;
 
   /* Transições microinterativas sutis (180ms - 260ms) */
@@ -83,15 +83,58 @@
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', system-ui, sans-serif;
   background-color: var(--color-off-white);
-  background-image: 
-    radial-gradient(ellipse 90% 60% at 50% -12%, rgba(232, 227, 221, 0.65), transparent 75%),
-    radial-gradient(ellipse 60% 40% at 85% 15%, rgba(245, 242, 238, 0.7), transparent 60%),
-    radial-gradient(ellipse 70% 50% at 15% 65%, rgba(232, 227, 221, 0.5), transparent 70%);
-  background-attachment: fixed;
   color: var(--text-primary);
   line-height: 1.65;
   min-height: 100vh;
+  position: relative;
   overflow-x: hidden;
+}
+
+/* ==========================================================================
+   AMBIENT BACKGROUND DEPTH (REAL FROSTED GLASS REFRACTION BACKDROP)
+   ========================================================================== */
+.ambient-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.ambient-orb {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.orb-1 {
+  top: -140px;
+  right: -80px;
+  width: 650px;
+  height: 650px;
+  background: radial-gradient(circle, rgba(226, 216, 202, 0.85) 0%, rgba(236, 230, 222, 0.45) 50%, transparent 72%);
+  filter: blur(75px);
+}
+
+.orb-2 {
+  top: 34%;
+  left: -160px;
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(circle, rgba(220, 208, 194, 0.8) 0%, rgba(232, 225, 216, 0.4) 50%, transparent 72%);
+  filter: blur(85px);
+}
+
+.orb-3 {
+  bottom: -120px;
+  right: 14%;
+  width: 620px;
+  height: 620px;
+  background: radial-gradient(circle, rgba(215, 202, 186, 0.75) 0%, rgba(230, 222, 212, 0.35) 50%, transparent 72%);
+  filter: blur(80px);
 }
 
 /* Lucide Icons */
@@ -117,29 +160,33 @@ svg[data-lucide], .lucide {
 }
 
 /* ==========================================================================
-   HEADER & TOP BAR (FLOATING FROSTED GLASS)
+   TOP BAR (FLOATING GLASS ISLAND)
    ========================================================================== */
 .top-bar {
-  background: rgba(245, 242, 238, 0.82);
+  position: sticky;
+  top: 14px;
+  z-index: 100;
+  max-width: 960px;
+  width: calc(100% - 32px);
+  margin: 14px auto 0 auto;
+  background: var(--glass-bg);
   backdrop-filter: var(--glass-blur);
   -webkit-backdrop-filter: var(--glass-blur);
-  border-bottom: 1px solid var(--glass-border-subtle);
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  padding: 10px 24px;
-  box-shadow: var(--shadow-xs);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md), var(--shadow-specular);
+  padding: 8px 18px 0 18px;
+  overflow: hidden;
   transition: var(--transition-smooth);
 }
 
 .top-bar-inner {
-  max-width: 960px;
-  margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
   gap: 12px;
+  padding-bottom: 8px;
 }
 
 .brand-wrapper {
@@ -156,13 +203,13 @@ svg[data-lucide], .lucide {
 }
 
 .brand-tag {
-  background: rgba(232, 227, 221, 0.7);
+  background: rgba(232, 227, 221, 0.65);
   color: var(--color-dark-chocolate);
   font-size: 11px;
   font-weight: 500;
-  padding: 3px 9px;
+  padding: 3px 10px;
   border-radius: var(--radius-full);
-  border: 1px solid rgba(189, 184, 177, 0.5);
+  border: 1px solid rgba(189, 184, 177, 0.45);
   letter-spacing: 0.2px;
 }
 
@@ -172,22 +219,22 @@ svg[data-lucide], .lucide {
   gap: 10px;
 }
 
-/* Timer de Estudos (Pomodoro Soft Pill) */
+/* Timer de Estudos (Pomodoro Floating Soft Pill) */
 .pomodoro-box {
   display: flex;
   align-items: center;
   gap: 8px;
-  background: rgba(255, 255, 255, 0.75);
+  background: rgba(255, 255, 255, 0.65);
   backdrop-filter: var(--glass-blur-sm);
   -webkit-backdrop-filter: var(--glass-blur-sm);
   padding: 5px 12px;
   border-radius: var(--radius-full);
-  border: 1px solid var(--glass-border-subtle);
-  box-shadow: var(--shadow-xs), var(--shadow-inner-glow);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  box-shadow: var(--shadow-xs), var(--shadow-specular);
 }
 
 .pomodoro-label {
-  font-size: 11px;
+  font-size: 10.5px;
   color: var(--color-taupe);
   font-weight: 600;
   text-transform: uppercase;
@@ -220,9 +267,11 @@ svg[data-lucide], .lucide {
 
 /* Botão Modo Foco */
 .btn-foco {
-  background: rgba(255, 255, 255, 0.75);
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: var(--glass-blur-sm);
+  -webkit-backdrop-filter: var(--glass-blur-sm);
   color: var(--color-charcoal);
-  border: 1px solid var(--glass-border-subtle);
+  border: 1px solid rgba(255, 255, 255, 0.9);
   padding: 6px 14px;
   border-radius: var(--radius-full);
   font-size: 12.5px;
@@ -231,31 +280,47 @@ svg[data-lucide], .lucide {
   display: flex;
   align-items: center;
   gap: 6px;
-  box-shadow: var(--shadow-xs), var(--shadow-inner-glow);
+  box-shadow: var(--shadow-xs), var(--shadow-specular);
   transition: var(--transition-smooth);
 }
 
 .btn-foco:hover {
-  background: var(--color-porcelain);
-  border-color: var(--color-warm-gray);
+  background: #FFFFFF;
+  border-color: rgba(189, 184, 177, 0.5);
   color: var(--color-dark-chocolate);
   transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Barra de Progresso Global Integrada na Floating Bar */
+.global-progress-bar {
+  background: rgba(189, 184, 177, 0.25);
+  height: 2.5px;
+  width: calc(100% + 36px);
+  margin: 0 -18px;
+}
+
+.global-progress-fill {
+  background: var(--color-coffee-brown);
+  height: 100%;
+  width: 0%;
+  transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* Banner de Foco Ativo */
 .foco-bar {
   display: none;
-  background: rgba(255, 255, 255, 0.85);
+  background: var(--glass-bg);
   backdrop-filter: var(--glass-blur);
-  border: 1px solid var(--glass-border-subtle);
-  padding: 10px 18px;
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-md), var(--shadow-specular);
+  padding: 12px 20px;
   border-radius: var(--radius-md);
   margin-bottom: 24px;
   justify-content: space-between;
   align-items: center;
   font-size: 13.5px;
   color: var(--color-charcoal);
-  box-shadow: var(--shadow-sm);
 }
 
 /* Modo Foco Estados */
@@ -267,44 +332,38 @@ body.modo-foco-ativo #calculadoraSection {
 }
 
 body.modo-foco-ativo .container {
-  padding-top: 20px;
+  padding-top: 24px;
 }
 
 body.modo-foco-ativo .foco-bar {
   display: flex !important;
 }
 
-/* Barra de Progresso Global */
-.global-progress-bar {
-  background: rgba(189, 184, 177, 0.28);
-  height: 3px;
-  width: 100%;
-}
-
-.global-progress-fill {
-  background: var(--color-coffee-brown);
-  height: 100%;
-  width: 0%;
-  transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
 /* ==========================================================================
-   NAVEGAÇÃO POR ABAS CENTRAIS (MINIMALIST SOFT GLASS)
+   NAVEGAÇÃO POR ABAS (FLOATING GLASS PILL DOCK)
    ========================================================================== */
 .nav-tabs-wrapper {
-  background: rgba(245, 242, 238, 0.75);
-  backdrop-filter: var(--glass-blur-sm);
-  -webkit-backdrop-filter: var(--glass-blur-sm);
-  border-bottom: 1px solid var(--glass-border-subtle);
+  position: sticky;
+  top: 78px;
+  z-index: 90;
+  margin: 12px auto 28px auto;
+  max-width: fit-content;
+  background: transparent;
+  border: none;
   padding: 0 16px;
 }
 
 .nav-tabs {
-  max-width: 960px;
-  margin: 0 auto;
   display: flex;
-  justify-content: center;
-  gap: 6px;
+  align-items: center;
+  gap: 4px;
+  padding: 5px;
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-full);
+  box-shadow: var(--shadow-md), var(--shadow-specular);
   overflow-x: auto;
   scrollbar-width: none;
 }
@@ -314,31 +373,32 @@ body.modo-foco-ativo .foco-bar {
 }
 
 .tab-btn {
-  background: none;
   border: none;
-  padding: 13px 18px;
+  padding: 8px 18px;
+  border-radius: var(--radius-full);
   color: var(--color-taupe);
-  font-size: 13.5px;
+  font-size: 13px;
   font-weight: 500;
-  cursor: pointer;
-  border-bottom: 2px solid transparent;
+  background: transparent;
   display: flex;
   align-items: center;
   gap: 8px;
   white-space: nowrap;
-  transition: var(--transition-smooth);
-  border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+  cursor: pointer;
+  transition: var(--transition-quick);
 }
 
 .tab-btn:hover {
   color: var(--color-charcoal);
-  background: rgba(232, 227, 221, 0.35);
+  background: rgba(232, 227, 221, 0.45);
 }
 
 .tab-btn.active {
+  background: #FFFFFF;
   color: var(--color-dark-chocolate);
-  border-bottom-color: var(--color-coffee-brown);
   font-weight: 600;
+  box-shadow: 0 2px 10px rgba(73, 53, 41, 0.08), 0 1px 2px rgba(73, 53, 41, 0.04), inset 0 1px 0 rgba(255, 255, 255, 1);
+  border: 1px solid rgba(189, 184, 177, 0.28);
 }
 
 .tab-btn.active svg {
@@ -351,7 +411,9 @@ body.modo-foco-ativo .foco-bar {
 .container {
   max-width: 940px;
   margin: 0 auto;
-  padding: 36px 20px 90px 20px;
+  padding: 10px 20px 90px 20px;
+  position: relative;
+  z-index: 10;
 }
 
 .tab-pane {
@@ -366,7 +428,7 @@ body.modo-foco-ativo .foco-bar {
 @keyframes appleFadeIn {
   from {
     opacity: 0;
-    transform: translateY(4px);
+    transform: translateY(6px);
   }
   to {
     opacity: 1;
@@ -417,7 +479,7 @@ body.modo-foco-ativo .foco-bar {
   backdrop-filter: var(--glass-blur);
   -webkit-backdrop-filter: var(--glass-blur);
   border: 1px solid var(--glass-border);
-  box-shadow: var(--shadow-sm), var(--shadow-inner-glow);
+  box-shadow: var(--shadow-sm), var(--shadow-specular);
   padding: 18px 20px;
   border-radius: var(--radius-md);
   text-align: center;
@@ -426,7 +488,8 @@ body.modo-foco-ativo .foco-bar {
 
 .stat-card:hover {
   transform: translateY(-2px);
-  box-shadow: var(--shadow-md), var(--shadow-inner-glow);
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: var(--shadow-md), var(--shadow-specular);
 }
 
 .stat-card.blue { border-top: 3px solid var(--mod1-color); }
@@ -454,9 +517,9 @@ body.modo-foco-ativo .foco-bar {
   backdrop-filter: var(--glass-blur);
   -webkit-backdrop-filter: var(--glass-blur);
   border: 1px solid var(--glass-border);
-  box-shadow: var(--shadow-sm), var(--shadow-inner-glow);
+  box-shadow: var(--shadow-md), var(--shadow-specular);
   border-radius: var(--radius-lg);
-  padding: 24px;
+  padding: 26px;
   margin-bottom: 30px;
 }
 
@@ -493,8 +556,10 @@ body.modo-foco-ativo .foco-bar {
   width: 32px;
   height: 32px;
   border-radius: var(--radius-sm);
-  background: var(--color-porcelain);
-  border: 1px solid rgba(189, 184, 177, 0.45);
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: var(--glass-blur-sm);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  box-shadow: var(--shadow-xs);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -547,7 +612,7 @@ body.modo-foco-ativo .foco-bar {
   backdrop-filter: var(--glass-blur);
   -webkit-backdrop-filter: var(--glass-blur);
   border: 1px solid var(--glass-border);
-  box-shadow: var(--shadow-sm), var(--shadow-inner-glow);
+  box-shadow: var(--shadow-sm), var(--shadow-specular);
   border-radius: var(--radius-md);
   padding: 18px;
   transition: var(--transition-smooth);
@@ -555,7 +620,8 @@ body.modo-foco-ativo .foco-bar {
 
 .pegadinha-card:hover {
   transform: translateY(-2px);
-  box-shadow: var(--shadow-md), var(--shadow-inner-glow);
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: var(--shadow-md), var(--shadow-specular);
 }
 
 .pegadinha-header {
@@ -591,23 +657,25 @@ body.modo-foco-ativo .foco-bar {
 }
 
 .mod-filter-btn {
-  background: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.65);
   backdrop-filter: var(--glass-blur-sm);
-  border: 1px solid var(--glass-border-subtle);
+  -webkit-backdrop-filter: var(--glass-blur-sm);
+  border: 1px solid var(--glass-border);
   color: var(--text-secondary);
   padding: 8px 16px;
   border-radius: var(--radius-full);
   font-size: 12.5px;
   font-weight: 500;
   cursor: pointer;
-  box-shadow: var(--shadow-xs);
+  box-shadow: var(--shadow-xs), var(--shadow-specular);
   transition: var(--transition-smooth);
 }
 
 .mod-filter-btn:hover {
-  background: var(--color-porcelain);
-  border-color: var(--color-warm-gray);
+  background: #FFFFFF;
+  border-color: rgba(189, 184, 177, 0.5);
   color: var(--color-charcoal);
+  transform: translateY(-1px);
 }
 
 .mod-filter-btn.active {
@@ -620,11 +688,11 @@ body.modo-foco-ativo .foco-bar {
 
 /* Card Geral do Módulo */
 .module-section-card {
-  background: rgba(255, 255, 255, 0.82);
+  background: var(--glass-bg);
   backdrop-filter: var(--glass-blur);
   -webkit-backdrop-filter: var(--glass-blur);
-  border: 1px solid var(--glass-border-subtle);
-  box-shadow: var(--shadow-md), var(--shadow-inner-glow);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-md), var(--shadow-specular);
   border-radius: var(--radius-lg);
   margin-bottom: 26px;
   overflow: hidden;
@@ -633,13 +701,14 @@ body.modo-foco-ativo .foco-bar {
 
 .module-header-box {
   padding: 18px 24px;
-  border-bottom: 1px solid var(--glass-border-subtle);
+  border-bottom: 1px solid rgba(189, 184, 177, 0.28);
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
   gap: 12px;
-  background: rgba(232, 227, 221, 0.4);
+  background: rgba(255, 255, 255, 0.35);
+  backdrop-filter: var(--glass-blur-sm);
 }
 
 .module-title-wrap h3 {
@@ -661,7 +730,7 @@ body.modo-foco-ativo .foco-bar {
 
 .module-meta-badges span {
   background: rgba(255, 255, 255, 0.7);
-  padding: 3px 8px;
+  padding: 3px 9px;
   border-radius: var(--radius-full);
   border: 1px solid rgba(189, 184, 177, 0.35);
 }
@@ -687,7 +756,7 @@ body.modo-foco-ativo .foco-bar {
 }
 
 .subtopic-header:hover {
-  background: rgba(232, 227, 221, 0.32);
+  background: rgba(255, 255, 255, 0.45);
 }
 
 .subtopic-title-wrap {
@@ -744,8 +813,8 @@ body.modo-foco-ativo .foco-bar {
 }
 
 /* ==========================================================================
-   ÁREA INTERNA DO RESUMO — CORES POR TÓPICO COM VARIAÇÃO DE TOM
-   (Atendimento estrito ao pedido do usuário: fundo tingido pelo tema da aula)
+   ÁREA INTERNA DO RESUMO — TRANSLUCENT TINTED SOFT GLASS
+   (Vidro fosco tingido com sutil tonalidade do tema e alta legibilidade)
    ========================================================================== */
 .subtopic-body {
   display: none;
@@ -753,6 +822,8 @@ body.modo-foco-ativo .foco-bar {
   font-size: 14px;
   line-height: 1.72;
   color: var(--color-charcoal);
+  backdrop-filter: var(--glass-blur-sm);
+  -webkit-backdrop-filter: var(--glass-blur-sm);
 }
 
 .subtopic-item.open .subtopic-body {
@@ -770,7 +841,7 @@ body.modo-foco-ativo .foco-bar {
   font-weight: 600;
 }
 
-/* MÓDULO 1: BIOSSEGURANÇA (TONS DE AZUL SUAVE / NORDIC SLATE) */
+/* MÓDULO 1: BIOSSEGURANÇA (TONS DE AZUL ARDÓSIA) */
 .module-section-card[data-mod="1"] .module-header-box {
   border-left: 4px solid var(--mod1-color);
 }
@@ -786,25 +857,24 @@ body.modo-foco-ativo .foco-bar {
 .module-section-card[data-mod="1"] .subtopic-body strong {
   color: #17384a;
 }
-/* Variação progressiva de tom por subtópico no Módulo 1 */
 .module-section-card[data-mod="1"] #item_mod1_1 .subtopic-body {
-  background: rgba(225, 238, 248, 0.38);
+  background: rgba(225, 238, 248, 0.45);
   border-left: 3px solid #5b8fae;
 }
 .module-section-card[data-mod="1"] #item_mod1_2 .subtopic-body {
-  background: rgba(215, 233, 246, 0.46);
+  background: rgba(215, 233, 246, 0.52);
   border-left: 3px solid #4a80a2;
 }
 .module-section-card[data-mod="1"] #item_mod1_3 .subtopic-body {
-  background: rgba(205, 228, 244, 0.54);
+  background: rgba(205, 228, 244, 0.58);
   border-left: 3px solid #3c7295;
 }
 .module-section-card[data-mod="1"] #item_mod1_4 .subtopic-body {
-  background: rgba(195, 223, 242, 0.62);
+  background: rgba(195, 223, 242, 0.65);
   border-left: 3px solid #2f6488;
 }
 
-/* MÓDULO 2: FARMACOLOGIA & ANATOMIA (TONS DE ROXO / HEATHER IRIS) */
+/* MÓDULO 2: FARMACOLOGIA & ANATOMIA (TONS DE ROXO HEATHER) */
 .module-section-card[data-mod="2"] .module-header-box {
   border-left: 4px solid var(--mod2-color);
 }
@@ -820,25 +890,24 @@ body.modo-foco-ativo .foco-bar {
 .module-section-card[data-mod="2"] .subtopic-body strong {
   color: #3b224d;
 }
-/* Variação progressiva de tom por subtópico no Módulo 2 */
 .module-section-card[data-mod="2"] #item_mod2_1 .subtopic-body {
-  background: rgba(242, 236, 248, 0.38);
+  background: rgba(242, 236, 248, 0.45);
   border-left: 3px solid #9471b0;
 }
 .module-section-card[data-mod="2"] #item_mod2_2 .subtopic-body {
-  background: rgba(235, 227, 245, 0.46);
+  background: rgba(235, 227, 245, 0.52);
   border-left: 3px solid #855fa3;
 }
 .module-section-card[data-mod="2"] #item_mod2_3 .subtopic-body {
-  background: rgba(228, 218, 242, 0.54);
+  background: rgba(228, 218, 242, 0.58);
   border-left: 3px solid #774f96;
 }
 .module-section-card[data-mod="2"] #item_mod2_4 .subtopic-body {
-  background: rgba(221, 209, 239, 0.62);
+  background: rgba(221, 209, 239, 0.65);
   border-left: 3px solid #6a4089;
 }
 .module-section-card[data-mod="2"] #item_mod2_5 .subtopic-body {
-  background: rgba(214, 200, 236, 0.70);
+  background: rgba(214, 200, 236, 0.72);
   border-left: 3px solid #5e337c;
 }
 
@@ -858,29 +927,28 @@ body.modo-foco-ativo .foco-bar {
 .module-section-card[data-mod="3"] .subtopic-body strong {
   color: #552f08;
 }
-/* Variação progressiva de tom por subtópico no Módulo 3 */
 .module-section-card[data-mod="3"] #item_mod3_1 .subtopic-body {
-  background: rgba(251, 242, 230, 0.40);
+  background: rgba(251, 242, 230, 0.48);
   border-left: 3px solid #c98542;
 }
 .module-section-card[data-mod="3"] #item_mod3_2 .subtopic-body {
-  background: rgba(248, 236, 221, 0.48);
+  background: rgba(248, 236, 221, 0.54);
   border-left: 3px solid #ba7734;
 }
 .module-section-card[data-mod="3"] #item_mod3_3 .subtopic-body {
-  background: rgba(245, 230, 212, 0.56);
+  background: rgba(245, 230, 212, 0.60);
   border-left: 3px solid #ac6928;
 }
 .module-section-card[data-mod="3"] #item_mod3_4 .subtopic-body {
-  background: rgba(242, 224, 203, 0.64);
+  background: rgba(242, 224, 203, 0.68);
   border-left: 3px solid #9e5c1d;
 }
 .module-section-card[data-mod="3"] #item_mod3_5 .subtopic-body {
-  background: rgba(239, 218, 194, 0.72);
+  background: rgba(239, 218, 194, 0.75);
   border-left: 3px solid #905013;
 }
 
-/* MÓDULO 4: ACIDENTES E COMPLICAÇÕES (TONS DE TERRACOTA / CORAL CRIMSON) */
+/* MÓDULO 4: ACIDENTES E COMPLICAÇÕES (TONS DE TERRACOTA CRIMSON) */
 .module-section-card[data-mod="4"] .module-header-box {
   border-left: 4px solid var(--mod4-color);
 }
@@ -896,21 +964,20 @@ body.modo-foco-ativo .foco-bar {
 .module-section-card[data-mod="4"] .subtopic-body strong {
   color: #5f1515;
 }
-/* Variação progressiva de tom por subtópico no Módulo 4 */
 .module-section-card[data-mod="4"] #item_mod4_1 .subtopic-body {
-  background: rgba(253, 238, 238, 0.40);
+  background: rgba(253, 238, 238, 0.48);
   border-left: 3px solid #cb5d5d;
 }
 .module-section-card[data-mod="4"] #item_mod4_2 .subtopic-body {
-  background: rgba(250, 230, 230, 0.48);
+  background: rgba(250, 230, 230, 0.54);
   border-left: 3px solid #bc4b4b;
 }
 .module-section-card[data-mod="4"] #item_mod4_3 .subtopic-body {
-  background: rgba(247, 222, 222, 0.56);
+  background: rgba(247, 222, 222, 0.60);
   border-left: 3px solid #ad3b3b;
 }
 .module-section-card[data-mod="4"] #item_mod4_4 .subtopic-body {
-  background: rgba(244, 214, 214, 0.64);
+  background: rgba(244, 214, 214, 0.68);
   border-left: 3px solid #9f2d2d;
 }
 
@@ -929,16 +996,17 @@ body.modo-foco-ativo .foco-bar {
   margin: 16px 0;
   border-left: 3px solid transparent;
   font-size: 13.5px;
+  backdrop-filter: var(--glass-blur-sm);
 }
 
 .callout.warning {
-  background: rgba(245, 158, 11, 0.08);
+  background: rgba(245, 158, 11, 0.10);
   border-left-color: #c98542;
   color: var(--color-dark-chocolate);
 }
 
 .callout.tip {
-  background: rgba(232, 227, 221, 0.55);
+  background: rgba(232, 227, 221, 0.6);
   border-left-color: var(--color-coffee-brown);
   color: var(--color-charcoal);
 }
@@ -953,7 +1021,8 @@ body.modo-foco-ativo .foco-bar {
   border-collapse: collapse;
   margin: 16px 0;
   font-size: 13px;
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: var(--glass-blur-sm);
   border-radius: var(--radius-sm);
   overflow: hidden;
   box-shadow: var(--shadow-xs);
@@ -966,7 +1035,7 @@ body.modo-foco-ativo .foco-bar {
 }
 
 .tabela-estudo th {
-  background: var(--color-porcelain);
+  background: rgba(232, 227, 221, 0.85);
   color: var(--color-charcoal);
   font-weight: 600;
 }
@@ -979,7 +1048,7 @@ body.modo-foco-ativo .foco-bar {
   backdrop-filter: var(--glass-blur);
   -webkit-backdrop-filter: var(--glass-blur);
   border: 1px solid var(--glass-border);
-  box-shadow: var(--shadow-md), var(--shadow-inner-glow);
+  box-shadow: var(--shadow-md), var(--shadow-specular);
   border-radius: var(--radius-lg);
   padding: 26px;
   margin-bottom: 26px;
@@ -1000,27 +1069,29 @@ body.modo-foco-ativo .foco-bar {
 }
 
 .quiz-mode-btn {
-  background: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.65);
   backdrop-filter: var(--glass-blur-sm);
-  border: 1px solid var(--glass-border-subtle);
+  -webkit-backdrop-filter: var(--glass-blur-sm);
+  border: 1px solid var(--glass-border);
   padding: 15px;
   border-radius: var(--radius-md);
   text-align: left;
   cursor: pointer;
   color: var(--color-charcoal);
-  box-shadow: var(--shadow-xs), var(--shadow-inner-glow);
+  box-shadow: var(--shadow-xs), var(--shadow-specular);
   transition: var(--transition-quick);
 }
 
 .quiz-mode-btn:hover {
   border-color: var(--color-coffee-brown);
   background: rgba(255, 255, 255, 0.95);
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
 }
 
 .quiz-mode-btn.active {
   border: 1.5px solid var(--color-coffee-brown);
-  background: rgba(255, 255, 255, 0.98);
+  background: #FFFFFF;
   box-shadow: var(--shadow-sm), inset 0 0 0 1px var(--color-coffee-brown);
 }
 
@@ -1059,26 +1130,29 @@ body.modo-foco-ativo .foco-bar {
 }
 
 .quiz-select {
-  background: rgba(255, 255, 255, 0.9);
-  border: 1px solid var(--color-warm-gray);
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: var(--glass-blur-sm);
+  border: 1px solid rgba(189, 184, 177, 0.45);
   color: var(--color-charcoal);
   padding: 8px 14px;
   border-radius: var(--radius-sm);
   font-size: 13.5px;
   font-family: inherit;
+  box-shadow: var(--shadow-xs);
   transition: var(--transition-quick);
 }
 
 .quiz-select:focus {
   outline: none;
+  background: #FFFFFF;
   border-color: var(--color-coffee-brown);
   box-shadow: 0 0 0 3px rgba(112, 80, 61, 0.15);
 }
 
 .btn-start-quiz {
-  background: var(--color-dark-chocolate);
+  background: linear-gradient(180deg, #573f32 0%, #493529 100%);
   color: var(--color-off-white);
-  border: none;
+  border: 1px solid rgba(73, 53, 41, 0.8);
   padding: 10px 22px;
   border-radius: var(--radius-full);
   font-weight: 600;
@@ -1087,14 +1161,14 @@ body.modo-foco-ativo .foco-bar {
   display: inline-flex;
   align-items: center;
   gap: 7px;
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 4px 14px rgba(73, 53, 41, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.25);
   transition: var(--transition-smooth);
 }
 
 .btn-start-quiz:hover {
-  background: #5c4334;
+  background: linear-gradient(180deg, #64493b 0%, #573f32 100%);
   transform: translateY(-1px);
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 6px 18px rgba(73, 53, 41, 0.28);
 }
 
 /* Área Ativa da Questão */
@@ -1142,7 +1216,7 @@ body.modo-foco-ativo .foco-bar {
   backdrop-filter: var(--glass-blur);
   -webkit-backdrop-filter: var(--glass-blur);
   border: 1px solid var(--glass-border);
-  box-shadow: var(--shadow-md), var(--shadow-inner-glow);
+  box-shadow: var(--shadow-md), var(--shadow-specular);
   border-radius: var(--radius-lg);
   padding: 28px;
   margin-bottom: 24px;
@@ -1191,10 +1265,11 @@ body.modo-foco-ativo .foco-bar {
 }
 
 .alt-btn {
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.65);
   backdrop-filter: var(--glass-blur-sm);
-  border: 1px solid var(--glass-border-subtle);
-  box-shadow: var(--shadow-xs);
+  -webkit-backdrop-filter: var(--glass-blur-sm);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-xs), var(--shadow-specular);
   border-radius: var(--radius-md);
   padding: 13px 18px;
   text-align: left;
@@ -1217,8 +1292,8 @@ body.modo-foco-ativo .foco-bar {
 
 .alt-btn:hover:not(.locked) {
   border-color: var(--color-coffee-brown);
-  background: #ffffff;
-  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.95);
+  transform: translateY(-2px);
   box-shadow: var(--shadow-sm);
 }
 
@@ -1232,6 +1307,7 @@ body.modo-foco-ativo .foco-bar {
   background: var(--success-bg) !important;
   border-color: var(--success-border) !important;
   color: var(--success-text) !important;
+  box-shadow: 0 4px 12px rgba(46, 125, 50, 0.12) !important;
 }
 
 .alt-btn.selected-correct .alt-letter,
@@ -1243,6 +1319,7 @@ body.modo-foco-ativo .foco-bar {
   background: var(--error-bg) !important;
   border-color: var(--error-border) !important;
   color: var(--error-text) !important;
+  box-shadow: 0 4px 12px rgba(198, 40, 40, 0.12) !important;
 }
 
 .alt-btn.selected-wrong .alt-letter {
@@ -1252,11 +1329,12 @@ body.modo-foco-ativo .foco-bar {
 /* Feedback da Questão */
 .feedback-box {
   display: none;
-  background: rgba(255, 255, 255, 0.92);
+  background: rgba(255, 255, 255, 0.88);
   backdrop-filter: var(--glass-blur);
-  border: 1px solid var(--glass-border-subtle);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
   border-radius: var(--radius-md);
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--shadow-sm), var(--shadow-specular);
   padding: 20px;
   margin-top: 20px;
 }
@@ -1286,7 +1364,7 @@ body.modo-foco-ativo .foco-bar {
 }
 
 .feedback-pegadinha {
-  background: rgba(245, 158, 11, 0.08);
+  background: rgba(245, 158, 11, 0.10);
   border-left: 3px solid #c98542;
   padding: 10px 14px;
   border-radius: var(--radius-sm);
@@ -1296,9 +1374,9 @@ body.modo-foco-ativo .foco-bar {
 }
 
 .btn-next-question {
-  background: var(--color-dark-chocolate);
+  background: linear-gradient(180deg, #573f32 0%, #493529 100%);
   color: var(--color-off-white);
-  border: none;
+  border: 1px solid rgba(73, 53, 41, 0.8);
   padding: 10px 22px;
   border-radius: var(--radius-full);
   font-weight: 600;
@@ -1307,14 +1385,13 @@ body.modo-foco-ativo .foco-bar {
   display: inline-flex;
   align-items: center;
   gap: 7px;
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 4px 14px rgba(73, 53, 41, 0.22);
   transition: var(--transition-smooth);
 }
 
 .btn-next-question:hover {
-  background: #5c4334;
+  background: linear-gradient(180deg, #64493b 0%, #573f32 100%);
   transform: translateY(-1px);
-  box-shadow: var(--shadow-md);
 }
 
 /* Resumo da Bateria */
@@ -1324,7 +1401,7 @@ body.modo-foco-ativo .foco-bar {
   backdrop-filter: var(--glass-blur);
   -webkit-backdrop-filter: var(--glass-blur);
   border: 1px solid var(--glass-border);
-  box-shadow: var(--shadow-md), var(--shadow-inner-glow);
+  box-shadow: var(--shadow-md), var(--shadow-specular);
   border-radius: var(--radius-lg);
   padding: 38px 20px;
   text-align: center;
@@ -1338,14 +1415,15 @@ body.modo-foco-ativo .foco-bar {
   width: 96px;
   height: 96px;
   border-radius: 50%;
-  background: rgba(232, 227, 221, 0.5);
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: var(--glass-blur-sm);
   border: 3px solid var(--color-coffee-brown);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   margin: 0 auto 18px auto;
-  box-shadow: var(--shadow-xs);
+  box-shadow: var(--shadow-xs), var(--shadow-specular);
 }
 
 .score-num {
@@ -1399,7 +1477,7 @@ body.modo-foco-ativo .foco-bar {
   backdrop-filter: var(--glass-blur);
   -webkit-backdrop-filter: var(--glass-blur);
   border: 1px solid var(--glass-border);
-  box-shadow: var(--shadow-md), var(--shadow-inner-glow);
+  box-shadow: var(--shadow-md), var(--shadow-specular);
   border-radius: var(--radius-lg);
   padding: 28px;
 }
@@ -1425,26 +1503,32 @@ body.modo-foco-ativo .foco-bar {
 
 .calc-input, .calc-select {
   width: 100%;
-  background: rgba(255, 255, 255, 0.9);
-  border: 1px solid var(--color-warm-gray);
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: var(--glass-blur-sm);
+  -webkit-backdrop-filter: var(--glass-blur-sm);
+  border: 1px solid rgba(189, 184, 177, 0.45);
   color: var(--color-charcoal);
   padding: 10px 14px;
   border-radius: var(--radius-sm);
   font-size: 13.5px;
   font-family: inherit;
-  box-shadow: var(--shadow-xs);
+  box-shadow: inset 0 1px 2px rgba(73, 53, 41, 0.03), 0 1px 0 rgba(255, 255, 255, 0.8);
   transition: var(--transition-quick);
 }
 
 .calc-input:focus, .calc-select:focus {
   outline: none;
+  background: #FFFFFF;
   border-color: var(--color-coffee-brown);
   box-shadow: 0 0 0 3px rgba(112, 80, 61, 0.15);
 }
 
 .calc-results-box {
-  background: rgba(232, 227, 221, 0.45);
-  border: 1px solid var(--glass-border-subtle);
+  background: rgba(255, 255, 255, 0.52);
+  backdrop-filter: var(--glass-blur-sm);
+  -webkit-backdrop-filter: var(--glass-blur-sm);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-xs), var(--shadow-specular);
   border-radius: var(--radius-md);
   padding: 20px;
   margin-top: 18px;
@@ -1465,7 +1549,7 @@ body.modo-foco-ativo .foco-bar {
   justify-content: space-between;
   align-items: center;
   padding: 9px 0;
-  border-bottom: 1px solid rgba(189, 184, 177, 0.25);
+  border-bottom: 1px solid rgba(189, 184, 177, 0.22);
   font-size: 13.5px;
 }
 
@@ -1508,18 +1592,40 @@ body.modo-foco-ativo .foco-bar {
   font-size: 12.5px;
   border-top: 1px solid var(--glass-border-subtle);
   margin-top: 60px;
+  position: relative;
+  z-index: 10;
 }
 
 /* ==========================================================================
    RESPONSIVIDADE (TABLET & MOBILE)
    ========================================================================== */
 @media (max-width: 768px) {
-  .container {
-    padding: 24px 14px 70px 14px;
-  }
-  
   .top-bar {
-    padding: 10px 16px;
+    top: 8px;
+    width: calc(100% - 20px);
+    margin: 8px auto 0 auto;
+    padding: 8px 14px 0 14px;
+    border-radius: 16px;
+  }
+
+  .nav-tabs-wrapper {
+    top: 70px;
+    margin: 10px auto 20px auto;
+    max-width: 100%;
+    padding: 0 10px;
+  }
+
+  .nav-tabs {
+    justify-content: flex-start;
+  }
+
+  .tab-btn {
+    padding: 7px 14px;
+    font-size: 12px;
+  }
+
+  .container {
+    padding: 10px 12px 70px 12px;
   }
   
   .brand-logo {

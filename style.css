@@ -115,7 +115,7 @@ body {
    SCULPTURAL ARCHES CYCLIC ANIMATION (MAC / APPLE LIQUID WAVE STATES)
    ========================================================================== */
 .ribbon-group {
-  transform-origin: 0% 100%;
+  transform-origin: 0% 50%;
   transition: transform 0.95s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: transform;
 }
@@ -133,43 +133,43 @@ body {
 /* --- STEP 1: Resumos Teóricos (Default Warm Minimal State) --- */
 /* Ribbon 1: Cream | Ribbon 2: Caramel | Ribbon 3: Coffee */
 .ambient-backdrop.step-1 .ribbon-1 .layer-cream { opacity: 1; }
-.ambient-backdrop.step-1 .ribbon-1 { transform: translate(0, 0) scale(1) rotate(0deg); }
+.ambient-backdrop.step-1 .ribbon-1 { transform: scale(1); }
 
 .ambient-backdrop.step-1 .ribbon-2 .layer-caramel { opacity: 1; }
-.ambient-backdrop.step-1 .ribbon-2 { transform: translate(0, 0) scale(1) rotate(0deg); }
+.ambient-backdrop.step-1 .ribbon-2 { transform: scale(1); }
 
 .ambient-backdrop.step-1 .ribbon-3 .layer-coffee { opacity: 1; }
-.ambient-backdrop.step-1 .ribbon-3 { transform: translate(0, 0) scale(1) rotate(0deg); }
+.ambient-backdrop.step-1 .ribbon-3 { transform: scale(1); }
 
 /* --- STEP 2: Quiz Interativo (Wave Surge: Caramel outer, Coffee mid, Dark Espresso inner) --- */
 .ambient-backdrop.step-2 .ribbon-1 .layer-caramel { opacity: 1; }
-.ambient-backdrop.step-2 .ribbon-1 { transform: translate(36px, -18px) scale(1.06) rotate(0.9deg); }
+.ambient-backdrop.step-2 .ribbon-1 { transform: scale(1.06); }
 
 .ambient-backdrop.step-2 .ribbon-2 .layer-coffee { opacity: 1; }
-.ambient-backdrop.step-2 .ribbon-2 { transform: translate(26px, -12px) scale(1.05) rotate(0.6deg); }
+.ambient-backdrop.step-2 .ribbon-2 { transform: scale(1.05); }
 
 .ambient-backdrop.step-2 .ribbon-3 .layer-espresso { opacity: 1; }
-.ambient-backdrop.step-2 .ribbon-3 { transform: translate(18px, -6px) scale(1.03) rotate(0.4deg); }
+.ambient-backdrop.step-2 .ribbon-3 { transform: scale(1.04); }
 
 /* --- STEP 3: Calculadora de Doses (Deep Arch: Outermost becomes dark rich chocolate espresso!) --- */
 .ambient-backdrop.step-3 .ribbon-1 .layer-espresso { opacity: 1; }
-.ambient-backdrop.step-3 .ribbon-1 { transform: translate(16px, 22px) scale(0.98) rotate(-0.5deg); }
+.ambient-backdrop.step-3 .ribbon-1 { transform: scale(1.02); }
 
 .ambient-backdrop.step-3 .ribbon-2 .layer-cream { opacity: 1; }
-.ambient-backdrop.step-3 .ribbon-2 { transform: translate(12px, 15px) scale(0.97) rotate(-0.3deg); }
+.ambient-backdrop.step-3 .ribbon-2 { transform: scale(0.98); }
 
 .ambient-backdrop.step-3 .ribbon-3 .layer-caramel { opacity: 1; }
-.ambient-backdrop.step-3 .ribbon-3 { transform: translate(8px, 10px) scale(0.97) rotate(-0.2deg); }
+.ambient-backdrop.step-3 .ribbon-3 { transform: scale(0.97); }
 
 /* --- STEP 0: Raio X das Provas (Warm Sand & Rich Coffee balance) --- */
 .ambient-backdrop.step-0 .ribbon-1 .layer-coffee { opacity: 1; }
-.ambient-backdrop.step-0 .ribbon-1 { transform: translate(-24px, 14px) scale(0.96) rotate(-0.8deg); }
+.ambient-backdrop.step-0 .ribbon-1 { transform: scale(0.97); }
 
 .ambient-backdrop.step-0 .ribbon-2 .layer-cream { opacity: 1; }
-.ambient-backdrop.step-0 .ribbon-2 { transform: translate(-16px, 10px) scale(0.97) rotate(-0.5deg); }
+.ambient-backdrop.step-0 .ribbon-2 { transform: scale(0.96); }
 
 .ambient-backdrop.step-0 .ribbon-3 .layer-caramel { opacity: 1; }
-.ambient-backdrop.step-0 .ribbon-3 { transform: translate(-10px, 6px) scale(0.98) rotate(-0.3deg); }
+.ambient-backdrop.step-0 .ribbon-3 { transform: scale(0.95); }
 
 /* Lucide Icons */
 svg[data-lucide], .lucide {

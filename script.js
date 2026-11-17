@@ -59,6 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
     renderRaioXStats();
     renderResumos();
     initQuizControls();
+    initCustomSelects();
     setupCalculator();
     updateGlobalProgress();
     refreshIcons();
@@ -414,7 +415,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         const modSelectWrap = document.getElementById('quizModSelectWrap');
         if (modSelectWrap) {
-          modSelectWrap.style.display = (state.quizMode === 'by_mod') ? 'block' : 'none';
+          modSelectWrap.style.display = (state.quizMode === 'by_mod') ? 'flex' : 'none';
         }
       });
     });
@@ -688,7 +689,123 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // =========================================================================
-  // 10. SEÇÃO 4: CALCULADORA DE DOSES E TUBETES
+  // 10. SISTEMA DE ESCOLHA PERSONALIZADO COM SOFT GLASSMORPHISM (CUSTOM SELECT)
+  // Substitui os menus crus nativos do navegador por vidro fosco editorial
+  // =========================================================================
+  function initCustomSelects() {
+    const selects = document.querySelectorAll('select.calc-select, select.quiz-select');
+    selects.forEach(select => {
+      if (select.dataset.customized === 'true') return;
+      select.dataset.customized = 'true';
+
+      // Oculta o select nativo mas mantém ativo para formulários e eventos
+      select.style.position = 'absolute';
+      select.style.opacity = '0';
+      select.style.pointerEvents = 'none';
+      select.style.width = '1px';
+      select.style.height = '1px';
+      select.style.overflow = 'hidden';
+
+      const wrapper = document.createElement('div');
+      wrapper.className = 'custom-select-container';
+      select.parentNode.insertBefore(wrapper, select);
+      wrapper.appendChild(select);
+
+      const trigger = document.createElement('button');
+      trigger.type = 'button';
+      trigger.className = 'custom-select-trigger';
+      trigger.setAttribute('aria-haspopup', 'listbox');
+      trigger.setAttribute('aria-expanded', 'false');
+
+      const selectedOption = select.options[select.selectedIndex] || select.options[0];
+      const labelSpan = document.createElement('span');
+      labelSpan.className = 'custom-select-label';
+      labelSpan.textContent = selectedOption ? selectedOption.textContent : '';
+
+      trigger.appendChild(labelSpan);
+      
+      const chevronIcon = document.createElement('i');
+      chevronIcon.setAttribute('data-lucide', 'chevron-down');
+      chevronIcon.className = 'custom-select-chevron';
+      trigger.appendChild(chevronIcon);
+
+      wrapper.appendChild(trigger);
+
+      const dropdown = document.createElement('div');
+      dropdown.className = 'custom-select-dropdown';
+      dropdown.setAttribute('role', 'listbox');
+
+      Array.from(select.options).forEach((opt, idx) => {
+        const item = document.createElement('div');
+        item.className = 'custom-select-option' + (idx === select.selectedIndex ? ' selected' : '');
+        item.setAttribute('role', 'option');
+        item.dataset.value = opt.value;
+        item.innerHTML = `
+          <span class="option-text">${opt.textContent}</span>
+          <i data-lucide="check" class="option-check"></i>
+        `;
+
+        item.addEventListener('click', (e) => {
+          e.stopPropagation();
+          select.value = opt.value;
+          labelSpan.textContent = opt.textContent;
+
+          dropdown.querySelectorAll('.custom-select-option').forEach(o => o.classList.remove('selected'));
+          item.classList.add('selected');
+
+          wrapper.classList.remove('open');
+          trigger.setAttribute('aria-expanded', 'false');
+
+          select.dispatchEvent(new Event('change', { bubbles: true }));
+        });
+
+        dropdown.appendChild(item);
+      });
+
+      wrapper.appendChild(dropdown);
+
+      // Alternar abertura do menu
+      trigger.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isOpen = wrapper.classList.contains('open');
+
+        document.querySelectorAll('.custom-select-container.open').forEach(c => {
+          if (c !== wrapper) {
+            c.classList.remove('open');
+            c.querySelector('.custom-select-trigger')?.setAttribute('aria-expanded', 'false');
+          }
+        });
+
+        if (isOpen) {
+          wrapper.classList.remove('open');
+          trigger.setAttribute('aria-expanded', 'false');
+        } else {
+          wrapper.classList.add('open');
+          trigger.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+
+    // Fechar ao clicar fora ou pressionar ESC
+    document.addEventListener('click', () => {
+      document.querySelectorAll('.custom-select-container.open').forEach(c => {
+        c.classList.remove('open');
+        c.querySelector('.custom-select-trigger')?.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        document.querySelectorAll('.custom-select-container.open').forEach(c => {
+          c.classList.remove('open');
+          c.querySelector('.custom-select-trigger')?.setAttribute('aria-expanded', 'false');
+        });
+      }
+    });
+  }
+
+  // =========================================================================
+  // 11. SEÇÃO 4: CALCULADORA DE DOSES E TUBETES
   // =========================================================================
   function setupCalculator() {
     const pesoInput = document.getElementById('calcPeso');

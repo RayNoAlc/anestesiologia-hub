@@ -1129,24 +1129,174 @@ body.modo-foco-ativo .foco-bar {
   text-align: center;
 }
 
-.quiz-select {
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: var(--glass-blur-sm);
-  border: 1px solid rgba(189, 184, 177, 0.45);
+#quizModSelectWrap {
+  display: none;
+  align-items: center;
+  gap: 10px;
+}
+
+#quizModSelectWrap label {
+  font-size: 13.5px;
+  font-weight: 600;
   color: var(--color-charcoal);
-  padding: 8px 14px;
+  white-space: nowrap;
+}
+
+#quizModSelectWrap .custom-select-container {
+  min-width: 260px;
+}
+
+/* ==========================================================================
+   SISTEMA DE ESCOLHA PERSONALIZADO COM SOFT GLASSMORPHISM (CUSTOM SELECT)
+   Substitui os menus crus nativos do navegador por vidro fosco editorial
+   ========================================================================== */
+.custom-select-container {
+  position: relative;
+  width: 100%;
+}
+
+.custom-select-trigger {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  color: var(--color-charcoal);
+  padding: 11px 16px;
   border-radius: var(--radius-sm);
   font-size: 13.5px;
   font-family: inherit;
-  box-shadow: var(--shadow-xs);
+  font-weight: 500;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  box-shadow: 0 4px 14px -2px rgba(73, 53, 41, 0.04), inset 0 1px 1px 0 rgba(255, 255, 255, 0.95);
+  transition: var(--transition-quick);
+  text-align: left;
+}
+
+.custom-select-label {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex: 1;
+}
+
+.custom-select-chevron {
+  color: var(--color-taupe);
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+}
+
+.custom-select-trigger:hover {
+  background: #FFFFFF;
+  border-color: rgba(112, 80, 61, 0.35);
+  box-shadow: 0 6px 18px -3px rgba(73, 53, 41, 0.08), inset 0 1px 1px rgba(255, 255, 255, 1);
+}
+
+.custom-select-container.open .custom-select-trigger {
+  background: #FFFFFF;
+  border-color: var(--color-coffee-brown);
+  box-shadow: 0 0 0 3px rgba(112, 80, 61, 0.15), 0 8px 20px -4px rgba(73, 53, 41, 0.08);
+}
+
+.custom-select-container.open .custom-select-chevron {
+  transform: rotate(180deg);
+  color: var(--color-coffee-brown);
+}
+
+/* Dropdown Menu com Soft Glassmorphism */
+.custom-select-dropdown {
+  display: none;
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  right: 0;
+  z-index: 250;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(28px) saturate(180%);
+  -webkit-backdrop-filter: blur(28px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  border-radius: var(--radius-md);
+  box-shadow: 
+    0 18px 42px -6px rgba(73, 53, 41, 0.14),
+    0 4px 14px rgba(73, 53, 41, 0.05),
+    inset 0 1px 1.5px rgba(255, 255, 255, 1);
+  padding: 6px;
+  max-height: 280px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(189, 184, 177, 0.5) transparent;
+}
+
+.custom-select-dropdown::-webkit-scrollbar {
+  width: 6px;
+}
+.custom-select-dropdown::-webkit-scrollbar-thumb {
+  background: rgba(189, 184, 177, 0.5);
+  border-radius: 3px;
+}
+
+.custom-select-container.open .custom-select-dropdown {
+  display: block;
+  animation: appleDropdownIn 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes appleDropdownIn {
+  from {
+    opacity: 0;
+    transform: translateY(-6px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.custom-select-option {
+  padding: 10px 14px;
+  border-radius: 9px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  color: var(--color-charcoal);
+  font-size: 13.5px;
+  line-height: 1.45;
+  cursor: pointer;
   transition: var(--transition-quick);
 }
 
-.quiz-select:focus {
-  outline: none;
-  background: #FFFFFF;
-  border-color: var(--color-coffee-brown);
-  box-shadow: 0 0 0 3px rgba(112, 80, 61, 0.15);
+.custom-select-option:hover {
+  background: rgba(232, 227, 221, 0.55);
+  color: var(--color-dark-chocolate);
+}
+
+.custom-select-option.selected {
+  background: rgba(112, 80, 61, 0.08);
+  color: var(--color-dark-chocolate);
+  font-weight: 600;
+}
+
+.option-text {
+  flex: 1;
+}
+
+.option-check {
+  color: var(--color-coffee-brown);
+  width: 15px;
+  height: 15px;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+  flex-shrink: 0;
+}
+
+.custom-select-option.selected .option-check {
+  opacity: 1;
 }
 
 .btn-start-quiz {

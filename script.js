@@ -75,8 +75,8 @@ document.addEventListener('DOMContentLoaded', () => {
     renderRaioXStats();
     renderResumos();
     initQuizControls();
-    initCustomSelects();
     initCasosClinicos();
+    initCustomSelects();
     updateGlobalProgress();
     refreshIcons();
   }
@@ -732,7 +732,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Substitui os menus crus nativos do navegador por vidro fosco editorial
   // =========================================================================
   function initCustomSelects() {
-    const selects = document.querySelectorAll('select.calc-select, select.quiz-select');
+    const selects = document.querySelectorAll('select.calc-select, select.quiz-select, select.caso-select, #selectCaso');
     selects.forEach(select => {
       if (select.dataset.customized === 'true') return;
       select.dataset.customized = 'true';
@@ -802,6 +802,17 @@ document.addEventListener('DOMContentLoaded', () => {
       });
 
       wrapper.appendChild(dropdown);
+
+      // Sincroniza o label e classe selected quando o select muda externamente/programaticamente
+      select.addEventListener('change', () => {
+        const curOpt = select.options[select.selectedIndex];
+        if (curOpt) {
+          labelSpan.textContent = curOpt.textContent;
+          dropdown.querySelectorAll('.custom-select-option').forEach(o => {
+            o.classList.toggle('selected', o.dataset.value === select.value);
+          });
+        }
+      });
 
       // Alternar abertura do menu
       trigger.addEventListener('click', (e) => {
@@ -890,8 +901,12 @@ document.addEventListener('DOMContentLoaded', () => {
         
         const randomIndex = Math.floor(Math.random() * casos.length);
         const sorteado = casos[randomIndex];
-        if (selectCaso) selectCaso.value = sorteado.id;
-        renderCasoClinico(sorteado);
+        if (selectCaso) {
+          selectCaso.value = sorteado.id;
+          selectCaso.dispatchEvent(new Event('change', { bubbles: true }));
+        } else {
+          renderCasoClinico(sorteado);
+        }
       });
     }
 

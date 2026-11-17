@@ -1768,6 +1768,12 @@ body.modo-foco-ativo .foco-bar {
   border-radius: var(--radius-lg);
   padding: 18px 24px;
   margin-bottom: 24px;
+  position: relative;
+  z-index: 40;
+}
+
+.casos-controls-card .custom-select-container.open {
+  z-index: 100;
 }
 
 .casos-controls-row {
@@ -1821,6 +1827,11 @@ body.modo-foco-ativo .foco-bar {
   flex: 1;
   min-width: 280px;
   justify-content: flex-end;
+}
+
+.caso-select-wrapper .custom-select-container {
+  width: 100%;
+  max-width: 440px;
 }
 
 .caso-select-label {

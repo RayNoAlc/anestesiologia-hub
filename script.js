@@ -36,6 +36,22 @@ document.addEventListener('DOMContentLoaded', () => {
     modoFoco: false
   };
 
+  // Mapeamento dos passos cíclicos de background para cada aba/módulo
+  const TAB_BACKDROP_STEPS = {
+    'raioXSection': 0,
+    'resumosSection': 1,
+    'quizSection': 2,
+    'calculadoraSection': 3
+  };
+
+  function updateBackdropStep(targetId) {
+    const backdrop = document.getElementById('ambientBackdrop') || document.querySelector('.ambient-backdrop');
+    if (!backdrop) return;
+    const step = TAB_BACKDROP_STEPS[targetId] !== undefined ? TAB_BACKDROP_STEPS[targetId] : 1;
+    backdrop.classList.remove('step-0', 'step-1', 'step-2', 'step-3');
+    backdrop.classList.add(`step-${step}`);
+  }
+
   // Se questoes_data.js falhar por algum motivo, tentar fetch de questoes.json
   if (state.questoes.length === 0) {
     fetch('questoes.json')
@@ -117,11 +133,17 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // =========================================================================
-  // 3. NAVEGAÇÃO POR ABAS
+  // 3. NAVEGAÇÃO POR ABAS & ANIMAÇÃO CÍCLICA DOS ARCOS DE FUNDO
   // =========================================================================
   function initTabs() {
     const tabBtns = document.querySelectorAll('.tab-btn');
     const tabPanes = document.querySelectorAll('.tab-pane');
+
+    // Inicializa no passo da aba ativa
+    const activeTab = document.querySelector('.tab-btn.active');
+    if (activeTab) {
+      updateBackdropStep(activeTab.getAttribute('data-target'));
+    }
 
     tabBtns.forEach(btn => {
       btn.addEventListener('click', () => {
@@ -133,6 +155,9 @@ document.addEventListener('DOMContentLoaded', () => {
         btn.classList.add('active');
         const targetPane = document.getElementById(targetId);
         if (targetPane) targetPane.classList.add('active');
+        
+        // Dispara a animação cíclica suave dos arcos marrons
+        updateBackdropStep(targetId);
         
         window.scrollTo({ top: 0, behavior: 'smooth' });
         refreshIcons();

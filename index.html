@@ -14,7 +14,7 @@
 <body>
 
   <!-- Ambient Depth Backdrop (Sculptural Waves & Clinical Glass Bokeh) -->
-  <div class="ambient-backdrop" aria-hidden="true">
+  <div class="ambient-backdrop step-1" id="ambientBackdrop" aria-hidden="true">
     <svg class="backdrop-svg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <!-- Sculptural ribbon gradients in warm Apple neutrals -->
@@ -34,6 +34,12 @@
           <stop offset="0%" stop-color="#8F7159"/>
           <stop offset="55%" stop-color="#6E503B"/>
           <stop offset="100%" stop-color="#4A3425"/>
+        </linearGradient>
+
+        <linearGradient id="waveEspresso" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#563A29"/>
+          <stop offset="55%" stop-color="#3A2417"/>
+          <stop offset="100%" stop-color="#24150E"/>
         </linearGradient>
 
         <!-- Right-side ambient clinical lighting & bokeh glow -->
@@ -73,25 +79,34 @@
       <circle cx="1200" cy="240" r="380" fill="url(#bokehGlow1)"/>
       <circle cx="1320" cy="720" r="320" fill="url(#bokehGlow2)"/>
 
-      <!-- Ribbon 1: Outermost Cream Ribbon with graceful curve -->
-      <g filter="url(#creamRibbonShadow)">
-        <path d="M 0,900 L 260,900 C 420,720 540,460 460,220 C 400,60 300,0 220,0 L 0,0 Z" fill="url(#waveCream)"/>
+      <!-- Ribbon 1: Outermost Ribbon (Largest Curve) -->
+      <g class="ribbon-group ribbon-1" filter="url(#creamRibbonShadow)">
+        <path class="ribbon-layer layer-cream" d="M 0,900 L 260,900 C 420,720 540,460 460,220 C 400,60 300,0 220,0 L 0,0 Z" fill="url(#waveCream)"/>
+        <path class="ribbon-layer layer-caramel" d="M 0,900 L 260,900 C 420,720 540,460 460,220 C 400,60 300,0 220,0 L 0,0 Z" fill="url(#waveCaramel)"/>
+        <path class="ribbon-layer layer-coffee" d="M 0,900 L 260,900 C 420,720 540,460 460,220 C 400,60 300,0 220,0 L 0,0 Z" fill="url(#waveCoffee)"/>
+        <path class="ribbon-layer layer-espresso" d="M 0,900 L 260,900 C 420,720 540,460 460,220 C 400,60 300,0 220,0 L 0,0 Z" fill="url(#waveEspresso)"/>
         <!-- Specular highlight edge -->
-        <path d="M 260,900 C 420,720 540,460 460,220 C 400,60 300,0 220,0" fill="none" stroke="rgba(255, 255, 255, 0.9)" stroke-width="2.5"/>
+        <path class="ribbon-edge" d="M 260,900 C 420,720 540,460 460,220 C 400,60 300,0 220,0" fill="none" stroke="rgba(255, 255, 255, 0.9)" stroke-width="2.5"/>
       </g>
 
-      <!-- Ribbon 2: Middle Caramel Ribbon -->
-      <g filter="url(#softRibbonShadow)">
-        <path d="M 0,900 L 190,900 C 280,740 370,540 290,340 C 220,180 110,110 0,90 Z" fill="url(#waveCaramel)"/>
+      <!-- Ribbon 2: Middle Ribbon -->
+      <g class="ribbon-group ribbon-2" filter="url(#softRibbonShadow)">
+        <path class="ribbon-layer layer-cream" d="M 0,900 L 190,900 C 280,740 370,540 290,340 C 220,180 110,110 0,90 Z" fill="url(#waveCream)"/>
+        <path class="ribbon-layer layer-caramel" d="M 0,900 L 190,900 C 280,740 370,540 290,340 C 220,180 110,110 0,90 Z" fill="url(#waveCaramel)"/>
+        <path class="ribbon-layer layer-coffee" d="M 0,900 L 190,900 C 280,740 370,540 290,340 C 220,180 110,110 0,90 Z" fill="url(#waveCoffee)"/>
+        <path class="ribbon-layer layer-espresso" d="M 0,900 L 190,900 C 280,740 370,540 290,340 C 220,180 110,110 0,90 Z" fill="url(#waveEspresso)"/>
         <!-- Specular highlight edge -->
-        <path d="M 190,900 C 280,740 370,540 290,340 C 220,180 110,110 0,90" fill="none" stroke="rgba(255, 255, 255, 0.85)" stroke-width="2"/>
+        <path class="ribbon-edge" d="M 190,900 C 280,740 370,540 290,340 C 220,180 110,110 0,90" fill="none" stroke="rgba(255, 255, 255, 0.85)" stroke-width="2"/>
       </g>
 
-      <!-- Ribbon 3: Bottom-Left Deep Coffee Ribbon -->
-      <g filter="url(#softRibbonShadow)">
-        <path d="M 0,900 L 140,900 C 165,810 160,740 110,670 C 60,600 15,580 0,570 Z" fill="url(#waveCoffee)"/>
+      <!-- Ribbon 3: Bottom-Left Ribbon -->
+      <g class="ribbon-group ribbon-3" filter="url(#softRibbonShadow)">
+        <path class="ribbon-layer layer-cream" d="M 0,900 L 140,900 C 165,810 160,740 110,670 C 60,600 15,580 0,570 Z" fill="url(#waveCream)"/>
+        <path class="ribbon-layer layer-caramel" d="M 0,900 L 140,900 C 165,810 160,740 110,670 C 60,600 15,580 0,570 Z" fill="url(#waveCaramel)"/>
+        <path class="ribbon-layer layer-coffee" d="M 0,900 L 140,900 C 165,810 160,740 110,670 C 60,600 15,580 0,570 Z" fill="url(#waveCoffee)"/>
+        <path class="ribbon-layer layer-espresso" d="M 0,900 L 140,900 C 165,810 160,740 110,670 C 60,600 15,580 0,570 Z" fill="url(#waveEspresso)"/>
         <!-- Specular highlight edge -->
-        <path d="M 140,900 C 165,810 160,740 110,670 C 60,600 15,580 0,570" fill="none" stroke="rgba(255, 255, 255, 0.65)" stroke-width="1.5"/>
+        <path class="ribbon-edge" d="M 140,900 C 165,810 160,740 110,670 C 60,600 15,580 0,570" fill="none" stroke="rgba(255, 255, 255, 0.65)" stroke-width="1.5"/>
       </g>
     </svg>
   </div>

@@ -135,138 +135,35 @@ const TECNICAS_ANESTESICAS_DATA = [
       "PACIENTE HEMOFÍLICO ou com coagulopatia severa (risco gravíssimo de hematoma incontrolável no plexo pterigóideo; nesses casos, eleger infiltrativas subperiósticas graduais)."
     ],
     armadilhaProva: "Se for dente 16 ou 26, a raiz mésio-vestibular pode não anestesiar por ser inervada pelo ASM (~28%). Se doer durante a pulpectomia ou luxação mesial, complementar com subperióstica no ápice da raiz MV.",
-    svgAnatomico: `<svg viewBox="0 0 420 240" class="tecnica-svg" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <linearGradient id="bgLight" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#FCFAF7"/>
-      <stop offset="100%" stop-color="#F8F3EC"/>
-    </linearGradient>
-    <linearGradient id="boneLight" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#FAF6F0"/>
-      <stop offset="100%" stop-color="#EDE2D2"/>
-    </linearGradient>
-    <linearGradient id="toothGrad" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#FFFFFF"/>
-      <stop offset="70%" stop-color="#FCF9F2"/>
-      <stop offset="100%" stop-color="#EDE4D5"/>
-    </linearGradient>
-    <filter id="subtleGlow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="1" stdDeviation="2" flood-color="#DC2626" flood-opacity="0.25"/>
-    </filter>
-  </defs>
-
-  <!-- Canvas Card -->
-  <rect width="420" height="240" rx="12" fill="url(#bgLight)" stroke="#E8DFD3" stroke-width="1"/>
-
-  
-    <!-- Minimalist Clean Header -->
-    <text x="16" y="20" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700" fill="#3A2417" letter-spacing="0.2">Bloqueio do Nervo ASP (Pós-Túber)</text>
-    <text x="16" y="32" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.2" font-weight="500" fill="#7A6657">Referenciais: Crista zigomático-alveolar, túber da maxila e ápice DV do 2º molar</text>
-    
-    <!-- Subtle Tag Pill -->
-    <rect x="328" y="10" width="76" height="18" rx="9" fill="#F0EAE1" stroke="#E2D8CC" stroke-width="0.8"/>
-    <text x="366" y="22" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8" font-weight="700" fill="#6B5443" text-anchor="middle">Maxila · Troncular</text>
-    
-    <!-- Hairline Divider -->
-    <line x1="16" y1="38" x2="404" y2="38" stroke="#EFE8DD" stroke-width="1"/>
-    
-
-  <!-- Scene Elements -->
-  
-    <!-- Maxilla Tuber Contour -->
-    <path d="M 60,85 Q 160,80 230,95 Q 290,110 325,140 Q 345,160 335,190 Q 320,205 275,205 L 60,205 Z" fill="url(#boneLight)" stroke="#C4B5A5" stroke-width="1.4"/>
-    
-    <!-- Crista Zigomático-Alveolar (Buttress) -->
-    <path d="M 135,85 C 145,110 150,135 145,155 C 137,155 130,125 125,85 Z" fill="#E6DDD0" stroke="#A89484" stroke-width="1.2" stroke-dasharray="3,2"/>
-    
-    <!-- ASP Foramina -->
-    <circle cx="310" cy="155" r="2.5" fill="#5D4037"/>
-    <circle cx="318" cy="163" r="2.2" fill="#5D4037"/>
-    <circle cx="308" cy="168" r="2.2" fill="#5D4037"/>
-
-    <!-- ASP Nerve Trunk & Branches -->
-    <path d="M 325,100 Q 318,130 310,155" fill="none" stroke="#D97706" stroke-width="2.5" stroke-linecap="round"/>
-    <path d="M 310,155 Q 285,175 235,185" fill="none" stroke="#D97706" stroke-width="1.8" stroke-dasharray="3,2"/>
-    <path d="M 310,155 Q 265,175 180,185" fill="none" stroke="#D97706" stroke-width="1.8" stroke-dasharray="3,2"/>
-
-    <!-- Mucobuccal Fold (Fundo de Sulco) - purely in vestibule -->
-    <path d="M 70,150 Q 150,146 220,150 Q 280,158 320,172" fill="none" stroke="#F43F5E" stroke-width="1.5" stroke-dasharray="5,3"/>
-    <text x="20" y="152" font-size="7.5" font-weight="600" fill="#E11D48" font-family="sans-serif">Fundo de Sulco</text>
-
-    <!-- Teeth Anatomy (Lateral profile: 1º M, 2º M, 3º M) -->
-    <!-- 1º Molar (16/26) -->
-    <g transform="translate(100, 155)">
-      <path d="M 8,20 C 4,5 6,-7 11,-15 C 16,-7 18,5 15,20 Z" fill="url(#toothGrad)" stroke="#7A6657" stroke-width="1.2"/>
-      <path d="M 24,20 C 20,5 22,-9 27,-15 C 32,-9 34,5 30,20 Z" fill="url(#toothGrad)" stroke="#7A6657" stroke-width="1.2"/>
-      <path d="M 2,20 Q 18,18 35,20 L 34,48 Q 18,51 3,48 Z" fill="url(#toothGrad)" stroke="#5D4037" stroke-width="1.5"/>
-      <text x="18" y="38" font-size="8.5" font-weight="700" fill="#4A3427" text-anchor="middle" font-family="sans-serif">1º M</text>
-    </g>
-
-    <!-- 2º Molar (17/27) - Dente de Referência -->
-    <g transform="translate(155, 155)">
-      <path d="M 8,20 C 4,5 6,-7 11,-15 C 16,-7 18,5 15,20 Z" fill="url(#toothGrad)" stroke="#7A6657" stroke-width="1.2"/>
-      <!-- Distovestibular Root - Ponto Guia -->
-      <path d="M 24,20 C 20,5 24,-9 29,-16 C 34,-9 35,5 31,20 Z" fill="#FEE2E2" stroke="#DC2626" stroke-width="1.4"/>
-      <path d="M 2,20 Q 18,18 35,20 L 34,48 Q 18,51 3,48 Z" fill="url(#toothGrad)" stroke="#5D4037" stroke-width="1.5"/>
-      <text x="18" y="38" font-size="8.5" font-weight="800" fill="#DC2626" text-anchor="middle" font-family="sans-serif">2º M</text>
-      <text x="29" y="-20" font-size="7.5" font-weight="800" fill="#DC2626" text-anchor="middle" font-family="sans-serif">Ápice DV</text>
-    </g>
-
-    <!-- 3º Molar (18/28) -->
-    <g transform="translate(210, 155)">
-      <path d="M 8,20 C 5,5 7,-6 11,-13 C 15,-6 17,5 14,20 Z" fill="url(#toothGrad)" stroke="#7A6657" stroke-width="1.2"/>
-      <path d="M 22,20 C 19,5 21,-7 25,-13 C 29,-7 31,5 28,20 Z" fill="url(#toothGrad)" stroke="#7A6657" stroke-width="1.2"/>
-      <path d="M 2,20 Q 16,18 31,20 L 30,48 Q 16,51 3,48 Z" fill="url(#toothGrad)" stroke="#5D4037" stroke-width="1.5"/>
-      <text x="16" y="38" font-size="8.5" font-weight="700" fill="#4A3427" text-anchor="middle" font-family="sans-serif">3º M</text>
-    </g>
-
-    <!-- Puncture Point: Fundo de sulco no ápice DV do 2º Molar -->
-    
-    <g transform="translate(184, 149)" filter="url(#subtleGlow)">
-      <circle cx="0" cy="0" r="7.5" fill="#FEE2E2" fill-opacity="0.85"/>
-      <circle cx="0" cy="0" r="4.2" fill="#EF4444" stroke="#FFFFFF" stroke-width="1.2"/>
-      <circle cx="0" cy="0" r="1.6" fill="#FFFFFF"/>
-    </g>
-    
-
-    <!-- Needle Trajectory Vector (approaching in buccal space, not cutting tooth) -->
-    <g transform="translate(130, 185) rotate(-33)">
-      <line x1="0" y1="0" x2="65" y2="0" stroke="#475569" stroke-width="1.8" stroke-linecap="round"/>
-      <rect x="-8" y="-2.5" width="8" height="5" rx="1.5" fill="#94A3B8"/>
-      <polygon points="65,-2.5 70,0 65,2.5" fill="#DC2626"/>
-    </g>
-    <!-- Trajectory dashed penetration path -->
-    <line x1="184" y1="149" x2="230" y2="115" stroke="#DC2626" stroke-width="1.4" stroke-dasharray="3,2"/>
-
-    <!-- ANNOTATIONS -->
-    
-    <rect x="16" y="52" width="105" height="26" rx="5" fill="#FFFFFF" fill-opacity="0.95" stroke="#D6C7B8" stroke-width="0.9"/>
-    <text x="68.5" y="63" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="8" font-weight="700" fill="#4A3427" text-anchor="middle">Crista Zigomática</text>
-    <text x="68.5" y="72" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="7.5" font-weight="500" fill="#7A6657" text-anchor="middle">Palpar c/ indicador</text>
-    
-    <path d="M 121,65 L 138,95" fill="none" stroke="#A89484" stroke-width="1" stroke-dasharray="2,2"/>
-
-    
-    <rect x="305" y="52" width="98" height="26" rx="5" fill="#FFFFFF" fill-opacity="0.95" stroke="#D6C7B8" stroke-width="0.9"/>
-    <text x="354.0" y="63" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="8" font-weight="700" fill="#4A3427" text-anchor="middle">Túber da Maxila</text>
-    <text x="354.0" y="72" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="7.5" font-weight="500" fill="#7A6657" text-anchor="middle">Forames ASP</text>
-    
-    <path d="M 345,78 L 325,125" fill="none" stroke="#A89484" stroke-width="1" stroke-dasharray="2,2"/>
-
-    
-    <rect x="128" y="48" width="142" height="26" rx="5" fill="#FEF2F2" fill-opacity="0.95" stroke="#F87171" stroke-width="0.9"/>
-    <text x="199.0" y="59" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="8" font-weight="700" fill="#991B1B" text-anchor="middle">PONTO DE INSERÇÃO</text>
-    <text x="199.0" y="68" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="7.5" font-weight="500" fill="#B91C1C" text-anchor="middle">Fundo de sulco no ápice DV do 2º M</text>
-    
-    <path d="M 199,74 L 186,140" fill="none" stroke="#EF4444" stroke-width="1" stroke-dasharray="2,2"/>
-
-    
-    <rect x="275" y="198" width="130" height="26" rx="5" fill="#FFFFFF" fill-opacity="0.95" stroke="#D6C7B8" stroke-width="0.9"/>
-    <text x="340.0" y="209" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="8" font-weight="700" fill="#4A3427" text-anchor="middle">Angulação em 3 Planos (45°)</text>
-    <text x="340.0" y="218" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="7.5" font-weight="500" fill="#7A6657" text-anchor="middle">45° Cima · 45° Dentro · 45° Trás</text>
-    
-    
-</svg>`
+    svgAnatomico: `<svg viewBox="0 0 320 220" class="tecnica-svg" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="boneGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#EDE6DD"/><stop offset="100%" stop-color="#D5C5B5"/></linearGradient>
+        <filter id="glow"><feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#8F7159" flood-opacity="0.3"/></filter>
+      </defs>
+      <rect width="320" height="220" rx="14" fill="#FAF7F2"/>
+      <!-- Maxillary arch outline -->
+      <path d="M 40,160 C 50,70 120,40 240,40 C 280,40 300,70 300,110 C 300,150 270,170 230,170 C 190,170 180,150 160,150" fill="none" stroke="#D5C5B5" stroke-width="6"/>
+      <!-- Molar teeth representation -->
+      <path d="M 180,155 L 200,155 L 200,175 L 180,175 Z" fill="#FFFFFF" stroke="#8F7159" stroke-width="2" rx="3"/>
+      <text x="190" y="190" font-size="10" fill="#6E503B" text-anchor="middle" font-weight="700">1º M</text>
+      <path d="M 210,152 L 230,152 L 230,172 L 210,172 Z" fill="#FFFFFF" stroke="#8F7159" stroke-width="2" rx="3"/>
+      <text x="220" y="190" font-size="10" fill="#6E503B" text-anchor="middle" font-weight="700">2º M</text>
+      <path d="M 240,146 L 258,146 L 258,166 L 240,166 Z" fill="#FFFFFF" stroke="#8F7159" stroke-width="2" rx="3"/>
+      <text x="249" y="190" font-size="10" fill="#6E503B" text-anchor="middle" font-weight="700">3º M</text>
+      <!-- Tuber region -->
+      <path d="M 260,140 C 275,130 285,115 285,95 C 285,75 270,55 240,55" fill="none" stroke="#C5AA8E" stroke-width="4" stroke-dasharray="3,3"/>
+      <text x="285" y="85" font-size="11" fill="#8F7159" font-weight="700">Túber Maxilar</text>
+      <!-- ASP Nerve branch -->
+      <path d="M 255,45 C 265,65 260,95 245,130" fill="none" stroke="#E67E22" stroke-width="3"/>
+      <!-- Needle vector (45° angle) -->
+      <line x1="160" y1="210" x2="235" y2="128" stroke="#3A2417" stroke-width="2.5" stroke-linecap="round"/>
+      <!-- Needle tip & target -->
+      <circle cx="235" cy="128" r="6" fill="#D32F2F" filter="url(#glow)"/>
+      <circle cx="235" cy="128" r="12" fill="#D32F2F" fill-opacity="0.25"/>
+      <!-- Label -->
+      <text x="75" y="30" font-size="11" fill="#3A2417" font-weight="700">Ponto de Punção: Ápice DV do 2º Molar</text>
+      <text x="75" y="46" font-size="10" fill="#8F7159">Angulação: 45° Sagital & 45° Oclusal (Penetração: ~16 mm)</text>
+    </svg>`
   },
   {
     id: "infraorbital",
@@ -316,144 +213,28 @@ const TECNICAS_ANESTESICAS_DATA = [
       "Infecção/abcesso circunscrito na área exata do ponto de inserção da agulha no fundo de sulco."
     ],
     armadilhaProva: "Manter o dedo indicador firmemente sobre o forame infraorbital durante TODA a injeção e por mais 1 a 2 minutos após para forçar a solução anestésica a adentrar o canal infraorbital, alcançando o ASA e ASM.",
-    svgAnatomico: `<svg viewBox="0 0 420 240" class="tecnica-svg" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <linearGradient id="bgLight" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#FCFAF7"/>
-      <stop offset="100%" stop-color="#F8F3EC"/>
-    </linearGradient>
-    <linearGradient id="boneLight" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#FAF6F0"/>
-      <stop offset="100%" stop-color="#EDE2D2"/>
-    </linearGradient>
-    <linearGradient id="toothGrad" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#FFFFFF"/>
-      <stop offset="70%" stop-color="#FCF9F2"/>
-      <stop offset="100%" stop-color="#EDE4D5"/>
-    </linearGradient>
-    <filter id="subtleGlow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="1" stdDeviation="2" flood-color="#DC2626" flood-opacity="0.25"/>
-    </filter>
-  </defs>
-
-  <!-- Canvas Card -->
-  <rect width="420" height="240" rx="12" fill="url(#bgLight)" stroke="#E8DFD3" stroke-width="1"/>
-
-  
-    <!-- Minimalist Clean Header -->
-    <text x="16" y="20" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700" fill="#3A2417" letter-spacing="0.2">Bloqueio do Nervo Infraorbital (ASA + ASM)</text>
-    <text x="16" y="32" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.2" font-weight="500" fill="#7A6657">Referenciais: Margem infraorbital, linha pupilar central e forame infraorbital</text>
-    
-    <!-- Subtle Tag Pill -->
-    <rect x="328" y="10" width="76" height="18" rx="9" fill="#F0EAE1" stroke="#E2D8CC" stroke-width="0.8"/>
-    <text x="366" y="22" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8" font-weight="700" fill="#6B5443" text-anchor="middle">Maxila · Troncular</text>
-    
-    <!-- Hairline Divider -->
-    <line x1="16" y1="38" x2="404" y2="38" stroke="#EFE8DD" stroke-width="1"/>
-    
-
-  <!-- Scene Elements -->
-  
-    <!-- Eye & Pupil Contour -->
-    <path d="M 175,54 Q 210,40 245,54 Q 210,68 175,54 Z" fill="#FFFFFF" stroke="#9CA3AF" stroke-width="1.2"/>
-    <circle cx="210" cy="54" r="5" fill="#2563EB"/>
-    <circle cx="210" cy="54" r="2" fill="#1E293B"/>
-
-    <!-- Inferior Orbital Rim (Margem Infraorbital) -->
-    <path d="M 155,75 Q 210,68 265,75 Q 255,85 210,83 Q 165,85 155,75 Z" fill="#EADBC8" stroke="#9A8472" stroke-width="1.3"/>
-
-    <!-- Vertical Pupillary Line -->
-    <line x1="210" y1="42" x2="210" y2="215" stroke="#3B82F6" stroke-width="1" stroke-dasharray="3,3"/>
-
-    <!-- Infraorbital Foramen (8 a 10 mm abaixo da margem) -->
-    <ellipse cx="210" cy="110" rx="7.5" ry="5.5" fill="#451A03" stroke="#78350F" stroke-width="1"/>
-
-    <!-- Infraorbital Nerve Branches -->
-    <path d="M 210,110 Q 185,130 175,165" fill="none" stroke="#D97706" stroke-width="2.2" stroke-linecap="round"/>
-    <path d="M 210,110 Q 215,130 210,165" fill="none" stroke="#D97706" stroke-width="2.2" stroke-linecap="round"/>
-    <path d="M 210,110 Q 230,130 240,165" fill="none" stroke="#D97706" stroke-width="1.8" stroke-dasharray="3,2"/>
-
-    <!-- Teeth Anatomy (Canino, 1º PM, 2º PM) -->
-    <!-- Canino (13/23) -->
-    <g transform="translate(160, 168)">
-      <path d="M 12,18 C 10,6 9,-4 14,-15 C 19,-4 18,6 16,18 Z" fill="url(#toothGrad)" stroke="#7A6657" stroke-width="1.2"/>
-      <path d="M 3,18 Q 14,16 25,18 L 23,44 L 14,50 L 5,44 Z" fill="url(#toothGrad)" stroke="#5D4037" stroke-width="1.4"/>
-      <text x="14" y="38" font-size="8" font-weight="700" fill="#4A3427" text-anchor="middle" font-family="sans-serif">C</text>
-    </g>
-
-    <!-- 1º Pré-Molar (14/24) - DENTE GUIA -->
-    <g transform="translate(196, 168)">
-      <path d="M 11,18 C 9,6 8,-4 14,-15 C 20,-4 19,6 17,18 Z" fill="url(#toothGrad)" stroke="#DC2626" stroke-width="1.4"/>
-      <path d="M 3,18 Q 14,16 25,18 L 23,44 Q 14,48 5,44 Z" fill="url(#toothGrad)" stroke="#5D4037" stroke-width="1.5"/>
-      <text x="14" y="38" font-size="8" font-weight="800" fill="#DC2626" text-anchor="middle" font-family="sans-serif">1º PM</text>
-    </g>
-
-    <!-- 2º Pré-Molar (15/25) -->
-    <g transform="translate(232, 168)">
-      <path d="M 11,18 C 9,6 8,-4 14,-15 C 20,-4 19,6 17,18 Z" fill="url(#toothGrad)" stroke="#7A6657" stroke-width="1.2"/>
-      <path d="M 3,18 Q 14,16 25,18 L 23,44 Q 14,48 5,44 Z" fill="url(#toothGrad)" stroke="#5D4037" stroke-width="1.4"/>
-      <text x="14" y="38" font-size="8" font-weight="700" fill="#4A3427" text-anchor="middle" font-family="sans-serif">2º PM</text>
-    </g>
-
-    <!-- Mucobuccal Fold Line (above roots, not slicing teeth) -->
-    <path d="M 150,150 Q 210,147 270,150" fill="none" stroke="#F43F5E" stroke-width="1.4" stroke-dasharray="4,2"/>
-
-    <!-- Puncture Point: Fundo de sulco sobre o 1º PM -->
-    
-    <g transform="translate(210, 149)" filter="url(#subtleGlow)">
-      <circle cx="0" cy="0" r="7.5" fill="#FEE2E2" fill-opacity="0.85"/>
-      <circle cx="0" cy="0" r="4.2" fill="#EF4444" stroke="#FFFFFF" stroke-width="1.2"/>
-      <circle cx="0" cy="0" r="1.6" fill="#FFFFFF"/>
-    </g>
-    
-
-    <!-- Needle Track: Inserção a partir do fundo de sulco até o forame -->
-    <line x1="210" y1="185" x2="210" y2="118" stroke="#475569" stroke-width="1.8" stroke-linecap="round"/>
-    <polygon points="208,118 210,112 212,118" fill="#DC2626"/>
-
-    <!-- Finger Compression Indicator -->
-    <g transform="translate(225, 98)">
-      <rect width="48" height="18" rx="9" fill="#EFF6FF" stroke="#3B82F6" stroke-width="1"/>
-      <text x="24" y="12" font-size="7.5" font-weight="700" fill="#1D4ED8" text-anchor="middle" font-family="sans-serif">Dedo Guia</text>
-      <path d="M 0,9 L -6,9" stroke="#3B82F6" stroke-width="1.3" stroke-linecap="round"/>
-    </g>
-
-    <!-- ANNOTATIONS -->
-    
-    <rect x="16" y="55" width="115" height="26" rx="5" fill="#FFFFFF" fill-opacity="0.95" stroke="#D6C7B8" stroke-width="0.9"/>
-    <text x="73.5" y="66" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="8" font-weight="700" fill="#4A3427" text-anchor="middle">Margem Infraorbital</text>
-    <text x="73.5" y="75" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="7.5" font-weight="500" fill="#7A6657" text-anchor="middle">Palpar chanfradura</text>
-    
-    <path d="M 131,68 L 155,75" fill="none" stroke="#A89484" stroke-width="1" stroke-dasharray="2,2"/>
-
-    
-    <rect x="16" y="142" width="120" height="26" rx="5" fill="#FEF2F2" fill-opacity="0.95" stroke="#F87171" stroke-width="0.9"/>
-    <text x="76.0" y="153" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="8" font-weight="700" fill="#991B1B" text-anchor="middle">PONTO DE INSERÇÃO</text>
-    <text x="76.0" y="162" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="7.5" font-weight="500" fill="#B91C1C" text-anchor="middle">Fundo de sulco no 1º PM</text>
-    
-    <path d="M 136,155 L 201,150" fill="none" stroke="#EF4444" stroke-width="1" stroke-dasharray="2,2"/>
-
-    
-    <rect x="290" y="48" width="115" height="26" rx="5" fill="#FFFFFF" fill-opacity="0.95" stroke="#D6C7B8" stroke-width="0.9"/>
-    <text x="347.5" y="59" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="8" font-weight="700" fill="#4A3427" text-anchor="middle">Linha Pupilar Central</text>
-    <text x="347.5" y="68" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="7.5" font-weight="500" fill="#7A6657" text-anchor="middle">Alinhamento vertical</text>
-    
-    <path d="M 290,61 L 245,54" fill="none" stroke="#3B82F6" stroke-width="1" stroke-dasharray="2,2"/>
-
-    
-    <rect x="290" y="102" width="115" height="26" rx="5" fill="#FFFFFF" fill-opacity="0.95" stroke="#D6C7B8" stroke-width="0.9"/>
-    <text x="347.5" y="113" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="8" font-weight="700" fill="#4A3427" text-anchor="middle">Compressão Digital</text>
-    <text x="347.5" y="122" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="7.5" font-weight="500" fill="#7A6657" text-anchor="middle">Comprimir 1 a 2 min</text>
-    
-    <path d="M 290,115 L 273,107" fill="none" stroke="#3B82F6" stroke-width="1" stroke-dasharray="2,2"/>
-
-    
-    <rect x="290" y="185" width="115" height="26" rx="5" fill="#FFFFFF" fill-opacity="0.95" stroke="#D6C7B8" stroke-width="0.9"/>
-    <text x="347.5" y="196" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="8" font-weight="700" fill="#4A3427" text-anchor="middle">Trajetória da Agulha</text>
-    <text x="347.5" y="205" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="7.5" font-weight="500" fill="#7A6657" text-anchor="middle">Paralela ao 1º PM</text>
-    
-    
-</svg>`
+    svgAnatomico: `<svg viewBox="0 0 320 220" class="tecnica-svg" xmlns="http://www.w3.org/2000/svg">
+      <rect width="320" height="220" rx="14" fill="#FAF7F2"/>
+      <!-- Orbit outline -->
+      <path d="M 120,40 C 150,30 200,30 215,55 C 225,75 205,100 170,105 C 130,105 110,80 120,40 Z" fill="#EFE6DC" stroke="#8F7159" stroke-width="2"/>
+      <!-- Pupillary vertical line -->
+      <line x1="168" y1="20" x2="168" y2="200" stroke="#DFCCA9" stroke-width="1.5" stroke-dasharray="4,4"/>
+      <!-- Infraorbital foramen -->
+      <ellipse cx="168" cy="120" rx="9" ry="7" fill="#4A3425"/>
+      <circle cx="168" cy="120" r="14" fill="#D32F2F" fill-opacity="0.3"/>
+      <!-- Finger compression symbol -->
+      <path d="M 195,115 C 220,115 220,135 185,130" fill="none" stroke="#6E503B" stroke-width="3"/>
+      <text x="215" y="115" font-size="10" fill="#6E503B" font-weight="700">Dedo Pressionando</text>
+      <!-- Teeth outline (Premolars) -->
+      <path d="M 140,190 L 155,190 L 155,210 L 140,210 Z" fill="#FFFFFF" stroke="#8F7159" stroke-width="1.5" rx="2"/>
+      <path d="M 162,190 L 178,190 L 178,210 L 162,210 Z" fill="#FFFFFF" stroke="#8F7159" stroke-width="1.5" rx="2"/>
+      <text x="170" y="218" font-size="9" fill="#8F7159" text-anchor="middle">1º Pré-molar</text>
+      <!-- Needle track -->
+      <line x1="170" y1="185" x2="168" y2="128" stroke="#D32F2F" stroke-width="3" stroke-linecap="round"/>
+      <polygon points="168,124 164,134 172,134" fill="#D32F2F"/>
+      <text x="35" y="35" font-size="11" fill="#3A2417" font-weight="700">Forame Infraorbital (~10 mm abaixo da órbita)</text>
+      <text x="35" y="50" font-size="10" fill="#8F7159">Linha Pupilar Central | Seringa Paralela ao 1º PM</text>
+    </svg>`
   },
   {
     id: "palatino_maior",
@@ -497,116 +278,25 @@ const TECNICAS_ANESTESICAS_DATA = [
       "Dentística ou Endodontia isolada onde a mucosa palatina NÃO será manipulada (NÃO fazer palatino maior nesses casos!)."
     ],
     armadilhaProva: "NUNCA injetar volume excessivo nem sob altíssima pressão. O excesso de vasoconstritor em tecido fibroso inextensível causa isquemia severa e necrose palatina com formação de escara dolorosa.",
-    svgAnatomico: `<svg viewBox="0 0 420 240" class="tecnica-svg" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <linearGradient id="bgLight" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#FCFAF7"/>
-      <stop offset="100%" stop-color="#F8F3EC"/>
-    </linearGradient>
-    <linearGradient id="boneLight" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#FAF6F0"/>
-      <stop offset="100%" stop-color="#EDE2D2"/>
-    </linearGradient>
-    <linearGradient id="toothGrad" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#FFFFFF"/>
-      <stop offset="70%" stop-color="#FCF9F2"/>
-      <stop offset="100%" stop-color="#EDE4D5"/>
-    </linearGradient>
-    <filter id="subtleGlow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="1" stdDeviation="2" flood-color="#DC2626" flood-opacity="0.25"/>
-    </filter>
-  </defs>
-
-  <!-- Canvas Card -->
-  <rect width="420" height="240" rx="12" fill="url(#bgLight)" stroke="#E8DFD3" stroke-width="1"/>
-
-  
-    <!-- Minimalist Clean Header -->
-    <text x="16" y="20" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700" fill="#3A2417" letter-spacing="0.2">Bloqueio do Nervo Palatino Maior</text>
-    <text x="16" y="32" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.2" font-weight="500" fill="#7A6657">Referenciais: Medial ao 2º/3º molar, forame palatino maior e junção palatina</text>
-    
-    <!-- Subtle Tag Pill -->
-    <rect x="328" y="10" width="76" height="18" rx="9" fill="#F0EAE1" stroke="#E2D8CC" stroke-width="0.8"/>
-    <text x="366" y="22" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8" font-weight="700" fill="#6B5443" text-anchor="middle">Palato · Troncular</text>
-    
-    <!-- Hairline Divider -->
-    <line x1="16" y1="38" x2="404" y2="38" stroke="#EFE8DD" stroke-width="1"/>
-    
-
-  <!-- Scene Elements -->
-  
-    <!-- Palatal Vault & Arch -->
-    <path d="M 80,60 C 80,140 120,200 210,200 C 300,200 340,140 340,60 Z" fill="url(#boneLight)" stroke="#C4B5A5" stroke-width="1.4"/>
-    
-    <!-- Midline Palatal Raphe -->
-    <line x1="210" y1="60" x2="210" y2="195" stroke="#A89484" stroke-width="1.3" stroke-dasharray="4,3"/>
-    <text x="206" y="75" font-size="7.5" font-weight="600" fill="#8D7A68" text-anchor="end" font-family="sans-serif">Rafe Mediana</text>
-
-    <!-- Transverse Palatal Suture / Soft Palate Junction -->
-    <path d="M 120,165 Q 210,175 300,165" fill="none" stroke="#C4B5A5" stroke-width="1.2" stroke-dasharray="3,2"/>
-    <text x="210" y="188" font-size="7.5" font-weight="600" fill="#8D7A68" text-anchor="middle" font-family="sans-serif">Junção Palato Duro / Mole</text>
-
-    <!-- Right Side Molars -->
-    <g transform="translate(285, 75)">
-      <rect x="0" y="0" width="22" height="18" rx="4" fill="url(#toothGrad)" stroke="#5D4037" stroke-width="1.3"/>
-      <text x="11" y="12" font-size="7.5" font-weight="700" fill="#4A3427" text-anchor="middle" font-family="sans-serif">1º M</text>
-      <rect x="0" y="24" width="22" height="18" rx="4" fill="url(#toothGrad)" stroke="#5D4037" stroke-width="1.3"/>
-      <text x="11" y="36" font-size="7.5" font-weight="700" fill="#DC2626" text-anchor="middle" font-family="sans-serif">2º M</text>
-      <rect x="0" y="48" width="22" height="18" rx="4" fill="url(#toothGrad)" stroke="#5D4037" stroke-width="1.3"/>
-      <text x="11" y="60" font-size="7.5" font-weight="700" fill="#4A3427" text-anchor="middle" font-family="sans-serif">3º M</text>
-    </g>
-
-    <!-- Greater Palatine Foramen -->
-    <ellipse cx="262" cy="125" rx="5" ry="4" fill="#451A03" stroke="#78350F" stroke-width="1"/>
-
-    <!-- Greater Palatine Nerve & Artery running forward -->
-    <path d="M 262,125 Q 255,90 248,60" fill="none" stroke="#D97706" stroke-width="2.2" stroke-linecap="round"/>
-
-    <!-- Puncture Point: Tecido mole ANTERIOR ao forame -->
-    
-    <g transform="translate(256, 115)" filter="url(#subtleGlow)">
-      <circle cx="0" cy="0" r="7.5" fill="#FEE2E2" fill-opacity="0.85"/>
-      <circle cx="0" cy="0" r="4.2" fill="#EF4444" stroke="#FFFFFF" stroke-width="1.2"/>
-      <circle cx="0" cy="0" r="1.6" fill="#FFFFFF"/>
-    </g>
-    
-
-    <!-- Needle Track: Seringa vindo dos pré-molares OPOSTOS -->
-    <g transform="translate(130, 160) rotate(-22)">
-      <line x1="0" y1="0" x2="115" y2="0" stroke="#475569" stroke-width="1.8" stroke-linecap="round"/>
-      <rect x="-8" y="-2.5" width="8" height="5" rx="1.5" fill="#94A3B8"/>
-      <polygon points="115,-2.5 120,0 115,2.5" fill="#DC2626"/>
-    </g>
-
-    <!-- ANNOTATIONS -->
-    
-    <rect x="16" y="140" width="110" height="26" rx="5" fill="#FFFFFF" fill-opacity="0.95" stroke="#D6C7B8" stroke-width="0.9"/>
-    <text x="71.0" y="151" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="8" font-weight="700" fill="#4A3427" text-anchor="middle">Vindo do Lado Oposto</text>
-    <text x="71.0" y="160" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="7.5" font-weight="500" fill="#7A6657" text-anchor="middle">Apoio nos PMs opostos</text>
-    
-    <path d="M 126,153 L 140,158" fill="none" stroke="#A89484" stroke-width="1" stroke-dasharray="2,2"/>
-
-    
-    <rect x="16" y="75" width="125" height="26" rx="5" fill="#FEF2F2" fill-opacity="0.95" stroke="#F87171" stroke-width="0.9"/>
-    <text x="78.5" y="86" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="8" font-weight="700" fill="#991B1B" text-anchor="middle">PONTO DE INSERÇÃO</text>
-    <text x="78.5" y="95" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="7.5" font-weight="500" fill="#B91C1C" text-anchor="middle">Anterior ao forame</text>
-    
-    <path d="M 141,88 L 246,115" fill="none" stroke="#EF4444" stroke-width="1" stroke-dasharray="2,2"/>
-
-    
-    <rect x="290" y="150" width="115" height="26" rx="5" fill="#FFFFFF" fill-opacity="0.95" stroke="#D6C7B8" stroke-width="0.9"/>
-    <text x="347.5" y="161" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="8" font-weight="700" fill="#4A3427" text-anchor="middle">Forame Palatino Maior</text>
-    <text x="347.5" y="170" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="7.5" font-weight="500" fill="#7A6657" text-anchor="middle">Medial ao 2º/3º molar</text>
-    
-    <path d="M 290,155 L 268,130" fill="none" stroke="#A89484" stroke-width="1" stroke-dasharray="2,2"/>
-
-    
-    <rect x="290" y="48" width="115" height="26" rx="5" fill="#FFFFFF" fill-opacity="0.95" stroke="#D6C7B8" stroke-width="0.9"/>
-    <text x="347.5" y="59" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="8" font-weight="700" fill="#4A3427" text-anchor="middle">Volume Restrito</text>
-    <text x="347.5" y="68" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="7.5" font-weight="500" fill="#7A6657" text-anchor="middle">¼ a ⅓ tubete (isquemia)</text>
-    
-    
-</svg>`
+    svgAnatomico: `<svg viewBox="0 0 320 220" class="tecnica-svg" xmlns="http://www.w3.org/2000/svg">
+      <rect width="320" height="220" rx="14" fill="#FAF7F2"/>
+      <!-- Palate vault vault arch -->
+      <path d="M 60,190 C 60,70 160,40 260,70 C 260,190 260,190 260,190" fill="#FAF1E8" stroke="#C5AA8E" stroke-width="2"/>
+      <!-- Palatine median raphe -->
+      <line x1="160" y1="50" x2="160" y2="200" stroke="#8F7159" stroke-width="2" stroke-dasharray="4,3"/>
+      <text x="160" y="40" font-size="10" fill="#8F7159" text-anchor="middle" font-weight="700">Rafe Mediana</text>
+      <!-- Greater palatine foramen -->
+      <circle cx="225" cy="130" r="7" fill="#4A3425"/>
+      <circle cx="225" cy="130" r="14" fill="#D32F2F" fill-opacity="0.25"/>
+      <!-- Molar teeth borders -->
+      <path d="M 245,100 L 255,100 L 255,120 L 245,120 Z" fill="#FFF" stroke="#8F7159" stroke-width="1.5"/>
+      <path d="M 245,125 L 255,125 L 255,145 L 245,145 Z" fill="#FFF" stroke="#8F7159" stroke-width="1.5"/>
+      <text x="245" y="160" font-size="9" fill="#8F7159">2º e 3º M</text>
+      <!-- Syringe approach from opposite premolars -->
+      <line x1="85" y1="175" x2="220" y2="132" stroke="#3A2417" stroke-width="2.5" stroke-linecap="round"/>
+      <circle cx="220" cy="132" r="5" fill="#D32F2F"/>
+      <text x="40" y="210" font-size="10" fill="#6E503B">Apoio: Pré-molares opostos | Máx ½ tubete</text>
+    </svg>`
   },
   {
     id: "nasopalatino",
@@ -650,114 +340,23 @@ const TECNICAS_ANESTESICAS_DATA = [
       "Dentística ou Endodontia isolada dos incisivos ou caninos onde não se toca na mucosa palatina."
     ],
     armadilhaProva: "A punção no centro da papila incisiva é extremamente dolorosa. A conduta correta cobrada pelo professor é: 1) Pré-anestesia infiltrando ¼ de tubete na papila interdental vestibular entre o 11 e 21, esperando a solução difundir para palato; 2) Inserir a agulha lateralmente à papila incisiva com mucosa previamente isquemiada por pressão de cotonete.",
-    svgAnatomico: `<svg viewBox="0 0 420 240" class="tecnica-svg" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <linearGradient id="bgLight" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#FCFAF7"/>
-      <stop offset="100%" stop-color="#F8F3EC"/>
-    </linearGradient>
-    <linearGradient id="boneLight" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#FAF6F0"/>
-      <stop offset="100%" stop-color="#EDE2D2"/>
-    </linearGradient>
-    <linearGradient id="toothGrad" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#FFFFFF"/>
-      <stop offset="70%" stop-color="#FCF9F2"/>
-      <stop offset="100%" stop-color="#EDE4D5"/>
-    </linearGradient>
-    <filter id="subtleGlow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="1" stdDeviation="2" flood-color="#DC2626" flood-opacity="0.25"/>
-    </filter>
-  </defs>
-
-  <!-- Canvas Card -->
-  <rect width="420" height="240" rx="12" fill="url(#bgLight)" stroke="#E8DFD3" stroke-width="1"/>
-
-  
-    <!-- Minimalist Clean Header -->
-    <text x="16" y="20" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700" fill="#3A2417" letter-spacing="0.2">Bloqueio do Nervo Nasopalatino</text>
-    <text x="16" y="32" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.2" font-weight="500" fill="#7A6657">Referenciais: Papila incisiva, base lateral e dentes 11 e 21</text>
-    
-    <!-- Subtle Tag Pill -->
-    <rect x="328" y="10" width="76" height="18" rx="9" fill="#F0EAE1" stroke="#E2D8CC" stroke-width="0.8"/>
-    <text x="366" y="22" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8" font-weight="700" fill="#6B5443" text-anchor="middle">Palato · Troncular</text>
-    
-    <!-- Hairline Divider -->
-    <line x1="16" y1="38" x2="404" y2="38" stroke="#EFE8DD" stroke-width="1"/>
-    
-
-  <!-- Scene Elements -->
-  
-    <!-- Anterior Palate Outline -->
-    <path d="M 110,48 C 140,42 280,42 310,48 C 300,160 270,195 210,195 C 150,195 120,160 110,48 Z" fill="url(#boneLight)" stroke="#C4B5A5" stroke-width="1.4"/>
-    
-    <!-- Central Incisors (Dentes 11 e 21 - Palatal View) -->
-    <g transform="translate(182, 48)">
-      <path d="M 2,0 L 24,0 L 22,22 L 4,22 Z" fill="url(#toothGrad)" stroke="#5D4037" stroke-width="1.3" rx="2"/>
-      <text x="13" y="14" font-size="7.5" font-weight="700" fill="#4A3427" text-anchor="middle" font-family="sans-serif">11</text>
-      <path d="M 28,0 L 50,0 L 48,22 L 30,22 Z" fill="url(#toothGrad)" stroke="#5D4037" stroke-width="1.3" rx="2"/>
-      <text x="39" y="14" font-size="7.5" font-weight="700" fill="#4A3427" text-anchor="middle" font-family="sans-serif">21</text>
-    </g>
-
-    <!-- Midline Line -->
-    <line x1="210" y1="48" x2="210" y2="190" stroke="#A89484" stroke-width="1" stroke-dasharray="3,3"/>
-
-    <!-- Incisive Papilla (Papila Incisiva) -->
-    <path d="M 210,80 C 220,80 223,95 218,108 C 214,116 206,116 202,108 C 197,95 200,80 210,80 Z" fill="#FCE7F3" stroke="#EC4899" stroke-width="1.3"/>
-    <text x="210" y="98" font-size="7.5" font-weight="700" fill="#BE185D" text-anchor="middle" font-family="sans-serif">Papila</text>
-
-    <!-- Center Prohibited Mark -->
-    <circle cx="210" cy="100" r="3" fill="#DC2626"/>
-    <line x1="208" y1="98" x2="212" y2="102" stroke="#FFFFFF" stroke-width="1"/>
-    <line x1="212" y1="98" x2="208" y2="102" stroke="#FFFFFF" stroke-width="1"/>
-
-    <!-- Rugas Palatinas -->
-    <path d="M 160,95 Q 185,90 200,95" fill="none" stroke="#D1C3B2" stroke-width="1.2"/>
-    <path d="M 220,95 Q 235,90 260,95" fill="none" stroke="#D1C3B2" stroke-width="1.2"/>
-
-    <!-- Puncture Point: Base LATERAL da papila incisiva -->
-    
-    <g transform="translate(223, 105)" filter="url(#subtleGlow)">
-      <circle cx="0" cy="0" r="7.5" fill="#FEE2E2" fill-opacity="0.85"/>
-      <circle cx="0" cy="0" r="4.2" fill="#EF4444" stroke="#FFFFFF" stroke-width="1.2"/>
-      <circle cx="0" cy="0" r="1.6" fill="#FFFFFF"/>
-    </g>
-    
-
-    <!-- Needle Track (45° angle) -->
-    <g transform="translate(165, 150) rotate(-42)">
-      <line x1="0" y1="0" x2="62" y2="0" stroke="#475569" stroke-width="1.8" stroke-linecap="round"/>
-      <rect x="-8" y="-2.5" width="8" height="5" rx="1.5" fill="#94A3B8"/>
-      <polygon points="62,-2.5 67,0 62,2.5" fill="#DC2626"/>
-    </g>
-
-    <!-- ANNOTATIONS -->
-    
-    <rect x="16" y="75" width="115" height="26" rx="5" fill="#FEF2F2" fill-opacity="0.95" stroke="#F87171" stroke-width="0.9"/>
-    <text x="73.5" y="86" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="8" font-weight="700" fill="#991B1B" text-anchor="middle">NÃO Punçar no Centro</text>
-    <text x="73.5" y="95" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="7.5" font-weight="500" fill="#B91C1C" text-anchor="middle">Dor severa e insucesso</text>
-    
-    <path d="M 131,88 L 206,99" fill="none" stroke="#DC2626" stroke-width="1" stroke-dasharray="2,2"/>
-
-    
-    <rect x="290" y="75" width="115" height="26" rx="5" fill="#FFFFFF" fill-opacity="0.95" stroke="#D6C7B8" stroke-width="0.9"/>
-    <text x="347.5" y="86" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="8" font-weight="700" fill="#4A3427" text-anchor="middle">PUNÇÃO CORRETA</text>
-    <text x="347.5" y="95" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="7.5" font-weight="500" fill="#7A6657" text-anchor="middle">Base Lateral da Papila</text>
-    
-    <path d="M 290,88 L 232,104" fill="none" stroke="#16A34A" stroke-width="1" stroke-dasharray="2,2"/>
-
-    
-    <rect x="290" y="140" width="115" height="26" rx="5" fill="#FFFFFF" fill-opacity="0.95" stroke="#D6C7B8" stroke-width="0.9"/>
-    <text x="347.5" y="151" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="8" font-weight="700" fill="#4A3427" text-anchor="middle">Volume: ¼ Tubete</text>
-    <text x="347.5" y="160" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="7.5" font-weight="500" fill="#7A6657" text-anchor="middle">0,3 a 0,4 mL (lento)</text>
-    
-    
-    <rect x="16" y="140" width="115" height="26" rx="5" fill="#FFFFFF" fill-opacity="0.95" stroke="#D6C7B8" stroke-width="0.9"/>
-    <text x="73.5" y="151" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="8" font-weight="700" fill="#4A3427" text-anchor="middle">Angulação da Agulha</text>
-    <text x="73.5" y="160" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="7.5" font-weight="500" fill="#7A6657" text-anchor="middle">45° em relação ao palato</text>
-    
-    
-</svg>`
+    svgAnatomico: `<svg viewBox="0 0 320 220" class="tecnica-svg" xmlns="http://www.w3.org/2000/svg">
+      <rect width="320" height="220" rx="14" fill="#FAF7F2"/>
+      <!-- Anterior palate & central incisors -->
+      <path d="M 100,50 L 130,50 L 130,85 L 100,85 Z" fill="#FFF" stroke="#8F7159" stroke-width="2" rx="3"/>
+      <text x="115" y="70" font-size="10" fill="#6E503B" font-weight="700" text-anchor="middle">11</text>
+      <path d="M 135,50 L 165,50 L 165,85 L 135,85 Z" fill="#FFF" stroke="#8F7159" stroke-width="2" rx="3"/>
+      <text x="150" y="70" font-size="10" fill="#6E503B" font-weight="700" text-anchor="middle">21</text>
+      <!-- Incisive papilla -->
+      <ellipse cx="132" cy="115" rx="10" ry="14" fill="#EFE6DC" stroke="#8F7159" stroke-width="1.5"/>
+      <text x="175" y="118" font-size="10" fill="#8F7159" font-weight="700">Papila Incisiva</text>
+      <!-- Lateral needle puncture (avoiding center) -->
+      <circle cx="120" cy="118" r="5" fill="#D32F2F"/>
+      <line x1="120" y1="190" x2="120" y2="124" stroke="#3A2417" stroke-width="2.5" stroke-linecap="round"/>
+      <!-- Label -->
+      <text x="135" y="150" font-size="10" fill="#D32F2F" font-weight="700">Ponto Lateral (NÃO no centro!)</text>
+      <text x="135" y="165" font-size="9" fill="#6E503B">Volume: máx ⅓ tubete | Canino a Canino</text>
+    </svg>`
   },
   {
     id: "subperiostica_ant",
@@ -800,106 +399,25 @@ const TECNICAS_ANESTESICAS_DATA = [
       "Infecção ou inflamação aguda no ápice do dente (pH ácido degrada o anestésico e há risco de disseminar a infecção; nesses casos, fazer Bloqueio Infraorbital)."
     ],
     armadilhaProva: "Na prova prática de dentística/endo do 11 ou 13: responder APENAS subperióstica anterior no nervo ASA. NÃO inventar de anestesiar nasopalatino, pois em procedimentos conservadores não se mexe no palato!",
-    svgAnatomico: `<svg viewBox="0 0 420 240" class="tecnica-svg" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <linearGradient id="bgLight" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#FCFAF7"/>
-      <stop offset="100%" stop-color="#F8F3EC"/>
-    </linearGradient>
-    <linearGradient id="boneLight" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#FAF6F0"/>
-      <stop offset="100%" stop-color="#EDE2D2"/>
-    </linearGradient>
-    <linearGradient id="toothGrad" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#FFFFFF"/>
-      <stop offset="70%" stop-color="#FCF9F2"/>
-      <stop offset="100%" stop-color="#EDE4D5"/>
-    </linearGradient>
-    <filter id="subtleGlow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="1" stdDeviation="2" flood-color="#DC2626" flood-opacity="0.25"/>
-    </filter>
-  </defs>
-
-  <!-- Canvas Card -->
-  <rect width="420" height="240" rx="12" fill="url(#bgLight)" stroke="#E8DFD3" stroke-width="1"/>
-
-  
-    <!-- Minimalist Clean Header -->
-    <text x="16" y="20" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700" fill="#3A2417" letter-spacing="0.2">Infiltrativa Subperióstica Anterior</text>
-    <text x="16" y="32" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.2" font-weight="500" fill="#7A6657">Referenciais: Longo eixo do dente, fundo de sulco e ápice radicular</text>
-    
-    <!-- Subtle Tag Pill -->
-    <rect x="328" y="10" width="76" height="18" rx="9" fill="#F0EAE1" stroke="#E2D8CC" stroke-width="0.8"/>
-    <text x="366" y="22" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8" font-weight="700" fill="#6B5443" text-anchor="middle">Maxila · Infiltrativa</text>
-    
-    <!-- Hairline Divider -->
-    <line x1="16" y1="38" x2="404" y2="38" stroke="#EFE8DD" stroke-width="1"/>
-    
-
-  <!-- Scene Elements -->
-  
-    <!-- Maxillary Bone -->
-    <path d="M 120,60 L 290,60 L 290,150 C 260,150 250,170 240,195 L 170,195 C 160,170 150,150 120,150 Z" fill="url(#boneLight)" stroke="#C4B5A5" stroke-width="1.4"/>
-
-    <!-- Upper Incisor -->
-    <g transform="translate(193, 75)">
-      <path d="M 10,65 C 6,35 9,10 17,-5 C 25,10 28,35 24,65 Z" fill="url(#toothGrad)" stroke="#7A6657" stroke-width="1.3"/>
-      <path d="M 3,65 Q 17,62 31,65 L 29,115 Q 17,118 5,115 Z" fill="url(#toothGrad)" stroke="#5D4037" stroke-width="1.5"/>
-      <text x="17" y="100" font-size="8.5" font-weight="700" fill="#4A3427" text-anchor="middle" font-family="sans-serif">Incisivo</text>
-      <circle cx="17" cy="-5" r="3.5" fill="#DC2626"/>
-      <text x="17" y="-12" font-size="7.5" font-weight="800" fill="#DC2626" text-anchor="middle" font-family="sans-serif">Ápice</text>
-    </g>
-
-    <!-- Mucobuccal Fold Line -->
-    <path d="M 110,135 Q 210,130 300,135" fill="none" stroke="#F43F5E" stroke-width="1.5" stroke-dasharray="5,3"/>
-    <text x="50" y="137" font-size="7.5" font-weight="600" fill="#E11D48" font-family="sans-serif">Fundo de Sulco</text>
-
-    <!-- Diffusion Halo around Apex -->
-    <ellipse cx="210" cy="70" rx="22" ry="16" fill="#FEF3C7" fill-opacity="0.5" stroke="#F59E0B" stroke-width="1" stroke-dasharray="2,2"/>
-
-    <!-- Puncture Point: Fundo de sulco acima do ápice -->
-    
-    <g transform="translate(210, 134)" filter="url(#subtleGlow)">
-      <circle cx="0" cy="0" r="7.5" fill="#FEE2E2" fill-opacity="0.85"/>
-      <circle cx="0" cy="0" r="4.2" fill="#EF4444" stroke="#FFFFFF" stroke-width="1.2"/>
-      <circle cx="0" cy="0" r="1.6" fill="#FFFFFF"/>
-    </g>
-    
-
-    <!-- Needle Vector -->
-    <g transform="translate(210, 195) rotate(-90)">
-      <line x1="0" y1="0" x2="55" y2="0" stroke="#475569" stroke-width="1.8" stroke-linecap="round"/>
-      <rect x="-8" y="-2.5" width="8" height="5" rx="1.5" fill="#94A3B8"/>
-      <polygon points="55,-2.5 60,0 55,2.5" fill="#DC2626"/>
-    </g>
-
-    <!-- ANNOTATIONS -->
-    
-    <rect x="16" y="75" width="120" height="26" rx="5" fill="#FEF2F2" fill-opacity="0.95" stroke="#F87171" stroke-width="0.9"/>
-    <text x="76.0" y="86" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="8" font-weight="700" fill="#991B1B" text-anchor="middle">PONTO DE INSERÇÃO</text>
-    <text x="76.0" y="95" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="7.5" font-weight="500" fill="#B91C1C" text-anchor="middle">Fundo de sulco no ápice</text>
-    
-    <path d="M 136,88 L 200,134" fill="none" stroke="#EF4444" stroke-width="1" stroke-dasharray="2,2"/>
-
-    
-    <rect x="16" y="160" width="120" height="26" rx="5" fill="#FFFFFF" fill-opacity="0.95" stroke="#D6C7B8" stroke-width="0.9"/>
-    <text x="76.0" y="171" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="8" font-weight="700" fill="#4A3427" text-anchor="middle">Bisel Voltado ao Osso</text>
-    <text x="76.0" y="180" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="7.5" font-weight="500" fill="#7A6657" text-anchor="middle">Contato suave sem raspar</text>
-    
-    
-    <rect x="285" y="75" width="120" height="26" rx="5" fill="#FFFFFF" fill-opacity="0.95" stroke="#D6C7B8" stroke-width="0.9"/>
-    <text x="345.0" y="86" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="8" font-weight="700" fill="#4A3427" text-anchor="middle">Difusão Transcortical</text>
-    <text x="345.0" y="95" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="7.5" font-weight="500" fill="#7A6657" text-anchor="middle">Cortical porosa maxilar</text>
-    
-    <path d="M 285,88 L 234,75" fill="none" stroke="#A89484" stroke-width="1" stroke-dasharray="2,2"/>
-
-    
-    <rect x="285" y="160" width="120" height="26" rx="5" fill="#FFFFFF" fill-opacity="0.95" stroke="#D6C7B8" stroke-width="0.9"/>
-    <text x="345.0" y="171" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="8" font-weight="700" fill="#4A3427" text-anchor="middle">Agulha Curta (20 mm)</text>
-    <text x="345.0" y="180" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="7.5" font-weight="500" fill="#7A6657" text-anchor="middle">Inserção de ~2 a 3 mm</text>
-    
-    
-</svg>`
+    svgAnatomico: `<svg viewBox="0 0 320 220" class="tecnica-svg" xmlns="http://www.w3.org/2000/svg">
+      <rect width="320" height="220" rx="14" fill="#FAF7F2"/>
+      <!-- Tooth root & crown -->
+      <path d="M 140,150 C 140,100 150,70 160,50 C 170,70 180,100 180,150 L 140,150 Z" fill="#FFF" stroke="#8F7159" stroke-width="2"/>
+      <path d="M 140,150 L 180,150 L 180,195 L 140,195 Z" fill="#FFF" stroke="#8F7159" stroke-width="2" rx="2"/>
+      <text x="160" y="175" font-size="11" fill="#6E503B" font-weight="700" text-anchor="middle">Coroa</text>
+      <text x="160" y="90" font-size="11" fill="#8F7159" font-weight="700" text-anchor="middle">Raiz</text>
+      <!-- Apex marker -->
+      <circle cx="160" cy="50" r="4" fill="#8F7159"/>
+      <!-- Mucobuccal fold line -->
+      <path d="M 80,65 C 130,65 190,65 240,65" fill="none" stroke="#C5AA8E" stroke-width="3" stroke-dasharray="4,3"/>
+      <text x="245" y="68" font-size="9" fill="#8F7159">Fundo de Sulco</text>
+      <!-- Needle insertion (parallel to long axis) -->
+      <line x1="160" y1="120" x2="160" y2="48" stroke="#D32F2F" stroke-width="2.5" stroke-linecap="round"/>
+      <circle cx="160" cy="48" r="6" fill="#D32F2F"/>
+      <!-- Description -->
+      <text x="35" y="30" font-size="11" fill="#3A2417" font-weight="700">Subperióstica Anterior: Paralela ao Longo Eixo</text>
+      <text x="35" y="44" font-size="10" fill="#8F7159">Agulha Curta | Ápice ≈ 2 coroas acima | Volume: ½ a 1 tubete</text>
+    </svg>`
   },
   {
     id: "subperiostica_post",
@@ -941,107 +459,19 @@ const TECNICAS_ANESTESICAS_DATA = [
       "Infecção apical no dente; 2 ou mais dentes (indicação de Pós-túber)."
     ],
     armadilhaProva: "Diferença vital cobrada pelo professor: Subperióstica anterior é feita com agulha CURTA e PARALELA ao longo eixo; subperióstica posterior é feita com agulha LONGA e INCLINADA A 45° em direção ao ápice!",
-    svgAnatomico: `<svg viewBox="0 0 420 240" class="tecnica-svg" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <linearGradient id="bgLight" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#FCFAF7"/>
-      <stop offset="100%" stop-color="#F8F3EC"/>
-    </linearGradient>
-    <linearGradient id="boneLight" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#FAF6F0"/>
-      <stop offset="100%" stop-color="#EDE2D2"/>
-    </linearGradient>
-    <linearGradient id="toothGrad" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#FFFFFF"/>
-      <stop offset="70%" stop-color="#FCF9F2"/>
-      <stop offset="100%" stop-color="#EDE4D5"/>
-    </linearGradient>
-    <filter id="subtleGlow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="1" stdDeviation="2" flood-color="#DC2626" flood-opacity="0.25"/>
-    </filter>
-  </defs>
-
-  <!-- Canvas Card -->
-  <rect width="420" height="240" rx="12" fill="url(#bgLight)" stroke="#E8DFD3" stroke-width="1"/>
-
-  
-    <!-- Minimalist Clean Header -->
-    <text x="16" y="20" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700" fill="#3A2417" letter-spacing="0.2">Infiltrativa Subperióstica Posterior</text>
-    <text x="16" y="32" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.2" font-weight="500" fill="#7A6657">Referenciais: Fundo de sulco no ápice da raiz mesiovestibular do 1º molar</text>
-    
-    <!-- Subtle Tag Pill -->
-    <rect x="328" y="10" width="76" height="18" rx="9" fill="#F0EAE1" stroke="#E2D8CC" stroke-width="0.8"/>
-    <text x="366" y="22" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8" font-weight="700" fill="#6B5443" text-anchor="middle">Maxila · Infiltrativa</text>
-    
-    <!-- Hairline Divider -->
-    <line x1="16" y1="38" x2="404" y2="38" stroke="#EFE8DD" stroke-width="1"/>
-    
-
-  <!-- Scene Elements -->
-  
-    <!-- Maxillary Posterior Bone -->
-    <path d="M 100,60 L 320,60 L 320,150 C 290,150 280,175 270,195 L 150,195 C 140,175 130,150 100,150 Z" fill="url(#boneLight)" stroke="#C4B5A5" stroke-width="1.4"/>
-    
-    <!-- 1º Molar Superior (16/26) -->
-    <g transform="translate(180, 80)">
-      <!-- Mesiobuccal Root (Raiz MV - Alvo do ASM!) -->
-      <path d="M 8,55 C 4,30 6,10 11,-5 C 16,10 19,30 16,55 Z" fill="#FEE2E2" stroke="#DC2626" stroke-width="1.4"/>
-      <!-- Distobuccal Root (Raiz DV) -->
-      <path d="M 28,55 C 24,30 26,10 31,-5 C 36,10 39,30 36,55 Z" fill="url(#toothGrad)" stroke="#7A6657" stroke-width="1.2"/>
-      <!-- Palatal Root -->
-      <path d="M 18,45 C 16,25 18,5 22,-8 C 26,5 28,25 26,45 Z" fill="#EDE4D5" stroke="#A89484" stroke-width="1"/>
-      <!-- Crown -->
-      <path d="M 2,55 Q 22,52 42,55 L 40,105 Q 22,109 4,105 Z" fill="url(#toothGrad)" stroke="#5D4037" stroke-width="1.5"/>
-      <text x="22" y="85" font-size="9" font-weight="700" fill="#4A3427" text-anchor="middle" font-family="sans-serif">1º Molar</text>
-      <!-- MV Root Apex Callout -->
-      <circle cx="11" cy="-5" r="3.5" fill="#DC2626"/>
-      <text x="11" y="-12" font-size="7.5" font-weight="800" fill="#DC2626" text-anchor="middle" font-family="sans-serif">Raiz MV</text>
-    </g>
-
-    <!-- Mucobuccal Fold -->
-    <path d="M 100,135 Q 210,130 310,135" fill="none" stroke="#F43F5E" stroke-width="1.5" stroke-dasharray="5,3"/>
-
-    <!-- Puncture Point: Fundo de sulco na raiz MV -->
-    
-    <g transform="translate(191, 134)" filter="url(#subtleGlow)">
-      <circle cx="0" cy="0" r="7.5" fill="#FEE2E2" fill-opacity="0.85"/>
-      <circle cx="0" cy="0" r="4.2" fill="#EF4444" stroke="#FFFFFF" stroke-width="1.2"/>
-      <circle cx="0" cy="0" r="1.6" fill="#FFFFFF"/>
-    </g>
-    
-
-    <!-- Needle Track -->
-    <g transform="translate(191, 195) rotate(-90)">
-      <line x1="0" y1="0" x2="55" y2="0" stroke="#475569" stroke-width="1.8" stroke-linecap="round"/>
-      <rect x="-8" y="-2.5" width="8" height="5" rx="1.5" fill="#94A3B8"/>
-      <polygon points="55,-2.5 60,0 55,2.5" fill="#DC2626"/>
-    </g>
-
-    <!-- ANNOTATIONS -->
-    
-    <rect x="16" y="75" width="125" height="26" rx="5" fill="#FEF2F2" fill-opacity="0.95" stroke="#F87171" stroke-width="0.9"/>
-    <text x="78.5" y="86" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="8" font-weight="700" fill="#991B1B" text-anchor="middle">PONTO DE INSERÇÃO</text>
-    <text x="78.5" y="95" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="7.5" font-weight="500" fill="#B91C1C" text-anchor="middle">Fundo de sulco no ápice MV</text>
-    
-    <path d="M 141,88 L 183,134" fill="none" stroke="#EF4444" stroke-width="1" stroke-dasharray="2,2"/>
-
-    
-    <rect x="16" y="160" width="125" height="26" rx="5" fill="#FFFFFF" fill-opacity="0.95" stroke="#D6C7B8" stroke-width="0.9"/>
-    <text x="78.5" y="171" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="8" font-weight="700" fill="#4A3427" text-anchor="middle">Complemento do ASP</text>
-    <text x="78.5" y="180" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="7.5" font-weight="500" fill="#7A6657" text-anchor="middle">Raiz MV do 1º M (~28% ASM)</text>
-    
-    
-    <rect x="280" y="75" width="125" height="26" rx="5" fill="#FFFFFF" fill-opacity="0.95" stroke="#D6C7B8" stroke-width="0.9"/>
-    <text x="342.5" y="86" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="8" font-weight="700" fill="#4A3427" text-anchor="middle">Bisel para o Osso</text>
-    <text x="342.5" y="95" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="7.5" font-weight="500" fill="#7A6657" text-anchor="middle">Volume: ½ a 1 tubete</text>
-    
-    
-    <rect x="280" y="160" width="125" height="26" rx="5" fill="#FFFFFF" fill-opacity="0.95" stroke="#D6C7B8" stroke-width="0.9"/>
-    <text x="342.5" y="171" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="8" font-weight="700" fill="#4A3427" text-anchor="middle">Indicação Precisa</text>
-    <text x="342.5" y="180" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="7.5" font-weight="500" fill="#7A6657" text-anchor="middle">Polpa da raiz mesiovestibular</text>
-    
-    
-</svg>`
+    svgAnatomico: `<svg viewBox="0 0 320 220" class="tecnica-svg" xmlns="http://www.w3.org/2000/svg">
+      <rect width="320" height="220" rx="14" fill="#FAF7F2"/>
+      <!-- Posterior tooth -->
+      <path d="M 130,140 C 130,95 140,75 145,55 C 150,75 160,95 160,140 Z" fill="#FFF" stroke="#8F7159" stroke-width="1.5"/>
+      <path d="M 160,140 C 160,95 170,75 175,55 C 180,75 190,95 190,140 Z" fill="#FFF" stroke="#8F7159" stroke-width="1.5"/>
+      <path d="M 125,140 L 195,140 L 195,185 L 125,185 Z" fill="#FFF" stroke="#8F7159" stroke-width="2" rx="3"/>
+      <!-- Angled needle vector (45°) -->
+      <line x1="225" y1="125" x2="160" y2="52" stroke="#D32F2F" stroke-width="2.5" stroke-linecap="round"/>
+      <circle cx="160" cy="52" r="6" fill="#D32F2F"/>
+      <!-- 45° angle text -->
+      <text x="35" y="30" font-size="11" fill="#3A2417" font-weight="700">Subperióstica Posterior: Agulha Longa a 45°</text>
+      <text x="35" y="44" font-size="10" fill="#8F7159">Inclinação de 45° rumo ao ápice radicular | Volume: 1 tubete</text>
+    </svg>`
   },
   {
     id: "pterigomandibular_direta",
@@ -1095,119 +525,27 @@ const TECNICAS_ANESTESICAS_DATA = [
       "Pacientes não cooperativos com risco de mordedura labial/lingual severa (crianças pequenas)."
     ],
     armadilhaProva: "SE A AGULHA NÃO TOCAR OSSO: NÃO INJETAR! Se introduzir 25 mm sem contato ósseo, a agulha está posteriorizada na glândula parótida; injetar causará anestesia do VII par craniano (Paralisia Facial Transitória, incapacidade de fechar o olho homolateral). Conduta: recuar a agulha até quase a saída, redirecionar a carpule mais posteriormente sobre os molares contralaterais e reintroduzir até sentir o batente ósseo rígido.",
-    svgAnatomico: `<svg viewBox="0 0 420 240" class="tecnica-svg" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <linearGradient id="bgLight" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#FCFAF7"/>
-      <stop offset="100%" stop-color="#F8F3EC"/>
-    </linearGradient>
-    <linearGradient id="boneLight" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#FAF6F0"/>
-      <stop offset="100%" stop-color="#EDE2D2"/>
-    </linearGradient>
-    <linearGradient id="toothGrad" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#FFFFFF"/>
-      <stop offset="70%" stop-color="#FCF9F2"/>
-      <stop offset="100%" stop-color="#EDE4D5"/>
-    </linearGradient>
-    <filter id="subtleGlow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="1" stdDeviation="2" flood-color="#DC2626" flood-opacity="0.25"/>
-    </filter>
-  </defs>
-
-  <!-- Canvas Card -->
-  <rect width="420" height="240" rx="12" fill="url(#bgLight)" stroke="#E8DFD3" stroke-width="1"/>
-
-  
-    <!-- Minimalist Clean Header -->
-    <text x="16" y="20" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700" fill="#3A2417" letter-spacing="0.2">Bloqueio Pterigomandibular (NAI + Lingual)</text>
-    <text x="16" y="32" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.2" font-weight="500" fill="#7A6657">Referenciais: Incisura coronóide, prega pterigomandibular e 1 cm acima da oclusal</text>
-    
-    <!-- Subtle Tag Pill -->
-    <rect x="328" y="10" width="76" height="18" rx="9" fill="#F0EAE1" stroke="#E2D8CC" stroke-width="0.8"/>
-    <text x="366" y="22" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8" font-weight="700" fill="#6B5443" text-anchor="middle">Mandíbula · Troncular</text>
-    
-    <!-- Hairline Divider -->
-    <line x1="16" y1="38" x2="404" y2="38" stroke="#EFE8DD" stroke-width="1"/>
-    
-
-  <!-- Scene Elements -->
-  
-    <!-- Mandibular Ramus -->
-    <path d="M 90,55 C 105,80 115,105 110,135 C 105,160 95,185 85,210 L 290,210 C 310,170 315,120 310,55 Z" fill="url(#boneLight)" stroke="#C4B5A5" stroke-width="1.4"/>
-    
-    <!-- Mandibular Occlusal Plane -->
-    <line x1="60" y1="170" x2="310" y2="170" stroke="#A89484" stroke-width="1.3" stroke-dasharray="4,3"/>
-    <text x="120" y="185" font-size="7.5" font-weight="700" fill="#7A6657" font-family="sans-serif">Plano Oclusal Inferior</text>
-
-    <!-- Height Guideline: 1 cm acima do plano oclusal -->
-    <line x1="90" y1="125" x2="295" y2="125" stroke="#3B82F6" stroke-width="1.1" stroke-dasharray="3,2"/>
-    <text x="300" y="122" font-size="7.5" font-weight="700" fill="#2563EB" text-anchor="end" font-family="sans-serif">1 cm acima</text>
-
-    <!-- Pterygomandibular Fold (Prega Pterigomandibular) -->
-    <path d="M 285,65 Q 275,130 288,190" fill="none" stroke="#EC4899" stroke-width="1.8" stroke-dasharray="4,2"/>
-    <text x="285" y="58" font-size="7.5" font-weight="700" fill="#BE185D" text-anchor="middle" font-family="sans-serif">Prega</text>
-
-    <!-- Mandibular Foramen -->
-    <path d="M 245,118 Q 248,125 245,132" fill="none" stroke="#5D4037" stroke-width="2.5"/>
-    <circle cx="250" cy="125" r="4" fill="#451A03"/>
-
-    <!-- Nerves (NAI & Lingual) -->
-    <path d="M 252,65 Q 250,95 248,125" fill="none" stroke="#D97706" stroke-width="2.6" stroke-linecap="round"/>
-    <path d="M 235,65 Q 225,120 215,180" fill="none" stroke="#F59E0B" stroke-width="2" stroke-linecap="round"/>
-    <text x="200" y="172" font-size="7.5" font-weight="700" fill="#D97706" font-family="sans-serif">N. Lingual</text>
-
-    <!-- Operator Thumb in Coronoid Notch -->
-    <g transform="translate(75, 115)">
-      <path d="M 0,0 C 15,3 25,12 25,24 C 25,35 15,44 0,47 Z" fill="#EFF6FF" stroke="#3B82F6" stroke-width="1.2"/>
-      <text x="12" y="27" font-size="7.5" font-weight="700" fill="#1D4ED8" text-anchor="middle" font-family="sans-serif">Polegar</text>
-    </g>
-
-    <!-- Puncture Point: Na depressão pterigomandibular -->
-    
-    <g transform="translate(225, 125)" filter="url(#subtleGlow)">
-      <circle cx="0" cy="0" r="7.5" fill="#FEE2E2" fill-opacity="0.85"/>
-      <circle cx="0" cy="0" r="4.2" fill="#EF4444" stroke="#FFFFFF" stroke-width="1.2"/>
-      <circle cx="0" cy="0" r="1.6" fill="#FFFFFF"/>
-    </g>
-    
-
-    <!-- Needle Track: Seringa vindo dos pré-molares opostos até contato ósseo -->
-    <g transform="translate(100, 195) rotate(-31)">
-      <line x1="0" y1="0" x2="165" y2="0" stroke="#475569" stroke-width="1.8" stroke-linecap="round"/>
-      <rect x="-8" y="-2.5" width="8" height="5" rx="1.5" fill="#94A3B8"/>
-      <polygon points="165,-2.5 170,0 165,2.5" fill="#DC2626"/>
-    </g>
-
-    <!-- ANNOTATIONS -->
-    
-    <rect x="16" y="52" width="115" height="26" rx="5" fill="#FFFFFF" fill-opacity="0.95" stroke="#D6C7B8" stroke-width="0.9"/>
-    <text x="73.5" y="63" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="8" font-weight="700" fill="#4A3427" text-anchor="middle">Incisura Coronóide</text>
-    <text x="73.5" y="72" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="7.5" font-weight="500" fill="#7A6657" text-anchor="middle">Polegar na maior concavidade</text>
-    
-    <path d="M 105,78 L 105,115" fill="none" stroke="#3B82F6" stroke-width="1" stroke-dasharray="2,2"/>
-
-    
-    <rect x="135" y="48" width="135" height="26" rx="5" fill="#FEF2F2" fill-opacity="0.95" stroke="#F87171" stroke-width="0.9"/>
-    <text x="202.5" y="59" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="8" font-weight="700" fill="#991B1B" text-anchor="middle">PONTO DE INSERÇÃO</text>
-    <text x="202.5" y="68" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="7.5" font-weight="500" fill="#B91C1C" text-anchor="middle">Depressão pterigomandibular</text>
-    
-    <path d="M 202,74 L 225,117" fill="none" stroke="#EF4444" stroke-width="1" stroke-dasharray="2,2"/>
-
-    
-    <rect x="290" y="145" width="115" height="26" rx="5" fill="#FFFFFF" fill-opacity="0.95" stroke="#D6C7B8" stroke-width="0.9"/>
-    <text x="347.5" y="156" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="8" font-weight="700" fill="#4A3427" text-anchor="middle">Toque Ósseo (20-25 mm)</text>
-    <text x="347.5" y="165" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="7.5" font-weight="500" fill="#7A6657" text-anchor="middle">Mandatório p/ evitar parótida</text>
-    
-    <path d="M 290,158 L 255,128" fill="none" stroke="#A89484" stroke-width="1" stroke-dasharray="2,2"/>
-
-    
-    <rect x="16" y="195" width="115" height="26" rx="5" fill="#FFFFFF" fill-opacity="0.95" stroke="#D6C7B8" stroke-width="0.9"/>
-    <text x="73.5" y="206" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="8" font-weight="700" fill="#4A3427" text-anchor="middle">Volume: 1 Tubete</text>
-    <text x="73.5" y="215" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="7.5" font-weight="500" fill="#7A6657" text-anchor="middle">¾ NAI + ¼ Lingual</text>
-    
-    
-</svg>`
+    svgAnatomico: `<svg viewBox="0 0 320 220" class="tecnica-svg" xmlns="http://www.w3.org/2000/svg">
+      <rect width="320" height="220" rx="14" fill="#FAF7F2"/>
+      <!-- Mandibular ramus inner view -->
+      <path d="M 60,30 L 100,30 C 130,70 140,120 180,180 L 120,200 C 90,160 80,100 60,30 Z" fill="#EFE6DC" stroke="#8F7159" stroke-width="2"/>
+      <!-- Coronoid notch -->
+      <path d="M 60,60 C 75,90 75,120 70,140" fill="none" stroke="#D32F2F" stroke-width="3"/>
+      <text x="35" y="100" font-size="9" fill="#D32F2F" font-weight="700">Incisura</text>
+      <!-- Mandibular foramen / Lingula -->
+      <circle cx="105" cy="110" r="6" fill="#4A3425"/>
+      <circle cx="105" cy="110" r="14" fill="#D32F2F" fill-opacity="0.25"/>
+      <text x="115" y="105" font-size="10" fill="#4A3425" font-weight="700">Forame Mandibular</text>
+      <!-- Occlusal line -->
+      <line x1="40" y1="135" x2="280" y2="135" stroke="#8F7159" stroke-width="1.5" stroke-dasharray="4,4"/>
+      <text x="210" y="130" font-size="9" fill="#8F7159">Plano Oclusal</text>
+      <line x1="40" y1="110" x2="280" y2="110" stroke="#E67E22" stroke-width="1" stroke-dasharray="2,2"/>
+      <text x="210" y="105" font-size="9" fill="#E67E22">1 cm acima do plano</text>
+      <!-- Syringe from contralateral premolars -->
+      <line x1="280" y1="190" x2="108" y2="112" stroke="#3A2417" stroke-width="3" stroke-linecap="round"/>
+      <circle cx="108" cy="112" r="5" fill="#D32F2F"/>
+      <text x="35" y="215" font-size="10" fill="#6E503B">Técnica Direta: Apoio nos Pré-molares Opostos | Tocar Osso!</text>
+    </svg>`
   },
   {
     id: "nervo_bucal",
@@ -1250,109 +588,21 @@ const TECNICAS_ANESTESICAS_DATA = [
       "Procedimentos conservadores (restaurações oclusais ou endodontia) onde não se manipula a gengiva vestibular."
     ],
     armadilhaProva: "O bloqueio pterigomandibular tradicional anestesia o NAI e o Lingual, MAS NÃO ANESTESIA O NERVO BUCAL! Em qualquer exodontia de molar inferior, o aluno que esquecer de anestesiar o nervo bucal causará dor intensa no paciente durante o descolamento do retalho vestibular ou sindesmotomia.",
-    svgAnatomico: `<svg viewBox="0 0 420 240" class="tecnica-svg" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <linearGradient id="bgLight" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#FCFAF7"/>
-      <stop offset="100%" stop-color="#F8F3EC"/>
-    </linearGradient>
-    <linearGradient id="boneLight" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#FAF6F0"/>
-      <stop offset="100%" stop-color="#EDE2D2"/>
-    </linearGradient>
-    <linearGradient id="toothGrad" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#FFFFFF"/>
-      <stop offset="70%" stop-color="#FCF9F2"/>
-      <stop offset="100%" stop-color="#EDE4D5"/>
-    </linearGradient>
-    <filter id="subtleGlow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="1" stdDeviation="2" flood-color="#DC2626" flood-opacity="0.25"/>
-    </filter>
-  </defs>
-
-  <!-- Canvas Card -->
-  <rect width="420" height="240" rx="12" fill="url(#bgLight)" stroke="#E8DFD3" stroke-width="1"/>
-
-  
-    <!-- Minimalist Clean Header -->
-    <text x="16" y="20" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700" fill="#3A2417" letter-spacing="0.2">Bloqueio do Nervo Bucal</text>
-    <text x="16" y="32" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.2" font-weight="500" fill="#7A6657">Referenciais: Mucosa vestibular e distal ao último molar e plano oclusal</text>
-    
-    <!-- Subtle Tag Pill -->
-    <rect x="328" y="10" width="76" height="18" rx="9" fill="#F0EAE1" stroke="#E2D8CC" stroke-width="0.8"/>
-    <text x="366" y="22" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8" font-weight="700" fill="#6B5443" text-anchor="middle">Mandíbula · Troncular</text>
-    
-    <!-- Hairline Divider -->
-    <line x1="16" y1="38" x2="404" y2="38" stroke="#EFE8DD" stroke-width="1"/>
-    
-
-  <!-- Scene Elements -->
-  
-    <!-- Posterior Mandibular Bone -->
-    <path d="M 60,175 L 340,175 L 340,120 Q 320,80 290,65 L 180,65 Q 120,80 60,120 Z" fill="url(#boneLight)" stroke="#C4B5A5" stroke-width="1.4"/>
-    
-    <!-- Retromolar Triangle & Pad -->
-    <path d="M 255,145 Q 285,135 305,110 L 285,110 Q 260,130 245,145 Z" fill="#FCE7F3" stroke="#DB2777" stroke-width="1.2"/>
-    <text x="285" y="100" font-size="7.5" font-weight="700" fill="#9D174D" text-anchor="middle" font-family="sans-serif">Trígono Retromolar</text>
-
-    <!-- Lower Molars -->
-    <g transform="translate(100, 130)">
-      <rect x="0" y="0" width="35" height="25" rx="5" fill="url(#toothGrad)" stroke="#5D4037" stroke-width="1.4"/>
-      <text x="17" y="16" font-size="8.5" font-weight="700" fill="#4A3427" text-anchor="middle" font-family="sans-serif">1º M</text>
-      <rect x="42" y="0" width="35" height="25" rx="5" fill="url(#toothGrad)" stroke="#5D4037" stroke-width="1.4"/>
-      <text x="59" y="16" font-size="8.5" font-weight="700" fill="#4A3427" text-anchor="middle" font-family="sans-serif">2º M</text>
-      <rect x="84" y="0" width="35" height="25" rx="5" fill="url(#toothGrad)" stroke="#DC2626" stroke-width="1.5"/>
-      <text x="101" y="16" font-size="8.5" font-weight="800" fill="#DC2626" text-anchor="middle" font-family="sans-serif">3º M</text>
-    </g>
-
-    <!-- Buccal Nerve Trunk -->
-    <path d="M 310,75 Q 265,110 230,165" fill="none" stroke="#D97706" stroke-width="2.5" stroke-linecap="round"/>
-    <text x="315" y="75" font-size="7.5" font-weight="700" fill="#D97706" font-family="sans-serif">N. Bucal</text>
-
-    <!-- Mucosa Vestibular e Distal -->
-    <path d="M 90,160 Q 185,158 245,160" fill="none" stroke="#F43F5E" stroke-width="1.5" stroke-dasharray="4,2"/>
-
-    <!-- Puncture Point: Mucosa vestibular e distal ao último molar -->
-    
-    <g transform="translate(228, 160)" filter="url(#subtleGlow)">
-      <circle cx="0" cy="0" r="7.5" fill="#FEE2E2" fill-opacity="0.85"/>
-      <circle cx="0" cy="0" r="4.2" fill="#EF4444" stroke="#FFFFFF" stroke-width="1.2"/>
-      <circle cx="0" cy="0" r="1.6" fill="#FFFFFF"/>
-    </g>
-    
-
-    <!-- Needle Track (Parallel to occlusal plane) -->
-    <g transform="translate(145, 160)">
-      <line x1="0" y1="0" x2="75" y2="0" stroke="#475569" stroke-width="1.8" stroke-linecap="round"/>
-      <rect x="-8" y="-2.5" width="8" height="5" rx="1.5" fill="#94A3B8"/>
-      <polygon points="75,-2.5 80,0 75,2.5" fill="#DC2626"/>
-    </g>
-
-    <!-- ANNOTATIONS -->
-    
-    <rect x="16" y="65" width="125" height="26" rx="5" fill="#FEF2F2" fill-opacity="0.95" stroke="#F87171" stroke-width="0.9"/>
-    <text x="78.5" y="76" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="8" font-weight="700" fill="#991B1B" text-anchor="middle">PONTO DE INSERÇÃO</text>
-    <text x="78.5" y="85" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="7.5" font-weight="500" fill="#B91C1C" text-anchor="middle">Distal ao último molar</text>
-    
-    <path d="M 141,78 L 222,153" fill="none" stroke="#EF4444" stroke-width="1" stroke-dasharray="2,2"/>
-
-    
-    <rect x="16" y="185" width="125" height="26" rx="5" fill="#FFFFFF" fill-opacity="0.95" stroke="#D6C7B8" stroke-width="0.9"/>
-    <text x="78.5" y="196" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="8" font-weight="700" fill="#4A3427" text-anchor="middle">Trajetória da Agulha</text>
-    <text x="78.5" y="205" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="7.5" font-weight="500" fill="#7A6657" text-anchor="middle">Paralela à oclusal (mesmo lado)</text>
-    
-    
-    <rect x="280" y="145" width="125" height="26" rx="5" fill="#FFFFFF" fill-opacity="0.95" stroke="#D6C7B8" stroke-width="0.9"/>
-    <text x="342.5" y="156" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="8" font-weight="700" fill="#4A3427" text-anchor="middle">Gengiva Vestibular</text>
-    <text x="342.5" y="165" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="7.5" font-weight="500" fill="#7A6657" text-anchor="middle">Molares inferiores (extração)</text>
-    
-    
-    <rect x="280" y="185" width="125" height="26" rx="5" fill="#FFFFFF" fill-opacity="0.95" stroke="#D6C7B8" stroke-width="0.9"/>
-    <text x="342.5" y="196" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="8" font-weight="700" fill="#4A3427" text-anchor="middle">Penetração Rasa (2-4 mm)</text>
-    <text x="342.5" y="205" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="7.5" font-weight="500" fill="#7A6657" text-anchor="middle">Volume: ¼ tubete</text>
-    
-    
-</svg>`
+    svgAnatomico: `<svg viewBox="0 0 320 220" class="tecnica-svg" xmlns="http://www.w3.org/2000/svg">
+      <rect width="320" height="220" rx="14" fill="#FAF7F2"/>
+      <!-- Lower molar tooth -->
+      <path d="M 90,120 L 150,120 L 150,170 L 90,170 Z" fill="#FFF" stroke="#8F7159" stroke-width="2" rx="4"/>
+      <text x="120" y="150" font-size="11" fill="#6E503B" font-weight="700" text-anchor="middle">38 / Último Molar</text>
+      <!-- Retromolar triangle & fossa -->
+      <polygon points="160,110 230,80 230,170 160,160" fill="#EFE6DC" stroke="#C5AA8E" stroke-width="1.5"/>
+      <text x="195" y="130" font-size="9" fill="#8F7159" font-weight="700" text-anchor="middle">Trígono Retromolar</text>
+      <!-- Puncture point in buccal mucosa -->
+      <circle cx="165" cy="115" r="5" fill="#D32F2F"/>
+      <!-- Syringe parallel along buccal corridor -->
+      <line x1="70" y1="95" x2="160" y2="114" stroke="#3A2417" stroke-width="2.5" stroke-linecap="round"/>
+      <text x="35" y="30" font-size="11" fill="#3A2417" font-weight="700">Nervo Bucal: Trígono Retromolar</text>
+      <text x="35" y="44" font-size="10" fill="#8F7159">Distal e vestibular ao último molar | Volume: ¼ a ½ tubete</text>
+    </svg>`
   },
   {
     id: "mentual_incisivo",
@@ -1399,138 +649,23 @@ const TECNICAS_ANESTESICAS_DATA = [
       "Cirurgia envolvendo tecidos linguais (onde é necessário complementar ou fazer Pterigomandibular)."
     ],
     armadilhaProva: "Regra clássica do professor: O nervo mentual NÃO inerva dente! Quem inerva polpa dos dentes anteriores inferiores é o NERVO INCISIVO. Para que o incisivo seja anestesiado no forame mentual, é MANDATÓRIO pressionar o forame com o dedo por 1 a 2 minutos após a injeção para forçar a entrada do anestésico no canal mandibular.",
-    svgAnatomico: `<svg viewBox="0 0 420 240" class="tecnica-svg" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <linearGradient id="bgLight" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#FCFAF7"/>
-      <stop offset="100%" stop-color="#F8F3EC"/>
-    </linearGradient>
-    <linearGradient id="boneLight" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#FAF6F0"/>
-      <stop offset="100%" stop-color="#EDE2D2"/>
-    </linearGradient>
-    <linearGradient id="toothGrad" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#FFFFFF"/>
-      <stop offset="70%" stop-color="#FCF9F2"/>
-      <stop offset="100%" stop-color="#EDE4D5"/>
-    </linearGradient>
-    <filter id="subtleGlow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="1" stdDeviation="2" flood-color="#DC2626" flood-opacity="0.25"/>
-    </filter>
-  </defs>
-
-  <!-- Canvas Card -->
-  <rect width="420" height="240" rx="12" fill="url(#bgLight)" stroke="#E8DFD3" stroke-width="1"/>
-
-  
-    <!-- Minimalist Clean Header -->
-    <text x="16" y="20" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700" fill="#3A2417" letter-spacing="0.2">Bloqueio do Nervo Mentual e Incisivo</text>
-    <text x="16" y="32" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.2" font-weight="500" fill="#7A6657">Referenciais: Forame mentual entre PMs e compressão digital obrigatória</text>
-    
-    <!-- Subtle Tag Pill -->
-    <rect x="328" y="10" width="76" height="18" rx="9" fill="#F0EAE1" stroke="#E2D8CC" stroke-width="0.8"/>
-    <text x="366" y="22" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8" font-weight="700" fill="#6B5443" text-anchor="middle">Mandíbula · Troncular</text>
-    
-    <!-- Hairline Divider -->
-    <line x1="16" y1="38" x2="404" y2="38" stroke="#EFE8DD" stroke-width="1"/>
-    
-
-  <!-- Scene Elements -->
-  
-    <!-- Mandibular Body Bone in Lateral View -->
-    <path d="M 70,80 L 350,80 L 350,195 C 290,205 170,205 70,195 Z" fill="url(#boneLight)" stroke="#C4B5A5" stroke-width="1.4"/>
-    
-    <!-- Premolars (Mandibular: Crowns facing UP, Roots going DOWN) -->
-    <!-- 1º Pré-molar (34/44) -->
-    <g transform="translate(155, 78)">
-      <!-- Crown (facing up) -->
-      <path d="M 3,30 Q 15,26 27,30 L 25,0 Q 15,-4 5,0 Z" fill="url(#toothGrad)" stroke="#5D4037" stroke-width="1.4"/>
-      <text x="15" y="18" font-size="8" font-weight="700" fill="#4A3427" text-anchor="middle" font-family="sans-serif">1º PM</text>
-      <!-- Single Root (descending) -->
-      <path d="M 6,30 C 8,50 11,68 15,78 C 19,68 22,50 24,30 Z" fill="url(#toothGrad)" stroke="#7A6657" stroke-width="1.2"/>
-    </g>
-
-    <!-- 2º Pré-molar (35/45) -->
-    <g transform="translate(205, 78)">
-      <!-- Crown (facing up) -->
-      <path d="M 3,30 Q 15,26 27,30 L 25,0 Q 15,-4 5,0 Z" fill="url(#toothGrad)" stroke="#5D4037" stroke-width="1.4"/>
-      <text x="15" y="18" font-size="8" font-weight="700" fill="#4A3427" text-anchor="middle" font-family="sans-serif">2º PM</text>
-      <!-- Single Root (descending) -->
-      <path d="M 6,30 C 8,50 11,68 15,78 C 19,68 22,50 24,30 Z" fill="url(#toothGrad)" stroke="#7A6657" stroke-width="1.2"/>
-    </g>
-
-    <!-- Mental Foramen (Between and below the premolar apices) -->
-    <ellipse cx="198" cy="164" rx="7.5" ry="6" fill="#451A03" stroke="#78350F" stroke-width="1"/>
-
-    <!-- Mental Nerve (Emerging and going up-forward to lower lip and chin) -->
-    <path d="M 198,164 Q 175,178 145,185" fill="none" stroke="#D97706" stroke-width="2.2" stroke-linecap="round"/>
-    <text x="140" y="194" font-size="7.5" font-weight="700" fill="#D97706" font-family="sans-serif">N. Mentual (Lábio/Mento)</text>
-
-    <!-- Incisive Nerve (Continuing forward inside the mandibular canal) -->
-    <path d="M 198,164 Q 165,160 115,158" fill="none" stroke="#F59E0B" stroke-width="2" stroke-dasharray="3,2"/>
-    <text x="75" y="156" font-size="7.5" font-weight="800" fill="#B45309" font-family="sans-serif">N. Incisivo (Polpa)</text>
-
-    <!-- Mucobuccal Fold (Fundo de sulco) -->
-    <path d="M 90,128 Q 195,124 290,128" fill="none" stroke="#F43F5E" stroke-width="1.5" stroke-dasharray="4,2"/>
-    <text x="45" y="128" font-size="7.5" font-weight="600" fill="#E11D48" font-family="sans-serif">Fundo de Sulco</text>
-
-    <!-- Puncture Point: Fundo de sulco anterior/superior ao forame -->
-    
-    <g transform="translate(182, 126)" filter="url(#subtleGlow)">
-      <circle cx="0" cy="0" r="7.5" fill="#FEE2E2" fill-opacity="0.85"/>
-      <circle cx="0" cy="0" r="4.2" fill="#EF4444" stroke="#FFFFFF" stroke-width="1.2"/>
-      <circle cx="0" cy="0" r="1.6" fill="#FFFFFF"/>
-    </g>
-    
-
-    <!-- Needle Track: Agulha a 45° de anterior para posterior no fundo de sulco -->
-    <g transform="translate(125, 95) rotate(28)">
-      <line x1="0" y1="0" x2="60" y2="0" stroke="#475569" stroke-width="1.8" stroke-linecap="round"/>
-      <rect x="-8" y="-2.5" width="8" height="5" rx="1.5" fill="#94A3B8"/>
-      <polygon points="60,-2.5 65,0 60,2.5" fill="#DC2626"/>
-    </g>
-
-    <!-- Digital Compression Indicator (pressing the foramen for 1-2 min) -->
-    <g transform="translate(216, 155)">
-      <rect width="52" height="18" rx="9" fill="#EFF6FF" stroke="#3B82F6" stroke-width="1"/>
-      <text x="26" y="12" font-size="7.5" font-weight="700" fill="#1D4ED8" text-anchor="middle" font-family="sans-serif">Dedo 2 min</text>
-      <path d="M 0,9 L -7,9" stroke="#3B82F6" stroke-width="1.3" stroke-linecap="round"/>
-    </g>
-
-    <!-- ANNOTATIONS (Clean margins, zero text collisions) -->
-    
-    <rect x="16" y="52" width="125" height="26" rx="5" fill="#FEF2F2" fill-opacity="0.95" stroke="#F87171" stroke-width="0.9"/>
-    <text x="78.5" y="63" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="8" font-weight="700" fill="#991B1B" text-anchor="middle">PONTO DE INSERÇÃO</text>
-    <text x="78.5" y="72" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="7.5" font-weight="500" fill="#B91C1C" text-anchor="middle">Fundo de sulco anterior</text>
-    
-    <path d="M 141,65 L 175,120" fill="none" stroke="#EF4444" stroke-width="1" stroke-dasharray="2,2"/>
-
-    
-    <rect x="280" y="52" width="125" height="26" rx="5" fill="#FFFFFF" fill-opacity="0.95" stroke="#D6C7B8" stroke-width="0.9"/>
-    <text x="342.5" y="63" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="8" font-weight="700" fill="#4A3427" text-anchor="middle">Forame Mentual</text>
-    <text x="342.5" y="72" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="7.5" font-weight="500" fill="#7A6657" text-anchor="middle">Entre ápices dos PMs</text>
-    
-    <path d="M 280,65 L 208,160" fill="none" stroke="#A89484" stroke-width="1" stroke-dasharray="2,2"/>
-
-    
-    <rect x="280" y="125" width="125" height="26" rx="5" fill="#FEF2F2" fill-opacity="0.95" stroke="#F87171" stroke-width="0.9"/>
-    <text x="342.5" y="136" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="8" font-weight="700" fill="#991B1B" text-anchor="middle">Pressão Digital (1-2 min)</text>
-    <text x="342.5" y="145" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="7.5" font-weight="500" fill="#B91C1C" text-anchor="middle">Obrigatória p/ N. Incisivo</text>
-    
-    <path d="M 280,138 L 268,160" fill="none" stroke="#EF4444" stroke-width="1" stroke-dasharray="2,2"/>
-
-    
-    <rect x="16" y="195" width="125" height="26" rx="5" fill="#FFFFFF" fill-opacity="0.95" stroke="#D6C7B8" stroke-width="0.9"/>
-    <text x="78.5" y="206" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="8" font-weight="700" fill="#4A3427" text-anchor="middle">Regra da Banca</text>
-    <text x="78.5" y="215" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="7.5" font-weight="500" fill="#7A6657" text-anchor="middle">Mentual NÃO inerva dente!</text>
-    
-    
-    <rect x="280" y="195" width="125" height="26" rx="5" fill="#FFFFFF" fill-opacity="0.95" stroke="#D6C7B8" stroke-width="0.9"/>
-    <text x="342.5" y="206" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="8" font-weight="700" fill="#4A3427" text-anchor="middle">Incisivo = Polpa Dental</text>
-    <text x="342.5" y="215" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="7.5" font-weight="500" fill="#7A6657" text-anchor="middle">Caninos e incisivos inferiores</text>
-    
-    
-</svg>`
+    svgAnatomico: `<svg viewBox="0 0 320 220" class="tecnica-svg" xmlns="http://www.w3.org/2000/svg">
+      <rect width="320" height="220" rx="14" fill="#FAF7F2"/>
+      <!-- Lower jaw bone segment -->
+      <path d="M 40,160 C 90,160 170,160 280,140 L 280,185 C 170,205 90,205 40,185 Z" fill="#EFE6DC" stroke="#8F7159" stroke-width="2"/>
+      <!-- Premolar teeth -->
+      <path d="M 120,95 L 140,95 L 140,160 L 120,160 Z" fill="#FFF" stroke="#8F7159" stroke-width="1.5" rx="2"/>
+      <path d="M 155,95 L 175,95 L 175,160 L 155,160 Z" fill="#FFF" stroke="#8F7159" stroke-width="1.5" rx="2"/>
+      <text x="130" y="130" font-size="9" fill="#8F7159">1º PM</text>
+      <text x="165" y="130" font-size="9" fill="#8F7159">2º PM</text>
+      <!-- Mental foramen -->
+      <circle cx="147" cy="175" r="7" fill="#4A3425"/>
+      <circle cx="147" cy="175" r="14" fill="#D32F2F" fill-opacity="0.3"/>
+      <!-- Needle vector -->
+      <line x1="220" y1="130" x2="152" y2="173" stroke="#D32F2F" stroke-width="2.5" stroke-linecap="round"/>
+      <text x="35" y="30" font-size="11" fill="#3A2417" font-weight="700">Forame Mentual: Entre os Pré-molares</text>
+      <text x="35" y="44" font-size="10" fill="#8F7159">Pressionar por 2 min para anestesiar o Nervo Incisivo (Polpa)</text>
+    </svg>`
   }
 ];
 

@@ -132,7 +132,7 @@ const TECNICAS_ANESTESICAS_DATA = [
       "Cirurgias de molares superiores (associando-se obrigatoriamente ao Palatino Maior)"
     ],
     contraindicacoes: [
-      "⚠️ PACIENTE HEMOFÍLICO ou com coagulopatia severa (risco gravíssimo de hematoma incontrolável no plexo pterigóideo; nesses casos, eleger infiltrativas subperiósticas graduais ou intraligamentar)."
+      "⚠️ PACIENTE HEMOFÍLICO ou com coagulopatia severa (risco gravíssimo de hematoma incontrolável no plexo pterigóideo; nesses casos, eleger infiltrativas subperiósticas graduais)."
     ],
     armadilhaProva: "Se for dente 16 ou 26, a raiz mésio-vestibular pode não anestesiar por ser inervada pelo ASM (~28%). Se doer durante a pulpectomia ou luxação mesial, complementar com subperióstica no ápice da raiz MV.",
     svgAnatomico: `<svg viewBox="0 0 320 220" class="tecnica-svg" xmlns="http://www.w3.org/2000/svg">
@@ -666,59 +666,6 @@ const TECNICAS_ANESTESICAS_DATA = [
       <text x="35" y="30" font-size="11" fill="#3A2417" font-weight="700">Forame Mentual: Entre os Pré-molares</text>
       <text x="35" y="44" font-size="10" fill="#8F7159">Pressionar por 2 min para anestesiar o Nervo Incisivo (Polpa)</text>
     </svg>`
-  },
-  {
-    id: "tecnicas_complementares",
-    nome: "Técnicas Complementares (Intraligamentar, Intraóssea, Intrapulpar)",
-    arcada: "Complementares",
-    tipo: "Técnicas Suplementares de Resgate",
-    resumo: "Recursos indispensáveis quando a técnica de eleição falha ou há dor persistente na câmara pulpar.",
-    agulha: {
-      tipo: "Curta ou Extra-curta (30G)",
-      calibre: "30G",
-      penetracao: "Variável conforme a modalidade",
-      justificativa: "Agulha fina permite penetração no espaço do ligamento periodontal ou câmara pulpar sem vazamento."
-    },
-    volume: {
-      tubetes: "Pequeno volume (poucas gotas a 0,2-0,4 mL)",
-      ml: "0,2 a 0,4 mL",
-      velocidade: "Lenta sob forte pressão manual"
-    },
-    embolo: "Desprender êmbolo previamente.",
-    bisel: "Intraligamentar: bisel voltado para a raiz dental (mesial do dente).",
-    referenciais: [
-      "Espaço do ligamento periodontal (sulco gengival entre o dente e o osso)",
-      "Câmara pulpar exposta (para intrapulpar)"
-    ],
-    pontoInsercao: "No sulco gengival sob forte pressão (intraligamentar) ou diretamente no corno/canal pulpar (intrapulpar).",
-    angulacao: "Paralela ao longo eixo da raiz.",
-    aspiracao: "Não aplicável / Negativa.",
-    nervosBloqueados: ["Terminações nervosas do ligamento e polpa dental."],
-    estruturasAnestesiadas: [
-      "Polpa do dente isolado e osso alveolar adjacente"
-    ],
-    indicacoes: [
-      "Dor persistente durante pulpectomia após bloqueio troncular bem sucedido dos tecidos moles",
-      "Complementação para dentes molares com canais hiperálgicos (pulpite aguda)",
-      "Alternativa para extrações em pacientes hemofílicos"
-    ],
-    contraindicacoes: [
-      "Dentes decíduos com germe permanente subjacente (risco de hipoplasia de esmalte por pressão intraligamentar)",
-      "Presença de infecção/periodontite marginal aguda no sulco."
-    ],
-    armadilhaProva: "A técnica intraligamentar causa sensação pós-operatória transitória de 'dente crescido' devido à distensão mecânica do ligamento. A técnica intrapulpar dói intensamente durante a injeção (pressão hidrostática pura), mas o alívio é imediato em segundos.",
-    svgAnatomico: `<svg viewBox="0 0 320 220" class="tecnica-svg" xmlns="http://www.w3.org/2000/svg">
-      <rect width="320" height="220" rx="14" fill="#FAF7F2"/>
-      <!-- Tooth root & alveolar crest -->
-      <path d="M 120,60 C 130,120 145,170 160,190 C 175,170 190,120 200,60 Z" fill="#FFF" stroke="#8F7159" stroke-width="2"/>
-      <path d="M 90,100 C 120,100 135,120 135,160 L 90,160 Z" fill="#EFE6DC" stroke="#C5AA8E" stroke-width="1.5"/>
-      <path d="M 230,100 C 200,100 185,120 185,160 L 230,160 Z" fill="#EFE6DC" stroke="#C5AA8E" stroke-width="1.5"/>
-      <!-- Needle entering PDL space -->
-      <line x1="135" y1="50" x2="140" y2="120" stroke="#D32F2F" stroke-width="2.5" stroke-linecap="round"/>
-      <circle cx="140" cy="120" r="5" fill="#D32F2F"/>
-      <text x="35" y="30" font-size="11" fill="#3A2417" font-weight="700">Técnicas Complementares: Intraligamentar</text>
-      <text x="35" y="44" font-size="10" fill="#8F7159">Agulha Curta 30G | Bisel para a Raiz | Forte Pressão</text>
-    </svg>`
   }
 ];
 
@@ -736,7 +683,7 @@ const CASOS_CLINICOS_DATA = [
       tecnicasEleicao: [
         "1. Bloqueio do Nervo Alveolar Superior Posterior (ASP / Pós-Túber)",
         "2. Bloqueio do Nervo Palatino Maior",
-        "3. Infiltração complementar à distância ou bloqueio Infraorbital se houver dor na raiz mésio-vestibular (ASM)"
+        "3. Infiltração subperióstica no fundo de sulco do pré-molar ou Bloqueio Infraorbital para a raiz mésio-vestibular (ASM)"
       ],
       justificativaEscolha: "1) POR QUE BLOQUEIO E NÃO INFILTRATIVA LOCAL: O elemento apresenta abscesso com inflamação/infecção aguda. O pH tecidual no local está acídico (pH ≈ 5.0 a 5.5), o que impede a dissociação da molécula anestésica para sua forma lipofílica livre (base não ionizada RN), anulando a penetração na membrana nervosa. Além disso, infiltrar diretamente dentro do abscesso causaria dor extrema por pressão e risco iminente de disseminação bacteriana para a fáscia profunda. Portanto, o bloqueio troncular (pós-túber) à distância em tecido sadio é OBRIGATÓRIO. 2) POR QUE O PALATINO MAIOR: Trata-se de uma CIRURGIA/EXODONTIA (Regra de Ouro: exige plexo externo + plexo interno para descolamento da fibromucosa palatina). 3) PECULIARIDADE DO DENTE 26: A raiz mésio-vestibular do 1º molar superior é inervada pelo ASM em ~28% dos casos; se o paciente referir sensibilidade na luxação mesial, complementar com subperióstica à distância ou infraorbital.",
       agulha: "Pós-túber: Agulha LONGA (27G), inserida apenas pela METADE (~16 mm). Palatino Maior: Agulha CURTA (27G ou 30G), inserção rasa.",
@@ -770,7 +717,7 @@ const CASOS_CLINICOS_DATA = [
       referenciais: "Prega mucovestibular (fundo de sulco), longo eixo do 24, estimativa do ápice (~2 alturas coronárias).",
       pontoInsercao: "Fundo de sulco vestibular na altura do ápice do 24 com seringa a 45°.",
       nervosAnestesiados: "Nervo Alveolar Superior Médio (ASM) e seus ramos periapicais.",
-      armadilhas: "Se a polpa continuar sensível ao adentrar a câmara pulpar: recorrer à técnica complementar intraligamentar ou intrapulpar sob forte pressão."
+      armadilhas: "Se a polpa continuar sensível ao adentrar a câmara pulpar: recorrer ao Bloqueio Infraorbital para aprofundar a analgesia troncular do ASM e ASA antes da instrumentação."
     }
   },
   {
@@ -859,10 +806,10 @@ const CASOS_CLINICOS_DATA = [
     pergunta: "Por que a técnica Pós-Túber (ASP) está TERMINANTEMENTE CONTRAINDICADA neste caso, e qual técnica deve ser executada como alternativa?",
     solucao: {
       tecnicasEleicao: [
-        "Infiltrações Subperiósticas Posteriores repetidas com injeção ultralenta (ou Técnica Intraligamentar complementar)"
+        "Infiltrações Subperiósticas Posteriores graduais com agulha curta e injeção ultralenta"
       ],
-      justificativaEscolha: "1) CONTRAINDICAÇÃO ABSOLUTA DO PÓS-TÚBER EM HEMOFÍLICOS: A região do túber da maxila abriga o volumoso plexo venoso pterigóideo e a artéria maxilar interna. Se a agulha longa transfixar ou lacerar um vaso desse plexo em um hemofílico, formará um hematoma facial e pterigomandibular incontrolável, capaz de comprimir as vias aéreas superiores com risco de óbito. 2) CONDUTA CORRETA: Executar infiltrativas subperiósticas terminais graduais com agulha curta ou técnica intraligamentar (que deposita pequenas gotas no espaço do ligamento periodontal sem vascularização de grande calibre e sem risco hemorrágico).",
-      agulha: "Agulha CURTA (21 a 25 mm, calibre 30G ou 27G) para a subperióstica e agulha 30G para intraligamentar.",
+      justificativaEscolha: "1) CONTRAINDICAÇÃO ABSOLUTA DO PÓS-TÚBER EM HEMOFÍLICOS: A região do túber da maxila abriga o volumoso plexo venoso pterigóideo e a artéria maxilar interna. Se a agulha longa transfixar ou lacerar um vaso desse plexo em um hemofílico, formará um hematoma facial e pterigomandibular incontrolável, capaz de comprimir as vias aéreas superiores com risco de asfixia. 2) CONDUTA CORRETA NA PROVA: Executar infiltrativas subperiósticas terminais com agulha curta no fundo de sulco, de forma gradual, aspirando repetidamente e depositando o anestésico lentamente para evitar qualquer hematoma profundo.",
+      agulha: "Agulha CURTA (21 a 25 mm, calibre 27G ou 30G), evitando agulha longa e evitando aprofundamento excessivo.",
       quantidade: "1 tubete fracionado lentamente (1,8 mL).",
       embolo: "Desprender o êmbolo e realizar aspiração repetida.",
       bisel: "Bisel voltado estritamente para o osso alveolar.",
@@ -926,27 +873,27 @@ const CASOS_CLINICOS_DATA = [
   {
     id: "caso_9",
     numero: 9,
-    titulo: "Tratamento Endodôntico do dente 46 com sensibilidade persistente ao frio",
-    categoria: "Endodontia",
+    titulo: "Exodontia do dente 36 (Primeiro Molar Inferior) por destruição coronorradicular",
+    categoria: "Cirurgia",
     arcada: "Mandíbula",
-    dente: "46 (Primeiro Molar Inferior Direito)",
-    cenario: "Pulpite irreversível com dor em choque no 46. Realizado bloqueio pterigomandibular com sucesso nos tecidos moles (lábio e língua dormentes), mas o paciente relata dor aguda insuportável ao toque da broca na polpa.",
-    pergunta: "Por que isso acontece (falha anestésica pulpar), quais são as causas anatômicas e quais técnicas complementares imediatas devem ser adotadas?",
+    dente: "36 (Primeiro Molar Inferior Esquerdo)",
+    cenario: "Paciente de 42 anos indicado para exodontia do elemento 36 devido à cárie subgengival extensa e lesão de furca. Ausência de abscesso agudo.",
+    pergunta: "Quais técnicas anestésicas obrigatórias (técnica direta de 1 tempo), agulha, volume, cuidados de segurança e por que o nervo bucal DEVE ser anestesiado?",
     solucao: {
       tecnicasEleicao: [
-        "1. Injeção Complementar Intraligamentar no dente 46",
-        "2. Injeção Intrapulpar sob alta pressão se houver exposição da polpa",
-        "3. Infiltração na lingual (Nervo Milo-hióideo)"
+        "1. Bloqueio Pterigomandibular Direto (Nervo Alveolar Inferior)",
+        "2. Bloqueio do Nervo Lingual (ao recuar a agulha)",
+        "3. Bloqueio do Nervo Bucal (obrigatório para tecidos vestibulares)"
       ],
-      justificativaEscolha: "1) CAUSAS DA FALHA PULPAR: Em mandíbula, mesmo com lábio e língua dormentes, 15% a 20% dos primeiros molares recebem inervação acessória do Nervo Milo-hióideo (ramo motor com fibras sensoriais que penetram na mandíbula por foraminas linguais próximas ao 46) ou ramos do plexo cervical transverso. Além disso, a inflamação pulpar aguda superexpressa canais de sódio resistentes a anestésicos locais (canais Nav1.8). 2) CONDUTA CLÍNICA: Não adianta repetir o bloqueio pterigomandibular no mesmo local (risco de taquifilaxia e toxicidade). A conduta padrão ouro é aplicar técnica Intraligamentar (agulha 30G no sulco dental de cada raiz sob forte pressão) e, ao abrir a câmara pulpar, aplicar técnica Intrapulpar direta.",
-      agulha: "Agulha CURTA 30G para intraligamentar e intrapulpar.",
-      quantidade: "0,2 a 0,4 mL (poucas gotas) sob forte pressão.",
-      embolo: "Desprender êmbolo.",
-      bisel: "Bisel voltado para a raiz dental no sulco periodontal.",
-      referenciais: "Sulco gengival interproximal e câmara pulpar.",
-      pontoInsercao: "Espaço do ligamento periodontal ou interior da câmara pulpar exposta.",
-      nervosAnestesiados: "Fibras nociceptivas intrapulpares e periodontais do elemento 46.",
-      armadilhas: "Informar ao paciente que a injeção intrapulpar provocará uma fisgada breve e intensa de 2 segundos, seguida de anestesia cirúrgica profunda imediata."
+      justificativaEscolha: "1) POR QUE TÉCNICA DIRETA DO NAI: A mandíbula na região molar possui cortical óssea espessa e compacta (linha oblíqua e crista alveolar densa), impedindo que a anestesia infiltrativa atinja a polpa; o bloqueio troncular do NAI é indispensável. 2) POR QUE O NERVO BUCAL É MANDATÓRIO: O bloqueio pterigomandibular clássico anestesia o NAI e o Lingual, MAS NÃO ANESTESIA O BUCAL! Como se trata de uma exodontia, a sindesmotomia, a apreensão com o fórceps 17 e a luxação vestibular comprimem e descolam a mucosa vestibular dos molares, inervada estritamente pelo Nervo Bucal. Esquecer o nervo bucal fará o paciente sentir dor aguda no descolamento vestibular.",
+      agulha: "Pterigomandibular: Agulha LONGA (30 a 35 mm, 27G), inserida de 20 a 25 mm até sentir CONTATO ÓSSEO RÍGIDO. Bucal: Mesma agulha longa (ou curta), inserção rasa (2 a 4 mm) no trígono retromolar.",
+      quantidade: "1 tubete e meio a 2 tubetes: ¾ do tubete para o NAI, ¼ para o Lingual (ao recuar a metade da agulha) e ½ tubete para o Nervo Bucal no trígono retromolar.",
+      embolo: "Desprender o êmbolo previamente na carpule para garantir teste de refluxo livre.",
+      bisel: "Bisel voltado para a cortical óssea (ramo medial na pterigomandibular e trígono no bucal).",
+      referenciais: "Pterigomandibular: Incisura coronóide, rafe pterigomandibular, depressão pterigomandibular, 1 cm acima do plano oclusal, pré-molares opostos. Bucal: Trígono retromolar, distal e vestibular ao último molar.",
+      pontoInsercao: "Pterigomandibular: Depressão pterigomandibular a 1 cm acima do plano oclusal. Bucal: Mucosa jugal no trígono retromolar.",
+      nervosAnestesiados: "Nervo Alveolar Inferior, Nervo Lingual, Nervo Incisivo, Nervo Mentual e Nervo Bucal.",
+      armadilhas: "NÃO INJETAR NA PTERIGOMANDIBULAR SE NÃO SENTIR O BATENTE ÓSSEO! Se a agulha for inserida além de 25 mm sem contato ósseo, estará dentro da glândula parótida, provocando anestesia transitória do Nervo Facial (VII par) e paralisia facial temporária."
     }
   },
   {
